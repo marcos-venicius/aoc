@@ -4,12 +4,12 @@ import (
 	"fmt"
 )
 
-func solveOne(lines []string) int {
+func solveOne(reader LinesReader) int {
 	m := initMatrix()
 
 	litLights := 0
 
-	for _, line := range lines {
+	reader.Read(func(line string) bool {
 		l := parseLine(line)
 
 		for c := l.from.x; c <= l.to.x; c++ {
@@ -37,7 +37,9 @@ func solveOne(lines []string) int {
 				}
 			}
 		}
-	}
+
+		return false
+	})
 
 	fmt.Printf("01: %d\n", litLights)
 

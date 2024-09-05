@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log"
-	"os"
 	"strconv"
 	"strings"
 )
@@ -27,16 +25,6 @@ const (
 	turnLightOff LightAction = iota
 	toggleLight  LightAction = iota
 )
-
-func readLines() []string {
-	data, err := os.ReadFile("./input.txt")
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	return strings.Split(string(data), "\n")
-}
 
 func initMatrix() Matrix {
 	const size = 1000

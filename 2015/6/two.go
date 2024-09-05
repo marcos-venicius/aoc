@@ -4,12 +4,12 @@ import (
 	"fmt"
 )
 
-func solveTwo(lines []string) int {
+func solveTwo(reader LinesReader) int {
 	brightness := 0
 
 	m := initMatrix()
 
-	for _, line := range lines {
+	reader.Read(func(line string) bool {
 		l := parseLine(line)
 
 		for c := l.from.x; c <= l.to.x; c++ {
@@ -33,7 +33,9 @@ func solveTwo(lines []string) int {
 				}
 			}
 		}
-	}
+
+		return false
+	})
 
 	fmt.Printf("02: %d\n", brightness)
 

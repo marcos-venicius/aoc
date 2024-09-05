@@ -1,8 +1,8 @@
 package main
 
 func main() {
-	lines := readLines()
+	reader := NewReader("./input.txt")
 
-	solveOne(lines)
-	solveTwo(lines)
+	solveOne(reader)
+	solveTwo(reader)
 }
