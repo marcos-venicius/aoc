@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/marcos-venicius/aocreader"
 )
 
-func solveOne(reader LinesReader) int {
+func solveOne(reader aocreader.LinesReader) int {
 	m := initMatrix()
 
 	litLights := 0

@@ -2,10 +2,12 @@ package main
 
 import (
 	"testing"
+
+	"github.com/marcos-venicius/aocreader"
 )
 
 func TestTurningOnEverythingOn(t *testing.T) {
-	reader := NewFakeReader([]string{
+	reader := aocreader.NewMockReader([]string{
 		"turn on 0,0 through 999,999",
 	})
 
@@ -18,7 +20,7 @@ func TestTurningOnEverythingOn(t *testing.T) {
 }
 
 func TestTurningOffEverythingOn(t *testing.T) {
-	reader := NewFakeReader([]string{
+	reader := aocreader.NewMockReader([]string{
 		"turn off 0,0 through 999,999",
 	})
 
@@ -31,7 +33,7 @@ func TestTurningOffEverythingOn(t *testing.T) {
 }
 
 func TestTogglingEverythingOn(t *testing.T) {
-	reader := NewFakeReader([]string{
+	reader := aocreader.NewMockReader([]string{
 		"toggle 0,0 through 999,999",
 	})
 
@@ -44,7 +46,7 @@ func TestTogglingEverythingOn(t *testing.T) {
 }
 
 func TestTurningAChunkOn(t *testing.T) {
-	reader := NewFakeReader([]string{
+	reader := aocreader.NewMockReader([]string{
 		"toggle 50,50 through 60,60",   // 11x11 = 121
 		"turn on 10,10 through 20,20",  // 11x11 = 121
 		"turn off 15,15 through 20,20", // 6x6   = 36
@@ -59,7 +61,7 @@ func TestTurningAChunkOn(t *testing.T) {
 }
 
 func TestFullInputOne(t *testing.T) {
-	reader := NewReader("./input.txt")
+	reader := aocreader.NewAocReader("./input.txt")
 
 	r := solveOne(reader)
 	expected := 400_410

@@ -1,9 +1,13 @@
 package main
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/marcos-venicius/aocreader"
+)
 
 func TestTurnOnOne(t *testing.T) {
-	reader := NewFakeReader([]string{
+	reader := aocreader.NewMockReader([]string{
 		"turn on 0,0 through 0,0",
 	})
 
@@ -16,7 +20,7 @@ func TestTurnOnOne(t *testing.T) {
 }
 
 func TestToggleAll(t *testing.T) {
-	reader := NewFakeReader([]string{
+	reader := aocreader.NewMockReader([]string{
 		"toggle 0,0 through 999,999",
 	})
 
@@ -29,7 +33,7 @@ func TestToggleAll(t *testing.T) {
 }
 
 func TestFullInputTwo(t *testing.T) {
-	reader := NewReader("./input.txt")
+	reader := aocreader.NewAocReader("./input.txt")
 
 	r := solveTwo(reader)
 	expected := 15_343_601
