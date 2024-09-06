@@ -1,8 +1,10 @@
 package main
 
-func main() {
-	lines := readLines()
+import "github.com/marcos-venicius/aocreader"
 
-	solveOne(lines)
-	solveTwo(lines)
+func main() {
+	reader := aocreader.NewAocReader("./input.txt")
+
+	solveOne(reader)
+	solveTwo(reader)
 }
