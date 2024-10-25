@@ -96,19 +96,19 @@ class Solve:
             
             self.instructions[instruction.output].append(instruction)
 
-    def parse(self, instruction: Instruction):
+    def evaluate(self, instruction: Instruction):
         if instruction.kind == ASSIGN_KIND:
             self.values[instruction.output] = instruction.value
         elif instruction.kind == ASSIGN_VAR_KIND:
             if instruction.var not in self.values:
                 for required_instruction in self.instructions[instruction.var]:
-                    self.parse(required_instruction)
+                    self.evaluate(required_instruction)
 
             self.values[instruction.output] = self.values[instruction.var]
         elif instruction.kind == LSHIFT_KIND or instruction.kind == RSHIFT_KIND:
             if instruction.left not in self.values:
                 for required_instruction in self.instructions[instruction.left]:
-                    self.parse(required_instruction)
+                    self.evaluate(required_instruction)
 
             leftValue = self.values[instruction.left]
             value = instruction.value
@@ -120,7 +120,7 @@ class Solve:
         elif instruction.kind == NOT_KIND:
             if instruction.var not in self.values:
                 for required_instruction in self.instructions[instruction.var]:
-                    self.parse(required_instruction)
+                    self.evaluate(required_instruction)
 
             varValue = self.values[instruction.var]
 
@@ -129,7 +129,7 @@ class Solve:
             if instruction.left not in self.values:
                 if instruction.left in self.instructions:
                     for required_instruction in self.instructions[instruction.left]:
-                        self.parse(required_instruction)
+                        self.evaluate(required_instruction)
 
                     leftValue = self.values[instruction.left]
                 else:
@@ -140,7 +140,7 @@ class Solve:
             if instruction.right not in self.values:
                 if instruction.right in self.instructions:
                     for required_instruction in self.instructions[instruction.right]:
-                        self.parse(required_instruction)
+                        self.evaluate(required_instruction)
                     rightValue = self.values[instruction.right]
                 else:
                     rightValue = int(instruction.right)
@@ -154,7 +154,7 @@ class Solve:
 
     def solve(self, var: str, over: str):
         for instruction in self.instructions[var]:
-            self.parse(instruction)
+            self.evaluate(instruction)
 
         currentVarValue = self.values[var]
 
@@ -163,7 +163,7 @@ class Solve:
         }
 
         for instruction in self.instructions[var]:
-            self.parse(instruction)
+            self.evaluate(instruction)
 
         return self.values
 
