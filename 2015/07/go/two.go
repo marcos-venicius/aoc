@@ -6,7 +6,7 @@ import (
 	"github.com/marcos-venicius/aocreader"
 )
 
-func solveTwo(reader aocreader.LinesReader) int {
+func solveTwo(reader aocreader.LinesReader) uint16 {
 	instructions := make([]Instruction, 0)
 
 	reader.Read(func(line string) bool {
@@ -21,13 +21,13 @@ func solveTwo(reader aocreader.LinesReader) int {
 
 	ans := solve.Solve("a")
 
-  bValue := solve.values["a"]
-  solve.values = make(map[string]uint16)
-  solve.values["b"] = bValue
+	bValue := solve.values["a"]
+	solve.values = make(map[string]uint16)
+	solve.values["b"] = bValue
 
 	ans = solve.Solve("a")
 
 	fmt.Printf("02: %d\n", ans)
 
-	return 0
+	return ans
 }
