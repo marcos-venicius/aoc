@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import re
-
 with open('input.txt', 'r', encoding='utf-8') as f:
     lines = [x.replace('\n', '') for x in f.readlines()]
     f.close()

@@ -20,11 +20,31 @@ class Solve:
 
         self.lines = parser.parse()
 
-    def solve(self):
-        print(self.lines)
+    def encode(self, char: str) -> int:
+        if char == '"' or char == '\\':
+            return 2
+
+        return 1
+
+    def solve(self) -> int:
+        codeCount = 0
+        charsCount = 0
+
+        for line in lines:
+            codeCount += len(line)
+
+            for char in line:
+                charsCount += self.encode(char)
+
+        doubleQuotesCount = len(lines) * 2
+        charsCount += doubleQuotesCount
+
+        return charsCount - codeCount
 
 
 if __name__ == '__main__':
     solve = Solve(lines)
 
-    solve.solve()
+    res = solve.solve()
+
+    print(res)
