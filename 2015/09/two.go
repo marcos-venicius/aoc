@@ -7,13 +7,21 @@ import (
 )
 
 func solveTwo(reader aocreader.LinesReader) int {
-	ans := 0
+	graph := CreateGraph()
+
+  graph.SetComparator(MaxComparator)
 
 	reader.Read(func(line string) bool {
+		route := ParseLine(line)
+
+		graph.Add(route)
+
 		return false
 	})
 
+	ans := graph.Distance()
+
 	fmt.Printf("02: %d\n", ans)
 
-	return 0
+	return ans
 }
