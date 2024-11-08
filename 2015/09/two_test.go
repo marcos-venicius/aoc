@@ -9,12 +9,12 @@ import (
 
 func TestBaseTwo(t *testing.T) {
 	reader := aocreader.NewMockReader([]string{
-    "London to Dublin = 464",
-    "London to Belfast = 518",
-    "Dublin to Belfast = 141",
-  })
+		"London to Dublin = 464",
+		"London to Belfast = 518",
+		"Dublin to Belfast = 141",
+	})
 
-  ans := solveTwo(reader)
+	ans := solveTwo(reader)
 
-  assert.Equal(t, 982, ans)
+	assert.Equal(t, 982, ans)
 }

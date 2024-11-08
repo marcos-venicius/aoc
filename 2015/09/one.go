@@ -7,19 +7,23 @@ import (
 )
 
 func solveOne(reader aocreader.LinesReader) int {
-	graph := CreateGraph()
+	db := CreateDatabase()
 
-  graph.SetComparator(MinComparator)
+	db.SetComparator(MinComparator)
 
 	reader.Read(func(line string) bool {
 		route := ParseLine(line)
 
-		graph.Add(route)
+		db.Add(route)
 
 		return false
 	})
 
-	ans := graph.Distance()
+	ans, err := db.Distance()
+
+	if err != nil {
+		panic(err)
+	}
 
 	fmt.Printf("01: %d\n", ans)
 
