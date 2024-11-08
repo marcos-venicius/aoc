@@ -2,17 +2,19 @@ package main
 
 import (
 	"errors"
+	"fmt"
+	"regexp"
 	"strconv"
-	"strings"
 )
 
 type Comparator func(a, b int) bool
 
 type Database struct {
 	// store [origin][destination]distance
-	routes     map[string]map[string]int
-	locations  map[string]struct{}
-	comparator Comparator
+	routes       map[string]map[string]int
+	locations    map[string]struct{}
+	comparator   Comparator
+	routePattern *regexp.Regexp
 }
 
 type Route struct {
@@ -29,30 +31,36 @@ func MaxComparator(a, b int) bool {
 	return a > b
 }
 
-func ParseLine(line string) Route {
-	split := strings.Split(line, " ")
+func (d *Database) parseRoute(line string) (*Route, error) {
+	matches := d.routePattern.FindStringSubmatch(line)
 
-	origin := split[0]
-	destination := split[2]
-	distance := split[len(split)-1]
+	if len(matches) < 7 {
+		return nil, errors.New(fmt.Sprintf(`"%s" isn't a valid route`, line))
+	}
+
+	origin, destination, distance := matches[2], matches[3], matches[6]
 
 	distanceAsInteger, err := strconv.ParseInt(distance, 10, 32)
 
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
-	return Route{
+	return &Route{
 		origin:      origin,
 		destination: destination,
 		distance:    int(distanceAsInteger),
-	}
+	}, nil
 }
 
 func CreateDatabase() *Database {
+	routePattern := regexp.MustCompile(`^(\s?)*([A-z]+)\s+to\s+([A-z]+)(\s?)*=(\s?)*([0-9]+)$`)
+
 	return &Database{
-		routes:    make(map[string]map[string]int),
-		locations: make(map[string]struct{}),
+		routes:       make(map[string]map[string]int),
+		locations:    make(map[string]struct{}),
+		comparator:   nil,
+		routePattern: routePattern,
 	}
 }
 
@@ -60,7 +68,14 @@ func (d *Database) SetComparator(comparator Comparator) {
 	d.comparator = comparator
 }
 
-func (d *Database) Add(route Route) {
+// Add Trys to add a new string line as a route, the format is "<From> to <Destination> = <distance>"
+func (d *Database) Add(line string) error {
+	route, err := d.parseRoute(line)
+
+	if err != nil {
+		return err
+	}
+
 	if _, ok := d.routes[route.origin]; !ok {
 		d.routes[route.origin] = make(map[string]int)
 	}
@@ -75,6 +90,8 @@ func (d *Database) Add(route Route) {
 
 	d.locations[route.origin] = struct{}{}
 	d.locations[route.destination] = struct{}{}
+
+	return nil
 }
 
 func (d *Database) nextDistance(origin string, distance int, visited map[string]struct{}) int {

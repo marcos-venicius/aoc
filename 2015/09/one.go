@@ -12,9 +12,11 @@ func solveOne(reader aocreader.LinesReader) int {
 	db.SetComparator(MinComparator)
 
 	reader.Read(func(line string) bool {
-		route := ParseLine(line)
+		err := db.Add(line)
 
-		db.Add(route)
+		if err != nil {
+			panic(err)
+		}
 
 		return false
 	})
