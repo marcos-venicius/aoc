@@ -122,21 +122,15 @@ func (d *Database) Distance() (int, error) {
 		return 0, errors.New("no comparator was configured, please set a comparator before calling this function")
 	}
 
-	distances := make([]int, 0)
+	distance := -1
 
 	for route := range d.locations {
 		amount := d.nextDistance(route, 0, make(map[string]struct{}))
 
-		distances = append(distances, amount)
-	}
-
-	m := distances[0]
-
-	for _, v := range distances[1:] {
-		if d.comparator(v, m) {
-			m = v
+		if distance == -1 || d.comparator(amount, distance) {
+			distance = amount
 		}
 	}
 
-	return m, nil
+	return distance, nil
 }
