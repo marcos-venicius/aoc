@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 
 	"github.com/marcos-venicius/aocreader"
 )
@@ -15,7 +14,7 @@ func solveOne(reader aocreader.LinesReader) int {
 
 		direction := N
 
-		x, y := 0, 0
+		pos := Vector2{}
 
 		for _, i := range instructions {
 			if i.direction == R {
@@ -26,11 +25,11 @@ func solveOne(reader aocreader.LinesReader) int {
 				panic("Invalid rotation")
 			}
 
-			x += direction.x * i.blocks
-			y += direction.y * i.blocks
+			pos.x += direction.x * i.blocks
+			pos.y += direction.y * i.blocks
 		}
 
-		ans = int(math.Abs(float64(x)) + math.Abs(float64(y)))
+		ans = abs(pos.x) + abs(pos.y)
 
 		return true
 	})

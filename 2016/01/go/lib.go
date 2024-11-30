@@ -6,12 +6,14 @@ import (
 )
 
 type Direction int
-type Axis struct{ x, y int }
+type Vector2 struct{ x, y int }
 
 type Instruction struct {
 	direction Direction
 	blocks    int
 }
+
+var Empty = struct{}{}
 
 const (
 	L Direction = iota
@@ -19,18 +21,26 @@ const (
 )
 
 var (
-	N = Axis{x: 0, y: -1}
-	E = Axis{x: 1, y: 0}
-	S = Axis{x: 0, y: 1}
-	W = Axis{x: -1, y: 0}
+	N = Vector2{x: 0, y: -1}
+	E = Vector2{x: 1, y: 0}
+	S = Vector2{x: 0, y: 1}
+	W = Vector2{x: -1, y: 0}
 )
 
-func (a *Axis) is(axis Axis) bool {
-	return a.x == axis.x && a.y == axis.y
+func abs(x int) int {
+	if x < 0 {
+		return x * -1
+	}
+
+	return x
 }
 
-func (a *Axis) rotateLeft() Axis {
-	switch *a {
+func (v *Vector2) is(axis Vector2) bool {
+	return v.x == axis.x && v.y == axis.y
+}
+
+func (v *Vector2) rotateLeft() Vector2 {
+	switch *v {
 	case N:
 		return W
 	case W:
@@ -44,8 +54,8 @@ func (a *Axis) rotateLeft() Axis {
 	}
 }
 
-func (a *Axis) rotateRight() Axis {
-	switch *a {
+func (v *Vector2) rotateRight() Vector2 {
+	switch *v {
 	case N:
 		return E
 	case E:
