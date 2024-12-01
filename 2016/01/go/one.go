@@ -9,7 +9,9 @@ import (
 func solveOne(reader aocreader.LinesReader) int {
 	ans := 0
 
-	reader.Read(func(line string) bool {
+	for reader.Running() {
+		_, line := reader.Line()
+
 		instructions := parseLine(line)
 
 		direction := N
@@ -30,9 +32,7 @@ func solveOne(reader aocreader.LinesReader) int {
 		}
 
 		ans = abs(pos.x) + abs(pos.y)
-
-		return true
-	})
+	}
 
 	fmt.Printf("01: %d\n", ans)
 

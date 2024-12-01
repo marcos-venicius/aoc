@@ -9,7 +9,10 @@ import (
 func solveTwo(reader aocreader.LinesReader) int {
 	ans := 0
 
-	reader.Read(func(line string) bool {
+outer:
+	for reader.Running() {
+		_, line := reader.Line()
+
 		visited := make(map[Vector2]struct{})
 		instructions := parseLine(line)
 
@@ -35,15 +38,13 @@ func solveTwo(reader aocreader.LinesReader) int {
 				if _, ok := visited[pos]; ok {
 					ans = abs(pos.x) + abs(pos.y)
 
-					return true
+					break outer
 				}
 
 				visited[pos] = Empty
 			}
 		}
-
-		return true
-	})
+	}
 
 	fmt.Printf("02: %d\n", ans)
 
