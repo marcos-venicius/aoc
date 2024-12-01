@@ -15,7 +15,6 @@ func TestBaseTwo(t *testing.T) {
 		"1   3",
 		"3   9",
 		"3   3",
-		"",
 	})
 
 	res := solveTwo(reader)

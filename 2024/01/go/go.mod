@@ -3,7 +3,7 @@ module aoc
 go 1.22.3
 
 require (
-	github.com/marcos-venicius/aocreader v0.0.0-20241201001738-3171593966c2
+	github.com/marcos-venicius/aocreader v0.0.0-20241201174603-cc9b136cd878
 	github.com/stretchr/testify v1.10.0
 )
 
