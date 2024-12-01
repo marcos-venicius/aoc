@@ -7,15 +7,25 @@ import (
 )
 
 func solveTwo(reader aocreader.LinesReader) int {
-	ans := 0
+	similarityScore := 0
+
+	left := make(map[int]int)
+	right := make(map[int]int)
 
 	for reader.Running() {
-		reader.Line()
+		_, line := reader.Line()
 
-		/* println(i, line) */
+		parsedLine := parseLine(line)
+
+		left[parsedLine.left]++
+		right[parsedLine.right]++
 	}
 
-	fmt.Printf("02: %d\n", ans)
+	for k, v := range left {
+		similarityScore += k * v * right[k]
+	}
 
-	return 0
+	fmt.Printf("02: %d\n", similarityScore)
+
+	return similarityScore
 }

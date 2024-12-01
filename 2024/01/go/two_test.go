@@ -4,12 +4,21 @@ import (
 	"testing"
 
 	"github.com/marcos-venicius/aocreader"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestBaseTwo(t *testing.T) {
-	reader := aocreader.NewMockReader([]string{})
+	reader := aocreader.NewMockReader([]string{
+		"3   4",
+		"4   3",
+		"2   5",
+		"1   3",
+		"3   9",
+		"3   3",
+		"",
+	})
 
-	solveTwo(reader)
+	res := solveTwo(reader)
 
-	t.Fail()
+	assert.Equal(t, 31, res)
 }
