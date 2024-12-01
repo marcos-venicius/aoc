@@ -9,9 +9,11 @@ import (
 func solveOne(reader aocreader.LinesReader) int {
 	ans := 0
 
-	reader.Read(func(line string) bool {
-		return false
-	})
+	for reader.Running() {
+		i, line := reader.Line()
+
+		println(i, line)
+	}
 
 	fmt.Printf("01: %d\n", ans)
 
