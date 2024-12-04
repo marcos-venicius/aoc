@@ -11,13 +11,17 @@ type Input struct {
 	data          [][]byte
 }
 
-func getInput(path string) Input {
+func readFile(path string) []byte {
 	data, err := os.ReadFile(path)
 
 	if err != nil {
 		panic(err)
 	}
 
+	return data
+}
+
+func getInput(data []byte) Input {
 	var grid [][]byte
 
 	width, height, last := 0, 0, 0
@@ -102,4 +106,48 @@ func (in *Input) findWord(cache map[string]struct{}, xat, yat, dirx, diry int) b
 	cache[bk] = struct{}{}
 
 	return inverseFound == len(letters) || rightFound == len(letters)
+}
+
+func (in *Input) findCrossWord(x, y int) bool {
+	topLeftX := x - 1
+	topLeftY := y - 1
+	topRightX := x + 1
+	topRightY := y - 1
+
+	bottomLeftX := x - 1
+	bottomLeftY := y + 1
+	bottomRightX := x + 1
+	bottomRightY := y + 1
+
+	if in.isOutOfBounds(topLeftX, topLeftY) {
+		return false
+	}
+
+	if in.isOutOfBounds(topRightX, topRightY) {
+		return false
+	}
+
+	if in.isOutOfBounds(bottomLeftX, bottomLeftY) {
+		return false
+	}
+
+	if in.isOutOfBounds(bottomRightX, bottomRightY) {
+		return false
+	}
+
+	if in.data[y][x] != 'A' {
+		return false
+	}
+
+	at := in.data[topLeftY][topLeftX]
+	ab := in.data[bottomRightY][bottomRightX]
+
+	a := at == 'M' && ab == 'S' || at == 'S' && ab == 'M'
+
+	bt := in.data[topRightY][topRightX]
+	bb := in.data[bottomLeftY][bottomLeftX]
+
+	b := bt == 'M' && bb == 'S' || bt == 'S' && bb == 'M'
+
+	return a && b
 }

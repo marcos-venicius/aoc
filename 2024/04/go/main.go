@@ -1,7 +1,8 @@
 package main
 
 func main() {
-	input := getInput("../input.txt")
+  content := readFile("../input.txt")
+	input := getInput(content)
 
 	solveOne(input)
 	solveTwo(input)

@@ -7,9 +7,21 @@ import (
 )
 
 func TestBaseTwo(t *testing.T) {
-	input := Input{}
+  const text = `.M.S......
+..A..MSMS.
+.M.S.MAA..
+..A.ASMSM.
+.M.S.M....
+..........
+S.S.S.S.S.
+.A.A.A.A..
+M.M.M.M.M.
+..........`
 
-	solveTwo(input)
+  
+	input := getInput([]byte(text))
 
-	assert.Equal(t, 0, 1)
+  ans := solveTwo(input)
+
+	assert.Equal(t, 9, ans)
 }
