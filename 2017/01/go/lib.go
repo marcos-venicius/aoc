@@ -9,3 +9,15 @@ func parseLine(line string) []int {
 
 	return digits
 }
+
+func exploitCptcha(digits *[]int, by int) (s int) {
+	for i, d := range *digits {
+		next := (i + by) % len(*digits)
+
+		if d == (*digits)[next] {
+			s += d
+		}
+	}
+
+	return
+}

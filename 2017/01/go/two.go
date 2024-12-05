@@ -2,20 +2,12 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/marcos-venicius/aocreader"
 )
 
-func solveTwo(reader aocreader.LinesReader) int {
-	ans := 0
-
-	for reader.Running() {
-		_, line := reader.Line()
-
-		_ = line
-	}
+func solveTwo(digits []int) int {
+	ans := exploitCptcha(&digits, len(digits)/2)
 
 	fmt.Printf("02: %d\n", ans)
 
-	return 0
+	return ans
 }

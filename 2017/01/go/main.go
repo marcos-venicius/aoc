@@ -5,9 +5,10 @@ import "github.com/marcos-venicius/aocreader"
 func main() {
 	reader := aocreader.NewAocReader("../input.txt")
 
-	solveOne(reader)
+	_, line := reader.Line()
 
-	reader.Reset()
+	parsed := parseLine(line)
 
-	solveTwo(reader)
+	solveOne(parsed)
+	solveTwo(parsed)
 }
