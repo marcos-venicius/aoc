@@ -15,11 +15,9 @@ func solveOne(reader aocreader.LinesReader) int {
 		digits := parseLine(line)
 
 		for i, d := range digits {
-			if i == len(digits)-1 {
-				if d == digits[0] {
-					ans += d
-				}
-			} else if d == digits[i+1] {
+			next := (i + 1) % len(digits)
+
+			if d == digits[next] {
 				ans += d
 			}
 		}
