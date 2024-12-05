@@ -113,24 +113,72 @@ func (in *Input) getCorrectUpdatesIndexes() []int {
 	return indexes
 }
 
-func (in *Input) getMiddleNumbers(inputs []int) []int {
-  result := make([]int, 0, len(inputs))
+func (in *Input) getIncorrectUpdatesIndexes() []int {
+	indexes := make([]int, 0)
 
-  for _, i := range inputs {
-    m := len(in.updates[i]) / 2
+	for i, line := range in.updates {
+		valid := true
+		for j, update := range line {
+			for k := 0; k < j; k++ {
+				if _, ok := in.rules[line[k]]; !ok {
+					valid = false
 
-    result = append(result, in.updates[i][m])
-  }
+					break
+				}
+				if _, ok := in.rules[line[k]][update]; !ok {
+					valid = false
 
-  return result
+					break
+				}
+			}
+
+			if !valid {
+				break
+			}
+		}
+
+		if !valid {
+			indexes = append(indexes, i)
+		}
+	}
+
+	return indexes
 }
 
-func sumArray(arr []int) int {
-  x := 0
+func (in *Input) fixOrder(index int) {
+	array := in.updates[index]
 
-  for _, v := range arr {
-    x += v
-  }
+	for i, update := range array {
+		for k := 0; k < i; k++ {
+			if _, ok := in.rules[array[k]]; !ok {
+				array[k], array[i] = array[i], array[k]
 
-  return x
+				in.fixOrder(index)
+				return
+			}
+
+			if _, ok := in.rules[array[k]][update]; !ok {
+				array[k], array[i] = array[i], array[k]
+
+				in.fixOrder(index)
+				return
+			}
+		}
+	}
+}
+
+func (in *Input) fixUpdates(indexes []int) {
+	for _, i := range indexes {
+		in.fixOrder(i)
+	}
+}
+
+func (in *Input) sumIndexes(indexes []int) (r int) {
+	for _, i := range indexes {
+		m := len(in.updates[i]) / 2
+
+		r += in.updates[i][m]
+	}
+
+	return r
 }

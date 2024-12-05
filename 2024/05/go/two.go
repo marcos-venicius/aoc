@@ -7,11 +7,19 @@ import (
 )
 
 func solveTwo(reader aocreader.LinesReader) int {
-	ans := 0
+	input := CreateInput()
 
 	for reader.Running() {
-		reader.Line()
+		_, line := reader.Line()
+
+		input.ParseLine(line)
 	}
+
+	incorrect := input.getIncorrectUpdatesIndexes()
+
+	input.fixUpdates(incorrect)
+
+	ans := input.sumIndexes(incorrect)
 
 	fmt.Printf("02: %d\n", ans)
 

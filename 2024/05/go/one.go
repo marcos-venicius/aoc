@@ -7,19 +7,17 @@ import (
 )
 
 func solveOne(reader aocreader.LinesReader) int {
-  input := CreateInput()
+	input := CreateInput()
 
 	for reader.Running() {
 		_, line := reader.Line()
 
-    input.ParseLine(line);
+		input.ParseLine(line)
 	}
 
-  correct := input.getCorrectUpdatesIndexes()
+	correct := input.getCorrectUpdatesIndexes()
 
-  middle := input.getMiddleNumbers(correct)
-
-  ans := sumArray(middle)
+	ans := input.sumIndexes(correct)
 
 	fmt.Printf("01: %d\n", ans)
 
