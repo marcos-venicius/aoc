@@ -63,10 +63,10 @@ fn char[SIZE][SIZE]! readInput(String path) {
   return data;
 }
 
-fn Vector2! getGuardPosition(char[SIZE]* table) {
+fn Vector2! getGuardPosition(char[SIZE][SIZE]* table) {
   for (int y = 0; y < SIZE; y++) {
     for (int x = 0; x < SIZE; x++) {
-      if (table[y][x] == '^') {
+      if ((*table)[y][x] == '^') {
         return { .x = x, .y = y };
       }
     }
@@ -86,8 +86,8 @@ fn bool isOutOfBounds(Vector2* next) {
   return next.y < 0 || next.y >= SIZE || next.x < 0 || next.x >= SIZE;
 }
 
-fn bool isBlocked(char[SIZE]* table, Vector2* pos) {
-  return table[pos.y][pos.x] == '#';
+fn bool isBlocked(char[SIZE][SIZE]* table, Vector2* pos) {
+  return (*table)[pos.y][pos.x] == '#';
 }
 
 fn void! main() {
@@ -98,9 +98,7 @@ fn void! main() {
     return;
   }
 
-  char[SIZE]* ptr = (char[SIZE]*)&data;
-
-  Vector2 guard = getGuardPosition(ptr)!;
+  Vector2 guard = getGuardPosition(&data)!;
 
   Vector2 dir = { .x = 0, .y = -1 };
 
@@ -121,7 +119,7 @@ fn void! main() {
       break;
     }
 
-    if (isBlocked(ptr, &nextPosition)) {
+    if (isBlocked(&data, &nextPosition)) {
       dir.turnRight90degrees();
     } else {
       guard = nextPosition;
