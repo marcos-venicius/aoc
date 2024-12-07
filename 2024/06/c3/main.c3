@@ -103,4 +103,8 @@ fn void! main() {
   if (catch err = one(&data)) {
     io::printfn("one error: %s", err);
   }
+
+  if (catch err = two(&data)) {
+    io::printfn("two error: %s", err);
+  }
 }
