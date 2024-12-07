@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math"
 	"regexp"
 	"strconv"
@@ -31,13 +32,32 @@ func parseLine(line string) Line {
 	return pl
 }
 
+func base3(n int) []int {
+  size := 64
+	v := make([]int, 0, size)
+
+	for n > 0 {
+		v = append(v, n%3)
+    n /= 3
+	}
+
+  v = append(v, n%3)
+
+  for i := 0; i < size - len(v); i++ {
+    v = append(v, 0)
+  }
+
+	return v
+}
+
 func isBitSet(n, pos int) bool {
 	return (n & (1 << pos)) != 0
 }
 
 const (
-	PLUS_OP  = iota
-	TIMES_OP = iota
+	PLUS_OP   = iota
+	TIMES_OP  = iota
+	CONCAT_OP = iota
 )
 
 func getOperatorsCombinationsForLine(line Line) [][]int {
@@ -96,6 +116,37 @@ func checkAnyCombinationMatchesTheNumber(line Line, combinations [][]int) bool {
 		if sum == line.number {
 			return true
 		}
+	}
+
+	return false
+}
+
+func checkAnyCombinationMatchesTheNumberBase3(line Line) bool {
+	differentCombinations := int(math.Pow(3, float64(len(line.numbers)-1)))
+
+	for combination := 0; combination < differentCombinations; combination++ {
+		sum := int64(line.numbers[0])
+
+		operators := base3(combination)
+
+		for i := 1; i < len(line.numbers); i++ {
+			operand := line.numbers[i]
+
+			switch operators[i-1] {
+			case 0:
+				sum += int64(operand)
+      case 1:
+        sum *= int64(operand)
+      case 2:
+        n, _ := strconv.ParseInt(fmt.Sprintf("%d%d", sum, operand), 10, 64)
+        
+        sum = n
+			}
+		}
+
+    if sum == line.number {
+      return true
+    }
 	}
 
 	return false
