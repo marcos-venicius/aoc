@@ -8,7 +8,7 @@ fn bool! checkCycle(char[SIZE][SIZE]* data, Vector2 guard) {
 
   m.new_init();
 
-  Vector2 dir = { .x = 0, .y = -1 };
+  Vector2 dir = { 0, -1 };
 
   while (true) {
     Vector2 nextPosition = guard.nextPosition(&dir);
@@ -28,7 +28,7 @@ fn bool! checkCycle(char[SIZE][SIZE]* data, Vector2 guard) {
 
       if (count % 4 == 0) return true;
 
-      dir.turnRight90degrees();
+      dir.turnRight90degrees()!;
     } else {
       guard = nextPosition;
     }

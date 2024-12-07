@@ -5,7 +5,7 @@ import std::io;
 fn void! one(char[SIZE][SIZE]* data) {
   Vector2 guard = getGuardPosition(data)!;
 
-  Vector2 dir = { .x = 0, .y = -1 };
+  Vector2 dir = { 0, -1 };
 
   Map m;
 
@@ -23,7 +23,7 @@ fn void! one(char[SIZE][SIZE]* data) {
     }
 
     if (isBlocked(data, &nextPosition)) {
-      dir.turnRight90degrees();
+      dir.turnRight90degrees()!;
     } else {
       guard = nextPosition;
     }
