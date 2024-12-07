@@ -1,3 +1,5 @@
+module aoc;
+
 import std::io;
 import std::collections::map;
 
@@ -46,7 +48,7 @@ fn char[SIZE][SIZE]! readInput(String path) {
 
   File file = file::open(path, "r")!;
 
-  defer @catch(file.close());
+  defer (void)file.close();
 
   for (int y = 0; y < SIZE; y++) {
     for (int x = 0; x < SIZE; x++) {
@@ -98,35 +100,7 @@ fn void! main() {
     return;
   }
 
-  Vector2 guard = getGuardPosition(&data)!;
-
-  Vector2 dir = { .x = 0, .y = -1 };
-
-  Map m;
-
-  m.new_init();
-
-  defer m.clear();
-
-  while (true) {
-    data[guard.y][guard.x] = 'X';
-
-    m.set(guard, true);
-
-    Vector2 nextPosition = guard.nextPosition(&dir);
-
-    if (isOutOfBounds(&nextPosition)) {
-      break;
-    }
-
-    if (isBlocked(&data, &nextPosition)) {
-      dir.turnRight90degrees();
-    } else {
-      guard = nextPosition;
-    }
+  if (catch err = one(&data)) {
+    io::printfn("one error: %s", err);
   }
-
-  usz walked = m.len();
-
-  io::printfn("01: %d", walked);
 }
