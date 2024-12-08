@@ -39,11 +39,11 @@ func solveOne(reader aocreader.LinesReader) int {
 				ant1 := Vector2{x: 2*a.x - b.x, y: 2*a.y - b.y}
 				ant2 := Vector2{x: 2*b.x - a.x, y: 2*b.y - a.y}
 
-				if ant1.x >= 0 && ant1.x < width && ant1.y >= 0 && ant1.y < height {
+				if !isOutOfBounds(ant1.x, ant1.y, width, height) {
 					antinodes[ant1] = struct{}{}
 				}
 
-				if ant2.x >= 0 && ant2.x < width && ant2.y >= 0 && ant2.y < height {
+				if !isOutOfBounds(ant2.x, ant2.y, width, height) {
 					antinodes[ant2] = struct{}{}
 				}
 			}
