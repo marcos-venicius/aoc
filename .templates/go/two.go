@@ -17,5 +17,5 @@ func solveTwo(reader aocreader.LinesReader) int {
 
 	fmt.Printf("02: %d\n", ans)
 
-	return 0
+	return ans
 }
