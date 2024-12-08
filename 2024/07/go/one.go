@@ -14,9 +14,7 @@ func solveOne(reader aocreader.LinesReader) int64 {
 
 		p := parseLine(line)
 
-		combinations := getOperatorsCombinationsForLine(p)
-
-		if checkAnyCombinationMatchesTheNumber(p, combinations) {
+		if checkAnyCombinationMatchesTheNumber(p) {
 			ans += p.number
 		}
 	}

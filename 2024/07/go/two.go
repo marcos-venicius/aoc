@@ -12,11 +12,11 @@ func solveTwo(reader aocreader.LinesReader) int64 {
 	for reader.Running() {
 		_, line := reader.Line()
 
-    p := parseLine(line)
+		p := parseLine(line)
 
-    if checkAnyCombinationMatchesTheNumberBase3(p) {
-      ans += p.number
-    }
+		if checkAnyCombinationMatchesTheNumberBase3(p) {
+			ans += p.number
+		}
 	}
 
 	fmt.Printf("02: %d\n", ans)
