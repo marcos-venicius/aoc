@@ -1,3 +1,6 @@
+#include "set.h"
+#include <stdlib.h>
+
 Set* new_set(int capacity) {
     Set* set = malloc(sizeof(Set) + sizeof(Vector2) * capacity);
 

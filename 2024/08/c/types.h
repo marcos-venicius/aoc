@@ -19,9 +19,4 @@ typedef struct {
     int width, height;
 } AntennaeMap;
 
-typedef struct {
-    int length, capacity;
-    Vector2 items[];
-} Set;
-
 #endif // TYPES_H_

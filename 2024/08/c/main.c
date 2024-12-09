@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "types.h"
-#include "set.c"
+#include "set.h"
 
 bool equals(Vector2 a, Vector2 b) {
     return a.x == b.x && a.y == b.y;
@@ -60,9 +60,9 @@ void set(AntennaeMap *map, char key, Vector2 value) {
     antenna->value = value;
     antenna->next = NULL;
 
-    if (map->antennae[index] != NULL) {
-        Antenna* current = map->antennae[index];
+    Antenna* current = map->antennae[index];
 
+    if (current != NULL) {
         while (current->next != NULL) {
             current = current->next;
         }
@@ -74,7 +74,7 @@ void set(AntennaeMap *map, char key, Vector2 value) {
 }
 
 AntennaeMap* load_map(char* mapfilepath) {
-    AntennaeMap* map = malloc(sizeof(AntennaeMap));
+    AntennaeMap* map = calloc(1, sizeof(AntennaeMap));
 
     FILE* file = fopen(mapfilepath, "r");
 
@@ -122,49 +122,45 @@ bool is_out_of_bounds(AntennaeMap* map, Vector2 vec) {
 
 void free_map(AntennaeMap* map) {
     for (int i = 0; i < ANTENNAE_MAP_SIZE; i++) {
-        if (map->antennae[i] != NULL) {
-            Antenna* current = map->antennae[i];
+        Antenna* current = map->antennae[i];
 
-            while (current->next != NULL) {
-                Antenna* next = current->next;
-
-                free(current);
-
-                current = next;
-            }
+        while (current != NULL) {
+            Antenna* next = current->next;
 
             free(current);
+
+            current = next;
         }
     }
+
+    free(map);
 }
 
 int one(AntennaeMap *map) {
     Set* set = new_set(map->width * map->height);
 
     for (int i = 0; i < ANTENNAE_MAP_SIZE; i++) {
-        if (map->antennae[i] != NULL) {
-            Antenna* antenna_a = map->antennae[i];
+        Antenna* antenna_a = map->antennae[i];
 
-            while (antenna_a != NULL) {
-                Antenna* antenna_b = antenna_a->next;
+        while (antenna_a != NULL) {
+            Antenna* antenna_b = antenna_a->next;
 
-                while (antenna_b != NULL) {
-                    Vector2 ant1 = { .x = 2*antenna_a->value.x - antenna_b->value.x, .y = 2 * antenna_a->value.y - antenna_b->value.y };
-                    Vector2 ant2 = { .x = 2*antenna_b->value.x - antenna_a->value.x, .y = 2 * antenna_b->value.y - antenna_a->value.y };
+            while (antenna_b != NULL) {
+                Vector2 ant1 = { .x = 2*antenna_a->value.x - antenna_b->value.x, .y = 2 * antenna_a->value.y - antenna_b->value.y };
+                Vector2 ant2 = { .x = 2*antenna_b->value.x - antenna_a->value.x, .y = 2 * antenna_b->value.y - antenna_a->value.y };
 
-                    if (!is_out_of_bounds(map, ant1)) {
-                        add_to_set(set, ant1);
-                    }
-
-                    if (!is_out_of_bounds(map, ant2)) {
-                        add_to_set(set, ant2);
-                    }
-
-                    antenna_b = antenna_b->next;
+                if (!is_out_of_bounds(map, ant1)) {
+                    add_to_set(set, ant1);
                 }
 
-                antenna_a = antenna_a->next;
+                if (!is_out_of_bounds(map, ant2)) {
+                    add_to_set(set, ant2);
+                }
+
+                antenna_b = antenna_b->next;
             }
+
+            antenna_a = antenna_a->next;
         }
     }
 
@@ -179,32 +175,30 @@ int two(AntennaeMap *map) {
     Set* set = new_set(map->width * map->height);
 
     for (int i = 0; i < ANTENNAE_MAP_SIZE; i++) {
-        if (map->antennae[i] != NULL) {
-            Antenna* antenna_a = map->antennae[i];
+        Antenna* antenna_a = map->antennae[i];
 
-            while (antenna_a != NULL) {
-                Antenna* antenna_b = map->antennae[i];
+        while (antenna_a != NULL) {
+            Antenna* antenna_b = map->antennae[i];
 
-                while (antenna_b != NULL) {
-                    if (!equals(antenna_a->value, antenna_b->value)) {
-                        int dx = antenna_b->value.x - antenna_a->value.x;
-                        int dy = antenna_b->value.y - antenna_a->value.y;
+            while (antenna_b != NULL) {
+                if (!equals(antenna_a->value, antenna_b->value)) {
+                    int dx = antenna_b->value.x - antenna_a->value.x;
+                    int dy = antenna_b->value.y - antenna_a->value.y;
 
-                        Vector2 antinode = { .x = antenna_a->value.x, .y = antenna_a->value.y };
+                    Vector2 antinode = { .x = antenna_a->value.x, .y = antenna_a->value.y };
 
-                        while (!is_out_of_bounds(map, antinode)) {
-                            add_to_set(set, antinode);
+                    while (!is_out_of_bounds(map, antinode)) {
+                        add_to_set(set, antinode);
 
-                            antinode.x -= dx;
-                            antinode.y -= dy;
-                        }
+                        antinode.x -= dx;
+                        antinode.y -= dy;
                     }
-
-                    antenna_b = antenna_b->next;
                 }
 
-                antenna_a = antenna_a->next;
+                antenna_b = antenna_b->next;
             }
+
+            antenna_a = antenna_a->next;
         }
     }
 
