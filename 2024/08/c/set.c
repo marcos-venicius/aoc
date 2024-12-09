@@ -1,5 +1,5 @@
 Set* new_set(int capacity) {
-    Set* set = malloc(sizeof(Set) + sizeof(int) * capacity);
+    Set* set = malloc(sizeof(Set) + sizeof(Vector2) * capacity);
 
     set->capacity = capacity;
 

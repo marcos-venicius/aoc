@@ -134,8 +134,7 @@ void free_map(AntennaeMap* map) {
     }
 }
 
-void main() {
-    AntennaeMap* map = load_map("../input.txt");
+int one(AntennaeMap *map) {
     Set* set = new_set(map->width * map->height);
 
     for (int i = 0; i < ANTENNAE_MAP_SIZE; i++) {
@@ -165,8 +164,19 @@ void main() {
         }
     }
 
-    printf("01: %d\n", set->length);
+    int ans = set->length;
 
     free_set(set);
+
+    return ans;
+}
+
+void main() {
+    AntennaeMap* map = load_map("../input.txt");
+
+    int one_ans = one(map);
+
+    printf("01: %d\n", one_ans);
+
     free_map(map);
 }
