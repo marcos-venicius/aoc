@@ -1,27 +1,11 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdbool.h>
 #include "types.h"
 #include "set.h"
+#include "map.h"
 
 bool equals(Vector2 a, Vector2 b) {
     return a.x == b.x && a.y == b.y;
-}
-
-int get_index(char key) {
-    if (key >= '0' && key <= '9') {
-        return key - '0';
-    }
-
-    if (key >= 'a' && key <= 'z') {
-        return (key - 'a') + 10;
-    }
-
-    if (key >= 'A' && key <= 'Z') {
-        return (key - 'A') + 26 + 10;
-    }
-
-    return -1;
 }
 
 int max(int a, int b) {
@@ -32,49 +16,8 @@ int max(int a, int b) {
     return a;
 }
 
-Antenna* get(AntennaeMap *map, char key) {
-    int index = get_index(key);
-
-    if (index < 0 || index >= ANTENNAE_MAP_SIZE) {
-        printf("invalid index %d key: %c\n", index, key);
-        exit(1);
-    }
-
-    if (map->antennae[index] != NULL) {
-        return map->antennae[index];
-    }
-
-    return NULL;
-}
-
-void set(AntennaeMap *map, char key, Vector2 value) {
-    int index = get_index(key);
-
-    if (index < 0 || index >= ANTENNAE_MAP_SIZE) {
-        printf("invalid index %d key: %c\n", index, key);
-        exit(1);
-    }
-    
-    Antenna* antenna = malloc(sizeof(Antenna));
-
-    antenna->value = value;
-    antenna->next = NULL;
-
-    Antenna* current = map->antennae[index];
-
-    if (current != NULL) {
-        while (current->next != NULL) {
-            current = current->next;
-        }
-
-        current->next = antenna;
-    } else {
-        map->antennae[index] = antenna;
-    }
-}
-
 AntennaeMap* load_map(char* mapfilepath) {
-    AntennaeMap* map = calloc(1, sizeof(AntennaeMap));
+    AntennaeMap* map = new_map();
 
     FILE* file = fopen(mapfilepath, "r");
 
@@ -118,22 +61,6 @@ AntennaeMap* load_map(char* mapfilepath) {
 
 bool is_out_of_bounds(AntennaeMap* map, Vector2 vec) {
     return vec.x < 0 || vec.x >= map->width || vec.y < 0 || vec.y >= map->height;
-}
-
-void free_map(AntennaeMap* map) {
-    for (int i = 0; i < ANTENNAE_MAP_SIZE; i++) {
-        Antenna* current = map->antennae[i];
-
-        while (current != NULL) {
-            Antenna* next = current->next;
-
-            free(current);
-
-            current = next;
-        }
-    }
-
-    free(map);
 }
 
 int one(AntennaeMap *map) {
@@ -218,7 +145,7 @@ int main() {
 
     int two_ans = two(map);
 
-    printf("03: %d\n", two_ans);
+    printf("02: %d\n", two_ans);
 
     free_map(map);
 
