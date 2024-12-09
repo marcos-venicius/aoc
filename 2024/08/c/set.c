@@ -2,12 +2,13 @@ Set* new_set(int capacity) {
     Set* set = malloc(sizeof(Set) + sizeof(Vector2) * capacity);
 
     set->capacity = capacity;
+    set->length = 0;
 
     return set;
 }
 
 int add_to_set(Set* set, Vector2 value) {
-    for (size_t i = 0; i < set->length; i++) {
+    for (int i = 0; i < set->length; i++) {
         Vector2 item = set->items[i];
 
         if (item.x == value.x && item.y == value.y) {

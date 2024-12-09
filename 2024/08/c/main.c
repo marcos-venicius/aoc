@@ -4,6 +4,10 @@
 #include "types.h"
 #include "set.c"
 
+bool equals(Vector2 a, Vector2 b) {
+    return a.x == b.x && a.y == b.y;
+}
+
 int get_index(char key) {
     if (key >= '0' && key <= '9') {
         return key - '0';
@@ -171,12 +175,58 @@ int one(AntennaeMap *map) {
     return ans;
 }
 
-void main() {
+int two(AntennaeMap *map) {
+    Set* set = new_set(map->width * map->height);
+
+    for (int i = 0; i < ANTENNAE_MAP_SIZE; i++) {
+        if (map->antennae[i] != NULL) {
+            Antenna* antenna_a = map->antennae[i];
+
+            while (antenna_a != NULL) {
+                Antenna* antenna_b = map->antennae[i];
+
+                while (antenna_b != NULL) {
+                    if (!equals(antenna_a->value, antenna_b->value)) {
+                        int dx = antenna_b->value.x - antenna_a->value.x;
+                        int dy = antenna_b->value.y - antenna_a->value.y;
+
+                        Vector2 antinode = { .x = antenna_a->value.x, .y = antenna_a->value.y };
+
+                        while (!is_out_of_bounds(map, antinode)) {
+                            add_to_set(set, antinode);
+
+                            antinode.x -= dx;
+                            antinode.y -= dy;
+                        }
+                    }
+
+                    antenna_b = antenna_b->next;
+                }
+
+                antenna_a = antenna_a->next;
+            }
+        }
+    }
+
+    int ans = set->length;
+
+    free_set(set);
+
+    return ans;
+}
+
+int main() {
     AntennaeMap* map = load_map("../input.txt");
 
     int one_ans = one(map);
 
     printf("01: %d\n", one_ans);
 
+    int two_ans = two(map);
+
+    printf("03: %d\n", two_ans);
+
     free_map(map);
+
+    return 0;
 }
