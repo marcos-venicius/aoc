@@ -11,7 +11,7 @@ type Block struct {
 	id int
 }
 
-func parseBlocks(line string) []*Block {
+func parseFragmentedBlocks(line string) []*Block {
 	blocks := make([]*Block, 0)
 
 	blockID := 0
@@ -25,9 +25,9 @@ func parseBlocks(line string) []*Block {
 		}
 
 		for j := 0; j < files; j++ {
-			block := &Block{id: blockID}
+			block := Block{id: blockID}
 
-			blocks = append(blocks, block)
+			blocks = append(blocks, &block)
 		}
 
 		for j := 0; j < freeSpace; j++ {
@@ -40,7 +40,7 @@ func parseBlocks(line string) []*Block {
 	return blocks
 }
 
-func rearrangeBlocks(blocks []*Block) []*Block {
+func rearrangeFragmentedBlocks(blocks []*Block) []*Block {
 	l, r := 0, len(blocks)-1
 
 	for l < r {
@@ -60,7 +60,7 @@ func rearrangeBlocks(blocks []*Block) []*Block {
 	return blocks
 }
 
-func checksum(blocks []*Block) int64 {
+func checksumFragmentedBlocks(blocks []*Block) int64 {
 	sum := int64(0)
 
 	for i, block := range blocks {
@@ -77,11 +77,11 @@ func checksum(blocks []*Block) int64 {
 func solveOne(reader aocreader.LinesReader) int64 {
 	_, line := reader.Line()
 
-	blocks := parseBlocks(line)
+	blocks := parseFragmentedBlocks(line)
 
-	blocks = rearrangeBlocks(blocks)
+	blocks = rearrangeFragmentedBlocks(blocks)
 
-	ans := checksum(blocks)
+	ans := checksumFragmentedBlocks(blocks)
 
 	fmt.Printf("01: %d\n", ans)
 
