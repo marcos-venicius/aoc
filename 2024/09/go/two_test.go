@@ -8,9 +8,11 @@ import (
 )
 
 func TestBaseTwo(t *testing.T) {
-	reader := aocreader.NewMockReader([]string{})
+	reader := aocreader.NewMockReader([]string{
+    "2333133121414131402",
+  })
 
-	solveTwo(reader)
+  ans := solveTwo(reader)
 
-	assert.Equal(t, 0, 1)
+	assert.Equal(t, int64(2858), ans)
 }
