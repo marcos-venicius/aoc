@@ -89,9 +89,9 @@ func rearrangeFragmentedBlocks(blocks Blocks) {
 }
 
 func swap(blocks Blocks, x1, x2, w int) {
-  for i := 0; i < w; i++ {
-    (*blocks)[x1+i], (*blocks)[x2+i] = (*blocks)[x2+i], (*blocks)[x1+i]
-  }
+	for i := 0; i < w; i++ {
+		(*blocks)[x1+i], (*blocks)[x2+i] = (*blocks)[x2+i], (*blocks)[x1+i]
+	}
 }
 
 func rearrangeBlocks(blocks Blocks) {
@@ -113,17 +113,7 @@ func rearrangeBlocks(blocks Blocks) {
 		start++
 		r++
 
-		/* for _, block := range b[start:r] {
-			if block.isnil() {
-				fmt.Printf(".")
-			} else {
-				fmt.Printf("%d", block.id)
-			}
-		} */
-
-		/* fmt.Println() */
-
-    i := 0
+		i := 0
 		for i < r {
 			if b[i].isnil() {
 				end := i
@@ -132,29 +122,16 @@ func rearrangeBlocks(blocks Blocks) {
 					end++
 				}
 
-        /* fmt.Printf("    ")
-				for _, block := range b[i:end] {
-					if block.isnil() {
-						fmt.Printf(".")
-					} else {
-						fmt.Printf("%d", block.id)
-					}
-				} */
+				if end-i >= r-start {
+					swap(blocks, i, start, r-start)
 
-        if end - i >= r - start {
-          swap(blocks, i, start, r - start)
+					break
+				}
 
-          /* fmt.Printf("  swap %d>%d | %d>%d\n", i, end, start, r) */
-
-          break
-        }
-
-				/* fmt.Println() */
-
-        i = end
+				i = end
 			} else {
-        i++
-      }
+				i++
+			}
 		}
 
 		r = start - 1
