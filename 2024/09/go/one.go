@@ -9,7 +9,7 @@ import (
 func solveOne(reader aocreader.LinesReader) int64 {
 	_, line := reader.Line()
 
-  blocks := parseBlocks(line, true)
+	blocks := parseBlocks(line)
 
 	rearrangeFragmentedBlocks(blocks)
 

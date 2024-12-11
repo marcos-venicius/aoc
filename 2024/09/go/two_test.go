@@ -9,10 +9,10 @@ import (
 
 func TestBaseTwo(t *testing.T) {
 	reader := aocreader.NewMockReader([]string{
-    "2333133121414131402",
-  })
+		"2333133121414131402",
+	})
 
-  ans := solveTwo(reader)
+	ans := solveTwo(reader)
 
 	assert.Equal(t, int64(2858), ans)
 }

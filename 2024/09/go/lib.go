@@ -7,11 +7,26 @@ import (
 )
 
 type Block struct {
-	id    int
-	files int
+	id int
 }
 
-type Blocks *[]*Block
+type Blocks *[]Block
+
+func Print(blocks Blocks) {
+	for _, block := range *blocks {
+		if block.isnil() {
+			fmt.Printf(".")
+		} else {
+			fmt.Printf("%d", block.id)
+		}
+	}
+
+	fmt.Println()
+}
+
+func (b Block) isnil() bool {
+	return b.id == -1
+}
 
 func unwrap[T any](value T, err error) T {
 	if err != nil {
@@ -22,8 +37,8 @@ func unwrap[T any](value T, err error) T {
 	return value
 }
 
-func parseBlocks(line string, fragment bool) Blocks {
-	blocks := make([]*Block, 0)
+func parseBlocks(line string) Blocks {
+	blocks := make([]Block, 0)
 
 	blockID := 0
 
@@ -35,18 +50,14 @@ func parseBlocks(line string, fragment bool) Blocks {
 			freeSpace = unwrap(strconv.Atoi(line[i+1 : i+2]))
 		}
 
-		block := Block{id: blockID, files: files}
+		block := Block{id: blockID}
 
-		if fragment {
-			for j := 0; j < files; j++ {
-				blocks = append(blocks, &block)
-			}
-		} else {
-			blocks = append(blocks, &block)
+		for j := 0; j < files; j++ {
+			blocks = append(blocks, block)
 		}
 
 		for j := 0; j < freeSpace; j++ {
-			blocks = append(blocks, nil)
+			blocks = append(blocks, Block{id: -1})
 		}
 
 		blockID++
@@ -56,22 +67,24 @@ func parseBlocks(line string, fragment bool) Blocks {
 }
 
 func rearrangeFragmentedBlocks(blocks Blocks) {
-  b := *blocks
+	b := *blocks
 
 	l, r := 0, len(b)-1
 
 	for l < r {
-		for b[l] != nil {
+		for !b[l].isnil() {
 			l++
 		}
 
-		for b[r] == nil {
+		for b[r].isnil() {
 			r--
 		}
 
-		if l < r {
-			b[l], b[r] = b[r], b[l]
+		if l >= r {
+			break
 		}
+
+		b[l], b[r] = b[r], b[l]
 	}
 }
 
@@ -79,7 +92,7 @@ func checksumFragmentedBlocks(blocks Blocks) int64 {
 	sum := int64(0)
 
 	for i, block := range *blocks {
-		if block == nil {
+		if block.isnil() {
 			continue
 		}
 
