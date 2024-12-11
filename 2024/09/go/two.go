@@ -5,10 +5,22 @@ import (
 	"github.com/marcos-venicius/aocreader"
 )
 
+type Tuple struct {
+	files     int
+	freeSpace int
+}
+
 func solveTwo(reader aocreader.LinesReader) int64 {
 	_, line := reader.Line()
 
-	ans := int64(len(line))
+  blocks := parseBlocks(line)
+
+  rearrangeBlocks(blocks)
+
+  /* Print(blocks) */
+
+	ans := checksumFragmentedBlocks(blocks)
+
 
 	fmt.Printf("02: %d\n", ans)
 	return ans
