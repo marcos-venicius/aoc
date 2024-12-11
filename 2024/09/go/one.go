@@ -9,11 +9,11 @@ import (
 func solveOne(reader aocreader.LinesReader) int64 {
 	_, line := reader.Line()
 
-	blocks := parseBlocks(line)
+	blocks := parseIds(line)
 
-	rearrangeFragmentedBlocks(blocks)
+	rearrangeFragmentedIds(blocks)
 
-	ans := checksumFragmentedBlocks(blocks)
+	ans := checksumIds(blocks)
 
 	fmt.Printf("01: %d\n", ans)
 
