@@ -1,6 +1,6 @@
 package main
 
-/* import "fmt" */
+import "fmt"
 
 const CHAIN_SIZE = 10
 
@@ -77,17 +77,15 @@ func (in *Input) findChains() int {
 }
 
 func (in *Input) distinct() int {
-  m := make(map[Vec2]int)
+  m := make(map[string]int)
 
   for _, chain := range in.chains {
-    m[chain[0]]++
+    head := chain[0]
+    tail := chain[CHAIN_SIZE - 1]
+    key := fmt.Sprintf("%d-%d-%d-%d", head.x, head.y, tail.x, tail.y)
+
+    m[key]++
   }
 
-  s := 0
-
-  for _, v := range m {
-    s += v
-  }
-
-  return s
+  return len(m)
 }
