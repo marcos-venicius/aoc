@@ -6,12 +6,12 @@ import (
 	"github.com/marcos-venicius/aocreader"
 )
 
-func solveOne(reader aocreader.LinesReader) int {
+func solveOne(reader *aocreader.AocReader) int64 {
 	_, line := reader.Line()
 
-  r := CreateResult(25)
+	r := CreateResult(line, 25)
 
-	ans := r.GetResult(line)
+	ans := r.GetResult()
 
 	fmt.Printf("01: %d\n", ans)
 
