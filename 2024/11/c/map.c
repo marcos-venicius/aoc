@@ -1,52 +1,59 @@
 #include "map.h"
 #include <stdlib.h>
 
-Node *new_node(int64_t key, int64_t value) {
+int64 hash(int64 n, int i) {
+    int64 hash = 5381;
+
+    hash = ((hash << 5) + hash) + n;
+    hash = ((hash << 5) + hash) + i;
+
+    return hash % MAP_BUCKET_SIZE;
+}
+
+Node *new_node(int64 n, int i, int64 value) {
     Node *node = calloc(1, sizeof(Node));
 
-    node->key = key;
+    node->i = i;
+    node->n = n;
     node->value = value;
+
     node->next = NULL;
 
     return node;
 }
 
 Map *map_new(size_t capacity) {
-    Map *map = calloc(1, sizeof(Map) + sizeof(Node*) * capacity);
-
-    map->capacity = capacity;
-
-    return map;
+    return calloc(1, sizeof(Map));
 }
 
-void map_set(Map *map, int64_t key, int64_t value) {
-    size_t index = key % map->capacity;
+void map_set(Map *map, int64 n, int i, int64 value) {
+    size_t index = hash(n, i);
 
-    Node *current = map->nodes[index];
+    Node *current = (*map)[index];
 
     if (current == NULL) {
-        map->nodes[index] = new_node(key, value);
-    } else if (current->key == key) {
+        (*map)[index] = new_node(n, i, value);
+    } else if (current->n == n && current->i == i) {
         current->value = value;
     } else {
-        while (current->next != NULL && current->next->key != key) {
+        while (current->next != NULL && (current->next->n != n || current->next->i != i)) {
             current = current->next;
         }
 
         if (current->next == NULL) {
-            current->next = new_node(key, value);
+            current->next = new_node(n, i, value);
         } else {
             current->next->value = value;
         }
     }
 }
 
-Node *map_get(Map *map, int64_t key) {
-    size_t index = key % map->capacity;
+Node *map_get(Map *map, int64 n, int i) {
+    size_t index = hash(n, i);
 
-    Node *current = map->nodes[index];
+    Node *current = (*map)[index];
 
-    while (current != NULL && current->key != key) {
+    while (current != NULL && (current->n != n || current->i != i)) {
         current = current->next;
     }
 
@@ -54,8 +61,8 @@ Node *map_get(Map *map, int64_t key) {
 }
 
 void map_free(Map *map) {
-    for (size_t i = 0; i < map->capacity; i++) {
-        Node *current = map->nodes[i];
+    for (size_t i = 0; i < MAP_BUCKET_SIZE; i++) {
+        Node *current = (*map)[i];
 
         if (current != NULL) {
             while (current != NULL) {

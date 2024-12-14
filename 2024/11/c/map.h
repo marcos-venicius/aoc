@@ -4,23 +4,24 @@
 #include <stdint.h>
 #include <stddef.h>
 
+#define MAP_BUCKET_SIZE 1000
+
+typedef unsigned long long int64;
 typedef struct Node Node;
 
 struct Node {
-    int64_t value;
-    int64_t key;
+    int64 value;
+    int64 n;
+    int i;
 
     Node *next;
 };
 
-typedef struct {
-    size_t capacity;
-    Node *nodes[];
-} Map;
+typedef Node* Map[MAP_BUCKET_SIZE];
 
-Map *map_new(size_t capacity);
-void map_set(Map *map, int64_t key, int64_t value);
-Node *map_get(Map *map, int64_t key);
+Map *map_new();
+void map_set(Map *map, int64 n, int i, int64 value);
+Node *map_get(Map *map, int64 n, int i);
 void map_free(Map *map);
 
 #endif // MAP_H_

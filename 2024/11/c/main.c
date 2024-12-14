@@ -5,20 +5,17 @@
 
 #define LEN(arr) sizeof(arr) / sizeof(arr[0])
 
-int64_t hash(int64_t a, int b) {
-    int64_t hashcode = 23;
-    hashcode = (hashcode * 37) + a;
-    hashcode = (hashcode * 37) + b;
+static const int input[] = {77, 515, 6779622, 6, 91370, 959685, 0, 9861};
+static const size_t input_size = LEN(input);
 
-    return hashcode;
-}
+typedef unsigned long long int64;
 
-int int_to_string(int64_t n, char **out) {
-    int length = snprintf(NULL, 0, "%ld", n);
+int int_to_string(int64 n, char **out) {
+    int length = snprintf(NULL, 0, "%lld", n);
 
     *out = malloc(length + 1);
 
-    snprintf(*out, length + 1, "%ld", n);
+    snprintf(*out, length + 1, "%lld", n);
 
     return length;
 }
@@ -38,18 +35,19 @@ void split_string(char *str, int size, char **out_left, char **out_right) {
     (*out_right)[m] = '\0';
 }
 
-int64_t solve(Map *map, int64_t n, int iterations) {
-    if (iterations == 0) return 1;
+int64 solve(Map *map, int64 n, int i) {
+    if (i == 0) return 1;
 
-    Node *cache = map_get(map, hash(n, iterations));
+    Node *cache = map_get(map, n, i);
 
     if (cache != NULL) return cache->value;
 
-    int64_t result = 0;
+    int64 result;
 
     if (n == 0) {
-        result = solve(map, 1, iterations - 1);
-        map_set(map, hash(n, iterations), result);
+        result = solve(map, 1, i - 1);
+
+        map_set(map, n, i, result);
 
         return result;
     }
@@ -64,13 +62,12 @@ int64_t solve(Map *map, int64_t n, int iterations) {
 
         split_string(str, size, &left, &right);
 
-        int64_t leftN = strtoll(left, NULL, 10);
-        int64_t rightN = strtoll(right, NULL, 10);
+        int64 leftN = strtoll(left, NULL, 10);
+        int64 rightN = strtoll(right, NULL, 10);
 
-        result += solve(map, leftN, iterations - 1);
-        result += solve(map, rightN, iterations - 1);
+        result = solve(map, leftN, i - 1) + solve(map, rightN, i - 1);
 
-        map_set(map, hash(n, iterations), result);
+        map_set(map, n, i, result);
 
         free(left);
         free(right);
@@ -81,23 +78,38 @@ int64_t solve(Map *map, int64_t n, int iterations) {
 
     free(str);
 
-    result = solve(map, n * 2024, iterations - 1);
-    map_set(map, hash(n, iterations), result);
+    result = solve(map, n * 2024, i - 1);
+
+    map_set(map, n, i, result);
 
     return result;
 }
 
-int main() {
-    int input[] = {77, 515, 6779622, 6, 91370, 959685, 0, 9861};
-    int64_t part1 = 0;
+void one(Map *map) {
+    int64 res = 0;
 
-    Map *map = map_new(75);
-
-    for (size_t i = 0; i < LEN(input); i++) {
-        part1 += solve(map, input[i], 25);
+    for (size_t i = 0; i < input_size; i++) {
+        res += solve(map, input[i], 25);
     }
 
-    printf("Part 01: %ld\n", part1);
+    printf("Part 01: %lld\n", res);
+}
+
+void two(Map *map) {
+    int64 res = 0;
+
+    for (size_t i = 0; i < input_size; i++) {
+        res += solve(map, input[i], 75);
+    }
+
+    printf("Part 02: %lld\n", res);
+}
+
+int main() {
+    Map *map = map_new();
+
+    one(map);
+    two(map);
 
     map_free(map);
 
