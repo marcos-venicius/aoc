@@ -24,22 +24,6 @@ func CreateResult(line string, iterations int) Result {
 	}
 }
 
-func trimZeros(v string) string {
-	if v[0] != '0' {
-		return v
-	}
-
-	for i := 0; i < len(v); i++ {
-		if v[i] != '0' {
-			return v[i:]
-		} else if v[i] == '0' && i == len(v)-1 {
-			return "0"
-		}
-	}
-
-	return v
-}
-
 func unwrap[T int64](v T, err error) T {
 	if err != nil {
 		panic(err)
