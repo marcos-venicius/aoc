@@ -10,7 +10,7 @@ int64 hash(int64 n, int i) {
     return hash % MAP_BUCKET_SIZE;
 }
 
-Node *new_node(int64 n, int i, int64 value) {
+Node *new_node(Map* map, int64 n, int i, int64 value) {
     Node *node = calloc(1, sizeof(Node));
 
     node->i = i;
@@ -18,6 +18,8 @@ Node *new_node(int64 n, int i, int64 value) {
     node->value = value;
 
     node->next = NULL;
+
+    map->size++;
 
     return node;
 }
@@ -29,10 +31,10 @@ Map *map_new() {
 void map_set(Map *map, int64 n, int i, int64 value) {
     size_t index = hash(n, i);
 
-    Node *current = (*map)[index];
+    Node *current = map->nodes[index];
 
     if (current == NULL) {
-        (*map)[index] = new_node(n, i, value);
+        map->nodes[index] = new_node(map, n, i, value);
     } else if (current->n == n && current->i == i) {
         current->value = value;
     } else {
@@ -41,7 +43,7 @@ void map_set(Map *map, int64 n, int i, int64 value) {
         }
 
         if (current->next == NULL) {
-            current->next = new_node(n, i, value);
+            current->next = new_node(map, n, i, value);
         } else {
             current->next->value = value;
         }
@@ -51,7 +53,7 @@ void map_set(Map *map, int64 n, int i, int64 value) {
 Node *map_get(Map *map, int64 n, int i) {
     size_t index = hash(n, i);
 
-    Node *current = (*map)[index];
+    Node *current = map->nodes[index];
 
     while (current != NULL && (current->n != n || current->i != i)) {
         current = current->next;
@@ -62,7 +64,7 @@ Node *map_get(Map *map, int64 n, int i) {
 
 void map_free(Map *map) {
     for (size_t i = 0; i < MAP_BUCKET_SIZE; i++) {
-        Node *current = (*map)[i];
+        Node *current = map->nodes[i];
 
         if (current != NULL) {
             while (current != NULL) {

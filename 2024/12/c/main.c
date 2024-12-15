@@ -159,6 +159,57 @@ void grid_free(Grid *grid) {
     free(grid->grid);
 }
 
+bool isVertical(Vec2 dir) {
+    return dir.y != 0;
+}
+
+bool isHorizontal(Vec2 dir) {
+    return dir.x != 0;
+}
+
+int count_vertices(Grid *grid, LL *ll) {
+    Map* map_x = map_new();
+    Map* map_y = map_new();
+
+    Vec2 directions[] = {
+        {.x = 0, .y = -1},
+        {.x = 1, .y = 0},
+        {.x = 0, .y = 1},
+        {.x = -1, .y = 0},
+    };
+
+    LLNode *current = ll->root;
+
+    while (current != NULL) {
+        Vec2 *data = (Vec2*)current->data;
+
+        for (int i = 0; i < 4; i++) {
+            Vec2 dir = directions[i];
+            Vec2 pos = {
+                .x = data->x + dir.x,
+                .y = data->y + dir.y,
+            };
+
+            if (is_out_of_bounds(grid, pos) || grid->grid[pos.y][pos.x] != grid->grid[data->y][data->x]) {
+                if (isVertical(dir)) {
+                    map_set(map_x, data->y, dir.y, 0);
+                } else if (isHorizontal(dir)) {
+                    map_set(map_y, data->x, dir.x, 0);
+                }
+            }
+        }
+
+        current = current->next;
+    }
+
+    int vertices = map_x->size + map_y->size;
+
+    map_free(map_x);
+    map_free(map_y);
+
+    return vertices;
+}
+
 void usage(FILE *stream, const char* program_name) {
     fprintf(stream, "Usage: %s FILE\n", program_name);
     fprintf(stream, "Execute day one and two of the current challenge given the input file\n");
@@ -183,7 +234,8 @@ int main(int argc, char **argv) {
 
     Grid grid = grid_load(argv[1]);
 
-    int result = 0;
+    int part1 = 0;
+    int part2 = 0;
 
     for (int y = 0; y < grid.size; y++) {
         for (int x = 0; x < grid.size; x++) {
@@ -193,17 +245,21 @@ int main(int argc, char **argv) {
 
             int area = get_area(&grid, ll, grid.grid[y][x], x, y);
             int perimeter = get_perimeter(&grid, ll);
+            int vertices = count_vertices(&grid, ll);
 
+            part1 += area * perimeter;
+            part2 += area * vertices;
+
+            printf("A region of %c plants with price %d * %d = %d\n", grid.grid[y][x], area, vertices, area * vertices);
             ll_free(ll);
-
-            result += area * perimeter;
-            /* printf("A region of %c plants with price %d * %d\n", grid.grid[y][x], area, perimeter); */
         }
     }
 
-    printf("Part 01: %d\n", result);
+    printf("Part 01: %d\n", part1);
+    printf("Part 02: %d\n", part2);
 
     grid_free(&grid);
 
     return 0;
 }
+

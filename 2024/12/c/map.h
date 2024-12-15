@@ -17,7 +17,10 @@ struct Node {
     Node *next;
 };
 
-typedef Node* Map[MAP_BUCKET_SIZE];
+typedef struct {
+    Node* nodes[MAP_BUCKET_SIZE];
+    size_t size;
+} Map;
 
 Map *map_new();
 void map_set(Map *map, int64 n, int i, int64 value);
