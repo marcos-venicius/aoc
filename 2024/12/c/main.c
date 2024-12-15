@@ -18,6 +18,26 @@ typedef struct {
     int size;
 } Grid;
 
+const Vec2 top = {.x = 0, .y = -1};
+const Vec2 topLeft = {.x = -1, .y = -1};
+const Vec2 right = {.x = 1, .y = 0};
+const Vec2 topRight = {.x = 1, .y = -1};
+const Vec2 bottom = {.x = 0, .y = 1};
+const Vec2 bottomRight = {.x = 1, .y = 1};
+const Vec2 left = {.x = -1, .y = 0};
+const Vec2 bottomLeft = {.x = -1, .y = 1};
+
+const Vec2 edges[][3] = {
+    { top, left, topLeft },
+    { top, right, topRight },
+    { bottom, left, bottomLeft },
+    { bottom, right, bottomRight },
+};
+
+const Vec2 directions[] = {
+    right, left, bottom, top
+};
+
 int grid_size(const char *filepath) {
     FILE* file = fopen(filepath, "rb");
 
@@ -43,7 +63,6 @@ int grid_size(const char *filepath) {
 
     return file_size / row_size;
 }
-
 
 Grid grid_load(const char *filepath) {
     Grid grid = {0};
@@ -77,6 +96,15 @@ Grid grid_load(const char *filepath) {
     fclose(file);
 
     return grid;
+}
+
+void grid_free(Grid *grid) {
+    for (int i = 0; i < grid->size; i++) {
+        free(grid->grid[i]);
+    }
+
+    map_free(grid->cache);
+    free(grid->grid);
 }
 
 int get_area(Grid *grid, LL *ll, char of, int x, int y) {
@@ -128,13 +156,6 @@ bool is_edge(Grid *grid, const char c, Vec2 pos) {
 int get_perimeter(Grid *grid, LL *ll) {
     int perimeter = 0;
 
-    Vec2 directions[] = {
-        {.x = 1, .y = 0},
-        {.x = -1, .y = 0},
-        {.x = 0, .y = 1},
-        {.x = 0, .y = -1},
-    };
-
     LLNode *current = ll->root;
 
     while (current != NULL) {
@@ -158,32 +179,7 @@ int get_perimeter(Grid *grid, LL *ll) {
     return perimeter;
 }
 
-void grid_free(Grid *grid) {
-    for (int i = 0; i < grid->size; i++) {
-        free(grid->grid[i]);
-    }
-
-    map_free(grid->cache);
-    free(grid->grid);
-}
-
 int count_vertices(Grid *grid, LL *ll) {
-    const Vec2 top = {.x = 0, .y = -1};
-    const Vec2 topLeft = {.x = -1, .y = -1};
-    const Vec2 right = {.x = 1, .y = 0};
-    const Vec2 topRight = {.x = 1, .y = -1};
-    const Vec2 bottom = {.x = 0, .y = 1};
-    const Vec2 bottomRight = {.x = 1, .y = 1};
-    const Vec2 left = {.x = -1, .y = 0};
-    const Vec2 bottomLeft = {.x = -1, .y = 1};
-
-    const Vec2 edges[][3] = {
-        { top, left, topLeft },
-        { top, right, topRight },
-        { bottom, left, bottomLeft },
-        { bottom, right, bottomRight },
-    };
-
     int vertices = 0;
 
     LLNode *current = ll->root;
