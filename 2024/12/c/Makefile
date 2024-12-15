@@ -1,6 +1,6 @@
 CXX = gcc
 CXX_FLAGS = 
-DEBUG_FLAGS = -Wall -Wextra -pedantic -g -fsanitize=address
+DEBUG_FLAGS = -Wall -Wextra -pedantic -g -fsanitize=address -Wno-unused-function
 
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)

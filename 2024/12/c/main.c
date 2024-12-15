@@ -167,14 +167,6 @@ void grid_free(Grid *grid) {
     free(grid->grid);
 }
 
-bool isVertical(Vec2 dir) {
-    return dir.y != 0;
-}
-
-bool isHorizontal(Vec2 dir) {
-    return dir.x != 0;
-}
-
 int count_vertices(Grid *grid, LL *ll) {
     const Vec2 top = {.x = 0, .y = -1};
     const Vec2 topLeft = {.x = -1, .y = -1};
@@ -186,25 +178,10 @@ int count_vertices(Grid *grid, LL *ll) {
     const Vec2 bottomLeft = {.x = -1, .y = 1};
 
     const Vec2 edges[][3] = {
-        {
-            top, left, topLeft
-        },
-        {
-            top, right, topRight
-        },
-        {
-            bottom, left, bottomLeft
-        },
-        {
-            bottom, right, bottomRight
-        },
-    };
-
-    const Vec2 concave[][3] = {
         { top, left, topLeft },
         { top, right, topRight },
-        { bottom, bottom, bottomRight },
-        { left, bottom, bottomLeft },
+        { bottom, left, bottomLeft },
+        { bottom, right, bottomRight },
     };
 
     int vertices = 0;
@@ -231,20 +208,6 @@ int count_vertices(Grid *grid, LL *ll) {
                 vertices++;
             }
         }
-
-        /* for (size_t i = 0; i < LEN(concave); i++) {
-            const Vec2 a = concave[i][0];
-            const Vec2 b = concave[i][1];
-            const Vec2 c = concave[i][2];
-
-            const Vec2 p1 = { .x = data->x + a.x, .y = data->y + a.y };
-            const Vec2 p2 = { .x = data->x + b.x, .y = data->y + b.y };
-            const Vec2 p3 = { .x = data->x + c.x, .y = data->y + c.y };
-
-            if (!is_edge(grid, chr, p1) && !is_edge(grid, chr, p2) && is_edge(grid, chr, p3)) {
-                vertices++;
-            }
-        } */
 
         current = current->next;
     }
@@ -288,8 +251,6 @@ int main(int argc, char **argv) {
             int area = get_area(&grid, ll, grid.grid[y][x], x, y);
             int perimeter = get_perimeter(&grid, ll);
             int vertices = count_vertices(&grid, ll);
-
-            printf("A region of %c plants with price %d * %d = %d\n", grid.grid[y][x], area, vertices, area * vertices);
 
             part1 += area * perimeter;
             part2 += area * vertices;
