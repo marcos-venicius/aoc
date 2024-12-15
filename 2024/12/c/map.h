@@ -10,9 +10,9 @@ typedef unsigned long long int64;
 typedef struct Node Node;
 
 struct Node {
-    int64 value;
+    void *data;
     int64 n;
-    int i;
+    int i, j;
 
     Node *next;
 };
@@ -23,7 +23,7 @@ typedef struct {
 } Map;
 
 Map *map_new();
-void map_set(Map *map, int64 n, int i, int64 value);
+void map_set(Map *map, int64 n, int i, void *data, size_t data_size);
 Node *map_get(Map *map, int64 n, int i);
 void map_free(Map *map);
 

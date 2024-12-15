@@ -90,7 +90,7 @@ int get_area(Grid *grid, LL *ll, char of, int x, int y) {
 
     ll_add(ll, &(Vec2){.x = x, .y = y}, sizeof(Vec2));
 
-    map_set(grid->cache, x, y, 0);
+    map_set(grid->cache, x, y, NULL, 0);
 
     int result = 1;
 
@@ -115,6 +115,14 @@ int get_area(Grid *grid, LL *ll, char of, int x, int y) {
 
 bool is_out_of_bounds(Grid *grid, Vec2 vec) {
     return vec.x < 0 || vec.y < 0 || vec.x >= grid->size || vec.y >= grid->size;
+}
+
+bool is_edge(Grid *grid, const char c, Vec2 pos) {
+    if (is_out_of_bounds(grid, pos)) return true;
+
+    const char pc = grid->grid[pos.y][pos.x];
+
+    return pc != c;
 }
 
 int get_perimeter(Grid *grid, LL *ll) {
@@ -168,44 +176,78 @@ bool isHorizontal(Vec2 dir) {
 }
 
 int count_vertices(Grid *grid, LL *ll) {
-    Map* map_x = map_new();
-    Map* map_y = map_new();
+    const Vec2 top = {.x = 0, .y = -1};
+    const Vec2 topLeft = {.x = -1, .y = -1};
+    const Vec2 right = {.x = 1, .y = 0};
+    const Vec2 topRight = {.x = 1, .y = -1};
+    const Vec2 bottom = {.x = 0, .y = 1};
+    const Vec2 bottomRight = {.x = 1, .y = 1};
+    const Vec2 left = {.x = -1, .y = 0};
+    const Vec2 bottomLeft = {.x = -1, .y = 1};
 
-    Vec2 directions[] = {
-        {.x = 0, .y = -1},
-        {.x = 1, .y = 0},
-        {.x = 0, .y = 1},
-        {.x = -1, .y = 0},
+    const Vec2 edges[][3] = {
+        {
+            top, left, topLeft
+        },
+        {
+            top, right, topRight
+        },
+        {
+            bottom, left, bottomLeft
+        },
+        {
+            bottom, right, bottomRight
+        },
     };
+
+    const Vec2 concave[][3] = {
+        { top, left, topLeft },
+        { top, right, topRight },
+        { bottom, bottom, bottomRight },
+        { left, bottom, bottomLeft },
+    };
+
+    int vertices = 0;
 
     LLNode *current = ll->root;
 
     while (current != NULL) {
         Vec2 *data = (Vec2*)current->data;
 
-        for (int i = 0; i < 4; i++) {
-            Vec2 dir = directions[i];
-            Vec2 pos = {
-                .x = data->x + dir.x,
-                .y = data->y + dir.y,
-            };
+        const char chr = grid->grid[data->y][data->x];
 
-            if (is_out_of_bounds(grid, pos) || grid->grid[pos.y][pos.x] != grid->grid[data->y][data->x]) {
-                if (isVertical(dir)) {
-                    map_set(map_x, data->y, dir.y, 0);
-                } else if (isHorizontal(dir)) {
-                    map_set(map_y, data->x, dir.x, 0);
-                }
+        for (size_t i = 0; i < LEN(edges); i++) {
+            const Vec2 a = edges[i][0];
+            const Vec2 b = edges[i][1];
+            const Vec2 c = edges[i][2];
+
+            const Vec2 p1 = { .x = data->x + a.x, .y = data->y + a.y };
+            const Vec2 p2 = { .x = data->x + b.x, .y = data->y + b.y };
+            const Vec2 p3 = { .x = data->x + c.x, .y = data->y + c.y };
+
+            if (is_edge(grid, chr, p1) && is_edge(grid, chr, p2)) {
+                vertices++;
+            } else if (!is_edge(grid, chr, p1) && !is_edge(grid, chr, p2) && is_edge(grid, chr, p3)) {
+                vertices++;
             }
         }
 
+        /* for (size_t i = 0; i < LEN(concave); i++) {
+            const Vec2 a = concave[i][0];
+            const Vec2 b = concave[i][1];
+            const Vec2 c = concave[i][2];
+
+            const Vec2 p1 = { .x = data->x + a.x, .y = data->y + a.y };
+            const Vec2 p2 = { .x = data->x + b.x, .y = data->y + b.y };
+            const Vec2 p3 = { .x = data->x + c.x, .y = data->y + c.y };
+
+            if (!is_edge(grid, chr, p1) && !is_edge(grid, chr, p2) && is_edge(grid, chr, p3)) {
+                vertices++;
+            }
+        } */
+
         current = current->next;
     }
-
-    int vertices = map_x->size + map_y->size;
-
-    map_free(map_x);
-    map_free(map_y);
 
     return vertices;
 }
@@ -247,10 +289,11 @@ int main(int argc, char **argv) {
             int perimeter = get_perimeter(&grid, ll);
             int vertices = count_vertices(&grid, ll);
 
+            printf("A region of %c plants with price %d * %d = %d\n", grid.grid[y][x], area, vertices, area * vertices);
+
             part1 += area * perimeter;
             part2 += area * vertices;
 
-            printf("A region of %c plants with price %d * %d = %d\n", grid.grid[y][x], area, vertices, area * vertices);
             ll_free(ll);
         }
     }
