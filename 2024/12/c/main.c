@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "map.h"
 #include "ll.h"
 
@@ -158,8 +159,29 @@ void grid_free(Grid *grid) {
     free(grid->grid);
 }
 
-int main() {
-    Grid grid = grid_load("../input.txt");
+void usage(FILE *stream, const char* program_name) {
+    fprintf(stream, "Usage: %s FILE\n", program_name);
+    fprintf(stream, "Execute day one and two of the current challenge given the input file\n");
+    fprintf(stream, "\n");
+    fprintf(stream, "    --help -h        show this help message\n");
+    fprintf(stream, "\n");
+    fprintf(stream, "Advent Of Code 2024 day 12 - https://github.com/marcos-venicius/aoc/tree/main/2024/12/c\n");
+}
+
+int main(int argc, char **argv) {
+    if (argc != 2) {
+        usage(stderr, argv[0]);
+
+        exit(1);
+    }
+
+    if (strncmp(argv[1], "-h", 2) == 0 || strncmp(argv[1], "--help", 6) == 0) {
+        usage(stdout, argv[0]);
+
+        exit(0);
+    }
+
+    Grid grid = grid_load(argv[1]);
 
     int result = 0;
 
