@@ -21,9 +21,13 @@ void ll_add(LL *ll, void *data, size_t data_size) {
     node->data = NULL;
 
     if (data != NULL) {
-        node->data = malloc(data_size);
+        if (data_size == 0) {
+            node->data = data;
+        } else {
+            node->data = malloc(data_size);
 
-        memcpy(node->data, data, data_size);
+            memcpy(node->data, data, data_size);
+        }
     }
 
     if (ll->head == NULL) {
@@ -172,9 +176,12 @@ void ll_free(LL *ll) {
         LLNode *next = current->next;
 
         if (current->data != NULL) {
+            printf("data pointer: %p\n", current->data);
+
             if (ll->free_callback == NULL) {
                 free(current->data);
             } else {
+                printf("Using free_callback: \n");
                 ll->free_callback(current->data);
             }
         }

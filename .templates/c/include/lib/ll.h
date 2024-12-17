@@ -26,6 +26,8 @@ typedef struct {
 
 LL *ll_new(FreeCallback free_callback, CompareCallback compare_callback);
 
+// If the data size is 0, instead of allocating memory to the data
+// we just pointer to it
 void ll_add(LL *ll, void *data, size_t data_size);
 void ll_add_i(LL *ll, int i);
 void ll_add_s(LL *ll, char *s);
