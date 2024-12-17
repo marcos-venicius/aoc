@@ -3,44 +3,30 @@
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
-
-int compare(void *data, void *ctx) {
-    return *(int*)data == *(int*)ctx;
-}
+#include <stdlib.h>
 
 int main() {
-    LL *ll = ll_new();
-    Map *map = map_new();
+    LL *ll = ll_new(free, NULL);
 
-    LL_ADD(ll, 10);
-    LL_ADD(ll, 20);
-    LL_REMOVE(ll, compare, 10);
+    ll_add_i(ll, 10);
+    ll_add_i(ll, 20);
+    ll_add_i(ll, 1255);
+    ll_add_s(ll, "hello, my name is marcos");
+    ll_add_s(ll, "lorem ipsum dolor sit ammet consectur");
 
-    LLNode *current = ll->root;
+    ll_remove_by_index(ll, 1);
 
-    while (current != NULL) {
-        printf("%d\n", *(int*)current->data);
-        current = current->next;
-    }
+    int *a = ll_find_by_index(ll, 0);
+    int *b = ll_find_by_index(ll, 1);
+    char *c = ll_find_by_index(ll, 2);
+    char *d = ll_find_by_index(ll, 3);
 
-    map_set_i(map, "test", 10);
-    map_set_i(map, "test", 20);
-    map_set_i(map, "testing", 30);
+    printf("index 0: %d\n", *a);
+    printf("index 1: %d\n", *b);
+    printf("index 2: %s\n", c);
+    printf("index 3: %s\n", d);
+    printf("Count: %ld\n", ll->count);
 
-    map_set_string(map, "message", "hello world");
-    map_set_string(map, "message", "hello world asdlfkjasdfl asdlk jsdf");
-
-    char *message = map_get(map, "message");
-    int *n = map_get(map, "test");
-    int *n2 = map_get(map, "testing");
-
-    printf("test: %d\n", *n);
-    printf("testing: %d\n", *n2);
-    printf("message: %s\n", message);
-    printf("%ld\n", map->length);
-    assert(map->length == 3);
-
-    map_free(map);
     ll_free(ll);
 
     return 0;

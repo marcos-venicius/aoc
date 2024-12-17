@@ -1,58 +1,114 @@
 #include "../include/lib/ll.h"
+#include "../include/lib/assertf.h"
 #include <stdlib.h>
-#include <assert.h>
 #include <string.h>
 
-LL *ll_new() {
-    return calloc(1, sizeof(LL));
+LL *ll_new(FreeCallback free_callback, CompareCallback compare_callback) {
+    LL *ll = calloc(1, sizeof(LL));
+
+    ll->compare_callback = compare_callback;
+    ll->free_callback = free_callback;
+
+    return ll;
 }
 
 void ll_add(LL *ll, void *data, size_t data_size) {
-    assert(ll != NULL);
-    assert(data != NULL);
-    assert(data_size > 0);
-
-    ll->length++;
+    assertf(ll != NULL, "ll is NULL");
 
     LLNode *node = malloc(sizeof(LLNode));
 
-    node->data = malloc(data_size);
     node->next = NULL;
+    node->data = NULL;
 
-    memcpy(node->data, data, data_size);
+    if (data != NULL) {
+        node->data = malloc(data_size);
 
-    if (ll->root == NULL) {
-        ll->root = node;
+        memcpy(node->data, data, data_size);
+    }
+
+    if (ll->head == NULL) {
+        ll->head = node;
         ll->tail = node;
     } else {
         ll->tail->next = node;
         ll->tail = ll->tail->next;
     }
+
+    ll->count++;
 }
 
-int ll_remove(LL *ll, int (*comp)(void *, void *), void *ctx) {
-    assert(ll != NULL);
+void ll_add_i(LL *ll, int i) {
+    ll_add(ll, &i, sizeof(int));
+}
+
+void ll_add_s(LL *ll, char *s) {
+    ll_add(ll, s, strlen(s) + 1);
+}
+
+void ll_remove_by_index(LL *ll, size_t index) {
+    assertf(ll != NULL, "ll is NULL");
+    assertf(index < ll->count, "index %ld out of range. current list size is %ld", index, ll->count);
 
     LLNode *slow = NULL;
-    LLNode *fast = ll->root;
+    LLNode *fast = ll->head;
 
+    size_t i = 0;
+
+    // TODO: what if it's the last node?
+    // TODO: what if fast is null?
+    while (i++ < index) {
+        slow = fast;
+        fast = fast->next;
+    }
+
+    slow->next = fast->next;
+
+    if (ll->free_callback != NULL) {
+        ll->free_callback(fast->data);
+    } else {
+        free(fast->data);
+    }
+
+    free(fast);
+
+    ll->count--;
+}
+
+void ll_remove_by_value(LL *ll, void *data) {
+    assertf(ll != NULL, "ll is NULL");
+    assertf(ll->compare_callback != NULL, "you should have a compare callback when removing by value");
+
+    LLNode *slow = NULL;
+    LLNode *fast = ll->head;
+
+    // TODO: what if it's the last node?
     while (fast != NULL) {
-        if (comp(fast->data, ctx) == 1) {
+        if (ll->compare_callback(fast->data, data)) {
             if (slow == NULL) {
-                LLNode* next = ll->root->next;
+                LLNode* next = ll->head->next;
 
-                free(ll->root->data);
-                free(ll->root);
+                if (ll->free_callback != NULL) {
+                    ll->free_callback(ll->head->data);
+                } else {
+                    free(ll->head->data);
+                }
 
-                ll->root = next;
+                free(ll->head);
 
-                if (ll->root->next == NULL) {
-                    ll->tail = ll->root;
+                ll->head = next;
+
+                if (ll->head->next == NULL) {
+                    ll->tail = ll->head;
                 }
             } else {
                 slow->next = fast->next;
 
-                free(fast->data);
+                if (ll->free_callback != NULL) {
+                    ll->free_callback(fast->data);
+                } else {
+                    free(fast->data);
+                }
+
                 free(fast);
 
                 if (slow->next == NULL) {
@@ -60,34 +116,67 @@ int ll_remove(LL *ll, int (*comp)(void *, void *), void *ctx) {
                 }
             }
 
-            ll->length--;
-
-            return 1;
+            ll->count--;
+            return;
         }
 
         slow = fast;
         fast = fast->next;
     }
+}
 
-    return 0;
+void *ll_find_by_index(LL *ll, size_t index) {
+    assertf(ll != NULL, "ll is NULL");
+    assertf(index < ll->count, "index %ld out of range. current list size is %ld", index, ll->count);
+
+    LLNode *current = ll->head;
+
+    for (size_t i = 0; i < index; i++) {
+        current = current->next;
+    }
+
+    return current->data;
+}
+
+void *ll_find_by_value(LL *ll, void *data) {
+    assertf(ll != NULL, "ll is NULL");
+    assertf(ll->compare_callback != NULL, "you need to have a compare_callback to find by value");
+
+    if (ll->count == 0) return NULL;
+
+    LLNode *current = ll->head;
+
+    while (current != NULL) {
+        if (ll->compare_callback(current->data, data)) {
+            return current->data;
+        }
+
+        current = current->next;
+    }
+
+    return NULL;
 }
 
 void ll_free(LL *ll) {
     if (ll == NULL) return;
 
-    if (ll->root == NULL) {
+    if (ll->head == NULL) {
         free(ll);
 
         return;
     }
 
-    LLNode *current = ll->root;
+    LLNode *current = ll->head;
 
     while (current != NULL) {
         LLNode *next = current->next;
 
         if (current->data != NULL) {
-            free(current->data);
+            if (ll->free_callback == NULL) {
+                free(current->data);
+            } else {
+                ll->free_callback(current->data);
+            }
         }
 
         free(current);

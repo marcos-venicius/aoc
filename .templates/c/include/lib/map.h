@@ -25,8 +25,8 @@ typedef struct {
 
 Map *map_new();
 void map_set(Map *map, char *key, void *data, size_t data_size);
-void map_set_i(Map *map, char *key, int value);
-void map_set_string(Map *map, char *key, char *string);
+void map_set_i(Map *map, char *key, int i);
+void map_set_s(Map *map, char *key, char *s);
 void *map_get(Map *map, char *key);
 void map_free(Map *map);
 

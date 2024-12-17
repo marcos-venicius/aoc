@@ -86,12 +86,12 @@ void map_set(Map *map, char *key, void *data, size_t data_size) {
     current->next = new_node(map, key, data, data_size);
 }
 
-void map_set_i(Map *map, char *key, int value) {
-    map_set(map, key, &value, sizeof(int));
+void map_set_i(Map *map, char *key, int i) {
+    map_set(map, key, &i, sizeof(int));
 }
 
-void map_set_string(Map *map, char *key, char *string) {
-    map_set(map, key, string, strlen(string) + 1);
+void map_set_s(Map *map, char *key, char *s) {
+    map_set(map, key, s, strlen(s) + 1);
 }
 
 void *map_get(Map *map, char *key) {
