@@ -37,13 +37,13 @@ func (r *Robot) move(w, h int) {
 }
 
 func unique(list []int) int {
-  m := make(map[int]struct{})
+	m := make(map[int]struct{})
 
-  for _, i := range list {
-    m[i] = struct{}{}
-  }
+	for _, i := range list {
+		m[i] = struct{}{}
+	}
 
-  return len(m)
+	return len(m)
 }
 
 func getQuadrant(x, y, w, h int) Vec2 {
