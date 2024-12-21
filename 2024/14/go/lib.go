@@ -27,10 +27,6 @@ func mod(a, b int) int {
 	return (a%b + b) % b
 }
 
-func (a Vec2) equal(b Vec2) bool {
-	return a.x == b.x && a.y == b.y
-}
-
 func (r *Robot) move(w, h int) {
 	r.pos.x = mod(r.pos.x+r.vel.x, w)
 	r.pos.y = mod(r.pos.y+r.vel.y, h)
