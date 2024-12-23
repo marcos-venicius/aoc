@@ -15,8 +15,8 @@ func solveOne(reader aocreader.LinesReader) int {
 		warehouse.ParseLine(line)
 	}
 
-	for _, movement := range warehouse.movements {
-		warehouse.Move(warehouse.robot, movement, true)
+	for _, direction := range warehouse.directions {
+		warehouse.Move(warehouse.robot, direction)
 	}
 
 	ans := warehouse.SumBoxesCoordinates()

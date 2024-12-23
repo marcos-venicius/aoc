@@ -15,17 +15,10 @@ func solveTwo(reader aocreader.LinesReader) int {
 		warehouse.ParseLine(line)
 	}
 
-  warehouse.GrowMap()
+	/* for _, movement := range warehouse.movements {
+	} */
 
-  println("Initial state:")
-  warehouse.Display()
-	for _, movement := range warehouse.movements {
-    /* fmt.Printf("Move %c (%d, %d):\n", movement, warehouse.robot.x, warehouse.robot.y) */
-		warehouse.MovePairs(warehouse.robot, movement, true)
-    /* warehouse.Display() */
-	}
-
-  warehouse.Display()
+	warehouse.Display()
 
 	ans := warehouse.SumBoxesCoordinates()
 
