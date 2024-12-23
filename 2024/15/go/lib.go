@@ -24,6 +24,30 @@ type Warehouse struct {
 	movements []Movement
 }
 
+func (v Vec2) Diff(of Vec2) Vec2 {
+	return Vec2{
+		x: of.x - v.x,
+		y: of.y - v.y,
+	}
+}
+
+func (v Vec2) Abs() Vec2 {
+	out := Vec2{
+		x: v.x,
+		y: v.y,
+	}
+
+	if v.x < 0 {
+		out.x = v.x * -1
+	}
+
+	if v.y < 0 {
+		out.y = v.y * -1
+	}
+
+	return out
+}
+
 func (v Vec2) DecY(n int) Vec2 {
 	return Vec2{
 		x: v.x,
@@ -62,11 +86,15 @@ func CreateWarehouse() Warehouse {
 	}
 }
 
+func (w Warehouse) at(v Vec2) rune {
+	return w.grid[v.y][v.x]
+}
+
 func (w Warehouse) Display() {
 	for _, row := range w.grid {
 		for _, c := range row {
 			if c == '@' {
-				fmt.Printf("\033[1;37m%c\033[0m", c)
+				fmt.Printf("\033[1;31m%c\033[0m", c)
 			} else {
 				fmt.Printf("%c", c)
 			}
@@ -137,19 +165,22 @@ func (w Warehouse) canMove(v Vec2) bool {
 		return false
 	}
 
-	return w.grid[v.y][v.x] == 'O'
+	switch w.at(v) {
+	case 'O', '[', ']':
+		return true
+	}
+
+	return false
 }
 
 func (w Warehouse) SumBoxesCoordinates() int {
 	sum := 0
 
-	for i, row := range w.grid {
-		for j, v := range row {
-			if v != 'O' {
-				continue
+	for y, row := range w.grid {
+		for x, v := range row {
+			if v == 'O' || v == '[' {
+				sum += 100*y + x
 			}
-
-			sum += 100*i + j
 		}
 	}
 
@@ -197,4 +228,130 @@ func (w *Warehouse) Move(from Vec2, movement Movement, updateRobot bool) bool {
 	}
 
 	return false
+}
+
+func (w *Warehouse) freePath(p Vec2, dir Movement) bool {
+  if w.isFree(p) {
+    return true
+  }
+
+	if dir != TOP && dir != BOTTOM {
+		panic("invalid direction")
+	}
+
+	var left, right Vec2
+
+	if w.at(p) == ']' {
+		left = p.DecX(1)
+		right = p
+	} else if w.at(p) == '[' {
+		left = p
+		right = p.IncX(1)
+	} else {
+		return false
+	}
+
+	leftDir, rightDir := left.DecY(1), right.DecY(1)
+
+	if dir == BOTTOM {
+		leftDir, rightDir = left.IncY(1), right.IncY(1)
+	}
+
+	if !w.freePath(leftDir, dir) {
+    return false
+  }
+
+	if !w.freePath(rightDir, dir) {
+    return false
+  }
+
+	w.grid[left.y][left.x], w.grid[leftDir.y][leftDir.x] = w.grid[leftDir.y][leftDir.x], w.grid[left.y][left.x]
+	w.grid[right.y][right.x], w.grid[rightDir.y][rightDir.x] = w.grid[rightDir.y][rightDir.x], w.grid[right.y][right.x]
+
+	return true
+}
+
+func (w *Warehouse) MovePairs(from Vec2, movement Movement, updateRobot bool) bool {
+	var to Vec2
+
+	switch movement {
+	case TOP:
+		to = from.DecY(1)
+		break
+	case RIGHT:
+		to = from.IncX(1)
+		break
+	case BOTTOM:
+		to = from.IncY(1)
+		break
+	case LEFT:
+		to = from.DecX(1)
+		break
+	default:
+		panic("invalid movement")
+	}
+
+	if w.isFree(to) {
+		w.grid[from.y][from.x], w.grid[to.y][to.x] = w.grid[to.y][to.x], w.grid[from.y][from.x]
+
+		if updateRobot {
+			w.robot = to
+		}
+
+		return true
+	} else if w.canMove(to) {
+		if movement == TOP || movement == BOTTOM {
+			if !w.freePath(to, movement) {
+				return false
+			}
+		} else if !w.MovePairs(to, movement, false) {
+			return false
+		}
+
+		w.grid[from.y][from.x], w.grid[to.y][to.x] = w.grid[to.y][to.x], w.grid[from.y][from.x]
+
+		if updateRobot {
+			w.robot = to
+		}
+
+		return true
+	}
+
+	return false
+}
+
+func (w *Warehouse) GrowMap() {
+	for i, row := range w.grid {
+		out := make([]rune, 0)
+
+		for _, c := range row {
+			switch c {
+			case '@':
+				out = append(out, '@')
+				out = append(out, '.')
+				break
+			case 'O':
+				out = append(out, '[')
+				out = append(out, ']')
+				break
+			default:
+				out = append(out, c)
+				out = append(out, c)
+				break
+			}
+		}
+
+		w.w = max(w.w, len(out))
+
+		w.grid[i] = out
+	}
+
+	for y, row := range w.grid {
+		for x, c := range row {
+			if c == '@' {
+				w.robot = Vec2{x: x, y: y}
+				break
+			}
+		}
+	}
 }

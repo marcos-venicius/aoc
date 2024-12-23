@@ -7,11 +7,27 @@ import (
 )
 
 func solveTwo(reader aocreader.LinesReader) int {
-	ans := 0
+	warehouse := CreateWarehouse()
 
 	for reader.Running() {
-		reader.Line()
+		_, line := reader.Line()
+
+		warehouse.ParseLine(line)
 	}
+
+  warehouse.GrowMap()
+
+  println("Initial state:")
+  warehouse.Display()
+	for _, movement := range warehouse.movements {
+    /* fmt.Printf("Move %c (%d, %d):\n", movement, warehouse.robot.x, warehouse.robot.y) */
+		warehouse.MovePairs(warehouse.robot, movement, true)
+    /* warehouse.Display() */
+	}
+
+  warehouse.Display()
+
+	ans := warehouse.SumBoxesCoordinates()
 
 	fmt.Printf("02: %d\n", ans)
 
