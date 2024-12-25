@@ -1,4 +1,6 @@
 *.swp
 *.txt
 *.o
+*.dump
 aoc
+
