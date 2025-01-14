@@ -6,6 +6,7 @@
 #include <raylib.h>
 
 #define FINAL
+//#define WITH_ANIMATION
 
 #define WIDTH 800
 #define HEIGHT 800
@@ -126,10 +127,6 @@ Board get_board(void) {
     }
     
     return board;
-}
-
-Block *get_block_at(const Board *board, Vector2 pos) {
-    return &board->blocks[(int)pos.y * board->w + (int)pos.x];
 }
 
 Vector2 get_block_render_pos(const Block *block, Vector2 offset) {
@@ -259,10 +256,6 @@ bool is_out_of_bounds(const Board *board, Vector2 p) {
 
 bool is_wall(const Board *board, int i) {
     return board->blocks[i].kind == BK_WALL;
-}
-
-bool is_blank(const Board *board, int i) {
-    return board->blocks[i].kind == BK_SPACE;
 }
 
 bool is_box(const Board *board, int i) {
@@ -407,6 +400,7 @@ bool load_inputs_from_files(void) {
     return true;
 }
 
+#ifdef WITH_ANIMATION
 int main(void) {
     #ifdef FINAL
     if (!load_inputs_from_files()) exit(1);
@@ -524,3 +518,40 @@ int main(void) {
 
     return 0;
 }
+#else
+int main(void) {
+    #ifdef FINAL
+    if (!load_inputs_from_files()) exit(1);
+    #endif
+
+    Board board = get_board();
+    Movement *movements = get_movements();
+
+
+    while (next_movement_index < movements_count) execute_movement(&board, movements[next_movement_index++]);
+
+    size_t sum = 0;
+
+    for (size_t block = 0; block < board.size; ++block) {
+        Block b = board.blocks[block];
+
+        if (b.kind == BK_BOX) {
+            sum += 100 * b.pos.y + b.pos.x;
+
+            board.blocks[block].marked = true;
+        }
+    }
+
+    printf("Part 01: %ld\n", sum);
+
+    free(board.blocks);
+    free(movements);
+
+    #ifdef FINAL
+    free(input_string);
+    free(movements_string);
+    #endif
+
+    return 0;
+}
+#endif
