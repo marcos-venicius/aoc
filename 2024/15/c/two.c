@@ -7,7 +7,7 @@
 
 #define FINAL
 
-#define WIDTH 800
+#define WIDTH 1080
 #define HEIGHT 800
 
 typedef enum {
@@ -19,7 +19,8 @@ typedef enum {
 
 typedef enum {
     BK_WALL,
-    BK_BOX,
+    BK_LBOX,
+    BK_RBOX,
     BK_SPACE,
     BK_ROBOT
 } Block_Kind;
@@ -37,6 +38,11 @@ typedef struct {
     Block robot;
 } Board;
 
+typedef struct {
+    size_t l, r;
+    Vector2 lp, rp;
+} Block_Indexes;
+
 static size_t next_movement_index = 0;
 static size_t movements_count = 0;
 
@@ -46,16 +52,27 @@ static char *input_string = NULL;
 static char *movements_string = NULL;
 #else
 #define BSIZE 20
-static const char *input_string = "########\n"
-                                  "#..O.O.#\n"
-                                  "##@.O..#\n"
-                                  "#...O..#\n"
-                                  "#.#.O..#\n"
-                                  "#...O..#\n"
-                                  "#......#\n"
-                                  "########\n";
+static const char *input_string = "##########\n"
+                                  "#..O..O.O#\n"
+                                  "#......O.#\n"
+                                  "#.OO..O.O#\n"
+                                  "#..O@..O.#\n"
+                                  "#O#..O...#\n"
+                                  "#O..O..O.#\n"
+                                  "#.OO.O.OO#\n"
+                                  "#....O...#\n"
+                                  "##########\n";
 
-static const char *movements_string = "<^^>>>vv<v>>v<<";
+static const char *movements_string = "<vv>^<v^>v>^vv^v>v<>v^v<v<^vv<<<^><<><>>v<vvv<>^v^>^<<<><<v<<<v^vv^v>^"
+                                      "vvv<<^>^v^^><<>>><>^<<><^vv^^<>vvv<>><^^v>^>vv<>v<<<<v<^v>^<^^>>>^<v<v"
+                                      "><>vv>v^v^<>><>>>><^^>vv>v<^^^>>v^v^<^^>v^^>v^<^v>v<>>v^v^<v>v^^<^^vv<"
+                                      "<<v<^>>^^^^>>>v^<>vvv^><v<<<>^^^vv^<vvv>^>v<^^^^v<>^>vvvv><>>v^<<^^^^^"
+                                      "^><^><>>><>^^<<^^v>>><^<v>^<vv>>v>>>^v><>^v><<<<v>>v<v<v>vvv>^<><<>^><"
+                                      "^>><>^v<><^vvv<^^<><v<<<<<><^v<<<><<<^^<v<^^^><^>>^<v^><<<^>>^v<v^v<v^"
+                                      ">^>>^v>vv>^<<^v<>><<><<v<<v><>v<^vv<<<>^^v^>^^>>><<^v>>v^v><^^>>^<>vv^"
+                                      "<><^^>^^^<><vvvvv^v<v<<>^v<v>v<<^><<><<><<<^^<<<^<<>><<><^^^>^^<>^>v<>"
+                                      "^^>vv<^v^v<vv>^<><v<^v>^^^>>>^^vvv^>vvv<>>>^<^>>>>>^<<^v>^vvv<>^<><<v>"
+                                      "v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^";
 #endif
 
 
@@ -82,9 +99,9 @@ Vector2 get_input_size(void) {
 Board get_board(void) {
     Vector2 input_size = get_input_size();
     Board board = {
-        .w = input_size.x,
+        .w = input_size.x * 2,
         .h = input_size.y,
-        .size = input_size.x * input_size.y,
+        .size = input_size.x * 2 * input_size.y,
     };
 
     board.blocks = malloc(board.size * sizeof(Block));
@@ -103,23 +120,62 @@ Board get_board(void) {
             x = 0;
             ++y;
         } else {
-            Block_Kind kind = BK_SPACE;
-
             switch (input_string[i]) {
-                case '#': kind = BK_WALL; break;
-                case '.': kind = BK_SPACE; break;
-                case 'O': kind = BK_BOX; break;
-                case '@': kind = BK_ROBOT; break;
+                case '#': {
+                    board.blocks[block_index++] = (Block){
+                        .pos = { .x = x, .y = y },
+                        .kind = BK_WALL,
+                        .marked = false
+                    };
+                    ++x;
+                    board.blocks[block_index++] = (Block){
+                        .pos = { .x = x, .y = y },
+                        .kind = BK_WALL,
+                        .marked = false
+                    };
+                } break;
+                case '.': {
+                    board.blocks[block_index++] = (Block){
+                        .pos = { .x = x, .y = y },
+                        .kind = BK_SPACE,
+                        .marked = false
+                    };
+                    ++x;
+                    board.blocks[block_index++] = (Block){
+                        .pos = { .x = x, .y = y },
+                        .kind = BK_SPACE,
+                        .marked = false
+                    };
+                } break;
+                case 'O': {
+                    board.blocks[block_index++] = (Block){
+                        .pos = { .x = x, .y = y },
+                        .kind = BK_LBOX,
+                        .marked = false
+                    };
+                    ++x;
+                    board.blocks[block_index++] = (Block){
+                        .pos = { .x = x, .y = y },
+                        .kind = BK_RBOX,
+                        .marked = false
+                    };
+                } break;
+                case '@': {
+                    board.blocks[block_index++] = (Block){
+                        .pos = { .x = x, .y = y },
+                        .kind = BK_ROBOT,
+                        .marked = false
+                    };
+                    ++x;
+                    board.robot = board.blocks[block_index - 1];
+                    board.blocks[block_index++] = (Block){
+                        .pos = { .x = x, .y = y },
+                        .kind = BK_SPACE,
+                        .marked = false
+                    };
+                } break;
                 default: assert(0 && "invalid block kind");
             }
-
-            board.blocks[block_index++] = (Block){
-                .pos = { .x = x, .y = y },
-                .kind = kind,
-                .marked = false
-            };
-
-            if (kind == BK_ROBOT) board.robot = board.blocks[block_index - 1];
 
             ++x;
         }
@@ -157,8 +213,11 @@ void render_board(const Board *board, Vector2 offset) {
             case BK_ROBOT:
                 DrawRectangle(p.x, p.y, BSIZE, BSIZE, GREEN);
                 break;
-            case BK_BOX:
+            case BK_LBOX:
                 DrawRectangle(p.x, p.y, BSIZE, BSIZE, block.marked ? YELLOW : WHITE);
+                break;
+            case BK_RBOX:
+                DrawRectangle(p.x, p.y, BSIZE, BSIZE, block.marked ? YELLOW : BLUE);
                 break;
             case BK_SPACE:
                 DrawRectangle(p.x, p.y, BSIZE, BSIZE, GRAY);
@@ -266,7 +325,7 @@ bool is_blank(const Board *board, int i) {
 }
 
 bool is_box(const Board *board, int i) {
-    return board->blocks[i].kind == BK_BOX;
+    return board->blocks[i].kind == BK_LBOX || board->blocks[i].kind == BK_RBOX;
 }
 
 void swap(Board *board, size_t robot, size_t b) {
@@ -276,6 +335,37 @@ void swap(Board *board, size_t robot, size_t b) {
     board->blocks[b] = t;
 
     board->robot = board->blocks[b];
+}
+
+void swapn(Board *board, size_t a, size_t b) {
+    Block t = board->blocks[a];
+
+    board->blocks[a] = board->blocks[b];
+    board->blocks[b] = t;
+}
+
+Block_Indexes get_block_indexes(const Board *board, Vector2 block) {
+    Block_Kind kind = board->blocks[pos_to_index(board, block)].kind;
+
+    switch (kind) {
+        case BK_LBOX: {
+            return (Block_Indexes){
+                .l = pos_to_index(board, block),
+                .r = pos_to_index(board, inc_x(block)),
+                .lp = block,
+                .rp = inc_x(block)
+            };
+        } break;
+        case BK_RBOX: {
+            return (Block_Indexes){
+                .l = pos_to_index(board, dec_x(block)),
+                .r = pos_to_index(board, block),
+                .lp = dec_x(block),
+                .rp = block
+            };
+        } break;
+        default: assert(0 && "invalid block kind. It's not a box");
+    }
 }
 
 bool move_left(Board *board, Vector2 block) {
@@ -316,6 +406,36 @@ bool move_right(Board *board, Vector2 block) {
     return true;
 }
 
+bool move_box_top(Board *board, Vector2 block, bool exec) {
+    Block_Indexes idx = get_block_indexes(board, block);
+
+    Vector2 to_l = dec_y(idx.lp);
+    Vector2 to_r = dec_y(idx.rp);
+
+    if (is_out_of_bounds(board, to_l) || is_out_of_bounds(board, to_r)) return false;
+    if (is_wall(board, pos_to_index(board, to_l)) || is_wall(board, pos_to_index(board, to_r))) return false;
+    // just check the state
+    if (is_box(board, pos_to_index(board, to_l)) && !move_box_top(board, to_l, false)) return false;
+    if (is_box(board, pos_to_index(board, to_r)) && !move_box_top(board, to_r, false)) return false;
+
+    // then, apply the change if needed
+    if (is_box(board, pos_to_index(board, to_l))) move_box_top(board, to_l, true);
+    if (is_box(board, pos_to_index(board, to_r))) move_box_top(board, to_r, true);
+
+    if (exec) {
+        board->blocks[idx.l].pos = to_l;
+        board->blocks[idx.r].pos = to_r;
+
+        board->blocks[pos_to_index(board, to_l)].pos = idx.lp;
+        board->blocks[pos_to_index(board, to_r)].pos = idx.rp;
+
+        swapn(board, idx.l, pos_to_index(board, to_l));
+        swapn(board, idx.r, pos_to_index(board, to_r));
+    }
+
+    return true;
+}
+
 bool move_top(Board *board, Vector2 block) {
     size_t ri = pos_to_index(board, block);
     size_t i = pos_to_index(board, dec_y(block));
@@ -324,12 +444,42 @@ bool move_top(Board *board, Vector2 block) {
 
     if (is_wall(board, ri) || is_wall(board, i)) return false;
 
-    if (is_box(board, i) && !move_top(board, dec_y(block))) return false;
+    if (is_box(board, i) && !move_box_top(board, dec_y(block), true)) return false;
 
     board->blocks[ri].pos = dec_y(board->blocks[ri].pos);
     board->blocks[i].pos = inc_y(board->blocks[i].pos);
 
     swap(board, ri, i);
+
+    return true;
+}
+
+bool move_box_bottom(Board *board, Vector2 block, bool exec) {
+    Block_Indexes idx = get_block_indexes(board, block);
+
+    Vector2 to_l = inc_y(idx.lp);
+    Vector2 to_r = inc_y(idx.rp);
+
+    if (is_out_of_bounds(board, to_l) || is_out_of_bounds(board, to_r)) return false;
+    if (is_wall(board, pos_to_index(board, to_l)) || is_wall(board, pos_to_index(board, to_r))) return false;
+    // just check the state
+    if (is_box(board, pos_to_index(board, to_l)) && !move_box_bottom(board, to_l, false)) return false;
+    if (is_box(board, pos_to_index(board, to_r)) && !move_box_bottom(board, to_r, false)) return false;
+
+    // then, apply the change if needed
+    if (is_box(board, pos_to_index(board, to_l))) move_box_bottom(board, to_l, true);
+    if (is_box(board, pos_to_index(board, to_r))) move_box_bottom(board, to_r, true);
+
+    if (exec) {
+        board->blocks[idx.l].pos = to_l;
+        board->blocks[idx.r].pos = to_r;
+
+        board->blocks[pos_to_index(board, to_l)].pos = idx.lp;
+        board->blocks[pos_to_index(board, to_r)].pos = idx.rp;
+
+        swapn(board, idx.l, pos_to_index(board, to_l));
+        swapn(board, idx.r, pos_to_index(board, to_r));
+    }
 
     return true;
 }
@@ -342,7 +492,7 @@ bool move_bottom(Board *board, Vector2 block) {
 
     if (is_wall(board, ri) || is_wall(board, i)) return false;
 
-    if (is_box(board, i) && !move_bottom(board, inc_y(block))) return false;
+    if (is_box(board, i) && !move_box_bottom(board, inc_y(block), true)) return false;
 
     board->blocks[ri].pos = inc_y(board->blocks[ri].pos);
     board->blocks[i].pos = dec_y(board->blocks[i].pos);
@@ -417,8 +567,6 @@ int main(void) {
     Board board = get_board();
     Movement *movements = get_movements();
 
-    fprintf(stderr, "%ld\n", movements_count);
-
     SetTargetFPS(400);
 
     Vector2 middle = {
@@ -482,7 +630,10 @@ int main(void) {
         if (block < board.size) {
             Block b = board.blocks[block];
 
-            if (b.kind == BK_BOX) {
+            Vector2 p = get_block_render_pos(&b, middle);
+            DrawRectangle(p.x, p.y, BSIZE, BSIZE, YELLOW);
+
+            if (b.kind == BK_LBOX) {
                 sum += 100 * b.pos.y + b.pos.x;
 
                 board.blocks[block].marked = true;

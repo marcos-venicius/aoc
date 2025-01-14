@@ -4,10 +4,10 @@ CXX_FLAGS = -Wall -Wextra -ggdb -pedantic -I$(PWD)/raylib/include/ -Wl,-rpath=$(
 
 all: one two
 
-one:
+one: clean
 	$(CXX) $(CXX_FLAGS) -o one one.c
 
-two:
+two: clean
 	$(CXX) $(CXX_FLAGS) -o two two.c
 
 clean:
