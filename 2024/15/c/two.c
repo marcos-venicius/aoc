@@ -5,8 +5,9 @@
 #include <errno.h>
 #include <raylib.h>
 
-#define FINAL
-//#define WITH_ANIMATION
+#define FINAL 1
+#define WITH_ANIMATION 0
+#define RENDER_ASCII 0
 
 #define WIDTH 1080
 #define HEIGHT 800
@@ -47,35 +48,14 @@ typedef struct {
 static size_t next_movement_index = 0;
 static size_t movements_count = 0;
 
-#ifdef FINAL
-#define BSIZE 10
 static char *input_string = NULL;
 static char *movements_string = NULL;
+
+#if FINAL
+#define BSIZE 10
 #else
 #define BSIZE 20
-static const char *input_string = "##########\n"
-                                  "#..O..O.O#\n"
-                                  "#......O.#\n"
-                                  "#.OO..O.O#\n"
-                                  "#..O@..O.#\n"
-                                  "#O#..O...#\n"
-                                  "#O..O..O.#\n"
-                                  "#.OO.O.OO#\n"
-                                  "#....O...#\n"
-                                  "##########\n";
-
-static const char *movements_string = "<vv>^<v^>v>^vv^v>v<>v^v<v<^vv<<<^><<><>>v<vvv<>^v^>^<<<><<v<<<v^vv^v>^"
-                                      "vvv<<^>^v^^><<>>><>^<<><^vv^^<>vvv<>><^^v>^>vv<>v<<<<v<^v>^<^^>>>^<v<v"
-                                      "><>vv>v^v^<>><>>>><^^>vv>v<^^^>>v^v^<^^>v^^>v^<^v>v<>>v^v^<v>v^^<^^vv<"
-                                      "<<v<^>>^^^^>>>v^<>vvv^><v<<<>^^^vv^<vvv>^>v<^^^^v<>^>vvvv><>>v^<<^^^^^"
-                                      "^><^><>>><>^^<<^^v>>><^<v>^<vv>>v>>>^v><>^v><<<<v>>v<v<v>vvv>^<><<>^><"
-                                      "^>><>^v<><^vvv<^^<><v<<<<<><^v<<<><<<^^<v<^^^><^>>^<v^><<<^>>^v<v^v<v^"
-                                      ">^>>^v>vv>^<<^v<>><<><<v<<v><>v<^vv<<<>^^v^>^^>>><<^v>>v^v><^^>>^<>vv^"
-                                      "<><^^>^^^<><vvvvv^v<v<<>^v<v>v<<^><<><<><<<^^<<<^<<>><<><^^^>^^<>^>v<>"
-                                      "^^>vv<^v^v<vv>^<><v<^v>^^^>>>^^vvv^>vvv<>>>^<^>>>>>^<<^v>^vvv<>^<><<v>"
-                                      "v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^";
 #endif
-
 
 Vector2 get_input_size(void) {
     int w = 0;
@@ -175,7 +155,7 @@ Board get_board(void) {
                         .marked = false
                     };
                 } break;
-                default: assert(0 && "invalid block kind");
+                default: { fprintf(stderr, "invalid block kind: [%c]\n", input_string[i]); } exit(1);
             }
 
             ++x;
@@ -186,7 +166,7 @@ Board get_board(void) {
 }
 
 Vector2 get_block_render_pos(const Block *block, Vector2 offset) {
-    #ifdef FINAL
+    #if FINAL
     float x = (block->pos.x * BSIZE) + offset.x;
     float y = (block->pos.y * BSIZE) + offset.y;
     #else
@@ -224,6 +204,31 @@ void render_board(const Board *board, Vector2 offset) {
                 break;
         }
     }
+}
+
+void render_board_ascii(const Board *board) {
+    size_t last_y = 0;
+
+    for (size_t i = 0; i < board->size; ++i) {
+        Block block = board->blocks[i];
+
+        if (block.pos.y != last_y) {
+            last_y = block.pos.y;
+
+            printf("\n");
+        }
+
+        switch (block.kind) {
+            case BK_WALL: printf("#"); break;
+            case BK_SPACE: printf("."); break;
+            case BK_ROBOT: printf("@"); break;
+            case BK_LBOX: printf("["); break;
+            case BK_RBOX: printf("]"); break;
+            default: assert(0 && "unexpected block kind");
+        }
+    }
+
+    printf("\n");
 }
 
 Movement *get_movements(void) {
@@ -412,8 +417,8 @@ bool move_box_top(Board *board, Vector2 block, bool exec) {
     if (is_box(board, pos_to_index(board, to_r)) && !move_box_top(board, to_r, false)) return false;
 
     // then, apply the change if needed
-    if (is_box(board, pos_to_index(board, to_l))) move_box_top(board, to_l, true);
-    if (is_box(board, pos_to_index(board, to_r))) move_box_top(board, to_r, true);
+    if (is_box(board, pos_to_index(board, to_l))) move_box_top(board, to_l, exec);
+    if (is_box(board, pos_to_index(board, to_r))) move_box_top(board, to_r, exec);
 
     if (exec) {
         board->blocks[idx.l].pos = to_l;
@@ -460,8 +465,8 @@ bool move_box_bottom(Board *board, Vector2 block, bool exec) {
     if (is_box(board, pos_to_index(board, to_r)) && !move_box_bottom(board, to_r, false)) return false;
 
     // then, apply the change if needed
-    if (is_box(board, pos_to_index(board, to_l))) move_box_bottom(board, to_l, true);
-    if (is_box(board, pos_to_index(board, to_r))) move_box_bottom(board, to_r, true);
+    if (is_box(board, pos_to_index(board, to_l))) move_box_bottom(board, to_l, exec);
+    if (is_box(board, pos_to_index(board, to_r))) move_box_bottom(board, to_r, exec);
 
     if (exec) {
         board->blocks[idx.l].pos = to_l;
@@ -517,7 +522,7 @@ char *read_file(const char *filename) {
     const size_t size = ftell(file);
     rewind(file);
 
-    char *content = malloc(size * sizeof(char));
+    char *content = malloc(size * sizeof(char) + 1);
 
     if (content == NULL) {
         fprintf(stderr, "could not allocate emory enough: %s\n", strerror(errno));
@@ -533,12 +538,15 @@ char *read_file(const char *filename) {
         return NULL;
     }
 
+    content[size] = '\0';
+
     fclose(file);
 
     return content;
 }
 
 bool load_inputs_from_files(void) {
+#if FINAL
     input_string = read_file("./input-01.txt");
 
     if (input_string == NULL) return false;
@@ -546,15 +554,22 @@ bool load_inputs_from_files(void) {
     movements_string = read_file("./input-02.txt");
 
     if (movements_string == NULL) return false;
+#else
+    input_string = read_file("./input-test-01.txt");
+
+    if (input_string == NULL) return false;
+
+    movements_string = read_file("./input-test-02.txt");
+
+    if (movements_string == NULL) return false;
+#endif
 
     return true;
 }
 
-#ifdef WITH_ANIMATION
+#if WITH_ANIMATION
 int main(void) {
-    #ifdef FINAL
     if (!load_inputs_from_files()) exit(1);
-    #endif
 
     InitWindow(WIDTH, HEIGHT, "AOC 15");
 
@@ -585,7 +600,7 @@ int main(void) {
 
         EndDrawing();
 
-        #ifdef FINAL
+        #if FINAL
         if (next_movement_index < movements_count) {
             execute_movement(&board, movements[next_movement_index++]);
         } else {
@@ -604,7 +619,7 @@ int main(void) {
         #endif
     }
 
-    #ifdef FINAL
+    #if FINAL
     SetTargetFPS(120);
     #else
     SetTargetFPS(5);
@@ -661,7 +676,7 @@ int main(void) {
     free(board.blocks);
     free(movements);
 
-    #ifdef FINAL
+    #if FINAL
     free(input_string);
     free(movements_string);
     #endif
@@ -671,12 +686,14 @@ int main(void) {
 }
 #else
 int main(void) {
-    #ifdef FINAL
     if (!load_inputs_from_files()) exit(1);
-    #endif
 
     Board board = get_board();
     Movement *movements = get_movements();
+
+#if RENDER_ASCII
+    render_board_ascii(&board);
+#endif
 
     while (next_movement_index < movements_count) execute_movement(&board, movements[next_movement_index++]);
 
@@ -692,12 +709,16 @@ int main(void) {
         }
     }
 
+#if RENDER_ASCII
+    render_board_ascii(&board);
+#endif
+
     printf("Part 02: %ld\n", sum);
 
     free(board.blocks);
     free(movements);
 
-    #ifdef FINAL
+    #if FINAL
     free(input_string);
     free(movements_string);
     #endif
