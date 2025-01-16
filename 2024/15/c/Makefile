@@ -1,5 +1,6 @@
+CLIBS = ../../../clibs
 CXX = clang
-CXX_FLAGS = -Wall -Wextra -ggdb -pedantic -I$(PWD)/raylib/include/ -Wl,-rpath=$(PWD)/raylib/lib/ -L$(PWD)/raylib/lib/ -lraylib -lm
+CXX_FLAGS = -Wall -Wextra -ggdb -pedantic -I$(CLIBS)/raylib/include/ -Wl,-rpath=$(CLIBS)/raylib/lib/ -L$(CLIBS)/raylib/lib/ -lraylib -lm
 
 
 all: one two
