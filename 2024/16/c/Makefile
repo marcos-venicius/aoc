@@ -4,10 +4,10 @@ CXX_FLAGS = -Wall -Wextra -ggdb -pedantic -I$(CLIBS)/raylib/include/ -Wl,-rpath=
 
 all: one two
 
-one: one.o io.o
+one: one.o io.o aoc.o
 	$(CXX) $(CXX_FLAGS) -o one $^
 
-two: two.o io.o
+two: two.o io.o aoc.o
 	$(CXX) $(CXX_FLAGS) -o two $^
 
 %.o: %.c
