@@ -50,11 +50,35 @@ def get_line_max_arranged_joltage(line, B=2):
 
     return int(number)
 
+def walking_robots(line, B=2):
+    size = len(line)
+    robots_done = 0
+    robots_walking = B
+    indexes = []
+
+    while robots_done < B:
+        left_most = indexes[-1] + 1 if len(indexes) > 0 else 0
+        right_most = size - robots_walking + 1
+
+        max_number_index = left_most
+
+        for i in range(left_most, right_most):
+            if line[i] > line[max_number_index]:
+                max_number_index = i
+
+        indexes.append(max_number_index)
+        robots_walking -= 1
+        robots_done += 1
+
+    answer = [line[i] for i in indexes]
+
+    return int(''.join(map(lambda x: str(x), answer)))
+
 def part_one():
     return sum([get_line_max_arranged_joltage(line) for line in data])
 
 def part_two():
-    return sum([get_line_max_arranged_joltage(line, 12) for line in data])
+    return sum([walking_robots(line, 12) for line in data])
 
 part_one_answer = part_one()
 part_two_answer = part_two()
