@@ -4,26 +4,48 @@ import "core:os"
 import "core:fmt"
 import "core:strings"
 
+Board :: [dynamic][dynamic]ObjectKind
+ObjectKind :: enum {
+  PaperRoll = '@',
+  Empty = '.'
+}
+
+POSITIONS :: [8][2]int{{-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}}
+
 main :: proc() {
   if len(os.args) != 2 {
     fmt.fprintf(os.stderr, "usage: %s <input file>\n", os.args[0])
     os.exit(1)
   }
 
+  // TODO: refactor this to do proper memory management. It's working, but it's good to learn more about odin
+  // TODO: add a visualization with raylib. I think it would be very fun
+
   board := read_input(os.args[1])
 
-  defer delete(board)
+  part_one, _ := execute_solution(board)
+  part_two, new_board := execute_solution(board)
 
-  part_one := execute_part_one(board)
+  for true {
+    result := 0
+
+    result, new_board = execute_solution(new_board)
+
+    if result == 0 {
+      break
+    }
+
+    part_two += result
+  }
 
   fmt.printf("P1: %d\n", part_one)
-  fmt.printf("P2: X\n")
+  fmt.printf("P2: %d\n", part_two)
 }
 
-execute_part_one :: proc(board: [dynamic][dynamic]ObjectKind) -> int {
+execute_solution :: proc(board: Board) -> (int, Board) {
   answer := 0
 
-  POSITIONS :: [8][2]int{{-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}}
+  output := deep_copy(board)
 
   for y in 0..<len(board) {
     for x in 0..<len(board[y]) {
@@ -47,23 +69,35 @@ execute_part_one :: proc(board: [dynamic][dynamic]ObjectKind) -> int {
         if board[cy][cx] == .PaperRoll {
           paper_rolls += 1
         }
+
+        if paper_rolls >= 4 {
+          break
+        }
       }
 
       if paper_rolls < 4 {
         answer += 1
+        output[y][x] = .Empty
       }
     }
   }
 
-  return answer
+  return answer, output
 }
 
-ObjectKind :: enum {
-  PaperRoll = '@',
-  Empty = '.'
+deep_copy :: proc(board: Board) -> Board {
+  kopy := make(Board, len(board))
+
+  for i in 0..<len(board) {
+    kopy[i] = make([dynamic]ObjectKind, len(board[i]))
+
+    copy(kopy[i][:], board[i][:])
+  }
+
+  return kopy
 }
 
-read_input :: proc(filename: string) -> [dynamic][dynamic]ObjectKind {
+read_input :: proc(filename: string) -> Board {
   data, err := os.read_entire_file(filename, context.allocator)
 
   if err != nil {
@@ -73,7 +107,7 @@ read_input :: proc(filename: string) -> [dynamic][dynamic]ObjectKind {
 
   defer delete(data, context.allocator)
 
-  board: [dynamic][dynamic]ObjectKind
+  board: Board
 
   it := string(data)
 
