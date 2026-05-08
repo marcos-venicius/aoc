@@ -13,33 +13,33 @@ ObjectKind :: enum {
 POSITIONS :: [8][2]int{{-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}}
 
 main :: proc() {
-  if len(os.args) != 2 {
-    fmt.fprintf(os.stderr, "usage: %s <input file>\n", os.args[0])
-    os.exit(1)
-  }
+  args := parse_command_line_arguments()
 
   // TODO: refactor this to do proper memory management. It's working, but it's good to learn more about odin
-  // TODO: add a visualization with raylib. I think it would be very fun
 
-  board := read_input(os.args[1])
+  board := read_input(args.input_filepath)
 
-  part_one, _ := execute_solution(board)
-  part_two, new_board := execute_solution(board)
+  if args.visualize {
+    main_visualize(board)
+  } else {
+    part_one, _ := execute_solution(board)
+    part_two, new_board := execute_solution(board)
 
-  for true {
-    result := 0
+    for true {
+      result := 0
 
-    result, new_board = execute_solution(new_board)
+      result, new_board = execute_solution(new_board)
 
-    if result == 0 {
-      break
+      if result == 0 {
+        break
+      }
+
+      part_two += result
     }
 
-    part_two += result
+    fmt.printf("P1: %d\n", part_one)
+    fmt.printf("P2: %d\n", part_two)
   }
-
-  fmt.printf("P1: %d\n", part_one)
-  fmt.printf("P2: %d\n", part_two)
 }
 
 execute_solution :: proc(board: Board) -> (int, Board) {
