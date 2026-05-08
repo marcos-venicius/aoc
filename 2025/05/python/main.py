@@ -11,6 +11,7 @@ lines = open(sys.argv[1], 'r').read().splitlines()
 
 ingredient_ranges = []
 fresh_ingredients = 0
+all_fresh_ingredients = 0
 
 for i in range(len(lines)):
     line = lines[i]
@@ -36,3 +37,21 @@ for i in range(len(lines)):
         break
 
 print(f'P1: {fresh_ingredients}')
+
+f = ingredient_ranges[0][0]
+t = ingredient_ranges[0][1]
+
+for i in range(1, len(ingredient_ranges)):
+    nxt = ingredient_ranges[i]
+
+    if nxt[0] <= t:
+        t = max(t, nxt[1])
+    else:
+        all_fresh_ingredients += t - f + 1
+
+        f = nxt[0]
+        t = nxt[1]
+
+all_fresh_ingredients += t - f + 1
+
+print(f'P2: {all_fresh_ingredients}')
