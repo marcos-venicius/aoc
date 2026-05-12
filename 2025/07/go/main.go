@@ -40,7 +40,7 @@ func (t *TachyonParticles) travelTachyon(startX, startY int) {
 		return
 	}
 
-	for i := range (len(t.board) - startY - 1) {
+	for i := range (len(t.board) - startY) {
 		y := startY + i
 
 		if t.board[y][startX] == '^' {
@@ -86,7 +86,9 @@ func mountInitialBoard() [][]rune {
 			row = append(row, c)
 		}
 
-		board = append(board, row)
+		if len(row) > 0 {
+			board = append(board, row)
+		}
 	}
 
 	return board
