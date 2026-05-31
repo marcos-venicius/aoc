@@ -69,6 +69,8 @@
   - Solution [01](./2017/01) | [↗AOC](https://adventofcode.com/2017/day/1)
     - Solution [Go](./2017/01/go)
 - Solution [2016](./2016) | [↗AOC](https://adventofcode.com/2016)
+  - Solution [02](./2016/02) | [↗AOC](https://adventofcode.com/2016/day/2)
+    - Solution [Python](./2016/02/python)
   - Solution [01](./2016/01) | [↗AOC](https://adventofcode.com/2016/day/1)
     - Solution [Go](./2016/01/go)
 - Solution [2015](./2015) | [↗AOC](https://adventofcode.com/2015)
