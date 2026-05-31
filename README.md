@@ -9,6 +9,8 @@
 > Instead, my goal is to solve them in ways that I find fun and interesting!
 
 - [**2025**](./2025)
+  - [**Day 08**](./2025/08)
+    - [**python**](./2025/08/python)
   - [**Day 07**](./2025/07)
     - [**go**](./2025/07/go)
   - [**Day 06**](./2025/06)
@@ -16,7 +18,7 @@
   - [**Day 05**](./2025/05)
     - [**python**](./2025/05/python)
   - [**Day 04** (04, odin, gitignore)](./2025/04)
-  - [**Day 03** (odin, py)](./2025/03)
+  - [**Day 03** (py, odin)](./2025/03)
   - [**Day 02**](./2025/02)
     - [**python**](./2025/02/python)
   - [**Day 01**](./2025/01)
