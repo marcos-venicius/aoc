@@ -55,7 +55,7 @@ for year in years:
             for d in dirs:
                 readme.append(f'    - Solution [{map_lang(d)}]({os.path.join("./", year, day, d)})')
         else:
-            langs = ', '.join([map_lang(x) for x in set([x.split('.')[-1] for x in files]) if x not in exclude_files])
+            langs = ', '.join([map_lang(x) for x in sorted(set([x.split('.')[-1] for x in files])) if x not in exclude_files])
 
             readme.append(f'  - Solution [{day} ({langs})]({os.path.join("./", year, day)})')
         
