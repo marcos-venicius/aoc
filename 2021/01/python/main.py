@@ -13,3 +13,16 @@ for i in range(1, len(data)):
         part_one += 1
 
 print(f'P1: {part_one}')
+
+part_two = 0
+
+for i in range(len(data) - 3):
+    m = data[i + 1] + data[i + 2]
+
+    a = data[i] + m
+    b = m + data[i + 3]
+
+    if b > a:
+        part_two += 1
+
+print(f'P2: {part_two}')
