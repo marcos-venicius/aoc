@@ -15,7 +15,7 @@ readme = [
     ""
 ]
 
-exclude_files = set(['sum', 'mod', 'txt', 'md'])
+exclude_files = set(['sum', 'mod', 'txt', 'md', 'gitignore'])
 years = sorted([x for x in os.listdir('.') if x.isnumeric() and os.path.isdir(x)], key=lambda x: int(x), reverse=True)
 
 for year in years:
