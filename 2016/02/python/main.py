@@ -18,8 +18,9 @@ class PadController:
         ny = self.y + m[1]
 
         if ny >= 0 and ny < len(self.keypad) and nx >= 0 and nx < len(self.keypad[ny]):
-            self.x = nx
-            self.y = ny
+            if self.keypad[ny][nx] is not None:
+                self.x = nx
+                self.y = ny
 
     def exec_instruction(self, instructions):
         code = []
@@ -39,3 +40,13 @@ part_one = PadController([
 ], (1, 1))
 
 print(f'P1: {part_one.exec_instruction(instructions)}')
+
+part_two = PadController([
+    [None, None, '1', None, None],
+    [None, '2',  '3', '4',  None],
+    ['5',  '6',  '7', '8',   '9'],
+    [None, 'A',  'B', 'C',  None],
+    [None, None, 'D', None, None]
+], (0, 2))
+
+print(f'P2: {part_two.exec_instruction(instructions)}')
