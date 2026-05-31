@@ -35,10 +35,10 @@ def map_lang(lang):
   return langs_map[lang]
 
 def map_aoc_year(year):
-  return f'https://adventofcode.com/{year}'
+  return f'https://adventofcode.com/{int(year)}'
 
 def map_aoc_day(year, day):
-  return f'https://adventofcode.com/{year}/day/{day}'
+  return f'https://adventofcode.com/{int(year)}/day/{int(day)}'
 
 for year in years:
     readme.append(f'- Solution [{year}](./{year}) | [↗AOC]({map_aoc_year(year)})')
