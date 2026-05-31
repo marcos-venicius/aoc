@@ -41,7 +41,7 @@ def map_aoc_day(year, day):
   return f'https://adventofcode.com/{year}/day/{day}'
 
 for year in years:
-    readme.append(f'- [{year}](./{year}) [↗AOC]({map_aoc_year(year)})')
+    readme.append(f'- Github [{year}](./{year}) | [↗AOC]({map_aoc_year(year)})')
 
     days = sorted(os.listdir(os.path.join('./', year)), key=lambda x: int(x), reverse=True)
 
@@ -51,7 +51,7 @@ for year in years:
         files = [x for x in entries if os.path.isfile(os.path.join('./', year, day, x))]
 
         if len(dirs) > 0:
-            readme.append(f'  - [{day}]({os.path.join("./", year, day)}) [↗AOC]({map_aoc_day(year, day)})')
+            readme.append(f'  - Github [{day}]({os.path.join("./", year, day)}) | [↗AOC]({map_aoc_day(year, day)})')
             for d in dirs:
                 readme.append(f'    - [{map_lang(d)}]({os.path.join("./", year, day, d)})')
         else:
