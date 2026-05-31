@@ -56,3 +56,11 @@ while not is_valid_password():
 
 print('P1: ', end='')
 print_password()
+
+increment_password(len(data) - 1)
+
+while not is_valid_password():
+  increment_password(len(data) - 1)
+
+print('P2: ', end='')
+print_password()
