@@ -24,7 +24,7 @@ for year in years:
     days = sorted(os.listdir(os.path.join('./', year)), key=lambda x: int(x), reverse=True)
 
     for day in days:
-        entries = [x for x in os.listdir(os.path.join('./', year, day))]
+        entries = sorted([x for x in os.listdir(os.path.join('./', year, day))])
         dirs = [x for x in entries if os.path.isdir(os.path.join('./', year, day, x))]
         files = [x for x in entries if os.path.isfile(os.path.join('./', year, day, x))]
 
