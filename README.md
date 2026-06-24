@@ -8,6 +8,10 @@
 > The code for these challenges isn't necessarily built for maximum performance.
 > Instead, my goal is to solve them in ways that I find fun and interesting!
 
+> [!WARNING]
+> Some of the solutions are implemented using my own language called [MCA](https://github.com/marcos-venicius/MCA).
+> If you want to try it out, just clone the repo, run `make` and you are ready to go!
+
 - Solution [2025](./2025) | [↗AOC](https://adventofcode.com/2025)
   - Solution [08](./2025/08) | [↗AOC](https://adventofcode.com/2025/day/8)
     - Solution [Python](./2025/08/python)
@@ -109,4 +113,6 @@
   - Solution [03](./2015/03) | [↗AOC](https://adventofcode.com/2015/day/3)
     - Solution [Zig](./2015/03/zig)
   - Solution [02 (Go)](./2015/02)
-  - Solution [01 (Go)](./2015/01)
+  - Solution [01](./2015/01) | [↗AOC](https://adventofcode.com/2015/day/1)
+    - Solution [Go](./2015/01/go)
+    - Solution [MCA](./2015/01/mca)

@@ -12,6 +12,10 @@ readme = [
     "> [!NOTE]",
     "> The code for these challenges isn't necessarily built for maximum performance.",
     "> Instead, my goal is to solve them in ways that I find fun and interesting!",
+    "",
+    "> [!WARNING]",
+    "> Some of the solutions are implemented using my own language called [MCA](https://github.com/marcos-venicius/MCA).",
+    "> If you want to try it out, just clone the repo, run `make` and you are ready to go!",
     ""
 ]
 
@@ -20,6 +24,7 @@ exclude_dirs = set(['assets'])
 years = sorted([x for x in os.listdir('.') if x.isnumeric() and os.path.isdir(x)], key=lambda x: int(x), reverse=True)
 langs_map = {
   'c': 'C',
+  'mca': 'MCA',
   'c3': 'C3',
   'py': 'Python',
   'python': 'Python',
