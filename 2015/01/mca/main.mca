@@ -1,0 +1,31 @@
+#!/usr/local/bin/mca -i
+
+INPUT      = read_entire_file('./input.txt')
+INPUT_SIZE = len(INPUT)
+
+basement = 0
+position = 1
+part_two = ?
+
+cursor = 0; while cursor < INPUT_SIZE {
+  char = at(INPUT, cursor)
+
+  if char == '(' {
+    basement = basement + 1
+  } elif char == ')' {
+    basement = basement - 1
+  }
+
+  cursor = cursor + 1
+
+  if basement == -1 and part_two == ? {
+    part_two = position
+  } else {
+    position = position + 1
+  }
+}
+
+println('P1: ', basement)
+println('P2: ', part_two)
+
+# vim: set syntax=r :
