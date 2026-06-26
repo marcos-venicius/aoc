@@ -21,10 +21,10 @@ cursor = 0; while cursor < INPUT_SIZE {
   if basement == -1 and part_two == ? {
     part_two = position
   } else {
-    position = position + 1
+    position += 1
   }
 
-  cursor = cursor + 1
+  cursor += 1
 }
 
 println('P1: ', basement)
