@@ -21,18 +21,9 @@ cursor = 0; while cursor < INPUT_SIZE {
   # this increases 'cursor' by one and stores the result value to 'bot'
   bot = cursor += 1
 
-  while cursor < INPUT_SIZE  {
-    # @Improve the ord doesn't accept a 'char' data type, we don't have it.
-    # It accepts a string of a specific size, in this case 1.
-    char = ord(at(INPUT, cursor)) # since it's a dynamic-typed language, we can 'overwrite' a string variable and make it an integer
-
-    # @Improve 'a and b' logical conditions are not lazy evaluated yet
-    if !(char >= ord('0') and char <= ord('9')) {
-      break;
-    }
-
-    cursor += 1
-  }
+  # @Improve the ord doesn't accept a 'char' data type, we don't have it.
+  # It accepts a string of a specific size, in this case 1.
+  while cursor < INPUT_SIZE and ord(at(INPUT, cursor)) >= ord('0') and ord(at(INPUT, cursor)) <= ord('9')  cursor += 1
 
   if cursor - bot > 0 {
     # @Improve 'select' gets a chunk of the string (it's allocated) but it's never freed since
