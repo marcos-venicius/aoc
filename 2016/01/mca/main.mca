@@ -3,10 +3,7 @@
 INPUT       = read_entire_file('./input.txt')
 INPUT_SIZE  = len(INPUT)
 
-dx = 0
-dy = -1
-
-x = y = 0;
+dx = 0; dy = -1; x = y = 0;
 
 cursor = 0; while cursor < INPUT_SIZE {
   char = at(INPUT, cursor)
@@ -14,32 +11,24 @@ cursor = 0; while cursor < INPUT_SIZE {
   if char == 'R' {
     # we don't have functions nor objets yet
     if dx == 0 and dy == -1 {
-      dx = 1
-      dy = 0
+      dx = 1; dy = 0;
     } elif dx == 1 and dy == 0 {
-      dx = 0
-      dy = 1
+      dx = 0; dy = 1;
     } elif dx == 0 and dy == 1 {
-      dx = -1
-      dy = 0
+      dx = -1; dy = 0;
     } elif dx == -1 and dy == 0 {
-      dx = 0
-      dy = -1
+      dx = 0; dy = -1;
     }
   } elif char == 'L' {
     # we don't have functions nor objets yet
     if dx == 0 and dy == -1 {
-      dx = -1
-      dy = 0
+      dx = -1; dy = 0;
     } elif dx == -1 and dy == 0 {
-      dx = 0
-      dy = 1
+      dx = 0; dy = 1;
     } elif dx == 0 and dy == 1 {
-      dx = 1
-      dy = 0
+      dx = 1; dy = 0;
     } elif dx == 1 and dy == 0 {
-      dx = 0
-      dy = -1
+      dx = 0; dy = -1;
     }
   }
 
