@@ -96,6 +96,7 @@
     - Solution [Python](./2016/02/python)
   - Solution [01](./2016/01) | [↗AOC](https://adventofcode.com/2016/day/1)
     - Solution [Go](./2016/01/go)
+    - Solution [MCA](./2016/01/mca)
 - Solution [2015](./2015) | [↗AOC](https://adventofcode.com/2015)
   - Solution [14](./2015/14) | [↗AOC](https://adventofcode.com/2015/day/14)
     - Solution [Python](./2015/14/python)
