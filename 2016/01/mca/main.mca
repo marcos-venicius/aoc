@@ -1,0 +1,67 @@
+#!/usr/local/bin/mca -i
+
+INPUT       = read_entire_file('./input.txt')
+INPUT_SIZE  = len(INPUT)
+
+dx = 0
+dy = -1
+
+x = y = 0;
+
+cursor = 0; while cursor < INPUT_SIZE {
+  char = at(INPUT, cursor)
+
+  if char == 'R' {
+    # we don't have functions nor objets yet
+    if dx == 0 and dy == -1 {
+      dx = 1
+      dy = 0
+    } elif dx == 1 and dy == 0 {
+      dx = 0
+      dy = 1
+    } elif dx == 0 and dy == 1 {
+      dx = -1
+      dy = 0
+    } elif dx == -1 and dy == 0 {
+      dx = 0
+      dy = -1
+    }
+  } elif char == 'L' {
+    # we don't have functions nor objets yet
+    if dx == 0 and dy == -1 {
+      dx = -1
+      dy = 0
+    } elif dx == -1 and dy == 0 {
+      dx = 0
+      dy = 1
+    } elif dx == 0 and dy == 1 {
+      dx = 1
+      dy = 0
+    } elif dx == 1 and dy == 0 {
+      dx = 0
+      dy = -1
+    }
+  }
+
+  bot = cursor += 1
+
+  while cursor < INPUT_SIZE  {
+    # 'a and b' logical conditions are not lazy evaluated yet
+    if !(ord(at(INPUT, cursor)) >= ord('0') and ord(at(INPUT, cursor)) <= ord('9')) {
+      break;
+    }
+
+    cursor += 1
+  }
+
+  if cursor - bot > 0 {
+    blocks = as_int(select(INPUT, bot, cursor))
+
+    x += dx * blocks
+    y += dy * blocks
+  }
+}
+
+println('P1: ', abs(x) + abs(y))
+
+# vim: set syntax=r :
