@@ -5,8 +5,7 @@ INPUT_SIZE  = len(INPUT)
 
 dx = 0; dy = -1; x = y = 0;
 
-p2_x = ?
-p2_y = ?
+part_two = ?
 
 visited = map_init()
 
@@ -34,15 +33,11 @@ cursor = 0; while cursor < INPUT_SIZE {
       x += dx
       y += dy
 
-      if p2_x == ? or p2_y == ? {
+      if part_two == ? {
         key = format(x, 'x', y)
 
-        if map_get(visited, key) != ? {
-          p2_x = x
-          p2_y = y
-        } else {
-          map_set(visited, key, 0)
-        }
+        if (map_get(visited, key) != ?) part_two = abs(x) + abs(y)
+        else map_set(visited, key, 0)
       }
 
       b += 1
@@ -51,6 +46,6 @@ cursor = 0; while cursor < INPUT_SIZE {
 }
 
 println('P1: ', abs(x) + abs(y))
-println('P2: ', abs(p2_x) + abs(p2_y))
+println('P2: ', part_two)
 
 # vim: set syntax=r :
