@@ -87,6 +87,7 @@
     - Solution [Python](./2017/02/python)
   - Solution [01](./2017/01) | [↗AOC](https://adventofcode.com/2017/day/1)
     - Solution [Go](./2017/01/go)
+    - Solution [MCA](./2017/01/mca)
 - Solution [2016](./2016) | [↗AOC](https://adventofcode.com/2016)
   - Solution [04](./2016/04) | [↗AOC](https://adventofcode.com/2016/day/4)
     - Solution [Python](./2016/04/python)
