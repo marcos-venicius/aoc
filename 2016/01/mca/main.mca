@@ -5,6 +5,11 @@ INPUT_SIZE  = len(INPUT)
 
 dx = 0; dy = -1; x = y = 0;
 
+p2_x = ?
+p2_y = ?
+
+visited = map_init()
+
 cursor = 0; while cursor < INPUT_SIZE {
   char = at(INPUT, cursor)
 
@@ -18,24 +23,34 @@ cursor = 0; while cursor < INPUT_SIZE {
     dy = -t
   }
 
-  # this increases 'cursor' by one and stores the result value to 'bot'
   bot = cursor += 1
 
-  # @Improve the ord doesn't accept a 'char' data type, we don't have it.
-  # It accepts a string of a specific size, in this case 1.
   while (cursor < INPUT_SIZE and ord(at(INPUT, cursor)) >= ord('0') and ord(at(INPUT, cursor)) <= ord('9')) cursor += 1
 
   if cursor - bot > 0 {
-    # @Improve 'select' gets a chunk of the string (it's allocated) but it's never freed since
-    # the language doesn't have a garbage collector yet
     blocks = as_int(select(INPUT, bot, cursor))
 
-    x += dx * blocks
-    y += dy * blocks
+    b = 0; while b < blocks {
+      x += dx
+      y += dy
+
+      if p2_x == ? or p2_y == ? {
+        key = format(x, 'x', y)
+
+        if map_get(visited, key) != ? {
+          p2_x = x
+          p2_y = y
+        } else {
+          map_set(visited, key, 0)
+        }
+      }
+
+      b += 1
+    }
   }
 }
 
 println('P1: ', abs(x) + abs(y))
-println('P2: << I cannot solve part two with the language yet because it would require at least a hashmap and it doesn\'t have yet >>')
+println('P2: ', abs(p2_x) + abs(p2_y))
 
 # vim: set syntax=r :
