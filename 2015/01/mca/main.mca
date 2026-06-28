@@ -1,5 +1,7 @@
 #!/usr/local/bin/mca -i
 
+# My Custom Language: https://github.com/marcos-venicius/MCA
+
 INPUT      = read_entire_file('./input.txt')
 INPUT_SIZE = len(INPUT)
 
