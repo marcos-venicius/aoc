@@ -3,24 +3,18 @@
 INPUT     = read_entire_file('./input.txt')
 INPUT_LEN = len(INPUT) - 1
 
-part_one = 0
-part_two = 0
+part_one = part_two = 0
 
 i = 0; while i < INPUT_LEN {
-  ni1 = (i + 1) % INPUT_LEN
-  ni2 = (i + (INPUT_LEN / 2)) % INPUT_LEN
   d = as_int(at(INPUT, i))
-
-  part_one_delta = as_int(at(INPUT, ni1))
-  part_two_delta = as_int(at(INPUT, ni2))
-
-  if d == part_one_delta  part_one += d
-  if d == part_two_delta  part_two += d
-
+  part_one += if d == as_int(at(INPUT, (i + 1) % INPUT_LEN))                d
+  part_two += if d == as_int(at(INPUT, (i + (INPUT_LEN / 2)) % INPUT_LEN))  d
   i += 1
 }
 
 println('P1: ', part_one)
 println('P2: ', part_two)
+
+# disclaimer: the code is only compressed that way so I can use complex syntaxs to test my language
 
 # vim: set syntax=r :
