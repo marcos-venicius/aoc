@@ -1,0 +1,63 @@
+#!/usr/local/bin/mca
+
+FILE = './input.txt'
+
+split_string = \(string, sep) -> {
+    start    = cursor = 0
+    size     = len(string)
+    sep_size = len(sep)
+    out      = []
+
+    is_sep = \() -> {
+        i = 0
+        r = while i < sep_size {
+            if (i + cursor >= size) break false;
+            if (at(sep, i) != at(string, i + cursor)) break false;
+            i += 1
+        }
+
+        r == sep_size
+    }
+
+    while cursor < size {
+        if (is_sep()) {
+            append(out, as_int(select(string, start, cursor)))
+
+            cursor += sep_size
+            start = cursor
+        } else {
+            cursor += 1
+        }
+    }
+
+    if (start != cursor) append(out, as_int(select(string, start, cursor)))
+
+    out
+}
+
+calc_fuel = \(of) -> {
+    result = 0
+    of     = as_int(of / 3) - 2
+
+    while of > 0 {
+        result += of
+        of = as_int(of / 3) - 2
+    }
+
+    result
+}
+
+data = split_string(read_entire_file(FILE), '\n')
+
+part_one = 0
+part_two = 0
+
+i = -1; while ((i += 1) < len(data)) {
+    part_one += as_int(data[i] / 3) - 2
+    part_two += calc_fuel(data[i])
+}
+
+println('P1: ', part_one)
+println('P2: ', part_two)
+
+# vim: set syntax=r :
