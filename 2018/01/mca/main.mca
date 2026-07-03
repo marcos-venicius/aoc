@@ -1,0 +1,53 @@
+#!/usr/local/bin/mca
+
+IN       = read_entire_file('./input.txt')
+SZ       = len(IN)
+cursor   = 0
+data     = []
+part_one = 0
+
+is_number = \(x) -> ord(x) >= ord('0') and ord(x) <= ord('9')
+
+parse_frequency = \() -> {
+  bot = cursor
+
+  # skip '\n'
+  if (at(IN, cursor) == '\n') cursor += 1
+
+  # skip sign '+', '-'
+  cursor += 1
+
+  while (cursor < SZ and is_number(at(IN, cursor))) cursor += 1
+
+  as_int(select(IN, bot, cursor))
+}
+
+ds = 0; while cursor < SZ {
+  freq = parse_frequency()
+
+  part_one += freq
+
+  append(data, freq)
+
+  ds += 1
+}
+
+println('P1: ', part_one)
+
+freq     = 0
+cache    = map_init()
+part_two = ?
+while part_two == ? {
+  i = -1
+
+  while (i += 1) < ds {
+    if (map_get(cache, freq) != ?) part_two = break freq;
+
+    map_set(cache, freq, 1)
+    freq += data[i]
+  }
+}
+
+println('P2: ', part_two)
+
+# vim: set syntax=r :
