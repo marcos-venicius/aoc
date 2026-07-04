@@ -1,0 +1,65 @@
+#!/usr/local/bin/mca
+
+if argc() != 2 {
+  println('usage: ', argv(0), ' <input file>')
+  exit(1)
+}
+
+IN       = read_entire_file(argv(1))
+SZ       = len(IN)
+data     = []
+
+execute_part_one = \(as) -> {
+  i = -1
+
+  while (i += 1) < len(data) {
+    j = i
+
+    while (j += 1) < len(data) {
+      if (i != j and data[i] + data[j] == as) return data[i] * data[j]
+    }
+  }
+}
+
+execute_part_two = \(as) -> {
+  i = -1
+
+  while (i += 1) < len(data) {
+    j = i
+
+    while (j += 1) < len(data) {
+      k = j
+
+      while (k += 1) < len(data)
+        if (data[i] + data[j] + data[k] == as) return data[i] * data[j] * data[k]
+    }
+  }
+}
+
+cursor = start = 0
+
+while cursor < SZ {
+  if (IN[cursor] == '\n') cursor += 1
+
+  start = cursor
+  while (cursor < SZ and IN[cursor] != '\n') cursor += 1
+
+  # @MCA implement operator like python IN[start:cursor]
+  number = as_int(select(IN, start, cursor))
+
+  append(data, number)
+}
+
+if cursor != start append(data, as_int(select(IN, start, cursor)))
+
+# --
+
+part_one = execute_part_one(2020)
+
+println('P1: ', part_one)
+
+part_two = execute_part_two(2020)
+
+println('P2: ', part_two)
+
+# vim: set syntax=r :
