@@ -16,6 +16,8 @@ readme = [
     "> [!WARNING]",
     "> Some of the solutions are implemented using my own language called [MCA](https://github.com/marcos-venicius/MCA).",
     "> If you want to try it out, just clone the repo, run `make` and you are ready to go!",
+    "> I plan to rewrite this generate-readme.py script using my own language [MCA](https://github.com/marcos-venicius/MCA)",
+    "> For now, the language doesn't have all the capabilities I need to do that but I'm working on it",
     ""
 ]
 
