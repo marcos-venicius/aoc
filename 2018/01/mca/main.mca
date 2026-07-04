@@ -49,5 +49,3 @@ while part_two == ? {
 }
 
 println('P2: ', part_two)
-
-# vim: set syntax=r :

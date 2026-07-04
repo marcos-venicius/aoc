@@ -31,5 +31,3 @@ cursor = 0; while cursor < INPUT_SIZE {
 
 println('P1: ', basement)
 println('P2: ', part_two)
-
-# vim: set syntax=r :

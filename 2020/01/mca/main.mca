@@ -61,5 +61,3 @@ println('P1: ', part_one)
 part_two = execute_part_two(2020)
 
 println('P2: ', part_two)
-
-# vim: set syntax=r :

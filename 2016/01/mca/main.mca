@@ -49,5 +49,3 @@ cursor = 0; while cursor < INPUT_SIZE {
 
 println('P1: ', abs(x) + abs(y))
 println('P2: ', part_two)
-
-# vim: set syntax=r :
