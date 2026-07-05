@@ -12,12 +12,12 @@ parse_frequency = \() -> {
   bot = cursor
 
   # skip '\n'
-  if (at(IN, cursor) == '\n') cursor += 1
+  if (IN[cursor] == '\n') cursor += 1
 
   # skip sign '+', '-'
   cursor += 1
 
-  while (cursor < SZ and is_number(at(IN, cursor))) cursor += 1
+  while (cursor < SZ and is_number(IN[cursor])) cursor += 1
 
   as_int(select(IN, bot, cursor))
 }
@@ -35,15 +35,15 @@ ds = 0; while cursor < SZ {
 println('P1: ', part_one)
 
 freq     = 0
-cache    = map_init()
+cache    = {}
 part_two = ?
 while part_two == ? {
   i = -1
 
   while (i += 1) < ds {
-    if (map_get(cache, freq) != ?) part_two = break freq;
+    if (cache[freq] != ?) part_two = break freq;
 
-    map_set(cache, freq, 1)
+    cache[freq] = 1
     freq += data[i]
   }
 }
