@@ -1,4 +1,4 @@
-#!/usr/local/bin/mca -i
+#!/usr/local/bin/mca
 
 # My Custom Language: https://github.com/marcos-venicius/MCA
 
@@ -9,10 +9,10 @@ dx = 0; dy = -1; x = y = 0;
 
 part_two = ?
 
-visited = map_init()
+visited = {}
 
 cursor = 0; while cursor < INPUT_SIZE {
-  char = at(INPUT, cursor)
+  char = INPUT[cursor]
 
   if char == 'R' {
     t = dx
@@ -26,7 +26,7 @@ cursor = 0; while cursor < INPUT_SIZE {
 
   bot = cursor += 1
 
-  while (cursor < INPUT_SIZE and ord(at(INPUT, cursor)) >= ord('0') and ord(at(INPUT, cursor)) <= ord('9')) cursor += 1
+  while (cursor < INPUT_SIZE and ord(INPUT[cursor]) >= ord('0') and ord(INPUT[cursor]) <= ord('9')) cursor += 1
 
   if cursor - bot > 0 {
     blocks = as_int(select(INPUT, bot, cursor))
@@ -38,8 +38,8 @@ cursor = 0; while cursor < INPUT_SIZE {
       if part_two == ? {
         key = format(x, 'x', y)
 
-        if (map_get(visited, key) != ?) part_two = abs(x) + abs(y)
-        else map_set(visited, key, 0)
+        if (visited[key] != ?) part_two = abs(x) + abs(y)
+        else visited[key] = 0
       }
 
       b += 1
