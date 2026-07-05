@@ -1,4 +1,4 @@
-#!/usr/local/bin/mca -i
+#!/usr/local/bin/mca
 
 # My Custom Language: https://github.com/marcos-venicius/MCA
 
@@ -10,7 +10,7 @@ position = 1
 part_two = ?
 
 cursor = 0; while cursor < INPUT_SIZE {
-  char = at(INPUT, cursor)
+  char = INPUT[cursor]
 
   basement = if char == '(' {
     basement + 1
