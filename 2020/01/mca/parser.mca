@@ -1,0 +1,27 @@
+pub_parse = \(input) -> {
+  SZ     = len(input)
+  data   = []
+  cursor = start = 0
+
+  while cursor < SZ {
+    if (input[cursor] == '\n') cursor += 1
+
+    start = cursor
+
+    while (cursor < SZ and input[cursor] != '\n') cursor += 1
+
+    # @MCA implement operator like python input[start:cursor]
+    number = as_int(select(input, start, cursor))
+
+    append(data, number)
+  }
+
+  if cursor != start append(data, as_int(select(input, start, cursor)))
+
+  data
+}
+
+#export
+{
+  'parse': pub_parse
+}

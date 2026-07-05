@@ -1,0 +1,33 @@
+pub_part_one = \(data, as) -> {
+  i = -1
+
+  while (i += 1) < len(data) {
+    j = i
+
+    while (j += 1) < len(data) {
+      if (i != j and data[i] + data[j] == as) return data[i] * data[j]
+    }
+  }
+}
+
+pub_part_two = \(data, as) -> {
+  i = -1
+
+  while (i += 1) < len(data) {
+    j = i
+
+    while (j += 1) < len(data) {
+      k = j
+
+      while (k += 1) < len(data)
+        if (data[i] + data[j] + data[k] == as) return data[i] * data[j] * data[k]
+    }
+  }
+}
+
+
+#export
+{
+  'part_one': pub_part_one,
+  'part_two': pub_part_two,
+}
