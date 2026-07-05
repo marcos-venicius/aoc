@@ -12,7 +12,7 @@ split_string = \(string, sep) -> {
         i = 0
         r = while i < sep_size {
             if (i + cursor >= size) break false;
-            if (at(sep, i) != at(string, i + cursor)) break false;
+            if (sep[i] != string[i + cursor]) break false;
             i += 1
         }
 
