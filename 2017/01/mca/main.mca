@@ -7,7 +7,7 @@ INPUT_LEN = len(INPUT) - 1
 
 part_one = part_two = 0
 
-i = 0; while i < INPUT_LEN {
+for i : INPUT_LEN {
   d = as_int(INPUT[i])
   part_one += if d == as_int(INPUT[(i + 1) % INPUT_LEN])                d
   part_two += if d == as_int(INPUT[(i + (INPUT_LEN / 2)) % INPUT_LEN])  d

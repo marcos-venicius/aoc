@@ -52,7 +52,7 @@ data = split_string(read_entire_file(FILE), '\n')
 part_one = 0
 part_two = 0
 
-i = -1; while ((i += 1) < len(data)) {
+for i : len(data) {
     part_one += as_int(data[i] / 3) - 2
     part_two += calc_fuel(data[i])
 }

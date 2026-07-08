@@ -31,7 +31,7 @@ cursor = 0; while cursor < INPUT_SIZE {
   if cursor - bot > 0 {
     blocks = as_int(select(INPUT, bot, cursor))
 
-    b = 0; while b < blocks {
+    for b : blocks {
       x += dx
       y += dy
 

@@ -38,9 +38,7 @@ freq     = 0
 cache    = {}
 part_two = ?
 while part_two == ? {
-  i = -1
-
-  while (i += 1) < ds {
+  for i : ds {
     if (cache[freq] != ?) part_two = break freq;
 
     cache[freq] = 1
