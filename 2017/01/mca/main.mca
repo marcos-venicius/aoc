@@ -18,3 +18,5 @@ println('P1: ', part_one)
 println('P2: ', part_two)
 
 # disclaimer: the code is only compressed that way so I can use complex syntaxs to test my language
+
+# vim: set syntax=r :

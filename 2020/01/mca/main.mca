@@ -17,3 +17,5 @@ println('P1: ', part_one)
 part_two = core.part_two(data, 2020)
 
 println('P2: ', part_two)
+
+# vim: set syntax=r :

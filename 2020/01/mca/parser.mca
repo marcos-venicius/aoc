@@ -25,3 +25,5 @@ pub_parse = \(input) -> {
 {
   'parse': pub_parse
 }
+
+# vim: set syntax=r :

@@ -16,3 +16,5 @@ pub_part_two = \(data, as) -> {
   'part_one': pub_part_one,
   'part_two': pub_part_two,
 }
+
+# vim: set syntax=r :
