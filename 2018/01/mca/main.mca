@@ -9,10 +9,10 @@ part_one = 0
 is_number = \(x) -> ord(x) >= ord('0') and ord(x) <= ord('9')
 
 parse_frequency = \() -> {
-  bot = cursor
-
   # skip '\n'
   if (IN[cursor] == '\n') cursor += 1
+
+  bot = cursor
 
   # skip sign '+', '-'
   cursor += 1
