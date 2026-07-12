@@ -2,6 +2,15 @@
 
 FILE = './input.txt'
 
+calc_bow_ribbon = \(d) -> {
+  one   = 2 * (d.w + d.h)
+  two   = 2 * (d.l + d.h)
+  three = 2 * (d.l + d.w)
+
+  mind = as_int(min(min(one, two), three))
+
+  mind + d.l * d.w * d.h
+}
 calc_feet   = \(d) -> (2 * d.l * d.w) + (2 * d.w * d.h) + (2 * d.h * d.l) + min(min(d.l * d.w, d.l * d.h), d.w * d.h)
 line_to_dim = \(line) -> {
   arr = map(split(line, 'x'), \(x) -> as_int(x)) # builtins are not first-class values yet
@@ -9,9 +18,11 @@ line_to_dim = \(line) -> {
 }
 read_input  = \(filename) -> map(filter(split(read_entire_file(filename), '\n'), \(line) -> line != ''), line_to_dim)
 solve_one   = \(input) -> sum(map(input, calc_feet))
+solve_two   = \(input) -> sum(map(input, calc_bow_ribbon))
 
 input = read_input(FILE)
 
 println('P1:', solve_one(input))
+println('P2:', solve_two(input))
 
 # vim: set syntax=r :
