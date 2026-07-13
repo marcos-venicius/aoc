@@ -1,0 +1,43 @@
+#!/usr/local/bin/mca
+
+const io     = import('io')
+const string = import('string')
+const parser = import('./parser.mca')
+
+
+const lines = map(filter(string.split(io.read_entire_file('./input.txt'), '\n'), \(line) -> line != ''), parser.parse_line)
+
+
+lit_lights = 0
+m = []
+
+for _ : 1000 {
+  row = []
+
+  for _ : 1000  append(row, 0)
+
+  append(m, row)
+}
+
+for _, line : lines {
+  for c : [line.from.x, line.to.x + 1] {
+    for r : [line.from.y, line.to.y + 1] {
+      curr = m[r][c]
+
+      if line.action == parser.TOGGLE_LIGHT {
+        m[r][c] = as_int(!curr)
+        lit_lights += if (curr == 0) 1 else -1
+      } elif line.action == parser.TURN_LIGHT_ON {
+        m[r][c] = 1
+        if curr == 0  lit_lights += 1
+      } elif line.action == parser.TURN_LIGHT_OFF {
+        m[r][c] = 0
+        if curr == 1  lit_lights -= 1
+      }
+    }
+  }
+}
+
+println('P1:', lit_lights)
+
+# vim: set syntax=r :

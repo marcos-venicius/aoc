@@ -1,0 +1,39 @@
+const string = import('string')
+
+const PUB_TURN_LIGHT_ON  = 1
+const PUB_TURN_LIGHT_OFF = 2
+const PUB_TOGGLE_LIGHT   = 3
+
+const pub_parse_line = \(line) -> {
+  split = string.split(line, ' ')
+
+  l = {}
+
+  ts   = string.split(split[len(split)-1], ',')
+  l.to = { x: as_int(ts[0]), y: as_int(ts[1]) }
+
+  if split[0] == 'toggle' {
+    l.action = PUB_TOGGLE_LIGHT
+
+    fs     = string.split(split[1], ',')
+    l.from = { x: as_int(fs[0]), y: as_int(fs[1]) }
+  } else {
+    fs     = string.split(split[2], ',')
+    l.from = { x: as_int(fs[0]), y: as_int(fs[1]) }
+  }
+
+  l.action = if   split[1] == 'on'  PUB_TURN_LIGHT_ON
+             elif split[1] == 'off' PUB_TURN_LIGHT_OFF
+             else l.action
+
+  l
+}
+
+# export
+{
+  TURN_LIGHT_ON: PUB_TURN_LIGHT_ON, 
+  TURN_LIGHT_OFF: PUB_TURN_LIGHT_OFF,
+  TOGGLE_LIGHT: PUB_TOGGLE_LIGHT,
+
+  parse_line: pub_parse_line
+}
