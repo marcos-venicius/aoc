@@ -8,36 +8,72 @@ const parser = import('./parser.mca')
 const lines = map(filter(string.split(io.read_entire_file('./input.txt'), '\n'), \(line) -> line != ''), parser.parse_line)
 
 
-lit_lights = 0
-m = []
+lit_lights = brightness = 0
 
+m1 = []
+m2 = []
+
+# @MCA allow initializing arrays with predefined size
 for _ : 1000 {
-  row = []
+  r1 = []
+  r2 = []
 
-  for _ : 1000  append(row, 0)
+  for _ : 1000 {
+    append(r1, 0)
+    append(r2, 0)
+  }
 
-  append(m, row)
+  append(m1, r1)
+  append(m2, r2)
 }
 
+println('finished matrix initialization...')
+println('starting computation...')
+
+start = millisecond()
+
+# @MCA this is reeeeeeeaaaaalllyyy slow. It takes about 52 seconds to run. Improve it somehow. NOWW!
 for _, line : lines {
   for c : [line.from.x, line.to.x + 1] {
     for r : [line.from.y, line.to.y + 1] {
-      curr = m[r][c]
+      # part one
+      curr = m1[r][c]
 
       if line.action == parser.TOGGLE_LIGHT {
-        m[r][c] = as_int(!curr)
+        m1[r][c] = as_int(!curr)
         lit_lights += if (curr == 0) 1 else -1
       } elif line.action == parser.TURN_LIGHT_ON {
-        m[r][c] = 1
+        m1[r][c] = 1
         if curr == 0  lit_lights += 1
       } elif line.action == parser.TURN_LIGHT_OFF {
-        m[r][c] = 0
+        m1[r][c] = 0
         if curr == 1  lit_lights -= 1
+      }
+
+      # part two
+      if line.action == parser.TOGGLE_LIGHT {
+        m2[r][c]   += 2
+        brightness += 2
+      } elif line.action == parser.TURN_LIGHT_ON {
+        m2[r][c]   += 1
+        brightness += 1
+      } elif line.action == parser.TURN_LIGHT_OFF {
+        v = m2[r][c] - 1
+
+        m2[r][c] = max(v, 0)
+
+        if (brightness > 0 and v >= 0) brightness -= 1
       }
     }
   }
 }
 
+delta_seconds = (millisecond() - start) / 1000
+
+
 println('P1:', lit_lights)
+println('P2:', brightness)
+
+print('took ', delta_seconds, 's to run\n')
 
 # vim: set syntax=r :
