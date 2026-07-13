@@ -1,12 +1,15 @@
 #!/usr/local/bin/mca
 
-IN       = read_entire_file('./input.txt')
+const io     = import('io')
+const string = import('string')
+
+IN       = io.read_entire_file('./input.txt')
 SZ       = len(IN)
 cursor   = 0
 data     = []
 part_one = 0
 
-is_number = \(x) -> ord(x) >= ord('0') and ord(x) <= ord('9')
+is_number = \(x) -> string.ord(x) >= string.ord('0') and string.ord(x) <= string.ord('9')
 
 parse_frequency = \() -> {
   # skip '\n'
@@ -19,7 +22,7 @@ parse_frequency = \() -> {
 
   while (cursor < SZ and is_number(IN[cursor])) cursor += 1
 
-  as_int(select(IN, bot, cursor))
+  as_int(string.select(IN, bot, cursor))
 }
 
 ds = 0; while cursor < SZ {
@@ -39,7 +42,7 @@ cache    = {}
 part_two = ?
 while part_two == ? {
   for i : ds {
-    if (cache[freq] != ?) part_two = break freq;
+    if (contains(cache, freq)) part_two = break freq;
 
     cache[freq] = 1
     freq += data[i]

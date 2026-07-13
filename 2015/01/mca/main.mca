@@ -1,8 +1,9 @@
 #!/usr/local/bin/mca
 
 # My Custom Language: https://github.com/marcos-venicius/MCA
+const io = import('io')
 
-INPUT      = read_entire_file('./input.txt')
+INPUT      = io.read_entire_file('./input.txt')
 INPUT_SIZE = len(INPUT)
 
 basement = 0

@@ -1,15 +1,18 @@
 #!/usr/local/bin/mca
 
+const io     = import('io')
+const string = import('string')
+
 MOVES = {'^': {x: 0, y: -1}, '>': {x: 1, y: 0}, 'v': {x: 0, y: 1}, '<': {x: -1, y: 0}}
 
 x = y = sx = sy = rx = ry = ans_one = ans_two = 0
 v1 = {}
 v2 = {}
 
-for i, m : split(read_entire_file('./input.txt'), '\n')[0] {
-  p1 = format(x += MOVES[m].x, 'x', y += MOVES[m].y)
-  p2 = if i % 2 == 0  format(rx += MOVES[m].x, 'x', ry += MOVES[m].y)
-       else           format(sx += MOVES[m].x, 'x', sy += MOVES[m].y)
+for i, m : string.split(io.read_entire_file('./input.txt'), '\n')[0] {
+  p1 = string.format(x += MOVES[m].x, 'x', y += MOVES[m].y)
+  p2 = if i % 2 == 0  string.format(rx += MOVES[m].x, 'x', ry += MOVES[m].y)
+       else           string.format(sx += MOVES[m].x, 'x', sy += MOVES[m].y)
 
   ans_one += as_int(!contains(v1, p1))
   ans_two += as_int(!contains(v2, p2))

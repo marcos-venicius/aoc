@@ -1,17 +1,19 @@
 #!/usr/local/bin/mca
 
-const crypt = import('crypt')
+const io     = import('io')
+const crypt  = import('crypt')
+const string = import('string')
 
-input = replace(read_entire_file('./input.txt'), '\n', '')
+input = string.replace(io.read_entire_file('./input.txt'), '\n', '')
 
 ans_one = ans_two = ?;
 i = 0;
 
 while !ans_one or !ans_two {
-  h = crypt.md5(format(input, i))
+  h = crypt.md5(string.format(input, i))
 
-  if   !ans_one and starts_with(h, '00000')  ans_one = i
-  elif !ans_two and starts_with(h, '000000') ans_two = i
+  if   !ans_one and string.starts_with(h, '00000')  ans_one = i
+  elif !ans_two and string.starts_with(h, '000000') ans_two = i
 
   i += 1
 }

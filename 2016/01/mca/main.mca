@@ -2,7 +2,11 @@
 
 # My Custom Language: https://github.com/marcos-venicius/MCA
 
-INPUT       = read_entire_file('./input.txt')
+const io     = import('io')
+const string = import('string')
+const math   = import('math')
+
+INPUT       = io.read_entire_file('./input.txt')
 INPUT_SIZE  = len(INPUT)
 
 dx = 0; dy = -1; x = y = 0;
@@ -26,19 +30,19 @@ cursor = 0; while cursor < INPUT_SIZE {
 
   bot = cursor += 1
 
-  while (cursor < INPUT_SIZE and ord(INPUT[cursor]) >= ord('0') and ord(INPUT[cursor]) <= ord('9')) cursor += 1
+  while (cursor < INPUT_SIZE and string.ord(INPUT[cursor]) >= string.ord('0') and string.ord(INPUT[cursor]) <= string.ord('9')) cursor += 1
 
   if cursor - bot > 0 {
-    blocks = as_int(select(INPUT, bot, cursor))
+    blocks = as_int(string.select(INPUT, bot, cursor))
 
     for b : blocks {
       x += dx
       y += dy
 
       if part_two == ? {
-        key = format(x, 'x', y)
+        key = string.format(x, 'x', y)
 
-        if (visited[key] != ?) part_two = abs(x) + abs(y)
+        if (contains(visited, key)) part_two = math.abs(x) + math.abs(y)
         else visited[key] = 0
       }
 
@@ -47,7 +51,7 @@ cursor = 0; while cursor < INPUT_SIZE {
   }
 }
 
-println('P1: ', abs(x) + abs(y))
+println('P1: ', math.abs(x) + math.abs(y))
 println('P2: ', part_two)
 
 # vim: set syntax=r :

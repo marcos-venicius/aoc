@@ -2,7 +2,9 @@
 
 # My Custom Language: https://github.com/marcos-venicius/MCA
 
-INPUT     = read_entire_file('./input.txt')
+const io = import('io')
+
+INPUT     = io.read_entire_file('./input.txt')
 INPUT_LEN = len(INPUT) - 1
 
 part_one = part_two = 0

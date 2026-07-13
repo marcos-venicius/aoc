@@ -1,8 +1,11 @@
 #!/usr/local/bin/mca
 
+const string = import('string')
+const io     = import('io')
+
 FILE = './input.txt'
 
-const line_to_dim     = \(line) -> indexes_to_keys(map(split(line, 'x'), as_int), { 0: 'l', 1: 'w', 2: 'h' })
+const line_to_dim     = \(line) -> indexes_to_keys(map(string.split(line, 'x'), as_int), { 0: 'l', 1: 'w', 2: 'h' })
 const calc_feet       = \(d) -> (2 * d.l * d.w) + (2 * d.w * d.h) + (2 * d.h * d.l) + min(min(d.l * d.w, d.l * d.h), d.w * d.h)
 const calc_bow_ribbon = \(d) -> {
   one   = 2 * (d.w + d.h)
@@ -15,7 +18,7 @@ const calc_bow_ribbon = \(d) -> {
 }
 const solve = \(fn) -> sum(map(input, fn))
 
-const input = map(filter(split(read_entire_file(FILE), '\n'), \(line) -> line != ''), line_to_dim)
+const input = map(filter(string.split(io.read_entire_file(FILE), '\n'), \(line) -> line != ''), line_to_dim)
 
 println('P1:', solve(calc_feet))
 println('P2:', solve(calc_bow_ribbon))

@@ -1,3 +1,5 @@
+const string = import('string')
+
 pub_parse = \(input) -> {
   SZ     = len(input)
   data   = []
@@ -11,12 +13,12 @@ pub_parse = \(input) -> {
     while (cursor < SZ and input[cursor] != '\n') cursor += 1
 
     # @MCA implement operator like python input[start:cursor]
-    number = as_int(select(input, start, cursor))
+    number = as_int(string.select(input, start, cursor))
 
     append(data, number)
   }
 
-  if cursor != start append(data, as_int(select(input, start, cursor)))
+  if cursor != start append(data, as_int(string.select(input, start, cursor)))
 
   data
 }

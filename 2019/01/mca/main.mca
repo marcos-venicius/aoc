@@ -1,39 +1,9 @@
 #!/usr/local/bin/mca
 
+const io     = import('io')
+const string = import('string')
+
 FILE = './input.txt'
-
-split_string = \(string, sep) -> {
-    start    = cursor = 0
-    size     = len(string)
-    sep_size = len(sep)
-    out      = []
-
-    is_sep = \() -> {
-        i = 0
-        r = while i < sep_size {
-            if (i + cursor >= size) break false;
-            if (sep[i] != string[i + cursor]) break false;
-            i += 1
-        }
-
-        r == sep_size
-    }
-
-    while cursor < size {
-        if (is_sep()) {
-            append(out, as_int(select(string, start, cursor)))
-
-            cursor += sep_size
-            start = cursor
-        } else {
-            cursor += 1
-        }
-    }
-
-    if (start != cursor) append(out, as_int(select(string, start, cursor)))
-
-    out
-}
 
 calc_fuel = \(of) -> {
     result = 0
@@ -47,7 +17,7 @@ calc_fuel = \(of) -> {
     result
 }
 
-data = split_string(read_entire_file(FILE), '\n')
+data = map(filter(string.split(io.read_entire_file(FILE), '\n'), \(line) -> line != ''), as_int)
 
 part_one = 0
 part_two = 0

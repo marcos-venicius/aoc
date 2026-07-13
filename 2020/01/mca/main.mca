@@ -5,10 +5,11 @@ if argc() != 2 {
   exit(1)
 }
 
-core   = import('./core.mca')
-parser = import('./parser.mca')
+const io     = import('io')
+const core   = import('./core.mca')
+const parser = import('./parser.mca')
 
-data = parser.parse(read_entire_file(argv(1)))
+data = parser.parse(io.read_entire_file(argv(1)))
 
 part_one = core.part_one(data, 2020)
 
