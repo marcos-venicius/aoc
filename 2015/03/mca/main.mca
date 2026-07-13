@@ -1,0 +1,25 @@
+#!/usr/local/bin/mca
+
+FILE = './input.txt'
+
+input = split(read_entire_file(FILE), '\n')[0]
+
+x = y = ans = 0
+v = {}
+
+for _, m : input {
+  p = format(x, 'x', y)
+
+  if !contains(v, p)  ans += 1
+
+  v[p] = true
+
+  if   m == '^' y -= 1
+  elif m == 'v' y += 1
+  elif m == '>' x += 1
+  elif m == '<' x -= 1
+}
+
+println('P1:', ans)
+
+# vim: set syntax=r :
