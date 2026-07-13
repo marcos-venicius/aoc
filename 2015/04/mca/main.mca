@@ -1,0 +1,22 @@
+#!/usr/local/bin/mca
+
+const crypt = import('crypt')
+
+input = replace(read_entire_file('./input.txt'), '\n', '')
+
+ans_one = ans_two = ?;
+i = 0;
+
+while !ans_one or !ans_two {
+  h = crypt.md5(format(input, i))
+
+  if   !ans_one and starts_with(h, '00000')  ans_one = i
+  elif !ans_two and starts_with(h, '000000') ans_two = i
+
+  i += 1
+}
+
+println('P1:', ans_one)
+println('P2:', ans_two)
+
+# vim: set syntax=r :
