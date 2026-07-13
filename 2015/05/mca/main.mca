@@ -1,0 +1,23 @@
+#!/usr/local/bin/mca
+
+const LINES  = filter(split(read_entire_file('./input.txt'), '\n'), \(line) -> line != '')
+const VOWELS = {a: 1, e: 1, i: 1, o: 1, u: 1}
+const LEGALS = {ab: 1, cd: 1, pq: 1, xy: 1}
+
+const is_legal = \(a, b) -> contains(LEGALS, format(a, b))
+const is_vowel = \(c) -> contains(VOWELS, c)
+const is_nice = \(line) -> {
+  vc = sc = ic = 0
+
+  for i, c : line {
+    vc += as_int(is_vowel(c))
+    sc += as_int(i > 0 and line[i] == line[i - 1])
+    ic += as_int(i > 0 and is_legal(line[i - 1], line[i]))
+  }
+
+  vc >= 3 and sc >= 1 and ic == 0
+}
+const solve_one = \() -> sum(map(LINES, \(x) -> as_int(is_nice(x))))
+
+println('P1:', solve_one())
+# vim: set syntax=r :
