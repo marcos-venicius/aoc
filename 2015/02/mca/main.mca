@@ -2,12 +2,9 @@
 
 FILE = './input.txt'
 
-line_to_dim = \(line) -> indexes_to_keys(map(split(line, 'x'), \(x) -> as_int(x)), { 0: 'l', 1: 'w', 2: 'h' }) # builtins are not first-class values yet
-
-input = map(filter(split(read_entire_file(FILE), '\n'), \(line) -> line != ''), line_to_dim)
-
-calc_feet  = \(d) -> (2 * d.l * d.w) + (2 * d.w * d.h) + (2 * d.h * d.l) + min(min(d.l * d.w, d.l * d.h), d.w * d.h)
-calc_bow_ribbon = \(d) -> {
+const line_to_dim     = \(line) -> indexes_to_keys(map(split(line, 'x'), as_int), { 0: 'l', 1: 'w', 2: 'h' })
+const calc_feet       = \(d) -> (2 * d.l * d.w) + (2 * d.w * d.h) + (2 * d.h * d.l) + min(min(d.l * d.w, d.l * d.h), d.w * d.h)
+const calc_bow_ribbon = \(d) -> {
   one   = 2 * (d.w + d.h)
   two   = 2 * (d.l + d.h)
   three = 2 * (d.l + d.w)
@@ -16,7 +13,9 @@ calc_bow_ribbon = \(d) -> {
 
   mind + d.l * d.w * d.h
 }
-solve = \(fn) -> sum(map(input, fn))
+const solve = \(fn) -> sum(map(input, fn))
+
+const input = map(filter(split(read_entire_file(FILE), '\n'), \(line) -> line != ''), line_to_dim)
 
 println('P1:', solve(calc_feet))
 println('P2:', solve(calc_bow_ribbon))
