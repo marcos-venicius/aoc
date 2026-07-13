@@ -1,8 +1,8 @@
 #!/usr/local/bin/mca
 
 const LINES  = filter(split(read_entire_file('./input.txt'), '\n'), \(line) -> line != '')
-const VOWELS = {a: 1, e: 1, i: 1, o: 1, u: 1}
-const LEGALS = {ab: 1, cd: 1, pq: 1, xy: 1}
+const VOWELS = {a, e, i, o, u}
+const LEGALS = {ab, cd, pq, xy}
 
 const is_legal = \(p) -> contains(LEGALS, p)
 const is_vowel = \(c) -> contains(VOWELS, c)
