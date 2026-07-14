@@ -34,33 +34,37 @@ start = millisecond()
 
 # @MCA this is reeeeeeeaaaaalllyyy slow. It takes about 52 seconds to run. Improve it somehow. NOWW!
 for _, line : lines {
-  for c : [line.from.x, line.to.x + 1] {
-    for r : [line.from.y, line.to.y + 1] {
+  for r : [line.from.y, line.to.y + 1] {
+    row1 = m1[r]
+    row2 = m2[r]
+
+    for c : [line.from.x, line.to.x + 1] {
       # part one
-      curr = m1[r][c]
+      curr1 = row1[c]
 
       if line.action == parser.TOGGLE_LIGHT {
-        m1[r][c] = as_int(!curr)
-        lit_lights += if (curr == 0) 1 else -1
+        row1[c] = as_int(!curr1)
+        lit_lights += if (curr1 == 0) 1 else -1
       } elif line.action == parser.TURN_LIGHT_ON {
-        m1[r][c] = 1
-        if curr == 0  lit_lights += 1
+        row1[c] = 1
+        if curr1 == 0  lit_lights += 1
       } elif line.action == parser.TURN_LIGHT_OFF {
-        m1[r][c] = 0
-        if curr == 1  lit_lights -= 1
+        row1[c] = 0
+        if curr1 == 1  lit_lights -= 1
       }
 
       # part two
+      curr2 = row2[c]
       if line.action == parser.TOGGLE_LIGHT {
-        m2[r][c]   += 2
+        row2[c] = curr2 + 2
         brightness += 2
       } elif line.action == parser.TURN_LIGHT_ON {
-        m2[r][c]   += 1
+        row2[c] curr2 + 1
         brightness += 1
       } elif line.action == parser.TURN_LIGHT_OFF {
-        v = m2[r][c] - 1
+        v = row2[c] - 1
 
-        m2[r][c] = max(v, 0)
+        row2[c] = max(v, 0)
 
         if (brightness > 0 and v >= 0) brightness -= 1
       }
