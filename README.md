@@ -114,6 +114,7 @@
   - Solution [08 (Python)](./2015/08)
   - Solution [07](./2015/07) | [↗AOC](https://adventofcode.com/2015/day/7)
     - Solution [Go](./2015/07/go)
+    - Solution [MCA](./2015/07/mca)
     - Solution [Python](./2015/07/python)
   - Solution [06](./2015/06) | [↗AOC](https://adventofcode.com/2015/day/6)
     - Solution [Go](./2015/06/go)
