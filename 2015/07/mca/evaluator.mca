@@ -1,0 +1,79 @@
+const parser = import('./parser.mca')
+
+const evaluate_missing_instructions = \(s, inst) -> {
+  for _, missing_instruction : s.instructions[inst] {
+    pub_evaluate(s, missing_instruction)
+  }
+}
+
+const handle_assign_value_kind = \(s, instruction) -> {
+  s.values[instruction.output] = instruction.value
+}
+
+const handle_assign_var_kind = \(s, instruction) -> {
+  if !contains(s.values, instruction.left)
+    evaluate_missing_instructions(s, instruction.left)
+
+  s.values[instruction.output] = s.values[instruction.left]
+}
+
+const handle_not_kind = \(s, instruction) -> {
+  if !contains(s.values, instruction.left)
+    evaluate_missing_instructions(s, instruction.left)
+
+  s.values[instruction.output] = ~s.values[instruction.left]
+}
+
+const handle_shift_kind = \(s, instruction) -> {
+  if !contains(s.values, instruction.left)
+    evaluate_missing_instructions(s, instruction.left)
+
+  const left_value = s.values[instruction.left]
+  const value      = instruction.value
+
+  if instruction.kind == parser.LSHIFT_KIND
+    s.values[instruction.output] = left_value << value
+  elif instruction.kind == parser.RSHIFT_KIND
+    s.values[instruction.output] = left_value >> value
+}
+
+const cases = {
+  parser.ASSIGN_VALUE_KIND: handle_assign_value_kind,
+  parser.ASSIGN_VAR_KIND:   handle_assign_var_kind,
+  parser.LSHIFT_KIND:       handle_shift_kind,
+  parser.RSHIFT_KIND:       handle_shift_kind,
+  parser.NOT_KIND:          handle_not_kind
+}
+
+const pub_evaluate = \(s, instruction) -> {
+  if contains(cases, instruction.kind) return cases[instruction.kind](s, instruction)
+
+  const left_value = if !contains(s.values, instruction.left) {
+    if contains(s.instructions, instruction.left) {
+      evaluate_missing_instructions(s, instruction.left)
+
+      s.values[instruction.left]
+    } else as_int(instruction.left)
+  } else s.values[instruction.left]
+
+  const right_value = if !contains(s.values, instruction.right) {
+    if contains(s.instructions, instruction.right) {
+      evaluate_missing_instructions(s, instruction.right)
+
+      s.values[instruction.right]
+    } else as_int(instruction.right)
+  } else s.values[instruction.right]
+
+  s.values[instruction.output] =
+    if instruction.kind == parser.AND_KIND
+      left_value & right_value
+    elif instruction.kind == parser.OR_KIND
+      left_value | right_value
+}
+
+# export
+{
+  evaluate: pub_evaluate
+}
+
+# vim: set syntax=r :

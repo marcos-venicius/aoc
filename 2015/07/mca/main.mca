@@ -1,0 +1,16 @@
+#!/usr/local/bin/mca
+
+const io     = import('io')
+const string = import('string')
+const parser = import('./parser.mca')
+const lib    = import('./lib.mca')
+
+const instructions = map(filter(string.split(io.read_entire_file('./input.txt'), '\n'), \(line) -> line != ''), parser.parse_instruction)
+
+const solve = lib.new_solve(instructions)
+
+const part_one = lib.solve(solve, 'a')
+
+println('P1:', part_one)
+
+# vim: set syntax=r :

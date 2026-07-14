@@ -1,0 +1,34 @@
+const evaluator = import('./evaluator.mca')
+
+const pub_new_solve = \(instructions) -> {
+  const all = {}
+
+  for _, instruction : instructions {
+    if !contains(all, instruction.output) {
+      all[instruction.output] = []
+    }
+
+    append(all[instruction.output], instruction)
+  }
+
+  {
+    values: {},
+    instructions: all
+  }
+}
+
+const pub_solve = \(s, variable) -> {
+  for _, instruction : s.instructions[variable] {
+    evaluator.evaluate(s, instruction)
+  }
+
+  s.values[variable]
+}
+
+# export
+{
+  new_solve: pub_new_solve,
+  solve:     pub_solve
+}
+
+# vim: set syntax=r :

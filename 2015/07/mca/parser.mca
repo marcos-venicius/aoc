@@ -1,0 +1,60 @@
+const string = import('string')
+
+const PUB_ASSIGN_VALUE_KIND = 1
+const PUB_ASSIGN_VAR_KIND   = 2
+const PUB_OR_KIND           = 3
+const PUB_AND_KIND          = 4
+const PUB_NOT_KIND          = 5
+const PUB_LSHIFT_KIND       = 6
+const PUB_RSHIFT_KIND       = 7
+
+const is_numeric     = \(text) -> for _, v : text if !contains('0123456789', v) break false else true
+const string_to_type = \(str) -> ({LSHIFT: PUB_LSHIFT_KIND, RSHIFT: PUB_RSHIFT_KIND, OR: PUB_OR_KIND, AND: PUB_AND_KIND})[str]
+
+const pub_parse_instruction = \(line) -> {
+  const instruction = {}
+
+  const split = string.split(line, ' ')
+
+  if len(split) == 3 {
+    if (is_numeric(split[0])) {
+      instruction.kind  = PUB_ASSIGN_VALUE_KIND
+      instruction.value = as_int(split[0])
+    } else {
+      instruction.kind = PUB_ASSIGN_VAR_KIND
+      instruction.left = split[0]
+    }
+  } elif len(split) == 4 {
+    instruction.kind = PUB_NOT_KIND
+    instruction.left = split[1]
+  } elif split[1] == 'LSHIFT' or split[1] == 'RSHIFT' {
+    value = as_int(split[2])
+
+    instruction.left  = split[0]
+    instruction.value = value
+    instruction.kind  = string_to_type(split[1])
+  } else {
+    instruction.left  = split[0]
+    instruction.right = split[2]
+    instruction.kind  = string_to_type(split[1])
+  }
+
+  instruction.output = split[len(split)-1]
+
+  instruction
+}
+
+# export
+{
+  parse_instruction: pub_parse_instruction,
+
+  ASSIGN_VALUE_KIND: PUB_ASSIGN_VALUE_KIND,
+  ASSIGN_VAR_KIND:   PUB_ASSIGN_VAR_KIND,
+  OR_KIND:           PUB_OR_KIND,
+  AND_KIND:          PUB_AND_KIND,
+  NOT_KIND:          PUB_NOT_KIND,
+  LSHIFT_KIND:       PUB_LSHIFT_KIND,
+  RSHIFT_KIND:       PUB_RSHIFT_KIND
+}
+
+# vim: set syntax=r :
