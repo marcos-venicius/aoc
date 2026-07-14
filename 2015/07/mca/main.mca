@@ -13,4 +13,11 @@ const part_one = lib.solve(solve, 'a')
 
 println('P1:', part_one)
 
+const b_value = solve.values['a']
+solve.values = { b: b_value }
+
+const part_two = lib.solve(solve, 'a')
+
+println('P2:', part_two)
+
 # vim: set syntax=r :
