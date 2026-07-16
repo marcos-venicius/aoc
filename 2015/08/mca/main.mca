@@ -5,7 +5,8 @@ const string = import('string')
 
 const lines = string.split(io.read_entire_file('./input.txt'), '\n')
 
-const scape = \(line, i) -> {
+const encode = \(char) -> if (contains('"\\', char)) 2 else 1
+const scape  = \(line, i) -> {
   # @MCA: allow returning like `return 1, i + 1`
   if (line[i] != '\\')                           return [1, i + 1]
   if (line[i + 1] == 'x')                        return [1, i + 4]
@@ -14,10 +15,14 @@ const scape = \(line, i) -> {
   ?
 }
 
-code_count = chars_count = 0
+code_count      =
+chars_count_one =
+chars_count_two = 0
 
 for _, line : lines {
   code_count += len(line)
+ 
+  for _, char : line  chars_count_two += encode(char)
 
   line = string.select(line, 1, len(line) - 1)
 
@@ -25,13 +30,17 @@ for _, line : lines {
     # @MCA: allow syntax like `c, ni = scape(line, i)`
     out = scape(line, i)
 
-    chars_count += out[0]
+    chars_count_one += out[0]
     i = out[1]
   }
 }
 
-part_one = code_count - chars_count
+chars_count_two += len(lines) * 2
+
+const part_one = code_count - chars_count_one
+const part_two = chars_count_two - code_count
 
 println('P1:', part_one)
+println('P2:', part_two)
 
 # vim: set syntax=r :
