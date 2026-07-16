@@ -1,0 +1,37 @@
+#!/usr/local/bin/mca
+
+const io     = import('io')
+const string = import('string')
+
+const lines = string.split(io.read_entire_file('./input.txt'), '\n')
+
+const scape = \(line, i) -> {
+  # @MCA: allow returning like `return 1, i + 1`
+  if (line[i] != '\\')                           return [1, i + 1]
+  if (line[i + 1] == 'x')                        return [1, i + 4]
+  if (line[i + 1] == '"' or line[i + 1] == '\\') return [1, i + 2]
+
+  ?
+}
+
+code_count = chars_count = 0
+
+for _, line : lines {
+  code_count += len(line)
+
+  line = string.select(line, 1, len(line) - 1)
+
+  i = 0; while i < len(line) {
+    # @MCA: allow syntax like `c, ni = scape(line, i)`
+    out = scape(line, i)
+
+    chars_count += out[0]
+    i = out[1]
+  }
+}
+
+part_one = code_count - chars_count
+
+println('P1:', part_one)
+
+# vim: set syntax=r :
