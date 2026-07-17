@@ -1,0 +1,68 @@
+#!/usr/local/bin/mca
+
+const io     = import('io')
+const string = import('string')
+
+const prepare = \(line) -> {
+  const split = []
+
+  i = 0
+
+  while i < len(line) {
+    s = 1
+    c = line[i]
+
+    i += 1
+
+    while i < len(line) and line[i] == c {
+      i += 1
+      s += 1
+    }
+
+    const v = as_int(c)
+
+    append(split, s)
+    append(split, v)
+  }
+
+  split
+}
+
+const solve = \(data, until) -> {
+  result = []
+  until = until - 1
+
+  for x : [0, until] {
+    i = 0
+
+    while i < len(data) {
+      s = 1
+      c = data[i]
+
+      i += 1
+
+      while i < len(data) and data[i] == c {
+        i += 1
+        s += 1
+      }
+
+      append(result, s)
+      append(result, c)
+    }
+
+    if x < until - 1 {
+      data = result
+      result = []
+    }
+  }
+
+  len(result)
+}
+
+const input = prepare(string.trim(io.read_entire_file('./input.txt')))
+
+const part_one = solve(input, 40)
+
+println('P1:', part_one)
+
+# vim: set syntax=r :
