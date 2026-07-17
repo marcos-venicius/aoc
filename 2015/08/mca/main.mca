@@ -7,12 +7,9 @@ const lines = string.split(io.read_entire_file('./input.txt'), '\n')
 
 const encode = \(char) -> if (contains('"\\', char)) 2 else 1
 const scape  = \(line, i) -> {
-  # @MCA: allow returning like `return 1, i + 1`
-  if (line[i] != '\\')                           return [1, i + 1]
-  if (line[i + 1] == 'x')                        return [1, i + 4]
-  if (line[i + 1] == '"' or line[i + 1] == '\\') return [1, i + 2]
-
-  ?
+  if (line[i] != '\\')                           return 1, i + 1
+  if (line[i + 1] == 'x')                        return 1, i + 4
+  if (line[i + 1] == '"' or line[i + 1] == '\\') return 1, i + 2
 }
 
 code_count      =
