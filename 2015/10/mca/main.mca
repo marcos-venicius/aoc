@@ -56,13 +56,17 @@ const solve = \(data, until) -> {
     }
   }
 
-  len(result)
+  return len(result), result
 }
 
 const input = prepare(string.trim(io.read_entire_file('./input.txt')))
 
-const part_one = solve(input, 40)
+part_one, result = solve(input, 40)
 
 println('P1:', part_one)
+
+part_two, _      = solve(result, 11) # @MCA: This is veeerrrry slow. I'm going to work in the language to make it faster
+
+println('P2:', part_two)
 
 # vim: set syntax=r :
