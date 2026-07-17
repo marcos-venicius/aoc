@@ -1,0 +1,58 @@
+next_distance = \(d, origin, distance, visited) -> {
+  visited[origin] = {}
+
+  route          = ?
+  route_distance = -1
+
+  for key, distance : d.routes[origin] {
+    if !contains(visited, key) {
+      if route_distance == -1 or d.comparator(distance, route_distance) {
+        route          = key
+        route_distance = distance
+      }
+    }
+  }
+
+  if route_distance == -1  return distance
+
+  next_distance(d, route, distance + route_distance, visited)
+}
+
+const pub_create_database = \(comparator) -> ({
+  routes:    {},
+  locations: {},
+  comparator: comparator,
+})
+
+const pub_add = \(d, route) -> {
+  if !contains(d.routes, route.origin)       d.routes[route.origin] = {}
+  if !contains(d.routes, route.destination)  d.routes[route.destination] = {}
+
+  # save 2-way directions, round trip.
+  d.routes[route.origin][route.destination] = route.distance
+  d.routes[route.destination][route.origin] = route.distance
+
+  d.locations[route.origin]      = {}
+  d.locations[route.destination] = {}
+}
+
+const pub_distance = \(d) -> {
+  distance = -1
+
+  for route, _ : d.locations {
+    const amount = next_distance(d, route, 0, {})
+
+    if (distance == -1 or d.comparator(amount, distance)) distance = amount
+  }
+
+  distance
+}
+
+# export
+{
+  create_database: pub_create_database,
+  add:             pub_add,
+  distance:        pub_distance
+}
+
+# vim: set syntax=r :

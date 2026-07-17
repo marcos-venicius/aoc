@@ -1,0 +1,18 @@
+const string = import('string')
+
+const pub_parse_line = \(line) -> {
+  origin, _, destination, _, distance = string.split(line, ' ')
+
+  {
+    origin: origin,
+    destination: destination,
+    distance: as_int(distance)
+  }
+}
+
+# export
+{
+  parse_line: pub_parse_line
+}
+
+# vim: set syntax=r :

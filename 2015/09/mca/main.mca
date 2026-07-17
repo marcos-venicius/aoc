@@ -1,0 +1,24 @@
+#!/usr/local/bin/mca
+
+const io     = import('io')
+const string = import('string')
+
+const parser = import('./parser.mca')
+const lib    = import('./lib.mca')
+
+const routes = map(filter(string.split(io.read_entire_file('./input.txt'), '\n'), \(line) -> line != ''), parser.parse_line)
+
+const db1 = lib.create_database(\(a, b) -> a < b)
+const db2 = lib.create_database(\(a, b) -> a > b)
+
+for _, route : routes  {
+  lib.add(db1, route)
+  lib.add(db2, route)
+}
+
+const part_one = lib.distance(db1)
+const part_two = lib.distance(db2)
+
+println('P1:', part_one)
+println('P2:', part_two)
+# vim: set syntax=r :
