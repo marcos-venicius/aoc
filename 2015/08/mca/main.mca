@@ -27,11 +27,10 @@ for _, line : lines {
   line = string.select(line, 1, len(line) - 1)
 
   i = 0; while i < len(line) {
-    # @MCA: allow syntax like `c, ni = scape(line, i)`
-    out = scape(line, i)
+    const c, ni = scape(line, i)
 
-    chars_count_one += out[0]
-    i = out[1]
+    chars_count_one += c
+    i = ni
   }
 }
 
