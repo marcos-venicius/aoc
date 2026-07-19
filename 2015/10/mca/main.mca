@@ -5,16 +5,17 @@ const string = import('string')
 
 const prepare = \(line) -> {
   const split = []
+  const line_size = len(line)
 
   i = 0
 
-  while i < len(line) {
+  while i < line_size {
     s = 1
     c = line[i]
 
     i += 1
 
-    while i < len(line) and line[i] == c {
+    while i < line_size and line[i] == c {
       i += 1
       s += 1
     }
@@ -34,14 +35,15 @@ const solve = \(data, until) -> {
 
   for x : [0, until] {
     i = 0
+    const data_size = len(data)
 
-    while i < len(data) {
+    while i < data_size {
       s = 1
       c = data[i]
 
       i += 1
 
-      while i < len(data) and data[i] == c {
+      while i < data_size and data[i] == c {
         i += 1
         s += 1
       }
