@@ -1,0 +1,63 @@
+#!/usr/local/bin/mca
+
+const io     = import('io')
+const string = import('string')
+
+const min_c   = string.ord('a')
+const max_c   = string.ord('z')
+const blocked = map(['i', 'o', 'l'], string.ord)
+const data    = map(string.split(string.trim(io.read_entire_file('./input.txt')), ''), string.ord)
+
+const is_valid_password = \() -> {
+  pairs          = 0
+  match_triplets = false
+
+  for i : len(data) {
+    if contains(blocked, data[i]) return false
+
+    if !(i + 2 >= len(data)) {
+      a = data[i]
+      b = data[i + 1]
+      c = data[i + 2]
+
+      if (b - a == 1 and c - b == 1) match_triplets = true
+    }
+
+    if (i >= len(data) - 1) continue
+
+    const has_prev = i - 1 >= 0
+
+    if (has_prev and data[i] == data[i + 1] and data[i - 1] != data[i]) pairs += 1
+  }
+
+  pairs >= 2 and match_triplets
+}
+
+const increment_password = \(pos) -> {
+  if data[pos] == max_c {
+    data[pos] = min_c
+    for i : [pos, len(data)] data[i] = min_c
+    increment_password(pos - 1)
+  } else data[pos] = data[pos] + 1
+
+  for i : len(data)
+    if contains(blocked, data[i]) {
+      increment_password(i)
+      break;
+    }
+}
+
+const print_password = \() -> println(string.join(map(data, string.chr), ''))
+
+const run_part = \(p) -> {
+  while !is_valid_password() increment_password(len(data) - 1)
+
+  print('P', p, ': ')
+  print_password()
+}
+
+run_part('1')
+increment_password(len(data) - 1)
+run_part('2')
+
+# vim: set syntax=python :

@@ -1,0 +1,81 @@
+#!/usr/local/bin/mca
+
+const string = import('string')
+const io     = import('io')
+const os     = import('os')
+const path   = import('path')
+
+const readme = [
+    '# Advent of code - table of contents',
+    '',
+    '> [!WARNING]',
+    '> I\'m not competing, so please don\'t expect this repository to have every solution right away.',
+    '> I\'m solving these at my own pace, but eventually, all the solutions will be here.',
+    '',
+    '> [!NOTE]',
+    '> The code for these challenges isn\'t necessarily built for maximum performance.',
+    '> Instead, my goal is to solve them in ways that I find fun and interesting!',
+    '',
+    '> [!WARNING]',
+    '> Some of the solutions are implemented using my own language called [MCA](https://github.com/marcos-venicius/MCA).',
+    '> If you want to try it out, just clone the repo, run `make` and you are ready to go!',
+    '> This [generate-readme.mca](./generate-readme.mca) script is using my own language [MCA](https://github.com/marcos-venicius/MCA).',
+    ''
+]
+
+const is_numeric       = \(name) -> !any(name, \(c) -> !contains('0123456789', c))
+const exclude_file_ext = freeze(set(['sum', 'mod', 'txt', 'md', 'gitignore']))
+const exclude_dirs     = freeze(set(['assets']))
+const years            = sort(filter(os.list_dir('.'), \(name) -> os.is_dir(name) and is_numeric(name)), \(a, b) -> as_int(b) - as_int(a))
+const langs_map        = freeze({
+  'c':      'C',
+  'mca':    'MCA',
+  'c3':     'C3',
+  'py':     'Python',
+  'python': 'Python',
+  'odin':   'Odin',
+  'go':     'Go',
+  'elixir': 'Elixir',
+  'zig':    'Zig'
+})
+
+const map_lang     = \(lang) -> if (contains(langs_map, lang)) langs_map[lang] else lang
+const map_aoc_year = \(year) -> string.format('https://adventofcode.com/', year)
+const map_aoc_day  = \(year, day) -> string.format('https://adventofcode.com/', year, '/day/', as_int(day))
+
+for _, year : years {
+  append(readme, string.format('- Solution [', year, '](./', year, ') | [↗AOC](', map_aoc_year(year), ')'))
+
+  const days = sort(os.list_dir(path.join('./', year)), \(a, b) -> as_int(b) - as_int(a))
+
+  for _, day : days {
+    const entries = sort(os.list_dir(path.join('./', year, day)), string.compare)
+    const dirs    = filter(entries, \(x) -> os.is_dir(path.join('./', year, day, x)) and !contains(exclude_dirs, x))
+    const files   = filter(entries, \(x) -> !os.is_dir(path.join('./', year, day, x))) # TODO: use is_file?
+
+    if (len(dirs) > 0) {
+      append(readme, string.format('  - Solution [', day, '](', path.join('./', year, day), ') | [↗AOC](', map_aoc_day(year, day), ')'))
+
+      for _, dir : dirs
+        append(readme, string.format('    - Solution [', map_lang(dir), '](', path.join('./', year, day, dir), ')'))
+    } else {
+      extensions = keys(set(map(files, \(f) -> string.lower(string.split(f, '.')[-1]))))
+      extensions = filter(extensions, \(ext) -> !contains(exclude_file_ext, ext))
+      extensions = map(extensions, \(ext) -> map_lang(ext))
+
+      const langs = string.join(extensions, ', ')
+
+      append(readme, string.format('  - Solution [', day, ' (', langs, ')](', path.join('./', year, day), ')'))
+    }
+  }
+}
+
+const readme_as_text = string.join(readme, '\n')
+
+const readme_file = io.open('./README.md', io.O_CREATE | io.O_TRUNC | io.O_WRONLY, io.S_IWUSR | io.S_IRUSR)
+
+io.write(readme_file, readme_as_text)
+
+io.close(readme_file)
+
+# vim: set syntax=r :

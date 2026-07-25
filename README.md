@@ -11,8 +11,7 @@
 > [!WARNING]
 > Some of the solutions are implemented using my own language called [MCA](https://github.com/marcos-venicius/MCA).
 > If you want to try it out, just clone the repo, run `make` and you are ready to go!
-> I plan to rewrite this generate-readme.py script using my own language [MCA](https://github.com/marcos-venicius/MCA)
-> For now, the language doesn't have all the capabilities I need to do that but I'm working on it
+> This [generate-readme.mca](./generate-readme.mca) script is using my own language [MCA](https://github.com/marcos-venicius/MCA).
 
 - Solution [2025](./2025) | [↗AOC](https://adventofcode.com/2025)
   - Solution [08](./2025/08) | [↗AOC](https://adventofcode.com/2025/day/8)
@@ -24,7 +23,7 @@
   - Solution [05](./2025/05) | [↗AOC](https://adventofcode.com/2025/day/5)
     - Solution [Python](./2025/05/python)
   - Solution [04 (Odin)](./2025/04)
-  - Solution [03 (Odin, Python)](./2025/03)
+  - Solution [03 (Python, Odin)](./2025/03)
   - Solution [02](./2025/02) | [↗AOC](https://adventofcode.com/2025/day/2)
     - Solution [Python](./2025/02/python)
   - Solution [01](./2025/01) | [↗AOC](https://adventofcode.com/2025/day/1)
@@ -108,8 +107,11 @@
   - Solution [14](./2015/14) | [↗AOC](https://adventofcode.com/2015/day/14)
     - Solution [Python](./2015/14/python)
   - Solution [11](./2015/11) | [↗AOC](https://adventofcode.com/2015/day/11)
+    - Solution [MCA](./2015/11/mca)
     - Solution [Python](./2015/11/python)
-  - Solution [10 (Go)](./2015/10)
+  - Solution [10](./2015/10) | [↗AOC](https://adventofcode.com/2015/day/10)
+    - Solution [Go](./2015/10/go)
+    - Solution [MCA](./2015/10/mca)
   - Solution [09](./2015/09) | [↗AOC](https://adventofcode.com/2015/day/9)
     - Solution [Go](./2015/09/go)
     - Solution [MCA](./2015/09/mca)
