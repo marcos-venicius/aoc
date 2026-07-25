@@ -1,9 +1,6 @@
 #!/usr/local/bin/mca
 
-const string = import('string')
-const io     = import('io')
-const os     = import('os')
-const path   = import('path')
+const string, io, os, path = [import('string'), import('io'), import('os'), import('path')]
 
 const readme = [
     '# Advent of code - table of contents',
@@ -50,8 +47,11 @@ for _, year : years {
 
   for _, day : days {
     const entries = sort(os.list_dir(path.join('./', year, day)), string.compare)
-    const dirs    = filter(entries, \(x) -> os.is_dir(path.join('./', year, day, x)) and !contains(exclude_dirs, x))
-    const files   = filter(entries, \(x) -> !os.is_dir(path.join('./', year, day, x))) # TODO: use is_file?
+    const dirs, files = bucket(
+      entries,
+      \(x) -> os.is_dir(path.join('./', year, day, x)) and !contains(exclude_dirs, x),
+      \(x) -> !os.is_dir(path.join('./', year, day, x))
+    )
 
     if (len(dirs) > 0) {
       append(readme, string.format('  - Solution [', day, '](', path.join('./', year, day), ') | [↗AOC](', map_aoc_day(year, day), ')'))
@@ -70,12 +70,9 @@ for _, year : years {
   }
 }
 
-const readme_as_text = string.join(readme, '\n')
-
 const readme_file = io.open('./README.md', io.O_CREATE | io.O_TRUNC | io.O_WRONLY, io.S_IWUSR | io.S_IRUSR)
 
-io.write(readme_file, readme_as_text)
-
+io.write(readme_file, string.join(readme, '\n'))
 io.close(readme_file)
 
 # vim: set syntax=r :
