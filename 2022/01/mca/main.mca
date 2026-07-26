@@ -1,0 +1,32 @@
+#!/usr/local/bin/mca
+
+const io  = import('io')
+const str = import('string')
+
+const FILE = './input.txt'
+# const FILE = './test.txt'
+
+const lines = str.split(io.read_entire_file(FILE), '\n')
+
+data = [{total: 0, calories: []}]
+
+for _, line : lines {
+  if line == '' {
+    append(data, {total: 0, calories: []})
+  } else {
+    const c = as_int(line)
+
+    append(data[-1].calories, c)
+    data[-1].total += c
+  }
+}
+
+if !data[-1].calories data = data[0:-1]
+
+data = sort(data, \(a, b) -> b.total - a.total)
+
+const part_one = data[0].total
+
+println('P1:', part_one)
+
+# vim: set syntax=r :
