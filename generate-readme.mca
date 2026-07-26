@@ -50,7 +50,7 @@ for _, year : years {
     const dirs, files = bucket(
       entries,
       \(x) -> os.is_dir(path.join('./', year, day, x)) and !contains(exclude_dirs, x),
-      \(x) -> !os.is_dir(path.join('./', year, day, x))
+      \(x) -> os.is_file(path.join('./', year, day, x))
     )
 
     if (len(dirs) > 0) {
