@@ -72,7 +72,8 @@ for _, year : years {
 
 const readme_file = io.open('./README.md', io.O_CREATE | io.O_TRUNC | io.O_WRONLY, io.S_IWUSR | io.S_IRUSR)
 
+defer io.close(readme_file)
+
 io.write(readme_file, string.join(readme, '\n'))
-io.close(readme_file)
 
 # vim: set syntax=r :
