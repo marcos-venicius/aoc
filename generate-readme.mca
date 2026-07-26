@@ -37,11 +37,10 @@ const langs_map        = freeze({
 })
 
 const map_lang     = \(lang) -> if (contains(langs_map, lang)) langs_map[lang] else lang
-const map_aoc_year = \(year) -> string.format('https://adventofcode.com/', year)
-const map_aoc_day  = \(year, day) -> string.format('https://adventofcode.com/', year, '/day/', as_int(day))
+const map_aoc_path = \(year, day?) -> if (!!day) string.format('https://adventofcode.com/', year, '/day/', as_int(day)) else string.format('https://adventofcode.com/', year)
 
 for _, year : years {
-  append(readme, string.format('- Solution [', year, '](./', year, ') | [↗AOC](', map_aoc_year(year), ')'))
+  append(readme, string.format('- Solution [', year, '](./', year, ') | [↗AOC](', map_aoc_path(year), ')'))
 
   const days = sort(os.list_dir(path.join('./', year)), \(a, b) -> as_int(b) - as_int(a))
 
@@ -54,7 +53,7 @@ for _, year : years {
     )
 
     if (len(dirs) > 0) {
-      append(readme, string.format('  - Solution [', day, '](', path.join('./', year, day), ') | [↗AOC](', map_aoc_day(year, day), ')'))
+      append(readme, string.format('  - Solution [', day, '](', path.join('./', year, day), ') | [↗AOC](', map_aoc_path(year, day), ')'))
 
       for _, dir : dirs
         append(readme, string.format('    - Solution [', map_lang(dir), '](', path.join('./', year, day, dir), ')'))
