@@ -29,4 +29,8 @@ const part_one = data[0].total
 
 println('P1:', part_one)
 
+const part_two = sum(map(data[0:3], \(x) -> x.total))
+
+println('P2:', part_two)
+
 # vim: set syntax=r :
