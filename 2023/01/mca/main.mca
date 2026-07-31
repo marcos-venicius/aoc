@@ -3,6 +3,19 @@
 const io     = import('io')
 const string = import('string')
 
+const number_letters = set(string.split('onetwothreefourfivesixseveneightnine', ''))
+const numbers_mapping = {
+  one:   1,
+  two:   2,
+  three: 3,
+  four:  4,
+  five:  5,
+  six:   6,
+  seven: 7,
+  eight: 8,
+  nine:  9
+}
+
 const get_calibration = \(line) -> {
   const numbers = []
   for _, c : line if contains('0123456789', c) append(numbers, c)
@@ -10,8 +23,41 @@ const get_calibration = \(line) -> {
   return as_int(string.format(numbers[0], numbers[-1]))
 }
 
+const parse_calibration = \(line) -> {
+  const numbers = []
+  const size    = len(line)
+
+  cursor = 0
+
+  while cursor < size {
+    if contains(number_letters, line[cursor]) {
+      start = cursor
+      while cursor < size and contains(number_letters, line[cursor]) {
+        cursor += 1
+
+        if contains(numbers_mapping, line[start:cursor]) {
+          append(numbers, numbers_mapping[line[start:cursor]])
+
+          break;
+        }
+      }
+
+      # words may overlap ('eightwo'), so rescan from the next character
+      cursor = start
+    } elif contains('0123456789', line[cursor]) {
+      append(numbers, line[cursor])
+    }
+
+    cursor += 1
+  }
+
+  as_int(string.format(numbers[0], numbers[-1]))
+}
+
 const part_one = sum(map(filter(string.split(io.read_entire_file('./input.txt'), '\n'), \(x) -> !!x), get_calibration))
+const part_two = sum(map(filter(string.split(io.read_entire_file('./input.txt'), '\n'), \(x) -> !!x), parse_calibration))
 
 println('P1:', part_one)
+println('P2:', part_two)
 
 # vim: set syntax=r :
