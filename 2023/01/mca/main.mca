@@ -1,0 +1,17 @@
+#!/usr/local/bin/mca 
+
+const io     = import('io')
+const string = import('string')
+
+const get_calibration = \(line) -> {
+  const numbers = []
+  for _, c : line if contains('0123456789', c) append(numbers, c)
+
+  return as_int(string.format(numbers[0], numbers[-1]))
+}
+
+const part_one = sum(map(filter(string.split(io.read_entire_file('./input.txt'), '\n'), \(x) -> !!x), get_calibration))
+
+println('P1:', part_one)
+
+# vim: set syntax=r :
