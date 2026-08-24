@@ -112,6 +112,8 @@
 - Solution [2015](./2015) | [↗AOC](https://adventofcode.com/2015)
   - Solution [14](./2015/14) | [↗AOC](https://adventofcode.com/2015/day/14)
     - Solution [Python](./2015/14/python)
+  - Solution [12](./2015/12) | [↗AOC](https://adventofcode.com/2015/day/12)
+    - Solution [MCA](./2015/12/mca)
   - Solution [11](./2015/11) | [↗AOC](https://adventofcode.com/2015/day/11)
     - Solution [MCA](./2015/11/mca)
     - Solution [Python](./2015/11/python)
