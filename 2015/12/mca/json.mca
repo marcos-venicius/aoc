@@ -1,0 +1,382 @@
+# Public library for MCA written by https://github.com/marcos-venicius.
+# Original Source Code is located at: https://github.com/marcos-venicius/mca-json-parser
+
+const string = import('string')
+
+# PUBLIC
+
+const pub_loads = \(data) -> {
+  const lexer  = lexer_create(data)
+  const tokens = lexer_run(lexer)
+  const p      = parser_create(tokens)
+
+  parser_run(p)
+}
+
+const pub_dumps = \(obj) -> {
+  const sb = []
+
+  const t = type(obj)
+
+  const mappings = {
+    string: dump_string_type,
+    int:    dump_int_type,
+    float:  dump_float_type,
+    bool:   dump_bool_type,
+    map:    dump_map_type,
+    array:  dump_array_type,
+    unit:   dump_unit_type
+  }
+
+  if !contains(mappings, t) or !mappings[t] {
+    println('PANIC: type', t, 'not handled yet')
+    exit(1)
+  }
+
+  append(sb, mappings[t](obj))
+
+  string.join(sb, '')
+}
+
+# [START] NOT IN THE REPOSITORY
+
+const pub_spit_tokens = \(data) -> lexer_run(lexer_create(data))
+
+const PUB_TOKEN_KIND_ENUM = {
+  LBRACKET: 'lbracket',
+  RBRACKET: 'rbracket',
+  LSQUARE:  'lsquare',
+  RSQUARE:  'rsquare',
+  COLON:    'colon',
+  COMMA:    'comma',
+  NULL:     'null',
+  FALSE:    'false',
+  TRUE:     'true',
+  NUMBER:   'number',
+  STRING:   'string'
+}
+
+# [END] NOT IN THE REPOSITORY
+
+
+# IMPLEMENTATION
+
+# primary types
+const dump_unit_type   = \(_) -> 'null'
+const dump_bool_type   = \(bool) -> if bool 'true' else 'false'
+const dump_int_type    = \(int) -> as_string(int)
+const dump_float_type  = \(float) -> as_string(float) # @MCA: we do not keep the exact number that is written. If the number is 1.0 it becomes 1.000000
+const dump_string_type = \(value) -> string.format('"', escape_string(value), '"')
+
+# complex types
+const dump_map_type = \(map) -> {
+  const sb = ['{']
+
+  first = true
+
+  for key, value : map {
+    if !first  append(sb, ',')
+
+    const key_string   = pub_dumps(key)
+    const value_string = pub_dumps(value)
+
+    append(sb, key_string)
+    append(sb, ':')
+    append(sb, value_string)
+
+    first = false
+  }
+
+  append(sb, '}')
+
+  string.join(sb, '')
+}
+
+const dump_array_type = \(array) -> {
+  const sb = ['[']
+
+  for idx, value : array {
+    if idx > 0  append(sb, ',')
+
+    const value_string = pub_dumps(value)
+
+    append(sb, value_string)
+  }
+
+  append(sb, ']')
+
+  string.join(sb, '')
+}
+
+# UTILS
+
+const escape_string = \(original) -> {
+  const sb = []
+
+  last_index = 0
+
+  for i : len(original) {
+    if original[i] == '"' {
+      append(sb, original[last_index:i])
+      append(sb, '\\"')
+
+      last_index = i + 1
+    } elif original[i] == '\n' {
+      append(sb, original[last_index:i])
+      append(sb, '\\n')
+
+      last_index = i + 1
+    }
+  }
+
+  if last_index != len(original) append(sb, original[last_index:len(original)])
+
+  string.join(sb, '')
+}
+
+# LOADS LEXER
+
+const KEYWORDS = {
+  'true':  PUB_TOKEN_KIND_ENUM.TRUE,
+  'false': PUB_TOKEN_KIND_ENUM.FALSE,
+  'null':  PUB_TOKEN_KIND_ENUM.NULL
+}
+
+const SINGLE_TOKENS = {
+  '{': PUB_TOKEN_KIND_ENUM.LBRACKET,
+  '}': PUB_TOKEN_KIND_ENUM.RBRACKET,
+  '[': PUB_TOKEN_KIND_ENUM.LSQUARE,
+  ']': PUB_TOKEN_KIND_ENUM.RSQUARE,
+  ':': PUB_TOKEN_KIND_ENUM.COLON,
+  ',': PUB_TOKEN_KIND_ENUM.COMMA
+}
+
+const char      = \(l) -> if (l.cursor < l.size) l.content[l.cursor]
+const nchar     = \(l) -> if (l.cursor + 1 < l.size) l.content[l.cursor + 1]
+const is_empty  = \(l) -> l.cursor >= l.size
+const new_token = \(l, value, kind) -> ({ value: value, kind: kind, line: l.line_snapshot, col: l.col_snapshot })
+const is_symbol = \(c) -> contains('trufalsen', c)
+const is_number = \(c) -> contains('0987654321', c)
+
+const next_char = \(l) -> {
+  if (l.cursor < l.size) {
+    if l.content[l.cursor] == '\n' {
+      l.line += 1
+      l.col = 1
+    } else {
+      l.col += 1
+    }
+
+    l.cursor += 1
+  }
+}
+
+const lexer_error = \(l, msg) -> {
+  print('lexing error at line ', l.line, ' and column ', l.col, ': ', msg, '\n')
+  exit(1)
+}
+
+const lex_string = \(l) -> {
+  next_char(l) # skip "
+
+  str = []
+
+  last_index = l.cursor
+
+  while (!is_empty(l) and char(l) != '"') {
+    if char(l) == '\\' {
+      if !nchar(l)  lexer_error(l, 'expected escaping sequence but got eof')
+
+      # TODO: handle more escapings
+      if nchar(l) == '"' {
+        append(str, l.content[last_index:l.cursor])
+        append(str, '"')
+      } elif nchar(l) == 'n' {
+        append(str, l.content[last_index:l.cursor])
+        append(str, '\n')
+      } else {
+        lexer_error(l, string.format('expected valid escaping sequence but got ', nchar(l)))
+      }
+
+      next_char(l) # skip '\'
+
+      last_index = l.cursor + 1
+    } elif (char(l) == '\n') lexer_error(l, 'unterminated string literal')
+
+    next_char(l)
+  }
+
+  if last_index < l.cursor append(str, l.content[last_index:l.cursor])
+
+  if char(l) != '"' lexer_error(l, 'unterminated string literal')
+
+  next_char(l) # skip "
+
+  string.join(str, '')
+}
+
+const lexer_create = \(content) -> ({
+  content:       content,
+  size:          len(content),
+  col:           1,
+  line:          1,
+  line_snapshot: 1,
+  col_snapshot:  1,
+  cursor:        0,
+  bot:           0,
+  tokens:        []
+})
+
+const lexer_run = \(l) -> {
+  while !is_empty(l) {
+    # trim whitespaces
+    while (!is_empty(l) and contains(' \n\r\t', char(l))) next_char(l)
+
+    if is_empty(l) break;
+
+    l.bot           = l.cursor
+    l.line_snapshot = l.line
+    l.col_snapshot  = l.col
+
+    if contains(SINGLE_TOKENS, char(l)) {
+      append(l.tokens, new_token(l, char(l), SINGLE_TOKENS[char(l)]))
+
+      next_char(l)
+    } elif is_symbol(char(l)) {
+      while (!is_empty(l) and is_symbol(char(l))) next_char(l)
+
+      const symbol = l.content[l.bot:l.cursor]
+
+      if !contains(KEYWORDS, symbol)  lexer_error(l, string.format('invalid keyword', symbol))
+
+      append(l.tokens, new_token(l, symbol, KEYWORDS[symbol]))
+    } elif is_number(char(l)) or char(l) == '-' {
+      if (char(l) == '-') next_char(l)
+
+      while (!is_empty(l) and is_number(char(l))) next_char(l)
+
+      if (char(l) == '.') next_char(l)
+
+      while (!is_empty(l) and is_number(char(l))) next_char(l)
+
+      const value = l.content[l.bot:l.cursor]
+
+      append(l.tokens, new_token(l, value, PUB_TOKEN_KIND_ENUM.NUMBER))
+    } elif char(l) == '"' {
+      const text = lex_string(l)
+
+      append(l.tokens, new_token(l, text, PUB_TOKEN_KIND_ENUM.STRING))
+    } else lexer_error(l, string.format('unhandled char "', char(l), '"'))
+  }
+
+  l.tokens
+}
+
+# LOADS PARSER
+
+const is_parser_empty = \(p) -> p.index >= p.size
+const next_token      = \(p) -> if !is_parser_empty(p) p.index += 1
+const token           = \(p) -> if !is_parser_empty(p) p.tokens[p.index]
+const token_is        = \(p, kind) -> !is_parser_empty(p) and token(p).kind == kind
+
+const parser_error = \(tk, msg) -> {
+  print('parser error at line ', tk.line, ' and column ', tk.col, ': ', msg, '\n')
+  exit(1)
+}
+
+const parser_expect = \(p, tk, kind) -> {
+  if (!tk) parser_error(p.first_token, string.format('expected token of kind ', kind, ' but received eof'))
+  if (tk.kind != kind) parser_error(p.first_token, string.format('expected token of kind ', kind, ' but received ', tk.kind))
+}
+
+const parse_number = \(tk) -> if (contains(tk.value, '.')) as_float(tk.value) else as_int(tk.value)
+
+const parse_object = \(p) -> {
+  parser_expect(p, token(p), PUB_TOKEN_KIND_ENUM.LBRACKET)
+  next_token(p)
+
+  const object = {}
+
+  while !is_parser_empty(p) and !token_is(p, PUB_TOKEN_KIND_ENUM.RBRACKET) {
+    const key, kind = parse_token(p)
+
+    if (kind != 'string' and kind != 'number') parser_error(p.first_token, string.format('expected number or string but got ', kind))
+
+    parser_expect(p, token(p), PUB_TOKEN_KIND_ENUM.COLON)
+    next_token(p) # skip ':'
+
+    const value, _ = parse_token(p)
+
+    object[key] = value
+
+    if token_is(p, PUB_TOKEN_KIND_ENUM.RBRACKET) break;
+
+    parser_expect(p, token(p), PUB_TOKEN_KIND_ENUM.COMMA)
+
+    next_token(p) # skip ','
+  }
+
+  parser_expect(p, token(p), PUB_TOKEN_KIND_ENUM.RBRACKET)
+  next_token(p)
+
+  object
+}
+
+const parse_array = \(p) -> {
+  parser_expect(p, token(p), PUB_TOKEN_KIND_ENUM.LSQUARE)
+  next_token(p)
+
+  const array = []
+
+  while !is_parser_empty(p) and !token_is(p, PUB_TOKEN_KIND_ENUM.RSQUARE) {
+    const item, _ = parse_token(p)
+
+    append(array, item)
+
+    if token_is(p, PUB_TOKEN_KIND_ENUM.RSQUARE) break;
+
+    parser_expect(p, token(p), PUB_TOKEN_KIND_ENUM.COMMA)
+
+    next_token(p) # skip ','
+  }
+
+  parser_expect(p, token(p), PUB_TOKEN_KIND_ENUM.RSQUARE)
+  next_token(p)
+
+  array
+}
+
+const parse_token = \(p) -> {
+  if is_parser_empty(p) return ({}, 'object')
+
+  const tk = token(p)
+
+  p.first_token = tk
+
+  if   tk.kind == PUB_TOKEN_KIND_ENUM.NUMBER   {next_token(p); return (parse_number(tk), 'number') }
+  elif tk.kind == PUB_TOKEN_KIND_ENUM.STRING   {next_token(p); return (tk.value, 'string') }
+  elif tk.kind == PUB_TOKEN_KIND_ENUM.TRUE     {next_token(p); return (true, 'bool') }
+  elif tk.kind == PUB_TOKEN_KIND_ENUM.FALSE    {next_token(p); return (false, 'bool') }
+  elif tk.kind == PUB_TOKEN_KIND_ENUM.NULL     {next_token(p); return (?, 'null') }
+  elif tk.kind == PUB_TOKEN_KIND_ENUM.LBRACKET return (parse_object(p), 'object')
+  elif tk.kind == PUB_TOKEN_KIND_ENUM.LSQUARE  return (parse_array(p), 'array')
+}
+
+const parser_create = \(tokens) -> ({
+  tokens:      tokens,
+  size:        len(tokens),
+  index:       0,
+  first_token: ?
+})
+
+const parser_run = \(p) -> return parse_token(p)[0]
+
+# export
+freeze({
+  loads:           pub_loads,
+  dumps:           pub_dumps,
+  spit:            pub_spit_tokens,
+  TOKEN_KIND_ENUM: PUB_TOKEN_KIND_ENUM
+})
+
+# vim: set syntax=r :

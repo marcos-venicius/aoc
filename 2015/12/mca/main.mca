@@ -1,0 +1,13 @@
+#!/usr/local/bin/mca
+const io = import('io')
+const json = import('./json.mca')
+
+const data = io.read_entire_file('./input.txt')
+
+const tokens = json.spit(data)
+
+part_one = 0
+
+for _, token : tokens if (token.kind == json.TOKEN_KIND_ENUM.NUMBER) part_one += as_int(token.value)
+
+println('P1:', part_one)
