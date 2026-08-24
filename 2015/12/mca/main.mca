@@ -5,9 +5,35 @@ const json = import('./json.mca')
 const data = io.read_entire_file('./input.txt')
 
 const tokens = json.spit(data)
+const JSON   = json.loads(data)
 
 part_one = 0
 
 for _, token : tokens if (token.kind == json.TOKEN_KIND_ENUM.NUMBER) part_one += as_int(token.value)
 
 println('P1:', part_one)
+
+const iterator = \(root, total = 0) -> {
+  if !root return total
+
+  delta = 0
+
+  if is_typeof(root, 'map') {
+    for _, v : root {
+      if v == 'red' return total
+
+      delta += iterator(v)
+    }
+
+    return total + delta
+  }
+
+  if is_typeof(root, 'int')   return total + root
+  if is_typeof(root, 'array') for _, v : root delta += iterator(v)
+
+  return total + delta
+}
+
+const part_two = iterator(JSON)
+
+println('P2:', part_two)
