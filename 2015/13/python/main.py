@@ -51,4 +51,4 @@ for p in list(data):
     data['Me'][p] = 0
     data[p]['Me'] = 0
 
-print('P1:', get_table([start]))
+print('P2:', get_table([start]))
