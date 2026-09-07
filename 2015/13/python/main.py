@@ -42,3 +42,13 @@ def get_table(curr=[], amount=0):
 start = next(iter(data))
 
 print('P1:', get_table([start]))
+
+data['Me'] = {}
+
+for p in list(data):
+    if p == 'Me':
+        continue
+    data['Me'][p] = 0
+    data[p]['Me'] = 0
+
+print('P1:', get_table([start]))
