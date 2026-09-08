@@ -49,19 +49,24 @@ for ingredient in ingredients:
     dur = props['durability']
     fla = props['flavor']
     tex = props['texture']
+    cal = props['calories']
 
-    results.append([[cap * i, dur * i, fla * i, tex * i] for i in range(0, 101)])
+    results.append([[cap * i, dur * i, fla * i, tex * i, cal * i] for i in range(0, 101)])
 
 m = None
-z = None
+n = None
 
 for amounts in splits(100, len(results)):
-    rows = [results[j][amounts[j]] for j in range(len(results))]
+    rows = [results[j][amounts[j]][:-1] for j in range(len(results))]
 
     r = mul(rows)
+    c = sum([results[j][amounts[j]][-1] for j in range(len(results))])
 
     if m is None or r > m:
         m = r
-        z = amounts
+
+    if c == 500 and (n is None or r > n):
+        n = r
 
 print('P1:', m)
+print('P2:', n)
