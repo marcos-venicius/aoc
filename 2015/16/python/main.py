@@ -39,6 +39,23 @@ def read_characteristics():
 aunt_sues, mx = read_aunt_sues()
 characteristics = read_characteristics()
 
+def comparator(aunt_chars):
+    contains = 0
+
+    fewer = set(['pomeranians', 'goldfish'])
+    greater = set(['cats', 'trees'])
+
+    for char in aunt_chars:
+        if char in fewer:
+            if aunt_chars[char] < characteristics[char]:
+                contains += 1
+        elif char in greater:
+            if aunt_chars[char] > characteristics[char]:
+                contains += 1
+        elif aunt_chars[char] == characteristics[char]:
+            contains += 1
+
+    return contains == 3
 
 for aunt_sue in aunt_sues:
     contains = 0
@@ -47,7 +64,8 @@ for aunt_sue in aunt_sues:
         if char in aunt_sue['characteristics'] and aunt_sue['characteristics'][char] == characteristics[char]:
             contains += 1
 
-
     if contains == 3:
         print('P1:', aunt_sue['sue'])
-        break
+
+    if comparator(aunt_sue['characteristics']):
+        print('P2:', aunt_sue['sue'])
