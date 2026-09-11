@@ -3,7 +3,6 @@
 import re
 
 def read_aunt_sues():
-    mx = {}
     out = []
 
     for line in open('./input.txt', 'r').read().split('\n'):
@@ -22,50 +21,50 @@ def read_aunt_sues():
 
             characteristics[name] = value
 
-            if name not in mx or mx[name] < value:
-                mx[name] = value
-
         out.append({
             'sue': sue,
-            'characteristics': characteristics,
-            'rank': 0
+            'characteristics': characteristics
         })
 
-    return (out, mx)
+    return out
 
 def read_characteristics():
     return {k: int(v) for k, v in [line.split(':') for line in open('./characteristics.txt', 'r').read().split('\n') if line != '']}
 
-aunt_sues, mx = read_aunt_sues()
+aunt_sues = read_aunt_sues()
 characteristics = read_characteristics()
 
-def comparator(aunt_chars):
+def comparator(aunt_chars, only_equal=False):
     contains = 0
 
     fewer = set(['pomeranians', 'goldfish'])
     greater = set(['cats', 'trees'])
 
     for char in aunt_chars:
-        if char in fewer:
+        if not only_equal and char in fewer:
             if aunt_chars[char] < characteristics[char]:
                 contains += 1
-        elif char in greater:
+        elif not only_equal and char in greater:
             if aunt_chars[char] > characteristics[char]:
                 contains += 1
         elif aunt_chars[char] == characteristics[char]:
             contains += 1
 
-    return contains == 3
+        if contains == 3:
+            return True
+
+    return False
+
+ans_count = 0
 
 for aunt_sue in aunt_sues:
-    contains = 0
-
-    for char in characteristics:
-        if char in aunt_sue['characteristics'] and aunt_sue['characteristics'][char] == characteristics[char]:
-            contains += 1
-
-    if contains == 3:
+    if comparator(aunt_sue['characteristics'], True):
         print('P1:', aunt_sue['sue'])
+        ans_count += 1
 
     if comparator(aunt_sue['characteristics']):
         print('P2:', aunt_sue['sue'])
+        ans_count += 1
+
+    if ans_count == 2:
+        break
