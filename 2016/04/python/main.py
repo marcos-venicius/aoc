@@ -27,4 +27,27 @@ lines = open(file, 'r').read().split()
 
 rooms = [parse(line) for line in lines]
 
-print(sum(sector for name, sector, checksum in rooms if is_real(name, checksum)))
+print('P1:', sum(sector for name, sector, checksum in rooms if is_real(name, checksum)))
+
+START = ord('a') - 1
+Z = ord('z')
+
+def decipher(text, offset):
+  out = []
+
+  for l in text:
+    if l == '-':
+      out.append(' ')
+    else:
+      idx = START + (((26 - (Z - ord(l))) + offset) % 26)
+
+      out.append(chr(idx))
+
+  return ''.join(out)
+
+for name, sector, _ in rooms:
+  decrypted = decipher(name, sector)
+
+  if 'pole' in decrypted:
+    print('P2:', sector)
+    break
