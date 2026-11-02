@@ -63,7 +63,7 @@ for _, year : years {
     } else {
       extensions = keys(set(map(files, \(f) -> string.lower(string.split(f, '.')[-1]))))
       extensions = filter(extensions, \(ext) -> !contains(exclude_file_ext, ext))
-      extensions = map(extensions, \(ext) -> map_lang(ext))
+      extensions = sort(map(extensions, \(ext) -> map_lang(ext)), string.compare)
 
       const langs = string.join(extensions, ', ')
 
