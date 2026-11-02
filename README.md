@@ -100,6 +100,8 @@
   - Solution [Go](./2017/01/go)
   - Solution [MCA](./2017/01/mca)
 ### Solution [2016](./2016) | [↗AOC](https://adventofcode.com/2016)
+- Solution [07](./2016/07) | [↗AOC](https://adventofcode.com/2016/day/7)
+  - Solution [Python](./2016/07/python)
 - Solution [06](./2016/06) | [↗AOC](https://adventofcode.com/2016/day/6)
   - Solution [Python](./2016/06/python)
 - Solution [05](./2016/05) | [↗AOC](https://adventofcode.com/2016/day/5)
