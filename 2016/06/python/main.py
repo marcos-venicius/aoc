@@ -15,6 +15,10 @@ for line in data:
         else:
             freq[idx][char] += 1
 
-message = ''.join([sorted([(k, v) for k, v in table.items()], key=lambda x: x[1], reverse=True)[0][0] for table in freq])
+freq = [sorted([(k, v) for k, v in table.items()], key=lambda x: x[1], reverse=True) for table in freq]
 
-print('P1:', message)
+part_one = ''.join([x[0][0] for x in freq])
+part_two = ''.join([x[-1][0] for x in freq])
+
+print('P1:', part_one)
+print('P2:', part_two)
