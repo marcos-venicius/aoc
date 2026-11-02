@@ -5,36 +5,39 @@ import hashlib, re
 FILE = 'input.txt'
 PASS_SIZE = 8
 
-password = re.sub(r'\s', '', open(FILE, 'r').read())
+door = re.sub(r'\s', '', open(FILE, 'r').read()).encode('utf-8')
+base = hashlib.md5(door)
 
-index = 0
+index = -1
 part_one = []
 part_two = [0] * PASS_SIZE
 part_two_indexes = set()
 
 while True:
+    index += 1
+
     need_part_one = len(part_one) < PASS_SIZE
     need_part_two = len(part_two_indexes) < PASS_SIZE
 
     if not need_part_one and not need_part_two:
         break
-    
-    content = f'{password}{index}'
 
-    hash = hashlib.md5(content.encode('utf-8')).hexdigest()
+    h = base.copy()
+    h.update(b'%d' % index)
+    d = h.digest()
 
-    if hash.startswith('00000'):
-        if need_part_one:
-            part_one.append(hash[5])
+    if d[0] or d[1] or d[2] > 0x0f:
+        continue
 
-        if need_part_two:
-            pos = int(hash[5]) if hash[5].isnumeric() else len(part_two)
+    sixth, seventh = d[2], d[3] >> 4
 
-            if pos < len(part_two) and pos not in part_two_indexes:
-                part_two[pos] = hash[6]
-                part_two_indexes.add(pos)
+    if need_part_one:
+        part_one.append(f'{sixth:x}')
 
-    index += 1
+    if need_part_two:
+        if sixth < len(part_two) and sixth not in part_two_indexes:
+            part_two[sixth] = f'{seventh:x}'
+            part_two_indexes.add(sixth)
 
 print('P1:', ''.join(part_one))
 print('P2:', ''.join(part_two))
