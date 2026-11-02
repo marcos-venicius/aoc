@@ -46,6 +46,9 @@ for _, year : years {
 
   for _, day : days {
     const entries = sort(os.list_dir(path.join('./', year, day)), string.compare)
+
+    if len(entries) == 0  continue;
+
     const dirs, files = bucket(
       entries,
       \(x) -> os.is_dir(path.join('./', year, day, x)) and !contains(exclude_dirs, x),
