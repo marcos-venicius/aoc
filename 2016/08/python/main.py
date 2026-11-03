@@ -147,3 +147,7 @@ for row in rows:
 part_one = sum([sum(row) for row in M])
 
 print('P1:', part_one)
+
+print('P2:')
+for row in M:
+    print(''.join('❚' if cell else ' ' for cell in row))
