@@ -6,9 +6,9 @@ INPUT = './input.txt'
 
 data = re.sub(r'\s', '', open(INPUT, 'r').read())
 
-offset = 0
-size   = len(data)
-out    = []
+offset              = 0
+size                = len(data)
+decompressed_length = 0
 
 def parse_marker():
     cursor = offset
@@ -41,13 +41,13 @@ while offset < size:
     if data[offset] == '(':
         post_marker_offset, length, repeat = parse_marker()
 
-        out.append(data[post_marker_offset:post_marker_offset + length] * repeat)
+        decompressed_length += length * repeat
 
         offset = post_marker_offset + length
     else:
-        out.append(data[offset])
+        decompressed_length += 1
 
         offset += 1
 
-print('P1:', sum(map(len, out)))
+print('P1:', decompressed_length)
 print('P2:', None)
