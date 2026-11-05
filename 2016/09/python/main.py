@@ -6,12 +6,12 @@ INPUT = './input.txt'
 
 data = re.sub(r'\s', '', open(INPUT, 'r').read())
 
-offset              = 0
-size                = len(data)
-decompressed_length = 0
+global_offset                = 0
+size                         = len(data)
+decompressed_length_part_one = 0
 
-def parse_marker():
-    cursor = offset
+def parse_marker(custom_offset=None):
+    cursor = custom_offset if custom_offset is not None else global_offset
 
     cursor += 1 # skip '('
 
@@ -37,17 +37,36 @@ def parse_marker():
     
     return (cursor, length, repeat)
 
-while offset < size:
-    if data[offset] == '(':
+while global_offset < size:
+    if data[global_offset] == '(':
         post_marker_offset, length, repeat = parse_marker()
 
-        decompressed_length += length * repeat
+        decompressed_length_part_one += length * repeat
 
-        offset = post_marker_offset + length
+        global_offset = post_marker_offset + length
     else:
-        decompressed_length += 1
+        decompressed_length_part_one += 1
 
-        offset += 1
+        global_offset += 1
 
-print('P1:', decompressed_length)
-print('P2:', None)
+def recursive_count(start, end, n):
+    acc = 0
+    cursor = start
+
+    while cursor < end:
+        if data[cursor] == '(':
+            post_marker_offset, length, repeat = parse_marker(cursor)
+
+            acc += recursive_count(post_marker_offset, post_marker_offset + length, repeat)
+
+            cursor = post_marker_offset + length
+        else:
+            acc += 1
+            cursor += 1
+
+    return acc * n
+
+decompressed_length_part_two = recursive_count(0, size, 1)
+
+print('P1:', decompressed_length_part_one)
+print('P2:', decompressed_length_part_two)
