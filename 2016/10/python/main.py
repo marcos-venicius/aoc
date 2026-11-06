@@ -11,6 +11,7 @@ if TEST:
 else:
     FILE = './input.txt'
     COMPARISON = (61, 17)
+    BINS = (0, 1, 2)
 
 class Bot:
     def __init__(self, give_bot_cb, give_bin_cb):
@@ -158,3 +159,14 @@ for id in bots:
         print('P1:', id)
         break
 
+if not TEST:
+    r = 0
+
+    for bin in BINS:
+        for v in bins[bin]:
+            if r == 0:
+                r = v
+            else:
+                r *= v
+
+    print('P2:', r)
