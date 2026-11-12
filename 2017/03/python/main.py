@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 
 import math
+import sys
+
+CAN_RENDER = True
+
+try:
+    import turtle
+    import tkinter
+except:
+    CAN_RENDER = False
 
 # manhathan distance
 N = int(input('puzzle input> '))
@@ -28,7 +37,13 @@ else:
 
 d = math.fabs(x) + math.fabs(y)
 
+points = []
+
+def scale_point(rt, factor=20):
+    return (factor, rt)
+
 def get_part_two():
+    global points
     grid = {(0, 0): 1}
     x = 0
     y = 0
@@ -39,10 +54,13 @@ def get_part_two():
 
     while part_two is None:
         for _ in range(2):
-            dx, dy = dirs[d % 4]
+            dd = (d % 4)
+            dx, dy = dirs[dd]
 
             for _ in range(step):
                 x, y = x + dx, y + dy
+
+                points.append(scale_point(dd))
 
                 v = sum(
                     grid.get((x + i, y + j), 0)
@@ -63,3 +81,25 @@ print(f'P1: {part_one}')
 part_two = get_part_two()
 
 print(f'P2:', part_two)
+
+def render():
+    if not CAN_RENDER:
+        print('please, install tkinter')
+        return
+
+    t = turtle.Turtle()
+
+    last = points[0][1]
+
+    for (f, rt) in points:
+        if rt != last:
+            t.left(90)
+
+        t.forward(f)
+
+        last = rt
+
+    turtle.done()
+
+if len(sys.argv) == 2 and sys.argv[1] == 'render':
+    render()
