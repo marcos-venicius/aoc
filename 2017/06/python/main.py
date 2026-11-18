@@ -2,46 +2,62 @@
 
 import re
 
-TEST = False
 
+def reallocate_banks_in_place(banks):
+    argmax_bank = None
+
+    for i in range(len(banks)):
+        if argmax_bank is None or banks[i] > banks[argmax_bank]:
+            argmax_bank = i
+
+    blocks = banks[argmax_bank]
+
+    banks[argmax_bank] = 0
+
+    index = (argmax_bank + 1) % len(banks)
+
+    while blocks > 0:
+        banks[index] += 1
+
+        blocks -= 1
+        index = (index + 1) % len(banks)
+
+
+def get_cache_key(banks):
+    return ','.join(map(str, banks))
+
+
+TEST = False
 INPUT = 'test.txt' if TEST else 'input.txt'
+
 
 data = list(map(int, re.split(r'\s', open(INPUT, 'r').read().strip())))
 
-def reallocate():
-    m_i = None
-
-    for i in range(len(data)):
-        if m_i is None or data[i] > data[m_i]:
-            m_i = i
-
-    blocks = data[m_i]
-
-    data[m_i] = 0
-
-    index = (m_i + 1) % len(data)
-
-    while blocks > 0:
-        data[index] += 1
-
-        blocks -= 1
-        index = (index + 1) % len(data)
-
-def get_key():
-    return ','.join(map(str, data))
 
 seen_before = set()
 cycles = 0
+part_one = None
+part_two = None
+
 
 while True:
-    key = get_key()
+    key = get_cache_key(data)
 
     if key in seen_before:
-        break
+        if part_one is None:
+            part_one = (cycles, key)
+            cycles = 0
+        elif part_one[1] == key:
+            part_one = part_one[0]
+            part_two = cycles
+            break
+    else:
+        seen_before.add(key)
 
-    seen_before.add(key)
-
-    reallocate()
+    reallocate_banks_in_place(data)
     cycles += 1
 
-print('P1:', cycles)
+
+print('P1:', part_one)
+print('P2:', part_two)
+
