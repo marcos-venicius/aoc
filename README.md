@@ -71,6 +71,8 @@
   - Solution [MCA](./2023/01/mca)
 ### Solution [2022](./2022) | [↗AOC](https://adventofcode.com/2022)
 - Solution [06 (Go)](./2022/06)
+- Solution [02](./2022/02) | [↗AOC](https://adventofcode.com/2022/day/2)
+  - Solution [Python](./2022/02/python)
 - Solution [01](./2022/01) | [↗AOC](https://adventofcode.com/2022/day/1)
   - Solution [MCA](./2022/01/mca)
 ### Solution [2021](./2021) | [↗AOC](https://adventofcode.com/2021)
