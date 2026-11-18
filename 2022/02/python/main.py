@@ -14,15 +14,39 @@ MAP = {
 }
 
 OUTCOMES = {
-    ('Paper', 'Rock'): ('win', 'lost'),
-    ('Rock', 'Paper'): ('lost', 'win'),
-    ('Rock', 'Scissors'): ('win', 'lost'),
-    ('Scissors', 'Rock'): ('lost', 'win'),
-    ('Scissors', 'Paper'): ('win', 'lost'),
-    ('Paper', 'Scissors'): ('lost', 'win'),
-    ('Paper', 'Paper'): ('draw', 'draw'),
-    ('Scissors', 'Scissors'): ('draw', 'draw'),
-    ('Rock', 'Rock'): ('draw', 'draw')
+    ('Paper', 'Rock'): 'win',
+    ('Rock', 'Paper'): 'lost',
+    ('Rock', 'Scissors'): 'win',
+    ('Scissors', 'Rock'): 'lost',
+    ('Scissors', 'Paper'): 'win',
+    ('Paper', 'Scissors'): 'lost',
+    ('Paper', 'Paper'): 'draw',
+    ('Scissors', 'Scissors'): 'draw',
+    ('Rock', 'Rock'): 'draw'
+}
+
+RESULT = {
+    'Paper': {
+        'win': 'Scissors',
+        'lost': 'Rock',
+        'draw': 'Paper'
+    },
+    'Rock': {
+        'win': 'Paper',
+        'lost': 'Scissors',
+        'draw': 'Rock'
+    },
+    'Scissors': {
+        'win': 'Rock',
+        'lost': 'Paper',
+        'draw': 'Scissors'
+    }
+}
+
+PART_TWO_OUTCOMES = {
+    'Rock': 'lost',
+    'Paper': 'draw',
+    'Scissors': 'win'
 }
 
 SHAPES = {
@@ -41,49 +65,24 @@ POINTS = {
 data = [MAP[x] for x in re.split(r'\s', open(INPUT, 'r').read().strip())]
 data = [data[i:i + 2] for i in range(0, len(data), 2)]
 
-me = 0
-he = 0
+score_part_one = 0
+score_part_two = 0
 
-def get_round_outcome(left, right):
-    left_outcome, right_outcome = OUTCOMES[(left, right)]
+def get_round_outcome_part_one(left, right):
+    outcome = OUTCOMES[(left, right)]
 
-    return (
-        POINTS[left_outcome] + SHAPES[left],
-        POINTS[right_outcome] + SHAPES[right]
-    )
+    return POINTS[outcome] + SHAPES[right]
+
+def get_round_outcome_part_two(left, right):
+    outcome = PART_TWO_OUTCOMES[right]
+
+    return POINTS[outcome] + SHAPES[RESULT[left][outcome]]
+    
 
 for left, right in data:
-    left_outcome, right_outcome = get_round_outcome(left, right)
+    score_part_one += get_round_outcome_part_one(left, right)
+    score_part_two += get_round_outcome_part_two(left, right)
 
-    he += left_outcome
-    me += right_outcome
 
-print('P1:', me)
-
-# rock defeats scissors
-# scissors defeats paper
-# paper defeats rock
-# both sides equal: draw
-#
-# The first column is what my opponent is going to play
-#  A: Rock
-#  B: Paper
-#  C: Scissors
-# 
-# The second column is what I should play in response:
-#  X: Rock
-#  Y: Paper
-#  Z: Scissors
-#
-# Shapes:
-#  Rock: 1
-#  Paper: 2
-#  Scissors: 3
-#
-# Outcome:
-#  Lost: 0
-#  Draw: 3
-#  Won: 6
-#
-# The score is the sum of each round score:
-# The score for each round is the score of the selected shape plus the outcome of the round
+print('P1:', score_part_one)
+print('P2:', score_part_two)
