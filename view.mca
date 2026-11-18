@@ -1,0 +1,52 @@
+#!/usr/local/bin/mca
+
+const os = import('os')
+const path = import('path')
+
+
+const is_numeric = \(name) -> !any(name, \(c) -> !contains('0123456789', c))
+
+const years = sort(map(filter(os.list_dir('.'), is_numeric), as_int), \(a, b) -> a - b)
+
+for i, year : years {
+  const year_path = path.join('./', as_string(year))
+
+  const days = sort(map(filter(os.list_dir(year_path), is_numeric), as_int), \(a, b) -> b - a)
+
+  const missing = []
+
+  println('#', year)
+  print('  ')
+  last_day = ?
+  for i, day : days {
+    if i > 0  print(', ')
+    print(day)
+
+    if last_day != ? and last_day - day != 1 {
+      for missing_day : [day + 1, last_day]  append(missing, missing_day)
+    }
+
+    last_day = day
+  }
+  println()
+
+  if len(missing) > 0 {
+    print('  missing days: ')
+
+    for i, day : missing {
+      if i > 0 {
+        if i < len(missing) - 1 {
+          print(', ')
+        } else {
+          print(' and ')
+        }
+      }
+
+      print(day)
+    }
+
+    println()
+  }
+
+  if i < len(years)-1  println()
+}
