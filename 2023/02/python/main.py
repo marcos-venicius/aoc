@@ -73,7 +73,29 @@ def is_game_possible(game):
 
     return True
 
-possible_game_ids_sum = sum([game['game_id'] if is_game_possible(game) else 0 for game in games])
+def fewest_number_of_cubes_each_color(subsets):
+    cubes = {}
+
+    for subset in subsets:
+        for key, value in subset.items():
+            if key not in cubes or cubes[key] < value:
+                cubes[key] = value
+
+    values = list(cubes.values())
+
+    x = values[0]
+
+    values = values[1:]
+
+    for n in values:
+        x *= n
+
+    return x
 
 
-print('P1:', possible_game_ids_sum)
+part_one = sum([game['game_id'] if is_game_possible(game) else 0 for game in games])
+part_two = sum([fewest_number_of_cubes_each_color(game['subsets']) for game in games])
+
+
+print('P1:', part_one)
+print('P2:', part_two)
