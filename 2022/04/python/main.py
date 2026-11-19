@@ -15,6 +15,13 @@ def does_pair_fully_overlaps(pair):
         (x <= a and y >= b)
     )
 
+def does_pair_overlap_at_all(pair):
+    a, b, x, y = pair
+
+    return min(a, b) <= max(x, y) and max(a, b) >= min(x, y)
+
 part_one = sum([does_pair_fully_overlaps(pair) for pair in data])
+part_two = sum([does_pair_overlap_at_all(pair) for pair in data])
 
 print('P1:', part_one)
+print('P2:', part_two)
