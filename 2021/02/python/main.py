@@ -11,18 +11,37 @@ def parse_line(line):
 
 lines = [parse_line(line) for line in open(INPUT, 'r').read().strip().split('\n')]
 
-X = 0
-Y = 0
+def part_one():
+    X = 0
+    Y = 0
 
-for (direction, units) in lines:
-    match direction:
-        case 'forward':
-            X += units
-        case 'down':
-            Y += units
-        case 'up':
-            Y -= units
+    for (direction, units) in lines:
+        match direction:
+            case 'forward':
+                X += units
+            case 'down':
+                Y += units
+            case 'up':
+                Y -= units
 
-part_one = X * Y
+    return X * Y
 
-print('P1:', part_one)
+def part_two():
+    AIM = 0
+    X = 0
+    Y = 0
+
+    for (direction, units) in lines:
+        match direction:
+            case 'forward':
+                X += units
+                Y += AIM * units
+            case 'down':
+                AIM += units
+            case 'up':
+                AIM -= units
+
+    return X * Y
+
+print('P1:', part_one())
+print('P2:', part_two())
