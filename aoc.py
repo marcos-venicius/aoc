@@ -4,16 +4,45 @@ import re
 import os
 import sys
 import requests
+import shutil
 
 IS_GET_INPUT_COMMAND = 'getinput' in sys.argv
 IS_HELP_COMMAND = '--help' in sys.argv or '-h' in sys.argv
+IS_PY_COMMAND = 'py' in sys.argv
 
 AOC_AUTH_KEY = 'AOC_AUTH'
 AOC_GITHUB_REPO_KEY = 'AOC_GITHUB_REPO'
 AOC_INPUT_FILE = 'input.txt'
 
+def get_aoc_root_dir():
+    path = os.getcwd()
+
+    while path != '/':
+        dirs = os.listdir(path)
+
+        if '.git' in dirs:
+            return os.path.abspath(path)
+
+        path = os.path.join(path, '../')
+
+    raise Exception("didn't find root folder")
+
+def get_template_dir_for(lang):
+    dir = get_aoc_root_dir()
+
+    template_dir = os.path.join(dir, '.templates', lang)
+
+    if not os.path.exists(template_dir) or not os.path.isdir(template_dir):
+        raise Exception(f"{template_dir} doesn't exists or isn't a valid directory")
+
+    return template_dir
+
 if IS_HELP_COMMAND:
-    print('usage:', sys.argv[0], 'getinput')
+    print('usage:', sys.argv[0], 'getinput|py')
+    print('commands:')
+    print('  getinput    get the current pwd aoc day input')
+    print('  py          generate a python boilerplate')
+    print('flags:')
     print(f'  --force      to force getting the input again when you already has a {AOC_INPUT_FILE}')
     print(f'  --help|-h    to see this help message')
     print(' run without "getinput" argument to open the day at your browser')
@@ -80,6 +109,22 @@ if IS_GET_INPUT_COMMAND:
         file.write(result.text)
 
     print('input saved successfully')
+elif IS_PY_COMMAND:
+    template_dir = get_template_dir_for('python')
+
+    entries = os.listdir(template_dir)
+    base_path = os.getcwd()
+
+    for entry in entries:
+        origin = os.path.join(template_dir, entry)
+        destination = os.path.join(base_path, entry)
+
+        if os.path.exists(destination):
+            print(f'skipping {entry}...')
+            continue
+
+        print(f'copying {entry}...')
+        shutil.copy(origin, destination)
 else:
     import webbrowser
 
