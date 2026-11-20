@@ -23,7 +23,14 @@ def is_password_valid(info):
 
     return count.get(info[2], -1) >= info[0] and count[info[2]] <= info[1]
 
+def is_password_valid_2(info):
+    p1, p2, char, passwd = info
+    p1, p2 = p1 - 1, p2 - 1
+
+    return (passwd[p1] == char) ^ (passwd[p2] == char)
+
 part_one = sum(is_password_valid(info) for info in data)
+part_two = sum(is_password_valid_2(info) for info in data)
 
 print('P1:', part_one)
-print('P2:', None)
+print('P2:', part_two)
