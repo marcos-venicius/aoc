@@ -23,35 +23,25 @@ class OverlapCheckDispatcher:
     def __init__(self, claim, source, id):
         self.claim = claim
         self.source = source
-        self.last_index_checked = 0
+        self.last_index_checked = -1
         self.elegible = True
         self.id = id
-        self.running = False
 
     def dispatch(self):
-        if self.running:
+        if not self.elegible:
             return
 
-        self.running = True
-        try:
-            if not self.elegible:
+        for i in range(self.last_index_checked + 1, len(self.source)):
+            if self.id == i:
+                continue
+
+            self.last_index_checked = i
+
+            if self.check_overlap(self.source[i]):
+                self.elegible = False
                 return
 
-            for i in range(self.last_index_checked, len(self.source)):
-                if self.id == i:
-                    continue
-
-                self.last_index_checked += 1
-
-                if self.check_overlap(self.source[i]):
-                    self.elegible = False
-                    return
-        finally:
-            self.running = False
-
     def check_overlap(self, overlap: OverlapCheckDispatcher):
-        overlap.dispatch()
-
         a = self.claim
         b = overlap.claim
 
@@ -102,9 +92,8 @@ def part_two():
     for i in range(1, len(claims)):
         source.append(OverlapCheckDispatcher(claims[i], source, i))
 
-        source[i - 1].dispatch()
-
-    source[-1].dispatch()
+        for s in source:
+            s.dispatch()
 
     elegible_id = None
 
