@@ -19,6 +19,50 @@ class Claim:
     def __repr__(self):
         return self.__str__()
 
+class OverlapCheckDispatcher:
+    def __init__(self, claim, source, id):
+        self.claim = claim
+        self.source = source
+        self.last_index_checked = 0
+        self.elegible = True
+        self.id = id
+        self.running = False
+
+    def dispatch(self):
+        if self.running:
+            return
+
+        self.running = True
+        try:
+            if not self.elegible:
+                return
+
+            for i in range(self.last_index_checked, len(self.source)):
+                if self.id == i:
+                    continue
+
+                self.last_index_checked += 1
+
+                if self.check_overlap(self.source[i]):
+                    self.elegible = False
+                    return
+        finally:
+            self.running = False
+
+    def check_overlap(self, overlap: OverlapCheckDispatcher):
+        overlap.dispatch()
+
+        a = self.claim
+        b = overlap.claim
+
+        return not (
+            a.x + a.w <= b.x or
+            b.x + b.w <= a.x or
+            a.y + a.h <= b.y or
+            b.y + b.h <= a.y
+        )
+
+
 def parse_line(line):
     tokens = re.findall(r'\d+', line)
 
@@ -50,6 +94,26 @@ def part_one():
 
     return answer
 
+def part_two():
+    source = []
+
+    source.append(OverlapCheckDispatcher(claims[0], source, 0))
+
+    for i in range(1, len(claims)):
+        source.append(OverlapCheckDispatcher(claims[i], source, i))
+
+        source[i - 1].dispatch()
+
+    source[-1].dispatch()
+
+    elegible_id = None
+
+    for overlap in source:
+        if overlap.elegible:
+            elegible_id = overlap.claim.claimId
+            break
+
+    return elegible_id
 
 print('P1:', part_one())
-print('P2:', None)
+print('P2:', part_two())
