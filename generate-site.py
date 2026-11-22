@@ -37,13 +37,14 @@ LANGS = {
     'odin':   ('Odin',   '#ffb000', 'ODN'),
     'zig':    ('Zig',    '#f7a41d', 'ZIG'),
     'elixir': ('Elixir', '#b48ead', 'EX'),
+    'rust': ('Rust', '#B7410E', 'RS'),
 }
 
 DIR_TO_LANG = {'py': 'python', 'python': 'python', 'go': 'go', 'mca': 'mca', 'c': 'c',
-               'c3': 'c3', 'odin': 'odin', 'zig': 'zig', 'elixir': 'elixir', 'ex': 'elixir'}
+               'c3': 'c3', 'odin': 'odin', 'zig': 'zig', 'elixir': 'elixir', 'ex': 'elixir', 'rust': 'rust'}
 
 EXT_TO_LANG = {'.py': 'python', '.go': 'go', '.mca': 'mca', '.c': 'c', '.h': 'c', '.c3': 'c3',
-               '.odin': 'odin', '.zig': 'zig', '.ex': 'elixir', '.exs': 'elixir'}
+               '.odin': 'odin', '.zig': 'zig', '.ex': 'elixir', '.exs': 'elixir', '.rs': 'rust'}
 
 SKIP_FILES = {'go.sum', '.gitignore'}
 SKIP_EXTS = {'.txt', '.sum', '.o', '.so', '.a', '.dump', '.swp'}
@@ -241,6 +242,11 @@ HL = {
         errdefer try catch orelse and or comptime struct enum union error test inline unreachable
         usingnamespace export extern''', const='true false null undefined',
         types='''void bool u8 u16 u32 u64 usize i8 i16 i32 i64 isize f32 f64 anyerror type anytype'''),
+    'rust': dict(C_LIKE, rust=True, kw='''as async await break const continue crate dyn else enum extern
+        fn for if impl in let loop match mod move mut pub ref return static struct super trait type
+        unsafe use where while''', const='true false None Some Ok Err self Self',
+        types='''bool char str u8 u16 u32 u64 u128 usize i8 i16 i32 i64 i128 isize f32 f64 String Vec
+        Option Result Box HashMap HashSet BTreeMap BTreeSet VecDeque'''),
     'elixir': dict(line='#', kw='''def defp defmodule do end fn if else unless case cond when with for in
         and or not import alias require use receive try rescue after raise''',
         const='true false nil', types='Enum String List Map IO File Integer Kernel'),
@@ -262,6 +268,10 @@ TOKEN = re.compile(r'''
   | (?P<op>[^\sA-Za-z0-9_])
   | (?P<other>.)
 ''', re.X | re.S)
+
+RUST_RAW = re.compile(r'b?r(#*)"')
+RUST_CHAR = re.compile(r"b?'(?:\\(?:u\{[0-9a-fA-F]+\}|x[0-9a-fA-F]{2}|.)|[^\\'\n])'")
+RUST_LIFETIME = re.compile(r"'[A-Za-z_][A-Za-z0-9_]*")
 
 
 def esc(s):
@@ -299,6 +309,22 @@ def highlight(text, lang):
             j = text.find(q, i + 3)
             j = n if j < 0 else j + 3
             span('str', text[i:j]); i = j; continue
+        if cfg.get('rust'):
+            # raw strings r"..." / r#"..."#
+            m = RUST_RAW.match(text, i)
+            if m and (i == 0 or not (text[i - 1].isalnum() or text[i - 1] == '_')):
+                end = '"' + m.group(1)
+                j = text.find(end, m.end())
+                j = n if j < 0 else j + len(end)
+                span('str', text[i:j]); i = j; continue
+            if c == "'":
+                # char literal ('a', '\n', '\u{1F600}') vs lifetime ('a, 'static)
+                m = RUST_CHAR.match(text, i)
+                if m:
+                    span('str', m.group(0)); i = m.end(); continue
+                m = RUST_LIFETIME.match(text, i)
+                if m:
+                    span('const', m.group(0)); i = m.end(); continue
         if c in '"\'' or (cfg.get('raw') and c == cfg['raw']):
             j = i + 1
             while j < n and text[j] != c and (c == '`' or text[j] != '\n'):
@@ -320,9 +346,10 @@ def highlight(text, lang):
                 span('const', tok)
             elif tok in cfg['types']:
                 span('type', tok)
-            elif text[m.end():m.end() + 1] == '(':
+            elif text[m.end():m.end() + 1] == '(' or (
+                    cfg.get('rust') and text[m.end():m.end() + 1] == '!' and text[m.end() + 1:m.end() + 2] != '='):
                 span('fn', tok)
-            elif tok[0].isupper() and lang in ('go', 'c3', 'odin', 'zig', 'elixir'):
+            elif tok[0].isupper() and lang in ('go', 'c3', 'odin', 'zig', 'elixir', 'rust'):
                 span('type', tok)
             else:
                 out.append(esc(tok))
