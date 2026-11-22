@@ -14,59 +14,80 @@ board_two = {}
 
 x = 0
 y = 0
+steps = 0
 
-for op, units in wire_one:
+for i, (op, units) in enumerate(wire_one):
     match op:
         case 'U':
-            for _ in range(units):
+            for i in range(units):
+                steps += 1
                 y -= 1
-                board_one[(x, y)] = 1
+                if (x, y) not in board_one:
+                    board_one[(x, y)] = steps
         case 'R':
             for _ in range(units):
+                steps += 1
                 x += 1
-                board_one[(x, y)] = 1
+                if (x, y) not in board_one:
+                    board_one[(x, y)] = steps
         case 'D':
             for _ in range(units):
+                steps += 1
                 y += 1
-                board_one[(x, y)] = 1
+                if (x, y) not in board_one:
+                    board_one[(x, y)] = steps
         case 'L':
             for _ in range(units):
+                steps += 1
                 x -= 1
-                board_one[(x, y)] = 1
+                if (x, y) not in board_one:
+                    board_one[(x, y)] = steps
 
 x = 0
 y = 0
+steps = 0
 
-for op, units in wire_two:
+for i, (op, units) in enumerate(wire_two):
     match op:
         case 'U':
             for _ in range(units):
+                steps += 1
                 y -= 1
-                board_two[(x, y)] = 1
+                if (x, y) not in board_two:
+                    board_two[(x, y)] = steps
         case 'R':
             for _ in range(units):
+                steps += 1
                 x += 1
-                board_two[(x, y)] = 1
+                if (x, y) not in board_two:
+                    board_two[(x, y)] = steps
         case 'D':
             for _ in range(units):
+                steps += 1
                 y += 1
-                board_two[(x, y)] = 1
+                if (x, y) not in board_two:
+                    board_two[(x, y)] = steps
         case 'L':
             for _ in range(units):
+                steps += 1
                 x -= 1
-                board_two[(x, y)] = 1
+                if (x, y) not in board_two:
+                    board_two[(x, y)] = steps
 
 min_distance = None
+part_two = None
 
 map_one = sorted(board_one.keys(), key=lambda x: abs(x[0]) + abs(x[1]))
 
 for pos_one in map_one:
     if pos_one in board_two:
         distance = abs(pos_one[0]) + abs(pos_one[1])
+        steps_sum = board_two[pos_one] + board_one[pos_one]
 
         if min_distance is None or distance < min_distance:
             min_distance = distance
-            break
+        if part_two is None or steps_sum < part_two:
+            part_two = steps_sum
 
 print('P1:', min_distance)
-print('P2:', None)
+print('P2:', part_two)
