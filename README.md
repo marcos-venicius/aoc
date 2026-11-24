@@ -90,6 +90,8 @@
   - Solution [MCA](./2021/01/mca)
   - Solution [Python](./2021/01/python)
 ### Solution [2020](./2020) | [↗AOC](https://adventofcode.com/2020)
+- Solution [03](./2020/03) | [↗AOC](https://adventofcode.com/2020/day/3)
+  - Solution [Python](./2020/03/python)
 - Solution [02](./2020/02) | [↗AOC](https://adventofcode.com/2020/day/2)
   - Solution [Python](./2020/02/python)
 - Solution [01](./2020/01) | [↗AOC](https://adventofcode.com/2020/day/1)
