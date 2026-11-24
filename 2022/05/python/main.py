@@ -13,9 +13,20 @@ class Stack:
     def append(self, value):
         self.stack.append(value)
 
+    def append_order_fixed(self, arr):
+        self.stack = self.stack + arr
+
     def stack(self, lst):
         for item in lst:
             self.append(item)
+
+    def get_n(self, n):
+        start = len(self.stack) - n
+
+        chunk = self.stack[start:]
+        self.stack = self.stack[:start]
+
+        return chunk
 
     def pop(self):
         return self.stack.pop(-1)
@@ -63,14 +74,19 @@ def get_moves(where):
 
 where, indexes = get_indexing_zone()
 
-stacks = get_stacks(where, indexes)
+stacks_part_one = get_stacks(where, indexes)
+stacks_part_two = get_stacks(where, indexes)
+
 moves = get_moves(where)
 
 for amount, origin, destination in moves:
-    for _ in range(amount):
-        stacks[destination].append(stacks[origin].pop())
+    stacks_part_two[destination].append_order_fixed(stacks_part_two[origin].get_n(amount))
 
-part_one = ''.join([stack.stack[-1] for stack in stacks])
+    for _ in range(amount):
+        stacks_part_one[destination].append(stacks_part_one[origin].pop())
+
+part_one = ''.join([stack.stack[-1] for stack in stacks_part_one])
+part_two = ''.join([stack.stack[-1] for stack in stacks_part_two])
 
 print('P1:', part_one)
-print('P2:', None)
+print('P2:', part_two)
