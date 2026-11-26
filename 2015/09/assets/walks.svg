@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="t d">
+  <title id="t">Walks from every starting location on the example</title>
+  <desc id="d">From each location the code keeps moving to the unvisited neighbour chosen by the comparator. Part 1 picks the shortest edge and keeps the smallest total (605). Part 2 picks the longest edge and keeps the largest total (982).</desc>
+  <rect x="1" y="1" width="958" height="398" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">One walk per starting location</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">at each step go to the unvisited neighbour the comparator prefers · keep the best total</text>
+
+    <!-- column headers -->
+    <text x="40" y="118" font-size="15" font-weight="700" fill="#3fb950">Part 1 · MinComparator (a &lt; b)</text>
+    <text x="500" y="118" font-size="15" font-weight="700" fill="#d2a8ff">Part 2 · MaxComparator (a &gt; b)</text>
+    <line x1="40" y1="132" x2="460" y2="132" stroke="#21262d"/>
+    <line x1="500" y1="132" x2="920" y2="132" stroke="#21262d"/>
+
+    <g font-size="14">
+      <!-- part 1 -->
+      <text x="40" y="170" fill="#e6edf3">London <tspan fill="#8b949e">─464→</tspan> Dublin <tspan fill="#8b949e">─141→</tspan> Belfast</text>
+      <text x="460" y="170" fill="#f2cc60" text-anchor="end">605</text>
+      <text x="40" y="210" fill="#e6edf3">Dublin <tspan fill="#8b949e">─141→</tspan> Belfast <tspan fill="#8b949e">─518→</tspan> London</text>
+      <text x="460" y="210" fill="#8b949e" text-anchor="end">659</text>
+      <text x="40" y="250" fill="#e6edf3">Belfast <tspan fill="#8b949e">─141→</tspan> Dublin <tspan fill="#8b949e">─464→</tspan> London</text>
+      <text x="460" y="250" fill="#f2cc60" text-anchor="end">605</text>
+
+      <!-- part 2 -->
+      <text x="500" y="170" fill="#e6edf3">London <tspan fill="#8b949e">─518→</tspan> Belfast <tspan fill="#8b949e">─141→</tspan> Dublin</text>
+      <text x="920" y="170" fill="#8b949e" text-anchor="end">659</text>
+      <text x="500" y="210" fill="#e6edf3">Dublin <tspan fill="#8b949e">─464→</tspan> London <tspan fill="#8b949e">─518→</tspan> Belfast</text>
+      <text x="920" y="210" fill="#f2cc60" text-anchor="end">982</text>
+      <text x="500" y="250" fill="#e6edf3">Belfast <tspan fill="#8b949e">─518→</tspan> London <tspan fill="#8b949e">─464→</tspan> Dublin</text>
+      <text x="920" y="250" fill="#f2cc60" text-anchor="end">982</text>
+    </g>
+
+    <line x1="40" y1="276" x2="460" y2="276" stroke="#21262d"/>
+    <line x1="500" y1="276" x2="920" y2="276" stroke="#21262d"/>
+    <text x="40" y="306" font-size="14" fill="#8b949e">smallest total</text>
+    <text x="460" y="306" font-size="18" font-weight="700" fill="#f2cc60" text-anchor="end">605</text>
+    <text x="500" y="306" font-size="14" fill="#8b949e">largest total</text>
+    <text x="920" y="306" font-size="18" font-weight="700" fill="#f2cc60" text-anchor="end">982</text>
+
+    <text x="40" y="356" font-size="13" fill="#8b949e">a walk ends when the current location has no unvisited neighbour left;</text>
+    <text x="40" y="376" font-size="13" fill="#8b949e">the same comparator also picks which walk total is kept</text>
+  </g>
+</svg>

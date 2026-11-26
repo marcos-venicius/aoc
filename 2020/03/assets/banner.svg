@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" width="960" height="220" role="img" aria-labelledby="t">
+  <title id="t">Advent of Code 2020 · Day 03 — Toboggan Trajectory</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fb950"/>
+      <stop offset="0.5" stop-color="#58a6ff"/>
+      <stop offset="1" stop-color="#f2cc60"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#21262d" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="url(#grid)" opacity="0.6"/>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="none" stroke="url(#edge)" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="48" y="64" font-size="16" fill="#8b949e" letter-spacing="3">ADVENT OF CODE · 2020</text>
+    <text x="48" y="124" font-size="44" font-weight="700" fill="#e6edf3">Day 03</text>
+    <text x="48" y="168" font-size="24" fill="#3fb950">Toboggan Trajectory</text>
+    <g font-size="22" fill="#f2cc60" text-anchor="end">
+      <text x="912" y="64">★ ★</text>
+    </g>
+    <text x="912" y="168" font-size="15" fill="#8b949e" text-anchor="end">Python</text>
+  </g>
+  <!-- decorative slope through the trees -->
+  <g transform="translate(560 78)">
+    <g fill="#3fb950" opacity="0.7">
+      <path d="M40 4L50 22H30Z"/>
+      <path d="M150 0L160 18H140Z"/>
+      <path d="M20 54L30 72H10Z"/>
+      <path d="M200 40L210 58H190Z"/>
+      <path d="M110 70L120 88H100Z"/>
+      <path d="M240 74L250 92H230Z"/>
+    </g>
+    <polyline points="0,6 72,30 144,54 216,78" fill="none" stroke="#58a6ff" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>
+    <g fill="#0d1117" stroke="#58a6ff" stroke-width="2">
+      <circle cx="0" cy="6" r="5"/>
+      <circle cx="72" cy="30" r="5"/>
+    </g>
+    <path d="M144 44L153 62H135Z" fill="#f2cc60"/>
+    <circle cx="216" cy="78" r="5" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
+  </g>
+</svg>

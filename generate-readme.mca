@@ -3,7 +3,7 @@
 const string, io, os, path = [import('string'), import('io'), import('os'), import('path')]
 
 const readme = [
-    '# Advent of code - table of contents',
+    '# 🎄 Advent of Code',
     '',
     '> [!WARNING]',
     '> I\'m not competing, so please don\'t expect this repository to have every solution right away.',
@@ -20,8 +20,8 @@ const readme = [
     ''
 ]
 
-const is_numeric       = \(name) -> !any(name, \(c) -> !contains('0123456789', c))
-const exclude_file_ext = freeze(set(['sum', 'mod', 'txt', 'md', 'gitignore']))
+const is_numeric       = \(name) -> len(name) > 0 and !any(name, \(c) -> !contains('0123456789', c))
+const exclude_file_ext = freeze(set(['sum', 'mod', 'txt', 'md', 'gitignore', 'svg']))
 const exclude_dirs     = freeze(set(['assets']))
 const years            = sort(filter(os.list_dir('.'), \(name) -> os.is_dir(name) and is_numeric(name)), \(a, b) -> as_int(b) - as_int(a))
 const langs_map        = freeze({
@@ -33,42 +33,162 @@ const langs_map        = freeze({
   'odin':   'Odin',
   'go':     'Go',
   'elixir': 'Elixir',
-  'zig':    'Zig'
+  'zig':    'Zig',
+  'rs':     'Rust',
+  'rust':   'Rust'
 })
 
 const map_lang     = \(lang) -> if (contains(langs_map, lang)) langs_map[lang] else lang
 const map_aoc_path = \(year, day?) -> if (!!day) string.format('https://adventofcode.com/', year, '/day/', as_int(day)) else string.format('https://adventofcode.com/', year)
 
-for _, year : years {
-  append(readme, string.format('### Solution [', year, '](./', year, ') | [↗AOC](', map_aoc_path(year), ')'))
+# The puzzle title comes from the banner alt text of the day's README:
+#   alt="Advent of Code 2015 · Day 01 — Not Quite Lisp"
+const readme_title = \(content) -> {
+  const after_alt = string.split(content, 'alt="')
 
-  const days = sort(os.list_dir(path.join('./', year)), \(a, b) -> as_int(b) - as_int(a))
+  if len(after_alt) < 2  return ?
 
-  for _, day : days {
-    const entries = sort(os.list_dir(path.join('./', year, day)), string.compare)
+  const parts = string.split(string.split(after_alt[1], '"')[0], ' — ')
 
-    if len(entries) == 0  continue;
+  if len(parts) < 2  return ?
 
-    const dirs, files = bucket(
-      entries,
-      \(x) -> os.is_dir(path.join('./', year, day, x)) and !contains(exclude_dirs, x),
-      \(x) -> os.is_file(path.join('./', year, day, x))
-    )
+  string.trim(parts[-1])
+}
 
-    if (len(dirs) > 0) {
-      append(readme, string.format('- Solution [', day, '](', path.join('./', year, day), ') | [↗AOC](', map_aoc_path(year, day), ')'))
+# Stars are the solved rows of the puzzle table: "| ⭐ 1 | ..." and "| ⭐ 2 | ...".
+# An unsolved part is written without the star ("| 1 | ...").
+const readme_stars = \(content) -> len(filter(
+  string.split(content, '\n'),
+  \(line) -> string.starts_with(line, '| ⭐ 1 |') or string.starts_with(line, '| ⭐ 2 |')
+))
 
-      for _, dir : dirs
-        append(readme, string.format('  - Solution [', map_lang(dir), '](', path.join('./', year, day, dir), ')'))
-    } else {
-      extensions = keys(set(map(files, \(f) -> string.lower(string.split(f, '.')[-1]))))
-      extensions = filter(extensions, \(ext) -> !contains(exclude_file_ext, ext))
-      extensions = sort(map(extensions, \(ext) -> map_lang(ext)), string.compare)
+# Each language is [name, link]; days with files at the root ("flat" days) have no link per language.
+const day_langs = \(year, day) -> {
+  const day_path = path.join('./', year, day)
+  const entries  = sort(os.list_dir(day_path), string.compare)
 
-      const langs = string.join(extensions, ', ')
+  const dirs, files = bucket(
+    entries,
+    \(x) -> os.is_dir(path.join(day_path, x)) and !contains(exclude_dirs, x),
+    \(x) -> os.is_file(path.join(day_path, x))
+  )
 
-      append(readme, string.format('- Solution [', day, ' (', langs, ')](', path.join('./', year, day), ')'))
-    }
+  if len(dirs) > 0  return map(dirs, \(dir) -> [map_lang(dir), path.join(day_path, dir)])
+
+  extensions = filter(files, \(f) -> contains(f, '.'))
+  extensions = keys(set(map(extensions, \(f) -> string.lower(string.split(f, '.')[-1]))))
+  extensions = filter(extensions, \(ext) -> !contains(exclude_file_ext, ext))
+  extensions = sort(keys(set(map(extensions, \(ext) -> map_lang(ext)))), string.compare)
+
+  map(extensions, \(name) -> [name, ?])
+}
+
+const read_day = \(year, day) -> {
+  const readme_path = path.join('./', year, day, 'README.md')
+
+  title = ?
+  stars = ?
+
+  if os.is_file(readme_path) {
+    const content = io.read_entire_file(readme_path)
+
+    title = readme_title(content)
+    stars = readme_stars(content)
+  }
+
+  { 'day': day, 'title': title, 'stars': stars, 'langs': day_langs(year, day) }
+}
+
+const read_year = \(year) -> {
+  const names = sort(filter(os.list_dir(path.join('./', year)), \(d) -> os.is_dir(path.join('./', year, d)) and is_numeric(d)), string.compare)
+  const days  = filter(map(names, \(day) -> read_day(year, day)), \(d) -> len(d.langs) > 0)
+
+  stars = 0
+  langs = []
+
+  for _, d : days {
+    if d.stars != ?  stars += d.stars
+
+    for _, l : d.langs  append(langs, l[0])
+  }
+
+  { 'year': year, 'days': days, 'stars': stars, 'langs': sort(keys(set(langs)), string.compare) }
+}
+
+# 25 squares, one per calendar day: both stars, one star (or unknown), not solved yet.
+const calendar = \(days) -> {
+  const by_day = {}
+
+  for _, d : days  by_day[as_int(d.day)] = d
+
+  const squares = []
+
+  for i : [1, 26] {
+    append(squares, if !contains(by_day, i)  '⬛' elif by_day[i].stars == 2  '🟩' else '🟨')
+  }
+
+  string.join(squares, '')
+}
+
+const day_row = \(year, d) -> {
+  const stars = if d.stars == ?  '—' elif d.stars == 0  '—' else string.repeat('⭐', d.stars)
+  const title = if d.title == ?  '—' else d.title
+  const langs = string.join(map(d.langs, \(l) -> if l[1] == ?  l[0] else string.format('[', l[0], '](', l[1], ')')), ' · ')
+
+  string.format(
+    '| [', d.day, '](', path.join('./', year, d.day), ') | ', title, ' | ', stars, ' | ', langs,
+    ' | [↗](', map_aoc_path(year, d.day), ') |'
+  )
+}
+
+const data = map(years, read_year)
+
+append(readme, '## 📊 Progress')
+append(readme, '')
+append(readme, '| Year | Calendar | Stars | Days | Languages |')
+append(readme, '| ---- | -------- | ----: | ---: | --------- |')
+
+total_stars = 0
+total_days  = 0
+
+for _, y : data {
+  total_stars += y.stars
+  total_days  += len(y.days)
+
+  append(readme, string.format('| [', y.year, '](#', y.year, ') | ', calendar(y.days), ' | ⭐ ', y.stars, ' | ', len(y.days), ' | ', string.join(y.langs, ' · '), ' |'))
+}
+
+append(readme, string.format('| **Total** | | **⭐ ', total_stars, '** | **', total_days, '** | |'))
+append(readme, '')
+append(readme, '<sub>🟩 both stars · 🟨 one star / in progress · ⬛ not solved yet</sub>')
+append(readme, '')
+
+for i, y : data {
+  const aoc_link = string.format('[↗ adventofcode.com/', y.year, '](', map_aoc_path(y.year), ')')
+
+  # The most recent year stays open, older years are collapsed.
+  if i == 0 {
+    append(readme, string.format('## ', y.year))
+    append(readme, '')
+    append(readme, string.format('⭐ ', y.stars, ' · ', len(y.days), ' days · ', aoc_link))
+  } else {
+    append(readme, '<details>')
+    append(readme, string.format('<summary><b>', y.year, '</b> · ⭐ ', y.stars, ' · ', len(y.days), ' days</summary>'))
+    append(readme, '')
+    append(readme, aoc_link)
+  }
+
+  append(readme, '')
+  append(readme, '| Day | Puzzle | Stars | Languages | AoC |')
+  append(readme, '| --: | ------ | :---: | --------- | :-: |')
+
+  for _, d : y.days  append(readme, day_row(y.year, d))
+
+  append(readme, '')
+
+  if i > 0 {
+    append(readme, '</details>')
+    append(readme, '')
   }
 }
 
