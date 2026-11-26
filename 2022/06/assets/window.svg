@@ -1,0 +1,282 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 508" width="960" height="508" role="img" aria-labelledby="t d">
+  <title id="t">Sliding window over the example mjqjpqmgbljsphdztnvjfqwrcgsmlb with size 4</title>
+  <desc id="d">Each row is one loop iteration. The blue cells are the window from l to r. When the next character is new, r grows; when it is already in the window, l moves right. The loop ends when the window holds 4 different characters, with r equal to 7.</desc>
+  <rect x="1" y="1" width="958" height="506" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">A two-pointer window that never holds a repeat</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">blue: window [l, r) · outlined: the character at r being tested</text>
+    <text x="217.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">0</text>
+    <text x="251.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <text x="285.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <text x="319.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <text x="353.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">4</text>
+    <text x="387.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">5</text>
+    <text x="421.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">6</text>
+    <text x="455.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">7</text>
+    <text x="489.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">8</text>
+    <text x="523.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">9</text>
+    <text x="557.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">10</text>
+    <text x="591.0" y="108" font-size="11" fill="#8b949e" text-anchor="middle">11</text>
+    <rect x="202" y="118" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="217.0" y="136" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">m</text>
+    <rect x="236" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="251.0" y="136" font-size="14" fill="#e6edf3" text-anchor="middle">j</text>
+    <rect x="270" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="285.0" y="136" font-size="14" fill="#8b949e" text-anchor="middle">q</text>
+    <rect x="304" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="319.0" y="136" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="338" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="353.0" y="136" font-size="14" fill="#8b949e" text-anchor="middle">p</text>
+    <rect x="372" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="387.0" y="136" font-size="14" fill="#8b949e" text-anchor="middle">q</text>
+    <rect x="406" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="421.0" y="136" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="440" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="455.0" y="136" font-size="14" fill="#8b949e" text-anchor="middle">g</text>
+    <rect x="474" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="489.0" y="136" font-size="14" fill="#8b949e" text-anchor="middle">b</text>
+    <rect x="508" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="523.0" y="136" font-size="14" fill="#8b949e" text-anchor="middle">l</text>
+    <rect x="542" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="557.0" y="136" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="576" y="118" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="591.0" y="136" font-size="14" fill="#8b949e" text-anchor="middle">s</text>
+    <text x="180" y="136" font-size="12" fill="#8b949e" text-anchor="end">l=0 r=1</text>
+    <text x="628" y="136" font-size="13" fill="#3fb950">'j' is new → r++</text>
+    <rect x="202" y="152" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="217.0" y="170" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">m</text>
+    <rect x="236" y="152" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="251.0" y="170" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">j</text>
+    <rect x="270" y="152" width="30" height="26" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="285.0" y="170" font-size="14" fill="#e6edf3" text-anchor="middle">q</text>
+    <rect x="304" y="152" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="319.0" y="170" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="338" y="152" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="353.0" y="170" font-size="14" fill="#8b949e" text-anchor="middle">p</text>
+    <rect x="372" y="152" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="387.0" y="170" font-size="14" fill="#8b949e" text-anchor="middle">q</text>
+    <rect x="406" y="152" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="421.0" y="170" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="440" y="152" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="455.0" y="170" font-size="14" fill="#8b949e" text-anchor="middle">g</text>
+    <rect x="474" y="152" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="489.0" y="170" font-size="14" fill="#8b949e" text-anchor="middle">b</text>
+    <rect x="508" y="152" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="523.0" y="170" font-size="14" fill="#8b949e" text-anchor="middle">l</text>
+    <rect x="542" y="152" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="557.0" y="170" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="576" y="152" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="591.0" y="170" font-size="14" fill="#8b949e" text-anchor="middle">s</text>
+    <text x="180" y="170" font-size="12" fill="#8b949e" text-anchor="end">l=0 r=2</text>
+    <text x="628" y="170" font-size="13" fill="#3fb950">'q' is new → r++</text>
+    <rect x="202" y="186" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="217.0" y="204" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">m</text>
+    <rect x="236" y="186" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="251.0" y="204" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">j</text>
+    <rect x="270" y="186" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="285.0" y="204" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">q</text>
+    <rect x="304" y="186" width="30" height="26" rx="4" fill="#161b22" stroke="#ff7b72" stroke-width="1.5"/>
+    <text x="319.0" y="204" font-size="14" fill="#e6edf3" text-anchor="middle">j</text>
+    <rect x="338" y="186" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="353.0" y="204" font-size="14" fill="#8b949e" text-anchor="middle">p</text>
+    <rect x="372" y="186" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="387.0" y="204" font-size="14" fill="#8b949e" text-anchor="middle">q</text>
+    <rect x="406" y="186" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="421.0" y="204" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="440" y="186" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="455.0" y="204" font-size="14" fill="#8b949e" text-anchor="middle">g</text>
+    <rect x="474" y="186" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="489.0" y="204" font-size="14" fill="#8b949e" text-anchor="middle">b</text>
+    <rect x="508" y="186" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="523.0" y="204" font-size="14" fill="#8b949e" text-anchor="middle">l</text>
+    <rect x="542" y="186" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="557.0" y="204" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="576" y="186" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="591.0" y="204" font-size="14" fill="#8b949e" text-anchor="middle">s</text>
+    <text x="180" y="204" font-size="12" fill="#8b949e" text-anchor="end">l=0 r=3</text>
+    <text x="628" y="204" font-size="13" fill="#ff7b72">'j' already inside → l++</text>
+    <rect x="202" y="220" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="217.0" y="238" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="236" y="220" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="251.0" y="238" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">j</text>
+    <rect x="270" y="220" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="285.0" y="238" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">q</text>
+    <rect x="304" y="220" width="30" height="26" rx="4" fill="#161b22" stroke="#ff7b72" stroke-width="1.5"/>
+    <text x="319.0" y="238" font-size="14" fill="#e6edf3" text-anchor="middle">j</text>
+    <rect x="338" y="220" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="353.0" y="238" font-size="14" fill="#8b949e" text-anchor="middle">p</text>
+    <rect x="372" y="220" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="387.0" y="238" font-size="14" fill="#8b949e" text-anchor="middle">q</text>
+    <rect x="406" y="220" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="421.0" y="238" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="440" y="220" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="455.0" y="238" font-size="14" fill="#8b949e" text-anchor="middle">g</text>
+    <rect x="474" y="220" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="489.0" y="238" font-size="14" fill="#8b949e" text-anchor="middle">b</text>
+    <rect x="508" y="220" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="523.0" y="238" font-size="14" fill="#8b949e" text-anchor="middle">l</text>
+    <rect x="542" y="220" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="557.0" y="238" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="576" y="220" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="591.0" y="238" font-size="14" fill="#8b949e" text-anchor="middle">s</text>
+    <text x="180" y="238" font-size="12" fill="#8b949e" text-anchor="end">l=1 r=3</text>
+    <text x="628" y="238" font-size="13" fill="#ff7b72">'j' already inside → l++</text>
+    <rect x="202" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="217.0" y="272" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="236" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="251.0" y="272" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="270" y="254" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="285.0" y="272" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">q</text>
+    <rect x="304" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="319.0" y="272" font-size="14" fill="#e6edf3" text-anchor="middle">j</text>
+    <rect x="338" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="353.0" y="272" font-size="14" fill="#8b949e" text-anchor="middle">p</text>
+    <rect x="372" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="387.0" y="272" font-size="14" fill="#8b949e" text-anchor="middle">q</text>
+    <rect x="406" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="421.0" y="272" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="440" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="455.0" y="272" font-size="14" fill="#8b949e" text-anchor="middle">g</text>
+    <rect x="474" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="489.0" y="272" font-size="14" fill="#8b949e" text-anchor="middle">b</text>
+    <rect x="508" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="523.0" y="272" font-size="14" fill="#8b949e" text-anchor="middle">l</text>
+    <rect x="542" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="557.0" y="272" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="576" y="254" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="591.0" y="272" font-size="14" fill="#8b949e" text-anchor="middle">s</text>
+    <text x="180" y="272" font-size="12" fill="#8b949e" text-anchor="end">l=2 r=3</text>
+    <text x="628" y="272" font-size="13" fill="#3fb950">'j' is new → r++</text>
+    <rect x="202" y="288" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="217.0" y="306" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="236" y="288" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="251.0" y="306" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="270" y="288" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="285.0" y="306" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">q</text>
+    <rect x="304" y="288" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="319.0" y="306" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">j</text>
+    <rect x="338" y="288" width="30" height="26" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="353.0" y="306" font-size="14" fill="#e6edf3" text-anchor="middle">p</text>
+    <rect x="372" y="288" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="387.0" y="306" font-size="14" fill="#8b949e" text-anchor="middle">q</text>
+    <rect x="406" y="288" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="421.0" y="306" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="440" y="288" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="455.0" y="306" font-size="14" fill="#8b949e" text-anchor="middle">g</text>
+    <rect x="474" y="288" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="489.0" y="306" font-size="14" fill="#8b949e" text-anchor="middle">b</text>
+    <rect x="508" y="288" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="523.0" y="306" font-size="14" fill="#8b949e" text-anchor="middle">l</text>
+    <rect x="542" y="288" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="557.0" y="306" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="576" y="288" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="591.0" y="306" font-size="14" fill="#8b949e" text-anchor="middle">s</text>
+    <text x="180" y="306" font-size="12" fill="#8b949e" text-anchor="end">l=2 r=4</text>
+    <text x="628" y="306" font-size="13" fill="#3fb950">'p' is new → r++</text>
+    <rect x="202" y="322" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="217.0" y="340" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="236" y="322" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="251.0" y="340" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="270" y="322" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="285.0" y="340" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">q</text>
+    <rect x="304" y="322" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="319.0" y="340" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">j</text>
+    <rect x="338" y="322" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="353.0" y="340" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">p</text>
+    <rect x="372" y="322" width="30" height="26" rx="4" fill="#161b22" stroke="#ff7b72" stroke-width="1.5"/>
+    <text x="387.0" y="340" font-size="14" fill="#e6edf3" text-anchor="middle">q</text>
+    <rect x="406" y="322" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="421.0" y="340" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="440" y="322" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="455.0" y="340" font-size="14" fill="#8b949e" text-anchor="middle">g</text>
+    <rect x="474" y="322" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="489.0" y="340" font-size="14" fill="#8b949e" text-anchor="middle">b</text>
+    <rect x="508" y="322" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="523.0" y="340" font-size="14" fill="#8b949e" text-anchor="middle">l</text>
+    <rect x="542" y="322" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="557.0" y="340" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="576" y="322" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="591.0" y="340" font-size="14" fill="#8b949e" text-anchor="middle">s</text>
+    <text x="180" y="340" font-size="12" fill="#8b949e" text-anchor="end">l=2 r=5</text>
+    <text x="628" y="340" font-size="13" fill="#ff7b72">'q' already inside → l++</text>
+    <rect x="202" y="356" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="217.0" y="374" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="236" y="356" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="251.0" y="374" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="270" y="356" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="285.0" y="374" font-size="14" fill="#8b949e" text-anchor="middle">q</text>
+    <rect x="304" y="356" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="319.0" y="374" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">j</text>
+    <rect x="338" y="356" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="353.0" y="374" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">p</text>
+    <rect x="372" y="356" width="30" height="26" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="387.0" y="374" font-size="14" fill="#e6edf3" text-anchor="middle">q</text>
+    <rect x="406" y="356" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="421.0" y="374" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="440" y="356" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="455.0" y="374" font-size="14" fill="#8b949e" text-anchor="middle">g</text>
+    <rect x="474" y="356" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="489.0" y="374" font-size="14" fill="#8b949e" text-anchor="middle">b</text>
+    <rect x="508" y="356" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="523.0" y="374" font-size="14" fill="#8b949e" text-anchor="middle">l</text>
+    <rect x="542" y="356" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="557.0" y="374" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="576" y="356" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="591.0" y="374" font-size="14" fill="#8b949e" text-anchor="middle">s</text>
+    <text x="180" y="374" font-size="12" fill="#8b949e" text-anchor="end">l=3 r=5</text>
+    <text x="628" y="374" font-size="13" fill="#3fb950">'q' is new → r++</text>
+    <rect x="202" y="390" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="217.0" y="408" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="236" y="390" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="251.0" y="408" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="270" y="390" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="285.0" y="408" font-size="14" fill="#8b949e" text-anchor="middle">q</text>
+    <rect x="304" y="390" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="319.0" y="408" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">j</text>
+    <rect x="338" y="390" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="353.0" y="408" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">p</text>
+    <rect x="372" y="390" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="387.0" y="408" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">q</text>
+    <rect x="406" y="390" width="30" height="26" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="421.0" y="408" font-size="14" fill="#e6edf3" text-anchor="middle">m</text>
+    <rect x="440" y="390" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="455.0" y="408" font-size="14" fill="#8b949e" text-anchor="middle">g</text>
+    <rect x="474" y="390" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="489.0" y="408" font-size="14" fill="#8b949e" text-anchor="middle">b</text>
+    <rect x="508" y="390" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="523.0" y="408" font-size="14" fill="#8b949e" text-anchor="middle">l</text>
+    <rect x="542" y="390" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="557.0" y="408" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="576" y="390" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="591.0" y="408" font-size="14" fill="#8b949e" text-anchor="middle">s</text>
+    <text x="180" y="408" font-size="12" fill="#8b949e" text-anchor="end">l=3 r=6</text>
+    <text x="628" y="408" font-size="13" fill="#3fb950">'m' is new → r++</text>
+    <rect x="202" y="424" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="217.0" y="442" font-size="14" fill="#8b949e" text-anchor="middle">m</text>
+    <rect x="236" y="424" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="251.0" y="442" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="270" y="424" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="285.0" y="442" font-size="14" fill="#8b949e" text-anchor="middle">q</text>
+    <rect x="304" y="424" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="319.0" y="442" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">j</text>
+    <rect x="338" y="424" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="353.0" y="442" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">p</text>
+    <rect x="372" y="424" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="387.0" y="442" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">q</text>
+    <rect x="406" y="424" width="30" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="421.0" y="442" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">m</text>
+    <rect x="440" y="424" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="455.0" y="442" font-size="14" fill="#8b949e" text-anchor="middle">g</text>
+    <rect x="474" y="424" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="489.0" y="442" font-size="14" fill="#8b949e" text-anchor="middle">b</text>
+    <rect x="508" y="424" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="523.0" y="442" font-size="14" fill="#8b949e" text-anchor="middle">l</text>
+    <rect x="542" y="424" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="557.0" y="442" font-size="14" fill="#8b949e" text-anchor="middle">j</text>
+    <rect x="576" y="424" width="30" height="26" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="591.0" y="442" font-size="14" fill="#8b949e" text-anchor="middle">s</text>
+    <text x="180" y="442" font-size="12" fill="#8b949e" text-anchor="end">l=3 r=7</text>
+    <text x="628" y="442" font-size="13" fill="#f2cc60" font-weight="700">r − l = 4 → answer r = 7</text>
+    <text x="40" y="484" font-size="13" fill="#8b949e">window = line[l:r] · counts kept in a 26-slot array indexed by byte % 26 (unique for a … z)</text>
+  </g>
+</svg>

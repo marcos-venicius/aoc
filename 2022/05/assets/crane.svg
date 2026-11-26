@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 548" width="960" height="548" role="img" aria-labelledby="t d">
+  <title id="t">Example stacks after every move, with both cranes</title>
+  <desc id="d">Trace of the example rearrangement. With CrateMover 9000 crates move one by one so a group arrives reversed and the tops spell CMZ; with CrateMover 9001 the group keeps its order and the tops spell MCD.</desc>
+  <rect x="1" y="1" width="958" height="546" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Same moves, two cranes</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">coloured crates were just moved · gold: the crate on top of each stack at the end</text>
+    <text x="40" y="98" font-size="14" fill="#3fb950" font-weight="700">CrateMover 9000 · pop() one crate at a time (order reverses)</text>
+    <text x="118.0" y="128" font-size="12" fill="#8b949e" text-anchor="middle">start</text>
+    <line x1="40" y1="268" x2="182" y2="268" stroke="#30363d" stroke-width="2"/>
+    <text x="64.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <rect x="44" y="240" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="64.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">Z</text>
+    <rect x="44" y="212" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="64.0" y="230" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">N</text>
+    <text x="110.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <rect x="90" y="240" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="110.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">M</text>
+    <rect x="90" y="212" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="110.0" y="230" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">C</text>
+    <rect x="90" y="184" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="110.0" y="202" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">D</text>
+    <text x="156.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <rect x="136" y="240" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="156.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">P</text>
+    <text x="194" y="228" font-size="16" fill="#8b949e" text-anchor="middle">→</text>
+    <text x="294.0" y="128" font-size="12" fill="#8b949e" text-anchor="middle">move 1 from 2 to 1</text>
+    <line x1="216" y1="268" x2="358" y2="268" stroke="#30363d" stroke-width="2"/>
+    <text x="240.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <rect x="220" y="240" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="240.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">Z</text>
+    <rect x="220" y="212" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="240.0" y="230" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">N</text>
+    <rect x="220" y="184" width="40" height="26" rx="4" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.25"/>
+    <text x="240.0" y="202" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">D</text>
+    <text x="286.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <rect x="266" y="240" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="286.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">M</text>
+    <rect x="266" y="212" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="286.0" y="230" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">C</text>
+    <text x="332.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <rect x="312" y="240" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="332.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">P</text>
+    <text x="370" y="228" font-size="16" fill="#8b949e" text-anchor="middle">→</text>
+    <text x="470.0" y="128" font-size="12" fill="#8b949e" text-anchor="middle">move 3 from 1 to 3</text>
+    <line x1="392" y1="268" x2="534" y2="268" stroke="#30363d" stroke-width="2"/>
+    <text x="416.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <text x="462.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <rect x="442" y="240" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="462.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">M</text>
+    <rect x="442" y="212" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="462.0" y="230" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">C</text>
+    <text x="508.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <rect x="488" y="240" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="508.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">P</text>
+    <rect x="488" y="212" width="40" height="26" rx="4" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.25"/>
+    <text x="508.0" y="230" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">D</text>
+    <rect x="488" y="184" width="40" height="26" rx="4" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.25"/>
+    <text x="508.0" y="202" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">N</text>
+    <rect x="488" y="156" width="40" height="26" rx="4" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.25"/>
+    <text x="508.0" y="174" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">Z</text>
+    <text x="546" y="228" font-size="16" fill="#8b949e" text-anchor="middle">→</text>
+    <text x="646.0" y="128" font-size="12" fill="#8b949e" text-anchor="middle">move 2 from 2 to 1</text>
+    <line x1="568" y1="268" x2="710" y2="268" stroke="#30363d" stroke-width="2"/>
+    <text x="592.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <rect x="572" y="240" width="40" height="26" rx="4" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.25"/>
+    <text x="592.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">C</text>
+    <rect x="572" y="212" width="40" height="26" rx="4" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.25"/>
+    <text x="592.0" y="230" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">M</text>
+    <text x="638.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <text x="684.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <rect x="664" y="240" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="684.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">P</text>
+    <rect x="664" y="212" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="684.0" y="230" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">D</text>
+    <rect x="664" y="184" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="684.0" y="202" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">N</text>
+    <rect x="664" y="156" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="684.0" y="174" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">Z</text>
+    <text x="722" y="228" font-size="16" fill="#8b949e" text-anchor="middle">→</text>
+    <text x="822.0" y="128" font-size="12" fill="#8b949e" text-anchor="middle">move 1 from 1 to 2</text>
+    <line x1="744" y1="268" x2="886" y2="268" stroke="#30363d" stroke-width="2"/>
+    <text x="768.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <rect x="748" y="240" width="40" height="26" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="1" fill-opacity="0.25"/>
+    <text x="768.0" y="258" font-size="14" fill="#f2cc60" text-anchor="middle" font-weight="700">C</text>
+    <text x="814.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <rect x="794" y="240" width="40" height="26" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="1" fill-opacity="0.25"/>
+    <text x="814.0" y="258" font-size="14" fill="#f2cc60" text-anchor="middle" font-weight="700">M</text>
+    <text x="860.0" y="286" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <rect x="840" y="240" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="860.0" y="258" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">P</text>
+    <rect x="840" y="212" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="860.0" y="230" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">D</text>
+    <rect x="840" y="184" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="860.0" y="202" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">N</text>
+    <rect x="840" y="156" width="40" height="26" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="1" fill-opacity="0.25"/>
+    <text x="860.0" y="174" font-size="14" fill="#f2cc60" text-anchor="middle" font-weight="700">Z</text>
+    <text x="920" y="228" font-size="18" fill="#f2cc60" text-anchor="end" font-weight="700">CMZ</text>
+    <text x="920" y="250" font-size="11" fill="#8b949e" text-anchor="end">tops</text>
+    <text x="40" y="338" font-size="14" fill="#58a6ff" font-weight="700">CrateMover 9001 · get_n() + append_order_fixed() (order kept)</text>
+    <text x="118.0" y="368" font-size="12" fill="#8b949e" text-anchor="middle">start</text>
+    <line x1="40" y1="508" x2="182" y2="508" stroke="#30363d" stroke-width="2"/>
+    <text x="64.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <rect x="44" y="480" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="64.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">Z</text>
+    <rect x="44" y="452" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="64.0" y="470" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">N</text>
+    <text x="110.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <rect x="90" y="480" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="110.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">M</text>
+    <rect x="90" y="452" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="110.0" y="470" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">C</text>
+    <rect x="90" y="424" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="110.0" y="442" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">D</text>
+    <text x="156.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <rect x="136" y="480" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="156.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">P</text>
+    <text x="194" y="468" font-size="16" fill="#8b949e" text-anchor="middle">→</text>
+    <text x="294.0" y="368" font-size="12" fill="#8b949e" text-anchor="middle">move 1 from 2 to 1</text>
+    <line x1="216" y1="508" x2="358" y2="508" stroke="#30363d" stroke-width="2"/>
+    <text x="240.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <rect x="220" y="480" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="240.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">Z</text>
+    <rect x="220" y="452" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="240.0" y="470" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">N</text>
+    <rect x="220" y="424" width="40" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="240.0" y="442" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">D</text>
+    <text x="286.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <rect x="266" y="480" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="286.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">M</text>
+    <rect x="266" y="452" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="286.0" y="470" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">C</text>
+    <text x="332.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <rect x="312" y="480" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="332.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">P</text>
+    <text x="370" y="468" font-size="16" fill="#8b949e" text-anchor="middle">→</text>
+    <text x="470.0" y="368" font-size="12" fill="#8b949e" text-anchor="middle">move 3 from 1 to 3</text>
+    <line x1="392" y1="508" x2="534" y2="508" stroke="#30363d" stroke-width="2"/>
+    <text x="416.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <text x="462.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <rect x="442" y="480" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="462.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">M</text>
+    <rect x="442" y="452" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="462.0" y="470" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">C</text>
+    <text x="508.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <rect x="488" y="480" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="508.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">P</text>
+    <rect x="488" y="452" width="40" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="508.0" y="470" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">Z</text>
+    <rect x="488" y="424" width="40" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="508.0" y="442" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">N</text>
+    <rect x="488" y="396" width="40" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="508.0" y="414" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">D</text>
+    <text x="546" y="468" font-size="16" fill="#8b949e" text-anchor="middle">→</text>
+    <text x="646.0" y="368" font-size="12" fill="#8b949e" text-anchor="middle">move 2 from 2 to 1</text>
+    <line x1="568" y1="508" x2="710" y2="508" stroke="#30363d" stroke-width="2"/>
+    <text x="592.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <rect x="572" y="480" width="40" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="592.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">M</text>
+    <rect x="572" y="452" width="40" height="26" rx="4" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.25"/>
+    <text x="592.0" y="470" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">C</text>
+    <text x="638.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <text x="684.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <rect x="664" y="480" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="684.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">P</text>
+    <rect x="664" y="452" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="684.0" y="470" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">Z</text>
+    <rect x="664" y="424" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="684.0" y="442" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">N</text>
+    <rect x="664" y="396" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="684.0" y="414" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">D</text>
+    <text x="722" y="468" font-size="16" fill="#8b949e" text-anchor="middle">→</text>
+    <text x="822.0" y="368" font-size="12" fill="#8b949e" text-anchor="middle">move 1 from 1 to 2</text>
+    <line x1="744" y1="508" x2="886" y2="508" stroke="#30363d" stroke-width="2"/>
+    <text x="768.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">1</text>
+    <rect x="748" y="480" width="40" height="26" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="1" fill-opacity="0.25"/>
+    <text x="768.0" y="498" font-size="14" fill="#f2cc60" text-anchor="middle" font-weight="700">M</text>
+    <text x="814.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">2</text>
+    <rect x="794" y="480" width="40" height="26" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="1" fill-opacity="0.25"/>
+    <text x="814.0" y="498" font-size="14" fill="#f2cc60" text-anchor="middle" font-weight="700">C</text>
+    <text x="860.0" y="526" font-size="11" fill="#8b949e" text-anchor="middle">3</text>
+    <rect x="840" y="480" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="860.0" y="498" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">P</text>
+    <rect x="840" y="452" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="860.0" y="470" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">Z</text>
+    <rect x="840" y="424" width="40" height="26" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="860.0" y="442" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700">N</text>
+    <rect x="840" y="396" width="40" height="26" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="1" fill-opacity="0.25"/>
+    <text x="860.0" y="414" font-size="14" fill="#f2cc60" text-anchor="middle" font-weight="700">D</text>
+    <text x="920" y="468" font-size="18" fill="#f2cc60" text-anchor="end" font-weight="700">MCD</text>
+    <text x="920" y="490" font-size="11" fill="#8b949e" text-anchor="end">tops</text>
+  </g>
+</svg>

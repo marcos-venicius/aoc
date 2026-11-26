@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-labelledby="t d">
+  <title id="t">Tracing the jumps of the example 0 3 0 1 -3</title>
+  <desc id="d">Each step reads the offset under the pointer, increments that offset, and jumps by the old value. The pointer leaves the list after 5 steps in part 1.</desc>
+  <rect x="1" y="1" width="958" height="498" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">Jump, then fix the offset you jumped from</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">next = i + data[i]; data[i] += 1 (part 2: −1 when the offset was 3 or more); i = next</text>
+    <text x="60" y="132" font-size="13" fill="#8b949e" xml:space="preserve">start</text>
+    <rect x="203" y="108" width="58" height="38" rx="6" fill="#161b22" stroke="#f2cc60" stroke-width="2.5"/>
+    <text x="232.0" y="134" font-size="17" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">0</text>
+    <rect x="267" y="108" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="296.0" y="134" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">3</text>
+    <rect x="331" y="108" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="360.0" y="134" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">0</text>
+    <rect x="395" y="108" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="424.0" y="134" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">1</text>
+    <rect x="459" y="108" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="488.0" y="134" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">−3</text>
+    <text x="640" y="132" font-size="13" fill="#58a6ff" xml:space="preserve">jump +0 → index 0</text>
+    <text x="60" y="188" font-size="13" fill="#8b949e" xml:space="preserve">step 1</text>
+    <rect x="203" y="164" width="58" height="38" rx="6" fill="#161b22" stroke="#f2cc60" stroke-width="2.5"/>
+    <text x="232.0" y="190" font-size="17" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">1</text>
+    <rect x="267" y="164" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="296.0" y="190" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">3</text>
+    <rect x="331" y="164" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="360.0" y="190" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">0</text>
+    <rect x="395" y="164" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="424.0" y="190" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">1</text>
+    <rect x="459" y="164" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="488.0" y="190" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">−3</text>
+    <text x="640" y="188" font-size="13" fill="#58a6ff" xml:space="preserve">jump +1 → index 1</text>
+    <text x="60" y="244" font-size="13" fill="#8b949e" xml:space="preserve">step 2</text>
+    <rect x="203" y="220" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="232.0" y="246" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">2</text>
+    <rect x="267" y="220" width="58" height="38" rx="6" fill="#161b22" stroke="#f2cc60" stroke-width="2.5"/>
+    <text x="296.0" y="246" font-size="17" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">3</text>
+    <rect x="331" y="220" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="360.0" y="246" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">0</text>
+    <rect x="395" y="220" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="424.0" y="246" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">1</text>
+    <rect x="459" y="220" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="488.0" y="246" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">−3</text>
+    <text x="640" y="244" font-size="13" fill="#58a6ff" xml:space="preserve">jump +3 → index 4</text>
+    <text x="60" y="300" font-size="13" fill="#8b949e" xml:space="preserve">step 3</text>
+    <rect x="203" y="276" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="232.0" y="302" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">2</text>
+    <rect x="267" y="276" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="296.0" y="302" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">4</text>
+    <rect x="331" y="276" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="360.0" y="302" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">0</text>
+    <rect x="395" y="276" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="424.0" y="302" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">1</text>
+    <rect x="459" y="276" width="58" height="38" rx="6" fill="#161b22" stroke="#f2cc60" stroke-width="2.5"/>
+    <text x="488.0" y="302" font-size="17" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">−3</text>
+    <text x="640" y="300" font-size="13" fill="#58a6ff" xml:space="preserve">jump −3 → index 1</text>
+    <text x="60" y="356" font-size="13" fill="#8b949e" xml:space="preserve">step 4</text>
+    <rect x="203" y="332" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="232.0" y="358" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">2</text>
+    <rect x="267" y="332" width="58" height="38" rx="6" fill="#161b22" stroke="#f2cc60" stroke-width="2.5"/>
+    <text x="296.0" y="358" font-size="17" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">4</text>
+    <rect x="331" y="332" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="360.0" y="358" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">0</text>
+    <rect x="395" y="332" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="424.0" y="358" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">1</text>
+    <rect x="459" y="332" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="488.0" y="358" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">−2</text>
+    <text x="640" y="356" font-size="13" fill="#58a6ff" xml:space="preserve">jump +4 → index 5</text>
+    <text x="60" y="412" font-size="13" fill="#8b949e" xml:space="preserve">step 5</text>
+    <rect x="203" y="388" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="232.0" y="414" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">2</text>
+    <rect x="267" y="388" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="296.0" y="414" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">5</text>
+    <rect x="331" y="388" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="360.0" y="414" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">0</text>
+    <rect x="395" y="388" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="424.0" y="414" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">1</text>
+    <rect x="459" y="388" width="58" height="38" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="488.0" y="414" font-size="17" fill="#e6edf3" text-anchor="middle" xml:space="preserve">−2</text>
+    <rect x="523" y="388" width="58" height="38" rx="6" fill="none" stroke="#3fb950" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="552.0" y="414" font-size="14" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">out</text>
+    <text x="60" y="468" font-size="14" fill="#3fb950" font-weight="700" xml:space="preserve">part 1: 5 steps to escape · part 2 on the same example: 10 steps</text>
+  </g>
+</svg>

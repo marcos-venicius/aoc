@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" role="img" aria-labelledby="t d">
+  <title id="t">Nice or naughty: the rule checks on the example strings</title>
+  <desc id="d">Part 1 needs three vowels, a doubled letter and none of ab, cd, pq, xy. Part 2 needs a pair that appears twice without overlapping and a letter that repeats with one letter between. Each example string is checked against the rules.</desc>
+  <rect x="1" y="1" width="958" height="468" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Every rule is a counter or a flag filled in one pass</text>
+
+    <!-- PART 1 -->
+    <text x="40" y="84" font-size="15" font-weight="700" fill="#58a6ff">Part 1</text>
+    <g font-size="13" fill="#8b949e" text-anchor="middle">
+      <text x="440" y="84">vowels ≥ 3</text>
+      <text x="580" y="84">double</text>
+      <text x="720" y="84">no ab/cd/pq/xy</text>
+      <text x="860" y="84">result</text>
+    </g>
+    <line x1="40" y1="96" x2="920" y2="96" stroke="#30363d"/>
+    <g font-size="16" fill="#e6edf3">
+      <text x="40" y="124">ugknbf<tspan fill="#f2cc60">dd</tspan>gicrmopn</text>
+      <text x="40" y="156">jchzalrnumimnmhp</text>
+      <text x="40" y="188">haegwjzuvuyyp<tspan fill="#ff7b72">xy</tspan>u</text>
+      <text x="40" y="220">dvszwmarrgswjxmb</text>
+    </g>
+    <g font-size="15" text-anchor="middle">
+      <text x="440" y="124" fill="#3fb950">3 ✓</text>
+      <text x="580" y="124" fill="#3fb950">dd ✓</text>
+      <text x="720" y="124" fill="#3fb950">✓</text>
+      <text x="860" y="124" fill="#3fb950" font-weight="700">nice</text>
+
+      <text x="440" y="156" fill="#3fb950">3 ✓</text>
+      <text x="580" y="156" fill="#ff7b72">✗</text>
+      <text x="720" y="156" fill="#3fb950">✓</text>
+      <text x="860" y="156" fill="#ff7b72" font-weight="700">naughty</text>
+
+      <text x="440" y="188" fill="#3fb950">5 ✓</text>
+      <text x="580" y="188" fill="#3fb950">yy ✓</text>
+      <text x="720" y="188" fill="#ff7b72">xy ✗</text>
+      <text x="860" y="188" fill="#ff7b72" font-weight="700">naughty</text>
+
+      <text x="440" y="220" fill="#ff7b72">1 ✗</text>
+      <text x="580" y="220" fill="#3fb950">rr ✓</text>
+      <text x="720" y="220" fill="#3fb950">✓</text>
+      <text x="860" y="220" fill="#ff7b72" font-weight="700">naughty</text>
+    </g>
+
+    <!-- PART 2 -->
+    <text x="40" y="282" font-size="15" font-weight="700" fill="#58a6ff">Part 2</text>
+    <g font-size="13" fill="#8b949e" text-anchor="middle">
+      <text x="480" y="282">pair twice, no overlap</text>
+      <text x="700" y="282">x?x repeat</text>
+      <text x="860" y="282">result</text>
+    </g>
+    <line x1="40" y1="294" x2="920" y2="294" stroke="#30363d"/>
+    <g font-size="16" fill="#e6edf3">
+      <text x="40" y="322"><tspan fill="#f2cc60">qj</tspan>hvht<tspan fill="#d2a8ff">zxz</tspan>q<tspan fill="#f2cc60">qj</tspan>kmpb</text>
+      <text x="40" y="354"><tspan fill="#f2cc60">xx</tspan><tspan fill="#d2a8ff">y</tspan><tspan fill="#f2cc60">xx</tspan></text>
+      <text x="40" y="386">uurcxs<tspan fill="#f2cc60">tg</tspan>myg<tspan fill="#f2cc60">tg</tspan>bs<tspan fill="#f2cc60">tg</tspan></text>
+      <text x="40" y="418">ie<tspan fill="#d2a8ff">odo</tspan>mkazucvgmuy</text>
+    </g>
+    <g font-size="15" text-anchor="middle">
+      <text x="480" y="322" fill="#3fb950">qj ✓</text>
+      <text x="700" y="322" fill="#3fb950">zxz ✓</text>
+      <text x="860" y="322" fill="#3fb950" font-weight="700">nice</text>
+
+      <text x="480" y="354" fill="#3fb950">xx ✓</text>
+      <text x="700" y="354" fill="#3fb950">xyx ✓</text>
+      <text x="860" y="354" fill="#3fb950" font-weight="700">nice</text>
+
+      <text x="480" y="386" fill="#3fb950">tg ✓</text>
+      <text x="700" y="386" fill="#ff7b72">✗</text>
+      <text x="860" y="386" fill="#ff7b72" font-weight="700">naughty</text>
+
+      <text x="480" y="418" fill="#ff7b72">✗</text>
+      <text x="700" y="418" fill="#3fb950">odo ✓</text>
+      <text x="860" y="418" fill="#ff7b72" font-weight="700">naughty</text>
+    </g>
+    <text x="40" y="452" font-size="12" fill="#8b949e">gold = pairs / doubles · purple = letter repeated with one letter between · red = forbidden pair</text>
+  </g>
+</svg>

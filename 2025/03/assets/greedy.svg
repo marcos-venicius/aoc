@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 534" width="960" height="534" role="img" aria-labelledby="t d">
+  <title id="t">Greedy choice of 12 batteries from the bank 818181911112111</title>
+  <desc id="d">For each of the 12 digits, the code searches a window that starts after the previous pick and leaves enough digits for the remaining picks, and takes the leftmost largest digit. The result is 888911112111.</desc>
+  <rect x="1" y="1" width="958" height="532" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Part 2: pick 12 digits, left to right</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">each pick = leftmost maximum inside the window that still leaves room for the rest</text>
+    <text x="40" y="112" font-size="13" fill="#8b949e">bank</text>
+    <text x="218.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">0</text>
+    <text x="254.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">1</text>
+    <text x="290.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">2</text>
+    <text x="326.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">3</text>
+    <text x="362.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">4</text>
+    <text x="398.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">5</text>
+    <text x="434.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">6</text>
+    <text x="470.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">7</text>
+    <text x="506.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">8</text>
+    <text x="542.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">9</text>
+    <text x="578.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">10</text>
+    <text x="614.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">11</text>
+    <text x="650.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">12</text>
+    <text x="686.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">13</text>
+    <text x="722.0" y="112" font-size="10" fill="#8b949e" text-anchor="middle">14</text>
+    <text x="40" y="149" font-size="13" fill="#8b949e" xml:space="preserve">digit  1</text>
+    <rect x="200" y="130" width="140" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <rect x="203" y="132" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="216.0" y="149" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">8</text>
+    <text x="252.0" y="149" font-size="15" fill="#e6edf3" text-anchor="middle">1</text>
+    <text x="288.0" y="149" font-size="15" fill="#e6edf3" text-anchor="middle">8</text>
+    <text x="324.0" y="149" font-size="15" fill="#e6edf3" text-anchor="middle">1</text>
+    <text x="360.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">8</text>
+    <text x="396.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="432.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">9</text>
+    <text x="468.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="504.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="540.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="576.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="612.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">2</text>
+    <text x="648.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="684.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="720.0" y="149" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="179" font-size="13" fill="#8b949e" xml:space="preserve">digit  2</text>
+    <rect x="236" y="160" width="140" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="179" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="179" font-size="15" fill="#e6edf3" text-anchor="middle">1</text>
+    <rect x="275" y="162" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="288.0" y="179" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">8</text>
+    <text x="324.0" y="179" font-size="15" fill="#e6edf3" text-anchor="middle">1</text>
+    <text x="360.0" y="179" font-size="15" fill="#e6edf3" text-anchor="middle">8</text>
+    <text x="396.0" y="179" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="432.0" y="179" font-size="15" fill="#30363d" text-anchor="middle">9</text>
+    <text x="468.0" y="179" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="504.0" y="179" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="540.0" y="179" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="576.0" y="179" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="612.0" y="179" font-size="15" fill="#30363d" text-anchor="middle">2</text>
+    <text x="648.0" y="179" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="684.0" y="179" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="720.0" y="179" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="209" font-size="13" fill="#8b949e" xml:space="preserve">digit  3</text>
+    <rect x="308" y="190" width="104" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="209" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="209" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="288.0" y="209" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="324.0" y="209" font-size="15" fill="#e6edf3" text-anchor="middle">1</text>
+    <rect x="347" y="192" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="360.0" y="209" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">8</text>
+    <text x="396.0" y="209" font-size="15" fill="#e6edf3" text-anchor="middle">1</text>
+    <text x="432.0" y="209" font-size="15" fill="#30363d" text-anchor="middle">9</text>
+    <text x="468.0" y="209" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="504.0" y="209" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="540.0" y="209" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="576.0" y="209" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="612.0" y="209" font-size="15" fill="#30363d" text-anchor="middle">2</text>
+    <text x="648.0" y="209" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="684.0" y="209" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="720.0" y="209" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="239" font-size="13" fill="#8b949e" xml:space="preserve">digit  4</text>
+    <rect x="380" y="220" width="68" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="239" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="239" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="288.0" y="239" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="324.0" y="239" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="360.0" y="239" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="396.0" y="239" font-size="15" fill="#e6edf3" text-anchor="middle">1</text>
+    <rect x="419" y="222" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="432.0" y="239" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">9</text>
+    <text x="468.0" y="239" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="504.0" y="239" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="540.0" y="239" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="576.0" y="239" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="612.0" y="239" font-size="15" fill="#30363d" text-anchor="middle">2</text>
+    <text x="648.0" y="239" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="684.0" y="239" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="720.0" y="239" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="269" font-size="13" fill="#8b949e" xml:space="preserve">digit  5</text>
+    <rect x="452" y="250" width="32" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="269" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="269" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="288.0" y="269" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="324.0" y="269" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="360.0" y="269" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="396.0" y="269" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="432.0" y="269" font-size="15" fill="#3fb950" text-anchor="middle">9</text>
+    <rect x="455" y="252" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="468.0" y="269" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">1</text>
+    <text x="504.0" y="269" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="540.0" y="269" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="576.0" y="269" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="612.0" y="269" font-size="15" fill="#30363d" text-anchor="middle">2</text>
+    <text x="648.0" y="269" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="684.0" y="269" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="720.0" y="269" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="299" font-size="13" fill="#8b949e" xml:space="preserve">digit  6</text>
+    <rect x="488" y="280" width="32" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="299" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="299" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="288.0" y="299" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="324.0" y="299" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="360.0" y="299" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="396.0" y="299" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="432.0" y="299" font-size="15" fill="#3fb950" text-anchor="middle">9</text>
+    <text x="468.0" y="299" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <rect x="491" y="282" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="504.0" y="299" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">1</text>
+    <text x="540.0" y="299" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="576.0" y="299" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="612.0" y="299" font-size="15" fill="#30363d" text-anchor="middle">2</text>
+    <text x="648.0" y="299" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="684.0" y="299" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="720.0" y="299" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="329" font-size="13" fill="#8b949e" xml:space="preserve">digit  7</text>
+    <rect x="524" y="310" width="32" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="329" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="329" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="288.0" y="329" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="324.0" y="329" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="360.0" y="329" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="396.0" y="329" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="432.0" y="329" font-size="15" fill="#3fb950" text-anchor="middle">9</text>
+    <text x="468.0" y="329" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="504.0" y="329" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <rect x="527" y="312" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="540.0" y="329" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">1</text>
+    <text x="576.0" y="329" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="612.0" y="329" font-size="15" fill="#30363d" text-anchor="middle">2</text>
+    <text x="648.0" y="329" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="684.0" y="329" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="720.0" y="329" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="359" font-size="13" fill="#8b949e" xml:space="preserve">digit  8</text>
+    <rect x="560" y="340" width="32" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="359" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="359" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="288.0" y="359" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="324.0" y="359" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="360.0" y="359" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="396.0" y="359" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="432.0" y="359" font-size="15" fill="#3fb950" text-anchor="middle">9</text>
+    <text x="468.0" y="359" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="504.0" y="359" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="540.0" y="359" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <rect x="563" y="342" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="576.0" y="359" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">1</text>
+    <text x="612.0" y="359" font-size="15" fill="#30363d" text-anchor="middle">2</text>
+    <text x="648.0" y="359" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="684.0" y="359" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="720.0" y="359" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="389" font-size="13" fill="#8b949e" xml:space="preserve">digit  9</text>
+    <rect x="596" y="370" width="32" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="389" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="389" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="288.0" y="389" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="324.0" y="389" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="360.0" y="389" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="396.0" y="389" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="432.0" y="389" font-size="15" fill="#3fb950" text-anchor="middle">9</text>
+    <text x="468.0" y="389" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="504.0" y="389" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="540.0" y="389" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="576.0" y="389" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <rect x="599" y="372" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="612.0" y="389" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">2</text>
+    <text x="648.0" y="389" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="684.0" y="389" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="720.0" y="389" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="419" font-size="13" fill="#8b949e" xml:space="preserve">digit 10</text>
+    <rect x="632" y="400" width="32" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="419" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="419" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="288.0" y="419" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="324.0" y="419" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="360.0" y="419" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="396.0" y="419" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="432.0" y="419" font-size="15" fill="#3fb950" text-anchor="middle">9</text>
+    <text x="468.0" y="419" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="504.0" y="419" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="540.0" y="419" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="576.0" y="419" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="612.0" y="419" font-size="15" fill="#3fb950" text-anchor="middle">2</text>
+    <rect x="635" y="402" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="648.0" y="419" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">1</text>
+    <text x="684.0" y="419" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="720.0" y="419" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="449" font-size="13" fill="#8b949e" xml:space="preserve">digit 11</text>
+    <rect x="668" y="430" width="32" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="449" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="449" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="288.0" y="449" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="324.0" y="449" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="360.0" y="449" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="396.0" y="449" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="432.0" y="449" font-size="15" fill="#3fb950" text-anchor="middle">9</text>
+    <text x="468.0" y="449" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="504.0" y="449" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="540.0" y="449" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="576.0" y="449" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="612.0" y="449" font-size="15" fill="#3fb950" text-anchor="middle">2</text>
+    <text x="648.0" y="449" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <rect x="671" y="432" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="684.0" y="449" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">1</text>
+    <text x="720.0" y="449" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="40" y="479" font-size="13" fill="#8b949e" xml:space="preserve">digit 12</text>
+    <rect x="704" y="460" width="32" height="26" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="216.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="252.0" y="479" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="288.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="324.0" y="479" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="360.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">8</text>
+    <text x="396.0" y="479" font-size="15" fill="#30363d" text-anchor="middle">1</text>
+    <text x="432.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">9</text>
+    <text x="468.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="504.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="540.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="576.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="612.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">2</text>
+    <text x="648.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="684.0" y="479" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <rect x="707" y="462" width="26" height="22" rx="4" fill="#f2cc60" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+    <text x="720.0" y="479" font-size="15" fill="#0d1117" text-anchor="middle" font-weight="700">1</text>
+    <text x="40" y="508" font-size="13" fill="#8b949e">result</text>
+    <text x="200" y="508" font-size="17" fill="#f2cc60" font-weight="700">888911112111</text>
+    <text x="450" y="508" font-size="12" fill="#58a6ff">blue = search window · green = already picked</text>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360" role="img" aria-labelledby="t d">
+  <title id="t">Rule used to count corners of a region</title>
+  <desc id="d">For each cell and each of its four diagonals, it is an outer corner when both orthogonal neighbours are outside the region, and an inner corner when both are inside but the diagonal is outside.</desc>
+  <rect x="1" y="1" width="958" height="358" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">count_vertices: one corner test per diagonal</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">a polygon has as many sides as corners, so counting corners gives part 2</text>
+    <text x="70" y="116" font-size="14" fill="#3fb950">outer corner</text>
+    <rect x="70" y="130" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="114" y="130" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="158" y="130" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="70" y="174" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="114" y="174" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <rect x="158" y="174" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <rect x="70" y="218" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="114" y="218" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <rect x="158" y="218" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <text x="134.0" y="200.0" font-size="16" fill="#e6edf3" text-anchor="middle" font-weight="700">X</text>
+    <text x="134.0" y="155.0" font-size="13" fill="#f2cc60" text-anchor="middle">a</text>
+    <text x="90.0" y="199.0" font-size="13" fill="#f2cc60" text-anchor="middle">b</text>
+    <text x="90.0" y="155.0" font-size="13" fill="#f2cc60" text-anchor="middle">d</text>
+    <text x="70" y="282" font-size="13" fill="#3fb950">a and b outside → +1</text>
+    <text x="390" y="116" font-size="14" fill="#f2cc60">inner corner</text>
+    <rect x="390" y="130" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="434" y="130" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <rect x="478" y="130" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="390" y="174" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <rect x="434" y="174" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <rect x="478" y="174" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="390" y="218" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="434" y="218" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="478" y="218" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="454.0" y="200.0" font-size="16" fill="#e6edf3" text-anchor="middle" font-weight="700">X</text>
+    <text x="454.0" y="155.0" font-size="13" fill="#f2cc60" text-anchor="middle">a</text>
+    <text x="410.0" y="199.0" font-size="13" fill="#f2cc60" text-anchor="middle">b</text>
+    <text x="410.0" y="155.0" font-size="13" fill="#f2cc60" text-anchor="middle">d</text>
+    <text x="390" y="282" font-size="13" fill="#f2cc60">a, b inside, d outside → +1</text>
+    <text x="710" y="116" font-size="14" fill="#8b949e">no corner</text>
+    <rect x="710" y="130" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="754" y="130" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <rect x="798" y="130" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="710" y="174" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="754" y="174" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <rect x="798" y="174" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <rect x="710" y="218" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="754" y="218" width="40" height="40" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.35"/>
+    <rect x="798" y="218" width="40" height="40" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="774.0" y="200.0" font-size="16" fill="#e6edf3" text-anchor="middle" font-weight="700">X</text>
+    <text x="774.0" y="155.0" font-size="13" fill="#f2cc60" text-anchor="middle">a</text>
+    <text x="730.0" y="199.0" font-size="13" fill="#f2cc60" text-anchor="middle">b</text>
+    <text x="730.0" y="155.0" font-size="13" fill="#f2cc60" text-anchor="middle">d</text>
+    <text x="710" y="282" font-size="13" fill="#8b949e">a inside, b outside → 0</text>
+    <text x="70" y="330" font-size="13" fill="#8b949e">checked for the 4 diagonal directions of every cell X (top-left shown: a = top, b = left, d = top-left)</text>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 456" width="960" height="456" role="img" aria-labelledby="t d">
+  <title id="t">Enumerating operator combinations with a counter</title>
+  <desc id="d">Part 1 reads the bits of a counter as plus or times; for 81 40 27 two of the combinations give 3267. Part 2 reads the counter in base 3, adding concatenation; for 6 8 6 15 the counter 16 gives times, concatenate, times, which evaluates to 7290.</desc>
+  <rect x="1" y="1" width="958" height="454" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">A counter is an operator list</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">each equation tries every combination until one hits the test value</text>
+    <text x="40" y="108" font-size="14" fill="#e6edf3" font-weight="700">Part 1 · 3267: 81 40 27</text>
+    <text x="40" y="130" font-size="12" fill="#8b949e">bit i of the counter picks the i-th operator: 1 = +, 0 = *</text>
+    <text x="60" y="160" font-size="12" fill="#8b949e">counter</text>
+    <text x="150" y="160" font-size="12" fill="#8b949e">b0 b1</text>
+    <text x="230" y="160" font-size="12" fill="#8b949e">expression</text>
+    <text x="420" y="160" font-size="12" fill="#8b949e">value</text>
+    <rect x="44" y="168" width="450" height="30" rx="5" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="60" y="188" font-size="14" fill="#e6edf3">0</text>
+    <text x="150" y="188" font-size="14" fill="#58a6ff">0 0</text>
+    <text x="230" y="188" font-size="14" fill="#e6edf3">81 * 40 * 27</text>
+    <text x="420" y="188" font-size="14" fill="#8b949e">87480</text>
+    <rect x="44" y="204" width="450" height="30" rx="5" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.12"/>
+    <text x="60" y="224" font-size="14" fill="#e6edf3">1</text>
+    <text x="150" y="224" font-size="14" fill="#58a6ff">1 0</text>
+    <text x="230" y="224" font-size="14" fill="#e6edf3">81 + 40 * 27</text>
+    <text x="420" y="224" font-size="14" fill="#3fb950" font-weight="700">3267</text>
+    <rect x="44" y="240" width="450" height="30" rx="5" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.12"/>
+    <text x="60" y="260" font-size="14" fill="#e6edf3">2</text>
+    <text x="150" y="260" font-size="14" fill="#58a6ff">0 1</text>
+    <text x="230" y="260" font-size="14" fill="#e6edf3">81 * 40 + 27</text>
+    <text x="420" y="260" font-size="14" fill="#3fb950" font-weight="700">3267</text>
+    <rect x="44" y="276" width="450" height="30" rx="5" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <text x="60" y="296" font-size="14" fill="#e6edf3">3</text>
+    <text x="150" y="296" font-size="14" fill="#58a6ff">1 1</text>
+    <text x="230" y="296" font-size="14" fill="#e6edf3">81 + 40 + 27</text>
+    <text x="420" y="296" font-size="14" fill="#8b949e">148</text>
+    <text x="40" y="348" font-size="12" fill="#8b949e">evaluated strictly left to right · stop early once the</text>
+    <text x="40" y="366" font-size="12" fill="#8b949e">running value is above the target</text>
+    <text x="40" y="394" font-size="12" fill="#8b949e">(only the bits b0 b1 of each counter are read)</text>
+    <text x="40" y="424" font-size="13" fill="#3fb950">a match → add 3267 to the answer</text>
+    <line x1="520" y1="96" x2="520" y2="436" stroke="#30363d" stroke-width="1"/>
+    <text x="550" y="108" font-size="14" fill="#e6edf3" font-weight="700">Part 2 · 7290: 6 8 6 15</text>
+    <text x="550" y="130" font-size="12" fill="#8b949e">base-3 digits of the counter: 0 +, 1 *, 2 ||</text>
+    <text x="550" y="166" font-size="14" fill="#58a6ff">counter 16 → base3 → 1 2 1</text>
+    <text x="550" y="188" font-size="12" fill="#8b949e">(least significant digit first)</text>
+    <rect x="550" y="206" width="80" height="32" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="590" y="227" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">6</text>
+    <rect x="550" y="248" width="80" height="32" rx="5" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+    <text x="590" y="269" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">* 8</text>
+    <text x="650" y="269" font-size="15" fill="#8b949e">→</text>
+    <text x="680" y="269" font-size="15" fill="#e6edf3" font-weight="700">48</text>
+    <rect x="550" y="290" width="80" height="32" rx="5" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+    <text x="590" y="311" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">|| 6</text>
+    <text x="650" y="311" font-size="15" fill="#8b949e">→</text>
+    <text x="680" y="311" font-size="15" fill="#e6edf3" font-weight="700">486</text>
+    <text x="760" y="311" font-size="12" fill="#d2a8ff">Sprintf + ParseInt</text>
+    <rect x="550" y="332" width="80" height="32" rx="5" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+    <text x="590" y="353" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">* 15</text>
+    <text x="650" y="353" font-size="15" fill="#8b949e">→</text>
+    <text x="680" y="353" font-size="15" fill="#f2cc60" font-weight="700">7290</text>
+    <text x="550" y="404" font-size="14" fill="#f2cc60" font-weight="700">7290 = target ✓</text>
+    <text x="550" y="436" font-size="12" fill="#8b949e">3^(n−1) counters cover every operator list</text>
+  </g>
+</svg>

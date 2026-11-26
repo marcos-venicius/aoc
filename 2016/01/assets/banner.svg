@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" width="960" height="220" role="img" aria-labelledby="t">
+  <title id="t">Advent of Code 2016 · Day 01 — No Time for a Taxicab</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fb950"/>
+      <stop offset="0.5" stop-color="#58a6ff"/>
+      <stop offset="1" stop-color="#f2cc60"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#21262d" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="url(#grid)" opacity="0.6"/>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="none" stroke="url(#edge)" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="48" y="64" font-size="16" fill="#8b949e" letter-spacing="3">ADVENT OF CODE · 2016</text>
+    <text x="48" y="124" font-size="44" font-weight="700" fill="#e6edf3">Day 01</text>
+    <text x="48" y="168" font-size="24" fill="#3fb950">No Time for a Taxicab</text>
+    <g font-size="22" fill="#f2cc60" text-anchor="end">
+      <text x="912" y="64">★ ★</text>
+    </g>
+    <text x="912" y="168" font-size="15" fill="#8b949e" text-anchor="end">Go · MCA</text>
+  </g>
+  <!-- decorative motif -->
+  <g transform="translate(912 92)" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">
+    <text x="0" y="0" fill="#3fb950" xml:space="preserve">R5, L5, R5, R3</text>
+    <text x="0" y="30" fill="#ff7b72" opacity="0.85" xml:space="preserve">N → E → N → E → S</text>
+  </g>
+</svg>

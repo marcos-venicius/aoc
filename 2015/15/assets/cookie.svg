@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" role="img" aria-labelledby="t d">
+  <title id="t">Cookie score for every split of 100 teaspoons in the example</title>
+  <desc id="d">With Butterscotch and Cinnamon, the score is plotted for 0 to 100 teaspoons of Butterscotch. The best score is 62842880 at 44 teaspoons. Among the recipes with exactly 500 calories, only 40 teaspoons qualifies, scoring 57600000.</desc>
+  <rect x="1" y="1" width="958" height="468" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Try every split of 100 teaspoons and score it</text>
+    <text x="40" y="70" font-size="13" fill="#8b949e">Butterscotch: −1, −2, 6, 3, cal 8 · Cinnamon: 2, 3, −2, −1, cal 3 · a property total ≤ 0 makes the score 0</text>
+    <text x="40" y="108" font-size="12" fill="#8b949e">score</text>
+    <line x1="100" y1="400.0" x2="620" y2="400.0" stroke="#21262d"/>
+    <text x="90" y="404.0" font-size="12" fill="#8b949e" text-anchor="end">0M</text>
+    <line x1="100" y1="360.0" x2="620" y2="360.0" stroke="#21262d"/>
+    <text x="90" y="364.0" font-size="12" fill="#8b949e" text-anchor="end">10M</text>
+    <line x1="100" y1="320.0" x2="620" y2="320.0" stroke="#21262d"/>
+    <text x="90" y="324.0" font-size="12" fill="#8b949e" text-anchor="end">20M</text>
+    <line x1="100" y1="280.0" x2="620" y2="280.0" stroke="#21262d"/>
+    <text x="90" y="284.0" font-size="12" fill="#8b949e" text-anchor="end">30M</text>
+    <line x1="100" y1="240.0" x2="620" y2="240.0" stroke="#21262d"/>
+    <text x="90" y="244.0" font-size="12" fill="#8b949e" text-anchor="end">40M</text>
+    <line x1="100" y1="200.0" x2="620" y2="200.0" stroke="#21262d"/>
+    <text x="90" y="204.0" font-size="12" fill="#8b949e" text-anchor="end">50M</text>
+    <line x1="100" y1="160.0" x2="620" y2="160.0" stroke="#21262d"/>
+    <text x="90" y="164.0" font-size="12" fill="#8b949e" text-anchor="end">60M</text>
+    <line x1="100" y1="120.0" x2="620" y2="120.0" stroke="#21262d"/>
+    <text x="90" y="124.0" font-size="12" fill="#8b949e" text-anchor="end">70M</text>
+    <text x="100.0" y="420" font-size="12" fill="#8b949e" text-anchor="middle">0</text>
+    <text x="204.0" y="420" font-size="12" fill="#8b949e" text-anchor="middle">20</text>
+    <text x="308.0" y="420" font-size="12" fill="#8b949e" text-anchor="middle">40</text>
+    <text x="412.0" y="420" font-size="12" fill="#8b949e" text-anchor="middle">60</text>
+    <text x="516.0" y="420" font-size="12" fill="#8b949e" text-anchor="middle">80</text>
+    <text x="620.0" y="420" font-size="12" fill="#8b949e" text-anchor="middle">100</text>
+    <polyline points="100.0,400.0 105.2,400.0 110.4,400.0 115.6,400.0 120.8,400.0 126.0,400.0 131.2,400.0 136.4,400.0 141.6,400.0 146.8,400.0 152.0,400.0 157.2,400.0 162.4,400.0 167.6,400.0 172.8,400.0 178.0,400.0 183.2,400.0 188.4,400.0 193.6,400.0 198.8,400.0 204.0,400.0 209.2,400.0 214.4,400.0 219.6,400.0 224.8,400.0 230.0,400.0 235.2,397.3 240.4,389.9 245.6,378.6 250.8,364.1 256.0,347.2 261.2,328.5 266.4,308.7 271.6,288.3 276.8,267.9 282.0,248.0 287.2,229.0 292.4,211.3 297.6,195.4 302.8,181.4 308.0,169.6 313.2,160.3 318.4,153.6 323.6,149.7 328.8,148.6 334.0,150.4 339.2,155.0 344.4,162.4 349.6,172.5 354.8,185.1 360.0,200.0 365.2,217.0 370.4,235.8 375.6,256.0 380.8,277.3 386.0,299.2 391.2,321.3 396.4,343.0 401.6,363.8 406.8,383.0 412.0,400.0 417.2,400.0 422.4,400.0 427.6,400.0 432.8,400.0 438.0,400.0 443.2,400.0 448.4,400.0 453.6,400.0 458.8,400.0 464.0,400.0 469.2,400.0 474.4,400.0 479.6,400.0 484.8,400.0 490.0,400.0 495.2,400.0 500.4,400.0 505.6,400.0 510.8,400.0 516.0,400.0 521.2,400.0 526.4,400.0 531.6,400.0 536.8,400.0 542.0,400.0 547.2,400.0 552.4,400.0 557.6,400.0 562.8,400.0 568.0,400.0 573.2,400.0 578.4,400.0 583.6,400.0 588.8,400.0 594.0,400.0 599.2,400.0 604.4,400.0 609.6,400.0 614.8,400.0 620.0,400.0" fill="none" stroke="#58a6ff" stroke-width="2.5" stroke-linejoin="round"/>
+    <line x1="308.0" y1="400" x2="308.0" y2="169.6" stroke="#d2a8ff" stroke-dasharray="4 4"/>
+    <circle cx="308.0" cy="169.6" r="6" fill="#d2a8ff"/>
+    <line x1="328.8" y1="400" x2="328.8" y2="148.6" stroke="#f2cc60" stroke-dasharray="4 4"/>
+    <circle cx="328.8" cy="148.6" r="7" fill="#f2cc60"/>
+    <text x="340.8" y="138.6" font-size="13" fill="#f2cc60">44 → 62,842,880</text>
+    <text x="112" y="150" font-size="13" fill="#d2a8ff">40 → 57,600,000</text>
+    <text x="112" y="168" font-size="12" fill="#d2a8ff">(500 calories)</text>
+    <text x="360" y="442" font-size="12" fill="#8b949e" text-anchor="middle">teaspoons of Butterscotch (Cinnamon = 100 − x)</text>
+    <line x1="656" y1="110" x2="656" y2="440" stroke="#21262d" stroke-width="2"/>
+    <text x="680" y="140" font-size="15" font-weight="700" fill="#f2cc60">Best: 44 B + 56 C</text>
+    <g font-size="13" fill="#e6edf3">
+      <text x="680" y="170">capacity</text><text x="920" y="170" text-anchor="end">-44 +112 = <tspan fill="#3fb950">68</tspan></text>
+      <text x="680" y="196">durability</text><text x="920" y="196" text-anchor="end">-88 +168 = <tspan fill="#3fb950">80</tspan></text>
+      <text x="680" y="222">flavor</text><text x="920" y="222" text-anchor="end">+264 -112 = <tspan fill="#3fb950">152</tspan></text>
+      <text x="680" y="248">texture</text><text x="920" y="248" text-anchor="end">+132 -56 = <tspan fill="#3fb950">76</tspan></text>
+      <text x="680" y="274" fill="#8b949e">calories</text><text x="920" y="274" text-anchor="end" fill="#8b949e">+352 +168 = 520</text>
+    </g>
+    <text x="680" y="314" font-size="13" fill="#e6edf3">68 × 80 × 152 × 76</text>
+    <text x="680" y="338" font-size="15" fill="#e6edf3">= <tspan fill="#3fb950" font-weight="700">62,842,880</tspan></text>
+  </g>
+</svg>

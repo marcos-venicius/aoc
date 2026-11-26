@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-labelledby="t d">
+  <title id="t">Brute-force search for an MD5 hash with leading zeros</title>
+  <desc id="d">For the secret key abcdef, the numbers 0, 1, 2 and so on are appended and hashed with MD5. The first number whose hash starts with five zeros is 609043. Only the first three bytes of the hash are needed to check the prefix.</desc>
+  <rect x="1" y="1" width="958" height="418" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Try i = 0, 1, 2, … until md5(key + i) starts with zeros</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">example secret key: abcdef</text>
+
+    <g font-size="13" fill="#8b949e">
+      <text x="40" y="110">i</text>
+      <text x="150" y="110">input</text>
+      <text x="340" y="110">md5 (hex)</text>
+      <text x="880" y="110" text-anchor="end">5 zeros?</text>
+    </g>
+    <line x1="40" y1="120" x2="920" y2="120" stroke="#30363d" stroke-width="1"/>
+
+    <g font-size="16" fill="#e6edf3">
+      <text x="40" y="150">0</text>
+      <text x="150" y="150">abcdef0</text>
+      <text x="340" y="150"><tspan fill="#58a6ff">cb793c</tspan><tspan fill="#8b949e">b133428a12cec6e3e3b787abb9</tspan></text>
+      <text x="880" y="150" text-anchor="end" fill="#ff7b72">no</text>
+
+      <text x="40" y="182">1</text>
+      <text x="150" y="182">abcdef1</text>
+      <text x="340" y="182"><tspan fill="#58a6ff">5f8b62</tspan><tspan fill="#8b949e">a2dced0cd28946a9c891ff3e5e</tspan></text>
+      <text x="880" y="182" text-anchor="end" fill="#ff7b72">no</text>
+
+      <text x="40" y="214">2</text>
+      <text x="150" y="214">abcdef2</text>
+      <text x="340" y="214"><tspan fill="#58a6ff">cba045</tspan><tspan fill="#8b949e">c0c852e44bde4c9b737dedf148</tspan></text>
+      <text x="880" y="214" text-anchor="end" fill="#ff7b72">no</text>
+
+      <text x="40" y="246" fill="#8b949e">⋮</text>
+      <text x="150" y="246" fill="#8b949e">⋮</text>
+      <text x="340" y="246" fill="#8b949e">⋮ (hundreds of thousands of misses)</text>
+    </g>
+    <rect x="30" y="260" width="900" height="34" rx="6" fill="#3fb950" fill-opacity="0.10" stroke="#3fb950" stroke-width="1"/>
+    <g font-size="16" fill="#e6edf3">
+      <text x="40" y="283" font-weight="700">609043</text>
+      <text x="150" y="283">abcdef609043</text>
+      <text x="340" y="283"><tspan fill="#f2cc60" font-weight="700">00000</tspan><tspan fill="#58a6ff">1</tspan><tspan fill="#8b949e">dbbfa3a5c83a2d506429c7b00e</tspan></text>
+      <text x="880" y="283" text-anchor="end" fill="#3fb950" font-weight="700">yes ★</text>
+    </g>
+
+    <!-- bytes explanation -->
+    <text x="40" y="336" font-size="14" fill="#8b949e">Go only formats the first 3 bytes (6 hex digits), which is enough to test both prefixes:</text>
+    <g font-size="16">
+      <rect x="40" y="352" width="54" height="34" rx="5" fill="#161b22" stroke="#30363d"/>
+      <rect x="100" y="352" width="54" height="34" rx="5" fill="#161b22" stroke="#30363d"/>
+      <rect x="160" y="352" width="54" height="34" rx="5" fill="#161b22" stroke="#30363d"/>
+      <text x="67" y="375" text-anchor="middle" fill="#f2cc60">00</text>
+      <text x="127" y="375" text-anchor="middle" fill="#f2cc60">00</text>
+      <text x="187" y="375" text-anchor="middle"><tspan fill="#f2cc60">0</tspan><tspan fill="#58a6ff">1</tspan></text>
+      <text x="240" y="375" fill="#e6edf3">→ "000001"</text>
+      <text x="420" y="375" fill="#3fb950">starts with "00000"  ✓ part 1</text>
+      <text x="720" y="375" fill="#ff7b72">"000000" ✗ part 2</text>
+    </g>
+  </g>
+</svg>

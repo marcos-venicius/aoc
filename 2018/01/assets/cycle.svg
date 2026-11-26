@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360" role="img" aria-labelledby="t d">
+  <title id="t">Frequency drift on the example +1, −2, +3, +1</title>
+  <desc id="d">The list of changes is applied over and over. The frequencies reached are 0, 1, −1, 2, 3 in the first pass, then 4 and 2 in the second pass. 2 is the first frequency reached twice.</desc>
+  <rect x="1" y="1" width="958" height="358" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Running sum, looping over the list</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">part 1 = sum after one pass · part 2 = first frequency that shows up twice</text>
+
+    <!-- pass brackets -->
+    <g stroke-width="2" fill="none">
+      <path d="M250 112 V104 H690 V112" stroke="#58a6ff"/>
+      <path d="M690 112 V104 H880 V112" stroke="#d2a8ff"/>
+    </g>
+    <g font-size="13" text-anchor="middle">
+      <text x="470" y="96" fill="#58a6ff">pass 1 → part 1 = 3</text>
+      <text x="785" y="96" fill="#d2a8ff">pass 2 (list again)</text>
+    </g>
+
+    <!-- row labels -->
+    <g font-size="14" fill="#8b949e" text-anchor="end">
+      <text x="120" y="145">change</text>
+      <text x="120" y="205">frequency</text>
+    </g>
+
+    <!-- change cells -->
+    <g stroke="#30363d" stroke-width="2" fill="#161b22">
+      <rect x="260" y="120" width="60" height="40" rx="6"/>
+      <rect x="370" y="120" width="60" height="40" rx="6"/>
+      <rect x="480" y="120" width="60" height="40" rx="6"/>
+      <rect x="590" y="120" width="60" height="40" rx="6"/>
+      <rect x="700" y="120" width="60" height="40" rx="6"/>
+      <rect x="810" y="120" width="60" height="40" rx="6"/>
+    </g>
+    <g font-size="18" text-anchor="middle">
+      <text x="290" y="146" fill="#3fb950">+1</text>
+      <text x="400" y="146" fill="#ff7b72">−2</text>
+      <text x="510" y="146" fill="#3fb950">+3</text>
+      <text x="620" y="146" fill="#3fb950">+1</text>
+      <text x="730" y="146" fill="#3fb950">+1</text>
+      <text x="840" y="146" fill="#ff7b72">−2</text>
+    </g>
+
+    <!-- frequency cells -->
+    <g stroke="#58a6ff" stroke-width="2" fill="#0d1117">
+      <rect x="150" y="180" width="60" height="40" rx="6"/>
+      <rect x="260" y="180" width="60" height="40" rx="6"/>
+      <rect x="370" y="180" width="60" height="40" rx="6"/>
+      <rect x="480" y="180" width="60" height="40" rx="6" stroke="#f2cc60"/>
+      <rect x="590" y="180" width="60" height="40" rx="6"/>
+      <rect x="700" y="180" width="60" height="40" rx="6"/>
+      <rect x="810" y="180" width="60" height="40" rx="6" fill="#f2cc60" fill-opacity="0.2" stroke="#f2cc60"/>
+    </g>
+    <g font-size="18" fill="#e6edf3" text-anchor="middle">
+      <text x="180" y="206">0</text>
+      <text x="290" y="206">1</text>
+      <text x="400" y="206">−1</text>
+      <text x="510" y="206" fill="#f2cc60">2</text>
+      <text x="620" y="206">3</text>
+      <text x="730" y="206">4</text>
+      <text x="840" y="206" fill="#f2cc60">2 ★</text>
+    </g>
+    <text x="180" y="240" font-size="12" fill="#8b949e" text-anchor="middle">start</text>
+
+    <!-- arrows between frequencies -->
+    <g stroke="#30363d" stroke-width="2">
+      <line x1="212" y1="200" x2="256" y2="200"/>
+      <line x1="322" y1="200" x2="366" y2="200"/>
+      <line x1="432" y1="200" x2="476" y2="200"/>
+      <line x1="542" y1="200" x2="586" y2="200"/>
+      <line x1="652" y1="200" x2="696" y2="200"/>
+      <line x1="762" y1="200" x2="806" y2="200"/>
+    </g>
+
+    <!-- repeat arc -->
+    <path d="M510 222 Q675 300 840 222" fill="none" stroke="#f2cc60" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="675" y="276" font-size="13" fill="#f2cc60" text-anchor="middle">seen before!</text>
+
+    <!-- seen set -->
+    <text x="40" y="326" font-size="15" fill="#8b949e">seen = { <tspan fill="#e6edf3">0, 1, −1, </tspan><tspan fill="#f2cc60">2</tspan><tspan fill="#e6edf3">, 3, 4</tspan> }  →  the lookup for 2 hits, so part 2 = 2</text>
+  </g>
+</svg>

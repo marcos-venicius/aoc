@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" role="img" aria-labelledby="t d">
+  <title id="t">Solving the first example claw machine with Cramer's rule</title>
+  <desc id="d">80 presses of A and 40 presses of B reach the prize at 8400, 5400; the 2x2 linear system is solved directly and only whole solutions are accepted.</desc>
+  <rect x="1" y="1" width="958" height="468" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Each machine is a 2 × 2 linear system</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">two unknowns (presses of A and B), solved directly instead of searched</text>
+    <line x1="70" y1="430" x2="540" y2="430" stroke="#30363d" stroke-width="1.5"/>
+    <line x1="70" y1="430" x2="70" y2="100" stroke="#30363d" stroke-width="1.5"/>
+    <text x="540" y="450" font-size="12" fill="#8b949e" text-anchor="end">X</text>
+    <text x="60" y="110" font-size="12" fill="#8b949e" text-anchor="end">Y</text>
+    <circle cx="70.0" cy="430.0" r="2.5" fill="#58a6ff"/>
+    <circle cx="115.1" cy="413.7" r="2.5" fill="#58a6ff"/>
+    <circle cx="160.2" cy="397.4" r="2.5" fill="#58a6ff"/>
+    <circle cx="205.4" cy="381.0" r="2.5" fill="#58a6ff"/>
+    <circle cx="250.5" cy="364.7" r="2.5" fill="#58a6ff"/>
+    <circle cx="295.6" cy="348.4" r="2.5" fill="#58a6ff"/>
+    <circle cx="340.7" cy="332.1" r="2.5" fill="#58a6ff"/>
+    <circle cx="385.8" cy="315.8" r="2.5" fill="#58a6ff"/>
+    <circle cx="431.0" cy="299.4" r="2.5" fill="#58a6ff"/>
+    <line x1="70" y1="430" x2="431.0" y2="299.4" stroke="#58a6ff" stroke-width="3"/>
+    <line x1="431.0" y1="299.4" x2="473.2" y2="170.8" stroke="#3fb950" stroke-width="3"/>
+    <circle cx="431.0" cy="299.4" r="2.5" fill="#3fb950"/>
+    <circle cx="441.5" cy="267.3" r="2.5" fill="#3fb950"/>
+    <circle cx="452.1" cy="235.1" r="2.5" fill="#3fb950"/>
+    <circle cx="462.6" cy="203.0" r="2.5" fill="#3fb950"/>
+    <circle cx="473.2" cy="170.8" r="2.5" fill="#3fb950"/>
+    <circle cx="473.2" cy="170.8" r="9" fill="#f2cc60"/>
+    <text x="459.2" y="158.8" font-size="13" fill="#f2cc60" text-anchor="end">prize (8400, 5400)</text>
+    <text x="250" y="390" font-size="14" fill="#58a6ff">80 × A (+94, +34)</text>
+    <text x="255.95999999999998" y="249.44" font-size="14" fill="#3fb950">40 × B (+22, +67)</text>
+    <text x="70" y="452" font-size="12" fill="#8b949e">claw starts at (0, 0)</text>
+    <text x="590" y="118" font-size="13" fill="#8b949e" xml:space="preserve">two equations, two unknowns</text>
+    <text x="590" y="144" font-size="15" fill="#e6edf3" xml:space="preserve">94·a + 22·b = 8400</text>
+    <text x="590" y="170" font-size="15" fill="#e6edf3" xml:space="preserve">34·a + 67·b = 5400</text>
+    <text x="590" y="208" font-size="13" fill="#8b949e" xml:space="preserve">Cramer's rule (as in the code)</text>
+    <text x="590" y="234" font-size="14" fill="#58a6ff" xml:space="preserve">a = (px·by − py·bx)</text>
+    <text x="590" y="260" font-size="14" fill="#58a6ff" xml:space="preserve">    / (ax·by − ay·bx)</text>
+    <text x="590" y="286" font-size="14" fill="#58a6ff" xml:space="preserve">  = 444000 / 5550 = 80</text>
+    <text x="590" y="312" font-size="14" fill="#3fb950" xml:space="preserve">b = (px − ax·a) / bx</text>
+    <text x="590" y="338" font-size="14" fill="#3fb950" xml:space="preserve">  = 880 / 22 = 40</text>
+    <text x="590" y="376" font-size="14" fill="#f2cc60" xml:space="preserve">both whole? → cost 3·a + b = 280</text>
+    <text x="590" y="402" font-size="13" fill="#d2a8ff" xml:space="preserve">part 2: px, py += 10000000000000</text>
+  </g>
+</svg>

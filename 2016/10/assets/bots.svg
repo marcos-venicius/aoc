@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-labelledby="t d">
+  <title id="t">Chips flowing through the example bots</title>
+  <desc id="d">Values 5 and 2 reach bot 2, which compares them and passes 2 to bot 1 and 5 to bot 0. Bot 1 passes 2 to output 1 and 3 to bot 0. Bot 0 passes 3 to output 2 and 5 to output 0.</desc>
+  <defs><marker id="ah58a6ff" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#58a6ff"/></marker><marker id="ah8b949e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b949e"/></marker><marker id="ahd2a8ff" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d2a8ff"/></marker></defs>
+  <rect x="1" y="1" width="958" height="498" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">Chips flowing through the example</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">a bot acts as soon as it holds 2 chips and knows its rule · blue = low chip, purple = high chip</text>
+    <line x1="170.0" y1="161.7391304347826" x2="276.0" y2="182.47826086956522" stroke="#8b949e" stroke-width="2" marker-end="url(#ah8b949e)"/>
+    <circle cx="223.0" cy="172.1086956521739" r="11" fill="#0d1117" stroke="#8b949e" stroke-width="1.5"/>
+    <text x="223.0" y="177.1086956521739" font-size="13" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">5</text>
+    <line x1="170.0" y1="228.2608695652174" x2="276.0" y2="207.52173913043478" stroke="#8b949e" stroke-width="2" marker-end="url(#ah8b949e)"/>
+    <circle cx="223.0" cy="217.8913043478261" r="11" fill="#0d1117" stroke="#8b949e" stroke-width="1.5"/>
+    <text x="223.0" y="222.8913043478261" font-size="13" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">2</text>
+    <line x1="170.0" y1="380.0" x2="476.0" y2="380.0" stroke="#8b949e" stroke-width="2" marker-end="url(#ah8b949e)"/>
+    <circle cx="323.0" cy="380.0" r="11" fill="#0d1117" stroke="#8b949e" stroke-width="1.5"/>
+    <text x="323.0" y="385.0" font-size="13" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">3</text>
+    <line x1="376.7567567567568" y1="229.0" x2="496.7567567567568" y2="340.0" stroke="#58a6ff" stroke-width="2" marker-end="url(#ah58a6ff)"/>
+    <circle cx="436.7567567567568" cy="284.5" r="11" fill="#0d1117" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="436.7567567567568" y="289.5" font-size="13" fill="#58a6ff" text-anchor="middle" font-weight="700" xml:space="preserve">2</text>
+    <line x1="398.0" y1="195.0" x2="576.0" y2="195.0" stroke="#d2a8ff" stroke-width="2" marker-end="url(#ahd2a8ff)"/>
+    <circle cx="487.0" cy="195.0" r="11" fill="#0d1117" stroke="#d2a8ff" stroke-width="1.5"/>
+    <text x="487.0" y="200.0" font-size="13" fill="#d2a8ff" text-anchor="middle" font-weight="700" xml:space="preserve">5</text>
+    <line x1="598.0" y1="380.0" x2="792.0" y2="380.0" stroke="#58a6ff" stroke-width="2" marker-end="url(#ah58a6ff)"/>
+    <circle cx="695.0" cy="380.0" r="11" fill="#0d1117" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="695.0" y="385.0" font-size="13" fill="#58a6ff" text-anchor="middle" font-weight="700" xml:space="preserve">2</text>
+    <line x1="558.3783783783783" y1="346.0" x2="618.3783783783783" y2="235.0" stroke="#d2a8ff" stroke-width="2" marker-end="url(#ahd2a8ff)"/>
+    <circle cx="588.3783783783783" cy="290.5" r="11" fill="#0d1117" stroke="#d2a8ff" stroke-width="1.5"/>
+    <text x="588.3783783783783" y="295.5" font-size="13" fill="#d2a8ff" text-anchor="middle" font-weight="700" xml:space="preserve">3</text>
+    <line x1="698.0" y1="212.13636363636363" x2="792.0" y2="239.9090909090909" stroke="#58a6ff" stroke-width="2" marker-end="url(#ah58a6ff)"/>
+    <circle cx="745.0" cy="226.02272727272725" r="11" fill="#0d1117" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="745.0" y="231.02272727272725" font-size="13" fill="#58a6ff" text-anchor="middle" font-weight="700" xml:space="preserve">3</text>
+    <line x1="698.0" y1="177.86363636363637" x2="792.0" y2="150.0909090909091" stroke="#d2a8ff" stroke-width="2" marker-end="url(#ahd2a8ff)"/>
+    <circle cx="745.0" cy="163.97727272727275" r="11" fill="#0d1117" stroke="#d2a8ff" stroke-width="1.5"/>
+    <text x="745.0" y="168.97727272727275" font-size="13" fill="#d2a8ff" text-anchor="middle" font-weight="700" xml:space="preserve">5</text>
+    <rect x="50" y="132" width="120" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="110" y="155" font-size="13" fill="#8b949e" text-anchor="middle" xml:space="preserve">value 5</text>
+    <rect x="50" y="222" width="120" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="110" y="245" font-size="13" fill="#8b949e" text-anchor="middle" xml:space="preserve">value 2</text>
+    <rect x="50" y="362" width="120" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="110" y="385" font-size="13" fill="#8b949e" text-anchor="middle" xml:space="preserve">value 3</text>
+    <rect x="282" y="161" width="116" height="68" rx="10" fill="#161b22" stroke="#f2cc60" stroke-width="2.5"/>
+    <text x="340" y="191" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">bot 2</text>
+    <text x="340" y="213" font-size="12" fill="#8b949e" text-anchor="middle" xml:space="preserve">holds 2, 5</text>
+    <rect x="482" y="346" width="116" height="68" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="540" y="376" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">bot 1</text>
+    <text x="540" y="398" font-size="12" fill="#8b949e" text-anchor="middle" xml:space="preserve">holds 2, 3</text>
+    <rect x="582" y="161" width="116" height="68" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="640" y="191" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">bot 0</text>
+    <text x="640" y="213" font-size="12" fill="#8b949e" text-anchor="middle" xml:space="preserve">holds 3, 5</text>
+    <rect x="798" y="112" width="124" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="860" y="135" font-size="13" fill="#e6edf3" text-anchor="middle" xml:space="preserve">output 0</text>
+    <rect x="798" y="242" width="124" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="860" y="265" font-size="13" fill="#e6edf3" text-anchor="middle" xml:space="preserve">output 2</text>
+    <rect x="798" y="362" width="124" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="860" y="385" font-size="13" fill="#e6edf3" text-anchor="middle" xml:space="preserve">output 1</text>
+    <text x="340" y="250" font-size="13" fill="#f2cc60" text-anchor="middle" xml:space="preserve">★ compares 5 and 2</text>
+    <text x="40" y="450" font-size="13" fill="#f2cc60" xml:space="preserve">part 1 (test mode): the bot holding both chips of the comparison → bot 2</text>
+    <text x="40" y="474" font-size="13" fill="#e6edf3" xml:space="preserve">part 2 (real input only): product of the chips in outputs 0, 1 and 2 → here 5 × 2 × 3 = 30</text>
+  </g>
+</svg>

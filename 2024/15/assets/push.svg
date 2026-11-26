@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" width="960" height="410" role="img" aria-labelledby="t d">
+  <title id="t">Part 1 push: a line of boxes moves by filling the free cell</title>
+  <desc id="d">Moving right from #.@OO..#: the cells up to the first free cell become boxes, then the robot overwrites the first box, giving #..@OO.#. If a wall comes first, nothing moves.</desc>
+  <rect x="1" y="1" width="958" height="408" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Part 1: pushing a line of boxes (Go version)</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">shifting n boxes by one is the same as moving the first box to the free cell</text>
+    <text x="40" y="130" font-size="13" fill="#8b949e">before</text>
+    <rect x="200" y="105" width="36" height="36" rx="4" fill="#ff7b72" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="218.0" y="129.0" font-size="18" fill="#ff7b72" text-anchor="middle" font-weight="700">#</text>
+    <rect x="240" y="105" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="258.0" y="129.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="280" y="105" width="36" height="36" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="298.0" y="129.0" font-size="18" fill="#3fb950" text-anchor="middle" font-weight="700">@</text>
+    <rect x="320" y="105" width="36" height="36" rx="4" fill="#f2cc60" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="338.0" y="129.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="360" y="105" width="36" height="36" rx="4" fill="#f2cc60" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="378.0" y="129.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="400" y="105" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="418.0" y="129.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="440" y="105" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="458.0" y="129.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="480" y="105" width="36" height="36" rx="4" fill="#ff7b72" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="498.0" y="129.0" font-size="18" fill="#ff7b72" text-anchor="middle" font-weight="700">#</text>
+    <text x="40" y="190" font-size="13" fill="#8b949e">scan →</text>
+    <rect x="200" y="165" width="36" height="36" rx="4" fill="#ff7b72" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="218.0" y="189.0" font-size="18" fill="#ff7b72" text-anchor="middle" font-weight="700">#</text>
+    <rect x="240" y="165" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="258.0" y="189.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="280" y="165" width="36" height="36" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="298.0" y="189.0" font-size="18" fill="#3fb950" text-anchor="middle" font-weight="700">@</text>
+    <rect x="320" y="165" width="36" height="36" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="2.5" fill-opacity="0.25"/>
+    <text x="338.0" y="189.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="360" y="165" width="36" height="36" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="2.5" fill-opacity="0.25"/>
+    <text x="378.0" y="189.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="400" y="165" width="36" height="36" rx="4" fill="#161b22" stroke="#f2cc60" stroke-width="2.5" fill-opacity="1"/>
+    <text x="418.0" y="189.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="440" y="165" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="458.0" y="189.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="480" y="165" width="36" height="36" rx="4" fill="#ff7b72" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="498.0" y="189.0" font-size="18" fill="#ff7b72" text-anchor="middle" font-weight="700">#</text>
+    <text x="540" y="190" font-size="13" fill="#e6edf3">collect cells until the first '.'</text>
+    <text x="40" y="250" font-size="13" fill="#8b949e">fill with O</text>
+    <rect x="200" y="225" width="36" height="36" rx="4" fill="#ff7b72" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="218.0" y="249.0" font-size="18" fill="#ff7b72" text-anchor="middle" font-weight="700">#</text>
+    <rect x="240" y="225" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="258.0" y="249.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="280" y="225" width="36" height="36" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="298.0" y="249.0" font-size="18" fill="#3fb950" text-anchor="middle" font-weight="700">@</text>
+    <rect x="320" y="225" width="36" height="36" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="2.5" fill-opacity="0.25"/>
+    <text x="338.0" y="249.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="360" y="225" width="36" height="36" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="2.5" fill-opacity="0.25"/>
+    <text x="378.0" y="249.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="400" y="225" width="36" height="36" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="2.5" fill-opacity="0.25"/>
+    <text x="418.0" y="249.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="440" y="225" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="458.0" y="249.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="480" y="225" width="36" height="36" rx="4" fill="#ff7b72" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="498.0" y="249.0" font-size="18" fill="#ff7b72" text-anchor="middle" font-weight="700">#</text>
+    <text x="540" y="250" font-size="13" fill="#e6edf3">every scanned cell becomes O</text>
+    <text x="40" y="310" font-size="13" fill="#8b949e">robot steps</text>
+    <rect x="200" y="285" width="36" height="36" rx="4" fill="#ff7b72" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="218.0" y="309.0" font-size="18" fill="#ff7b72" text-anchor="middle" font-weight="700">#</text>
+    <rect x="240" y="285" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="258.0" y="309.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="280" y="285" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="298.0" y="309.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="320" y="285" width="36" height="36" rx="4" fill="#3fb950" stroke="#f2cc60" stroke-width="2.5" fill-opacity="0.25"/>
+    <text x="338.0" y="309.0" font-size="18" fill="#3fb950" text-anchor="middle" font-weight="700">@</text>
+    <rect x="360" y="285" width="36" height="36" rx="4" fill="#f2cc60" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="378.0" y="309.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="400" y="285" width="36" height="36" rx="4" fill="#f2cc60" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="418.0" y="309.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="440" y="285" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="458.0" y="309.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="480" y="285" width="36" height="36" rx="4" fill="#ff7b72" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="498.0" y="309.0" font-size="18" fill="#ff7b72" text-anchor="middle" font-weight="700">#</text>
+    <text x="540" y="310" font-size="13" fill="#3fb950">robot overwrites the first one</text>
+    <text x="40" y="370" font-size="13" fill="#8b949e">wall case</text>
+    <rect x="200" y="345" width="36" height="36" rx="4" fill="#ff7b72" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="218.0" y="369.0" font-size="18" fill="#ff7b72" text-anchor="middle" font-weight="700">#</text>
+    <rect x="240" y="345" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="258.0" y="369.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="280" y="345" width="36" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" fill-opacity="1"/>
+    <text x="298.0" y="369.0" font-size="18" fill="#30363d" text-anchor="middle" font-weight="700">.</text>
+    <rect x="320" y="345" width="36" height="36" rx="4" fill="#3fb950" stroke="#30363d" stroke-width="1" fill-opacity="0.25"/>
+    <text x="338.0" y="369.0" font-size="18" fill="#3fb950" text-anchor="middle" font-weight="700">@</text>
+    <rect x="360" y="345" width="36" height="36" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="2.5" fill-opacity="0.25"/>
+    <text x="378.0" y="369.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="400" y="345" width="36" height="36" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="2.5" fill-opacity="0.25"/>
+    <text x="418.0" y="369.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="440" y="345" width="36" height="36" rx="4" fill="#f2cc60" stroke="#f2cc60" stroke-width="2.5" fill-opacity="0.25"/>
+    <text x="458.0" y="369.0" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">O</text>
+    <rect x="480" y="345" width="36" height="36" rx="4" fill="#ff7b72" stroke="#f2cc60" stroke-width="2.5" fill-opacity="0.25"/>
+    <text x="498.0" y="369.0" font-size="18" fill="#ff7b72" text-anchor="middle" font-weight="700">#</text>
+    <text x="540" y="370" font-size="13" fill="#ff7b72">hit '#' before '.' → no move</text>
+  </g>
+</svg>

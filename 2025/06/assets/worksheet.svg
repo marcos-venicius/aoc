@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360" role="img" aria-labelledby="t d">
+  <title id="t">The example worksheet read by rows and by columns</title>
+  <desc id="d">Four problems separated by blank columns. Part 1 reads the numbers horizontally and sums to 4277556; part 2 reads one number per character column and sums to 3263827.</desc>
+  <rect x="1" y="1" width="958" height="358" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">One worksheet, two ways to read it</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">each problem is a block of columns; its operator sits on the last line</text>
+    <rect x="58" y="108" width="90" height="122" rx="6" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.10"/>
+    <rect x="178" y="108" width="90" height="122" rx="6" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.10"/>
+    <rect x="298" y="108" width="90" height="122" rx="6" fill="#d2a8ff" stroke="#d2a8ff" stroke-width="1" fill-opacity="0.10"/>
+    <rect x="418" y="108" width="90" height="122" rx="6" fill="#f2cc60" stroke="#f2cc60" stroke-width="1" fill-opacity="0.10"/>
+    <text x="73.0" y="131.0" font-size="18" fill="#e6edf3" text-anchor="middle">1</text>
+    <text x="103.0" y="131.0" font-size="18" fill="#e6edf3" text-anchor="middle">2</text>
+    <text x="133.0" y="131.0" font-size="18" fill="#e6edf3" text-anchor="middle">3</text>
+    <text x="193.0" y="131.0" font-size="18" fill="#e6edf3" text-anchor="middle">3</text>
+    <text x="223.0" y="131.0" font-size="18" fill="#e6edf3" text-anchor="middle">2</text>
+    <text x="253.0" y="131.0" font-size="18" fill="#e6edf3" text-anchor="middle">8</text>
+    <text x="343.0" y="131.0" font-size="18" fill="#e6edf3" text-anchor="middle">5</text>
+    <text x="373.0" y="131.0" font-size="18" fill="#e6edf3" text-anchor="middle">1</text>
+    <text x="433.0" y="131.0" font-size="18" fill="#e6edf3" text-anchor="middle">6</text>
+    <text x="463.0" y="131.0" font-size="18" fill="#e6edf3" text-anchor="middle">4</text>
+    <text x="103.0" y="161.0" font-size="18" fill="#e6edf3" text-anchor="middle">4</text>
+    <text x="133.0" y="161.0" font-size="18" fill="#e6edf3" text-anchor="middle">5</text>
+    <text x="193.0" y="161.0" font-size="18" fill="#e6edf3" text-anchor="middle">6</text>
+    <text x="223.0" y="161.0" font-size="18" fill="#e6edf3" text-anchor="middle">4</text>
+    <text x="313.0" y="161.0" font-size="18" fill="#e6edf3" text-anchor="middle">3</text>
+    <text x="343.0" y="161.0" font-size="18" fill="#e6edf3" text-anchor="middle">8</text>
+    <text x="373.0" y="161.0" font-size="18" fill="#e6edf3" text-anchor="middle">7</text>
+    <text x="433.0" y="161.0" font-size="18" fill="#e6edf3" text-anchor="middle">2</text>
+    <text x="463.0" y="161.0" font-size="18" fill="#e6edf3" text-anchor="middle">3</text>
+    <text x="133.0" y="191.0" font-size="18" fill="#e6edf3" text-anchor="middle">6</text>
+    <text x="193.0" y="191.0" font-size="18" fill="#e6edf3" text-anchor="middle">9</text>
+    <text x="223.0" y="191.0" font-size="18" fill="#e6edf3" text-anchor="middle">8</text>
+    <text x="313.0" y="191.0" font-size="18" fill="#e6edf3" text-anchor="middle">2</text>
+    <text x="343.0" y="191.0" font-size="18" fill="#e6edf3" text-anchor="middle">1</text>
+    <text x="373.0" y="191.0" font-size="18" fill="#e6edf3" text-anchor="middle">5</text>
+    <text x="433.0" y="191.0" font-size="18" fill="#e6edf3" text-anchor="middle">3</text>
+    <text x="463.0" y="191.0" font-size="18" fill="#e6edf3" text-anchor="middle">1</text>
+    <text x="493.0" y="191.0" font-size="18" fill="#e6edf3" text-anchor="middle">4</text>
+    <text x="73.0" y="221.0" font-size="18" fill="#f2cc60" text-anchor="middle">*</text>
+    <text x="193.0" y="221.0" font-size="18" fill="#f2cc60" text-anchor="middle">+</text>
+    <text x="313.0" y="221.0" font-size="18" fill="#f2cc60" text-anchor="middle">*</text>
+    <text x="433.0" y="221.0" font-size="18" fill="#f2cc60" text-anchor="middle">+</text>
+    <text x="60" y="254" font-size="12" fill="#8b949e">operator positions = column breakpoints</text>
+    <text x="560" y="118" font-size="14" fill="#58a6ff">part 1: rows</text>
+    <text x="760" y="118" font-size="14" fill="#f2cc60">part 2: columns</text>
+    <text x="560" y="148" font-size="13" fill="#58a6ff">123 * 45 * 6</text>
+    <text x="560" y="166" font-size="12" fill="#8b949e">= 33210</text>
+    <text x="760" y="148" font-size="13" fill="#58a6ff">1 * 24 * 356</text>
+    <text x="760" y="166" font-size="12" fill="#8b949e">= 8544</text>
+    <text x="560" y="192" font-size="13" fill="#3fb950">328 + 64 + 98</text>
+    <text x="560" y="210" font-size="12" fill="#8b949e">= 490</text>
+    <text x="760" y="192" font-size="13" fill="#3fb950">369 + 248 + 8</text>
+    <text x="760" y="210" font-size="12" fill="#8b949e">= 625</text>
+    <text x="560" y="236" font-size="13" fill="#d2a8ff">51 * 387 * 215</text>
+    <text x="560" y="254" font-size="12" fill="#8b949e">= 4243455</text>
+    <text x="760" y="236" font-size="13" fill="#d2a8ff">32 * 581 * 175</text>
+    <text x="760" y="254" font-size="12" fill="#8b949e">= 3253600</text>
+    <text x="560" y="280" font-size="13" fill="#f2cc60">64 + 23 + 314</text>
+    <text x="560" y="298" font-size="12" fill="#8b949e">= 401</text>
+    <text x="760" y="280" font-size="13" fill="#f2cc60">623 + 431 + 4</text>
+    <text x="760" y="298" font-size="12" fill="#8b949e">= 1058</text>
+    <text x="560" y="328" font-size="14" fill="#58a6ff" font-weight="700">Σ 4277556</text>
+    <text x="760" y="328" font-size="14" fill="#f2cc60" font-weight="700">Σ 3263827</text>
+    <rect x="64" y="114" width="22" height="82" rx="4" fill="none" stroke="#f2cc60" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="94" y="114" width="22" height="82" rx="4" fill="none" stroke="#f2cc60" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="124" y="114" width="22" height="82" rx="4" fill="none" stroke="#f2cc60" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="60" y="276" font-size="12" fill="#f2cc60">dashed = part 2 reads columns: 1, 24, 356</text>
+  </g>
+</svg>

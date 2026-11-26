@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-labelledby="t d">
+  <title id="t">Comparing each digit with the one 1 step ahead and half the list ahead on a circular list</title>
+  <desc id="d">Part 1 compares every digit with the next one, wrapping around: in 91212129 only the last 9 matches the first 9, sum 9. Part 2 compares with the digit half the list ahead: in 123425 the two 2s match each other, sum 4.</desc>
+  <rect x="1" y="1" width="958" height="498" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">One function, two step sizes</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">the list is circular: index (i + by) % len · matching digits are added to the sum</text>
+    <text x="250" y="104" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">Part 1 · by = 1   (91212129)</text>
+    <circle cx="250" cy="290" r="110" fill="none" stroke="#21262d" stroke-width="1"/>
+    <path d="M172.2 212.2Q224.7 229.0 250.0 180.0" fill="none" stroke="#f2cc60" stroke-width="2.5"/>
+    <circle cx="250.0" cy="180.0" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="250.0" y="187.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">9</text>
+    <text x="250.0" y="148.0" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=0</text>
+    <circle cx="327.78174593052023" cy="212.21825406947977" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="327.78174593052023" y="219.21825406947977" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">1</text>
+    <text x="353.2375900532359" y="190.76240994676405" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=1</text>
+    <circle cx="360.0" cy="290.0" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="360.0" y="297.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">2</text>
+    <text x="396.0" y="294.0" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=2</text>
+    <circle cx="327.78174593052023" cy="367.78174593052023" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="327.78174593052023" y="374.78174593052023" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">1</text>
+    <text x="353.237590053236" y="397.2375900532359" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=3</text>
+    <circle cx="250.0" cy="400.0" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="250.0" y="407.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">2</text>
+    <text x="250.00000000000003" y="440.0" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=4</text>
+    <circle cx="172.21825406947977" cy="367.78174593052023" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="172.21825406947977" y="374.78174593052023" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">1</text>
+    <text x="146.76240994676408" y="397.237590053236" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=5</text>
+    <circle cx="140.0" cy="290.0" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="140.0" y="297.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">2</text>
+    <text x="104.0" y="294.0" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=6</text>
+    <circle cx="172.21825406947977" cy="212.2182540694798" r="20" fill="#161b22" stroke="#f2cc60" stroke-width="2"/>
+    <text x="172.21825406947977" y="219.2182540694798" font-size="20" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">9</text>
+    <text x="146.76240994676402" y="190.76240994676408" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=7</text>
+    <text x="250" y="480" font-size="15" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">i=7 → i=0: 9 = 9 → sum 9</text>
+    <text x="710" y="104" font-size="14" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">Part 2 · by = len/2 = 3   (123425)</text>
+    <circle cx="710" cy="290" r="110" fill="none" stroke="#21262d" stroke-width="1"/>
+    <path d="M805.3 235.0Q710.0 290.0 614.7 345.0" fill="none" stroke="#f2cc60" stroke-width="2.5"/>
+    <path d="M614.7 345.0Q710.0 290.0 805.3 235.0" fill="none" stroke="#f2cc60" stroke-width="2.5"/>
+    <circle cx="710.0" cy="180.0" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="710.0" y="187.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">1</text>
+    <text x="710.0" y="148.0" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=0</text>
+    <circle cx="805.2627944162882" cy="235.0" r="20" fill="#161b22" stroke="#f2cc60" stroke-width="2"/>
+    <text x="805.2627944162882" y="242.0" font-size="20" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">2</text>
+    <text x="836.439708952528" y="221.0" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=1</text>
+    <circle cx="805.2627944162882" cy="345.0" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="805.2627944162882" y="352.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">3</text>
+    <text x="836.439708952528" y="367.0" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=2</text>
+    <circle cx="710.0" cy="400.0" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="710.0" y="407.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">4</text>
+    <text x="710.0" y="440.0" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=3</text>
+    <circle cx="614.7372055837118" cy="345.00000000000006" r="20" fill="#161b22" stroke="#f2cc60" stroke-width="2"/>
+    <text x="614.7372055837118" y="352.00000000000006" font-size="20" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">2</text>
+    <text x="583.560291047472" y="367.00000000000006" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=4</text>
+    <circle cx="614.7372055837118" cy="235.0" r="20" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="614.7372055837118" y="242.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">5</text>
+    <text x="583.560291047472" y="221.0" font-size="11" fill="#8b949e" text-anchor="middle" xml:space="preserve">i=5</text>
+    <text x="710" y="480" font-size="15" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">2 at i=1 ↔ 2 at i=4 → 2 + 2 = 4</text>
+  </g>
+</svg>

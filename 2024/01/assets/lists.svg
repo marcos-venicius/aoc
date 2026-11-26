@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" role="img" aria-labelledby="t d">
+  <title id="t">Both parts on the example lists 3 4 2 1 3 3 and 4 3 5 3 9 3</title>
+  <desc id="d">Part 1 sorts both columns and sums the absolute difference of each pair by rank: 11. Part 2 counts how often each value appears in each column and sums value times left count times right count: 31.</desc>
+  <rect x="1" y="1" width="958" height="468" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Sorting for distance, counting for similarity</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">example columns: left 3 4 2 1 3 3 · right 4 3 5 3 9 3</text>
+    <text x="40" y="108" font-size="15" fill="#e6edf3" font-weight="700">Part 1 · sort both, pair by rank</text>
+    <text x="80" y="140" font-size="12" fill="#3fb950" text-anchor="middle">left</text>
+    <text x="220" y="140" font-size="12" fill="#58a6ff" text-anchor="middle">right</text>
+    <text x="340" y="140" font-size="12" fill="#f2cc60" text-anchor="middle">|l − r|</text>
+    <rect x="56" y="152" width="48" height="28" rx="5" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.15"/>
+    <text x="80" y="172" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">1</text>
+    <rect x="196" y="152" width="48" height="28" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="220" y="172" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">3</text>
+    <line x1="108" y1="166" x2="192" y2="166" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 4"/>
+    <text x="340" y="172" font-size="15" fill="#f2cc60" text-anchor="middle">2</text>
+    <rect x="56" y="188" width="48" height="28" rx="5" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.15"/>
+    <text x="80" y="208" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">2</text>
+    <rect x="196" y="188" width="48" height="28" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="220" y="208" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">3</text>
+    <line x1="108" y1="202" x2="192" y2="202" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 4"/>
+    <text x="340" y="208" font-size="15" fill="#f2cc60" text-anchor="middle">1</text>
+    <rect x="56" y="224" width="48" height="28" rx="5" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.15"/>
+    <text x="80" y="244" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">3</text>
+    <rect x="196" y="224" width="48" height="28" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="220" y="244" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">3</text>
+    <line x1="108" y1="238" x2="192" y2="238" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 4"/>
+    <text x="340" y="244" font-size="15" fill="#f2cc60" text-anchor="middle">0</text>
+    <rect x="56" y="260" width="48" height="28" rx="5" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.15"/>
+    <text x="80" y="280" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">3</text>
+    <rect x="196" y="260" width="48" height="28" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="220" y="280" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">4</text>
+    <line x1="108" y1="274" x2="192" y2="274" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 4"/>
+    <text x="340" y="280" font-size="15" fill="#f2cc60" text-anchor="middle">1</text>
+    <rect x="56" y="296" width="48" height="28" rx="5" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.15"/>
+    <text x="80" y="316" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">3</text>
+    <rect x="196" y="296" width="48" height="28" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="220" y="316" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">5</text>
+    <line x1="108" y1="310" x2="192" y2="310" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 4"/>
+    <text x="340" y="316" font-size="15" fill="#f2cc60" text-anchor="middle">2</text>
+    <rect x="56" y="332" width="48" height="28" rx="5" fill="#3fb950" stroke="#3fb950" stroke-width="1" fill-opacity="0.15"/>
+    <text x="80" y="352" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">4</text>
+    <rect x="196" y="332" width="48" height="28" rx="5" fill="#58a6ff" stroke="#58a6ff" stroke-width="1" fill-opacity="0.15"/>
+    <text x="220" y="352" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">9</text>
+    <line x1="108" y1="346" x2="192" y2="346" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 4"/>
+    <text x="340" y="352" font-size="15" fill="#f2cc60" text-anchor="middle">5</text>
+    <line x1="300" y1="378" x2="380" y2="378" stroke="#30363d" stroke-width="1"/>
+    <text x="340" y="402" font-size="15" fill="#f2cc60" text-anchor="middle" font-weight="700">Σ = 11</text>
+    <line x1="440" y1="96" x2="440" y2="440" stroke="#30363d" stroke-width="1"/>
+    <text x="470" y="108" font-size="15" fill="#e6edf3" font-weight="700">Part 2 · count, then weight</text>
+    <text x="500" y="140" font-size="12" fill="#8b949e" text-anchor="middle">value</text>
+    <text x="590" y="140" font-size="12" fill="#3fb950" text-anchor="middle">× in left</text>
+    <text x="700" y="140" font-size="12" fill="#58a6ff" text-anchor="middle">× in right</text>
+    <text x="850" y="140" font-size="12" fill="#f2cc60" text-anchor="middle">v · l · r</text>
+    <rect x="476" y="152" width="48" height="30" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="500" y="173" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">1</text>
+    <text x="590" y="173" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="700" y="173" font-size="15" fill="#8b949e" text-anchor="middle">0</text>
+    <text x="850" y="173" font-size="15" fill="#8b949e" text-anchor="middle">1·1·0 = 0</text>
+    <rect x="476" y="192" width="48" height="30" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="500" y="213" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">2</text>
+    <text x="590" y="213" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="700" y="213" font-size="15" fill="#8b949e" text-anchor="middle">0</text>
+    <text x="850" y="213" font-size="15" fill="#8b949e" text-anchor="middle">2·1·0 = 0</text>
+    <rect x="476" y="232" width="48" height="30" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="500" y="253" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">3</text>
+    <text x="590" y="253" font-size="15" fill="#3fb950" text-anchor="middle">3</text>
+    <text x="700" y="253" font-size="15" fill="#58a6ff" text-anchor="middle">3</text>
+    <text x="850" y="253" font-size="15" fill="#f2cc60" text-anchor="middle">3·3·3 = 27</text>
+    <rect x="476" y="272" width="48" height="30" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="500" y="293" font-size="15" fill="#e6edf3" text-anchor="middle" font-weight="700">4</text>
+    <text x="590" y="293" font-size="15" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="700" y="293" font-size="15" fill="#58a6ff" text-anchor="middle">1</text>
+    <text x="850" y="293" font-size="15" fill="#f2cc60" text-anchor="middle">4·1·1 = 4</text>
+    <line x1="770" y1="322" x2="930" y2="322" stroke="#30363d" stroke-width="1"/>
+    <text x="850" y="346" font-size="15" fill="#f2cc60" text-anchor="middle" font-weight="700">Σ = 31</text>
+    <text x="470" y="392" font-size="13" fill="#8b949e">Go: one map per column, one loop over the left map</text>
+    <text x="470" y="414" font-size="13" fill="#8b949e">Elixir: for each left value, Enum.count over the right list</text>
+  </g>
+</svg>

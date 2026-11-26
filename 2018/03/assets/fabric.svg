@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-labelledby="t d">
+  <title id="t">Three example claims on the fabric</title>
+  <desc id="d">Claims #1 at 1,3 size 4x4, #2 at 3,1 size 4x4 and #3 at 5,5 size 2x2 on an 8 by 8 grid. #1 and #2 share a 2 by 2 square of four cells. #3 overlaps nothing.</desc>
+  <rect x="1" y="1" width="958" height="438" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <defs>
+    <pattern id="cells" width="36" height="36" patternUnits="userSpaceOnUse" x="60" y="100">
+      <path d="M36 0H0V36" fill="none" stroke="#21262d" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Claims painted on a counter grid</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">#1 @ 1,3: 4x4 · #2 @ 3,1: 4x4 · #3 @ 5,5: 2x2</text>
+
+    <!-- grid 8x8, cell 36 -->
+    <rect x="60" y="100" width="288" height="288" fill="url(#cells)" stroke="#30363d" stroke-width="2"/>
+    <g font-size="11" fill="#8b949e" text-anchor="middle">
+      <text x="78" y="94">0</text><text x="114" y="94">1</text><text x="150" y="94">2</text><text x="186" y="94">3</text>
+      <text x="222" y="94">4</text><text x="258" y="94">5</text><text x="294" y="94">6</text><text x="330" y="94">7</text>
+      <text x="48" y="122">0</text><text x="48" y="158">1</text><text x="48" y="194">2</text><text x="48" y="230">3</text>
+      <text x="48" y="266">4</text><text x="48" y="302">5</text><text x="48" y="338">6</text><text x="48" y="374">7</text>
+    </g>
+    <rect x="96" y="208" width="144" height="144" fill="#58a6ff" fill-opacity="0.18" stroke="#58a6ff" stroke-width="2"/>
+    <rect x="168" y="136" width="144" height="144" fill="#3fb950" fill-opacity="0.18" stroke="#3fb950" stroke-width="2"/>
+    <rect x="240" y="280" width="72" height="72" fill="#f2cc60" fill-opacity="0.2" stroke="#f2cc60" stroke-width="2"/>
+    <rect x="168" y="208" width="72" height="72" fill="#ff7b72" fill-opacity="0.5"/>
+    <g font-size="15" font-weight="700">
+      <text x="104" y="344" fill="#58a6ff">#1</text>
+      <text x="282" y="156" fill="#3fb950">#2</text>
+      <text x="248" y="300" fill="#f2cc60">#3</text>
+    </g>
+    <g font-size="14" fill="#e6edf3" text-anchor="middle">
+      <text x="186" y="231">2</text><text x="222" y="231">2</text>
+      <text x="186" y="267">2</text><text x="222" y="267">2</text>
+    </g>
+
+    <!-- explanation -->
+    <text x="400" y="122" font-size="16" font-weight="700" fill="#e6edf3">Part 1 · paint and count</text>
+    <text x="400" y="148" font-size="14" fill="#8b949e">board[y][x] += 1 for every cell of every claim,</text>
+    <text x="400" y="170" font-size="14" fill="#8b949e">then count cells with value ≥ 2</text>
+    <text x="400" y="198" font-size="15" fill="#ff7b72">4 cells overlap ★</text>
+
+    <text x="400" y="250" font-size="16" font-weight="700" fill="#e6edf3">Part 2 · rectangle test for each pair</text>
+    <text x="400" y="276" font-size="14" fill="#8b949e">a and b overlap unless one lies fully left/right/above/below:</text>
+    <text x="400" y="300" font-size="13" fill="#d2a8ff">not (a.x+a.w ≤ b.x or b.x+b.w ≤ a.x or</text>
+    <text x="448" y="320" font-size="13" fill="#d2a8ff">a.y+a.h ≤ b.y or b.y+b.h ≤ a.y)</text>
+    <text x="400" y="352" font-size="14" fill="#e6edf3"><tspan fill="#58a6ff">#1</tspan> × <tspan fill="#3fb950">#2</tspan> overlap → both out</text>
+    <text x="400" y="376" font-size="14" fill="#e6edf3"><tspan fill="#f2cc60">#3</tspan> touches no one → answer <tspan fill="#f2cc60">#3 ★</tspan></text>
+  </g>
+</svg>

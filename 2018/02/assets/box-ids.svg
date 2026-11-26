@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-labelledby="t d">
+  <title id="t">Checksum and near-match search on example box IDs</title>
+  <desc id="d">Left: seven IDs, each marked if some letter appears exactly twice and if some letter appears exactly three times; four IDs have a pair and three have a triple, so the checksum is 4 times 3, 12. Right: fghij and fguij differ only at position 2, so the common letters are fgij.</desc>
+  <rect x="1" y="1" width="958" height="418" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <line x1="500" y1="30" x2="500" y2="390" stroke="#21262d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <!-- part 1 -->
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Part 1 · letter counts</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">each ID counts at most once per column</text>
+    <g font-size="14" fill="#8b949e">
+      <text x="60" y="112">id</text>
+      <text x="260" y="112" text-anchor="middle">exactly 2</text>
+      <text x="390" y="112" text-anchor="middle">exactly 3</text>
+    </g>
+    <line x1="50" y1="122" x2="460" y2="122" stroke="#30363d"/>
+    <g font-size="17" fill="#e6edf3">
+      <text x="60" y="150">abcdef</text>
+      <text x="60" y="180"><tspan fill="#3fb950">b</tspan>a<tspan fill="#3fb950">b</tspan>a<tspan fill="#3fb950">b</tspan>c</text>
+      <text x="60" y="210">a<tspan fill="#58a6ff">bb</tspan>cde</text>
+      <text x="60" y="240">ab<tspan fill="#3fb950">ccc</tspan>d</text>
+      <text x="60" y="270"><tspan fill="#58a6ff">aa</tspan>bc<tspan fill="#58a6ff">dd</tspan></text>
+      <text x="60" y="300">abcd<tspan fill="#58a6ff">ee</tspan></text>
+      <text x="60" y="330"><tspan fill="#3fb950">a</tspan>b<tspan fill="#3fb950">a</tspan>b<tspan fill="#3fb950">a</tspan>b</text>
+    </g>
+    <g font-size="17" text-anchor="middle">
+      <text x="260" y="150" fill="#30363d">·</text><text x="390" y="150" fill="#30363d">·</text>
+      <text x="260" y="180" fill="#58a6ff">1</text><text x="390" y="180" fill="#3fb950">1</text>
+      <text x="260" y="210" fill="#58a6ff">1</text><text x="390" y="210" fill="#30363d">·</text>
+      <text x="260" y="240" fill="#30363d">·</text><text x="390" y="240" fill="#3fb950">1</text>
+      <text x="260" y="270" fill="#58a6ff">1</text><text x="390" y="270" fill="#30363d">·</text>
+      <text x="260" y="300" fill="#58a6ff">1</text><text x="390" y="300" fill="#30363d">·</text>
+      <text x="260" y="330" fill="#30363d">·</text><text x="390" y="330" fill="#3fb950">1</text>
+    </g>
+    <line x1="50" y1="346" x2="460" y2="346" stroke="#30363d"/>
+    <g font-size="17" text-anchor="middle">
+      <text x="260" y="374" fill="#58a6ff">4</text>
+      <text x="325" y="374" fill="#8b949e">×</text>
+      <text x="390" y="374" fill="#3fb950">3</text>
+      <text x="440" y="374" fill="#f2cc60">= 12</text>
+    </g>
+
+    <!-- part 2 -->
+    <text x="530" y="44" font-size="18" font-weight="700" fill="#e6edf3">Part 2 · one-letter difference</text>
+    <text x="530" y="70" font-size="14" fill="#8b949e">compare pairs (i, j &gt; i) letter by letter</text>
+
+    <g font-size="14" fill="#8b949e" text-anchor="end">
+      <text x="600" y="146">fghij</text>
+      <text x="600" y="206">fguij</text>
+    </g>
+    <g stroke-width="2" fill="#161b22" stroke="#30363d">
+      <rect x="620" y="120" width="48" height="40" rx="6"/>
+      <rect x="676" y="120" width="48" height="40" rx="6"/>
+      <rect x="732" y="120" width="48" height="40" rx="6" stroke="#ff7b72"/>
+      <rect x="788" y="120" width="48" height="40" rx="6"/>
+      <rect x="844" y="120" width="48" height="40" rx="6"/>
+      <rect x="620" y="180" width="48" height="40" rx="6"/>
+      <rect x="676" y="180" width="48" height="40" rx="6"/>
+      <rect x="732" y="180" width="48" height="40" rx="6" stroke="#ff7b72"/>
+      <rect x="788" y="180" width="48" height="40" rx="6"/>
+      <rect x="844" y="180" width="48" height="40" rx="6"/>
+    </g>
+    <g font-size="20" fill="#e6edf3" text-anchor="middle">
+      <text x="644" y="147">f</text><text x="700" y="147">g</text><text x="756" y="147" fill="#ff7b72">h</text><text x="812" y="147">i</text><text x="868" y="147">j</text>
+      <text x="644" y="207">f</text><text x="700" y="207">g</text><text x="756" y="207" fill="#ff7b72">u</text><text x="812" y="207">i</text><text x="868" y="207">j</text>
+    </g>
+    <g font-size="13" fill="#8b949e" text-anchor="middle">
+      <text x="644" y="244">=</text><text x="700" y="244">=</text><text x="756" y="244" fill="#ff7b72">≠</text><text x="812" y="244">=</text><text x="868" y="244">=</text>
+    </g>
+    <text x="530" y="294" font-size="15" fill="#8b949e">drop index 2 →</text>
+    <text x="720" y="294" font-size="22" fill="#f2cc60">fg·ij = fgij ★</text>
+    <text x="530" y="344" font-size="14" fill="#8b949e">a 2nd mismatch returns early: </text>
+    <text x="530" y="368" font-size="14" fill="#e6edf3">a<tspan fill="#ff7b72">b</tspan>c<tspan fill="#ff7b72">d</tspan>e vs a<tspan fill="#ff7b72">x</tspan>c<tspan fill="#ff7b72">y</tspan>e → <tspan fill="#ff7b72">None</tspan></text>
+  </g>
+</svg>

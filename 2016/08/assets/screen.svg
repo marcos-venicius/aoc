@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" width="960" height="410" role="img" aria-labelledby="t d">
+  <title id="t">The 7x3 example screen after each instruction</title>
+  <desc id="d">rect lights the top-left corner, rotate column shifts a column down with wrap-around, rotate row shifts a row right with wrap-around. The example ends with 6 lit pixels.</desc>
+  <rect x="1" y="1" width="958" height="408" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">The example on a 7×3 screen</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">rotations wrap around · the code shifts by one cell, &quot;by&quot; times</text>
+    <text x="60" y="114" font-size="14" fill="#f2cc60" font-weight="700" xml:space="preserve">1. rect 3x2</text>
+    <rect x="62" y="132" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="88" y="132" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="114" y="132" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="140" y="132" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="166" y="132" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="192" y="132" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="218" y="132" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="62" y="158" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="88" y="158" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="114" y="158" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="140" y="158" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="166" y="158" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="192" y="158" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="218" y="158" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="62" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="88" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="114" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="140" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="166" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="192" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="218" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="58" y="128" width="82" height="56" rx="6" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <text x="270" y="148" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">###....</text>
+    <text x="270" y="174" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">###....</text>
+    <text x="270" y="200" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">.......</text>
+    <text x="520" y="114" font-size="14" fill="#f2cc60" font-weight="700" xml:space="preserve">2. rotate column x=1 by 1</text>
+    <rect x="522" y="132" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="548" y="132" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="574" y="132" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="600" y="132" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="626" y="132" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="652" y="132" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="678" y="132" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="522" y="158" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="548" y="158" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="574" y="158" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="600" y="158" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="626" y="158" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="652" y="158" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="678" y="158" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="522" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="548" y="184" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="574" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="600" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="626" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="652" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="678" y="184" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="544" y="128" width="30" height="82" rx="6" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <text x="730" y="148" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">#.#....</text>
+    <text x="730" y="174" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">###....</text>
+    <text x="730" y="200" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">.#.....</text>
+    <text x="60" y="254" font-size="14" fill="#f2cc60" font-weight="700" xml:space="preserve">3. rotate row y=0 by 4</text>
+    <rect x="62" y="272" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="88" y="272" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="114" y="272" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="140" y="272" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="166" y="272" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="192" y="272" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="218" y="272" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="62" y="298" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="88" y="298" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="114" y="298" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="140" y="298" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="166" y="298" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="192" y="298" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="218" y="298" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="62" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="88" y="324" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="114" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="140" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="166" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="192" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="218" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="58" y="268" width="186" height="30" rx="6" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <text x="270" y="288" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">....#.#</text>
+    <text x="270" y="314" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">###....</text>
+    <text x="270" y="340" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">.#.....</text>
+    <text x="520" y="254" font-size="14" fill="#f2cc60" font-weight="700" xml:space="preserve">4. rotate column x=1 by 1</text>
+    <rect x="522" y="272" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="548" y="272" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="574" y="272" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="600" y="272" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="626" y="272" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="652" y="272" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="678" y="272" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="522" y="298" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="548" y="298" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="574" y="298" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="600" y="298" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="626" y="298" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="652" y="298" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="678" y="298" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="522" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="548" y="324" width="22" height="22" rx="4" fill="#3fb950"/>
+    <rect x="574" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="600" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="626" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="652" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="678" y="324" width="22" height="22" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="544" y="268" width="30" height="82" rx="6" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <text x="730" y="288" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">.#..#.#</text>
+    <text x="730" y="314" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">#.#....</text>
+    <text x="730" y="340" font-size="15" fill="#8b949e" xml:space="preserve" letter-spacing="2">.#.....</text>
+    <text x="60" y="384" font-size="13" fill="#e6edf3" xml:space="preserve">lit pixels at the end: 6 · the real screen is 50×6 and part 2 is read by eye from the printed letters</text>
+  </g>
+</svg>

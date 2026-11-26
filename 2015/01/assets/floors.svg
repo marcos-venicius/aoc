@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360" role="img" aria-labelledby="t d">
+  <title id="t">Santa's floor while reading the example "()())"</title>
+  <desc id="d">Each character moves Santa one floor: open parenthesis up, close parenthesis down. At position 5 he reaches floor -1, the basement.</desc>
+  <rect x="1" y="1" width="958" height="358" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Running sum of the instructions</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">&quot;(&quot; = +1 · &quot;)&quot; = −1 · part 1 is the final floor, part 2 is the first position on floor −1</text>
+
+    <!-- floor axis -->
+    <g font-size="14" fill="#8b949e" text-anchor="end">
+      <text x="110" y="134">floor 2</text>
+      <text x="110" y="184">floor 1</text>
+      <text x="110" y="234">floor 0</text>
+      <text x="110" y="284" fill="#ff7b72">floor −1</text>
+    </g>
+    <g stroke="#21262d" stroke-width="1">
+      <line x1="130" y1="130" x2="900" y2="130"/>
+      <line x1="130" y1="180" x2="900" y2="180"/>
+      <line x1="130" y1="230" x2="900" y2="230" stroke="#30363d" stroke-width="2"/>
+    </g>
+    <rect x="130" y="256" width="770" height="50" fill="#ff7b72" opacity="0.08"/>
+    <line x1="130" y1="280" x2="900" y2="280" stroke="#ff7b72" stroke-width="1" stroke-dasharray="6 6"/>
+    <text x="890" y="300" font-size="12" fill="#ff7b72" text-anchor="end">basement</text>
+
+    <!-- path: start 0, ( 1, ) 0, ( 1, ) 0, ) -1 -->
+    <polyline points="190,230 310,180 430,230 550,180 670,230 790,280" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linejoin="round"/>
+    <g fill="#0d1117" stroke="#58a6ff" stroke-width="3">
+      <circle cx="190" cy="230" r="7"/>
+      <circle cx="310" cy="180" r="7"/>
+      <circle cx="430" cy="230" r="7"/>
+      <circle cx="550" cy="180" r="7"/>
+      <circle cx="670" cy="230" r="7"/>
+    </g>
+    <circle cx="790" cy="280" r="9" fill="#f2cc60" stroke="#f2cc60"/>
+
+    <!-- characters and positions -->
+    <g font-size="20" text-anchor="middle">
+      <text x="190" y="340" fill="#8b949e">start</text>
+      <text x="310" y="340" fill="#3fb950">(</text>
+      <text x="430" y="340" fill="#ff7b72">)</text>
+      <text x="550" y="340" fill="#3fb950">(</text>
+      <text x="670" y="340" fill="#ff7b72">)</text>
+      <text x="790" y="340" fill="#ff7b72">)</text>
+    </g>
+    <g font-size="12" fill="#8b949e" text-anchor="middle">
+      <text x="310" y="106">pos 1</text>
+      <text x="430" y="106">pos 2</text>
+      <text x="550" y="106">pos 3</text>
+      <text x="670" y="106">pos 4</text>
+      <text x="790" y="106" fill="#f2cc60">pos 5 ★</text>
+    </g>
+  </g>
+</svg>

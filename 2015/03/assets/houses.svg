@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-labelledby="t d">
+  <title id="t">Houses visited for the directions ^&gt;v&lt;</title>
+  <desc id="d">Part 1: Santa walks a small square around 4 distinct houses, each one stored once in the set. Part 2: the even moves (^ and v) go to one walker and the odd moves (&gt; and &lt;) to the other, so they visit only 3 distinct houses.</desc>
+  <defs>
+    <marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#58a6ff"/>
+    </marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#3fb950"/>
+    </marker>
+    <marker id="ap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#d2a8ff"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="958" height="418" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Directions: ^ &gt; v &lt;</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">every house is a grid cell · a set of visited (x, y) cells gives the answer</text>
+
+    <line x1="480" y1="96" x2="480" y2="390" stroke="#21262d" stroke-width="2"/>
+
+    <!-- PART 1 -->
+    <text x="40" y="112" font-size="15" font-weight="700" fill="#58a6ff">Part 1 · Santa alone</text>
+    <g stroke="#21262d" stroke-width="1" fill="none">
+      <rect x="100" y="140" width="210" height="210"/>
+      <path d="M170 140 V350 M240 140 V350 M100 210 H310 M100 280 H310"/>
+    </g>
+    <g fill="none" stroke="#58a6ff" stroke-width="3">
+      <path d="M135 299 V265" marker-end="url(#ab)"/>
+      <path d="M151 245 H185" marker-end="url(#ab)"/>
+      <path d="M205 261 V295" marker-end="url(#ab)"/>
+      <path d="M189 315 H155" marker-end="url(#ab)"/>
+    </g>
+    <g font-size="13" fill="#8b949e">
+      <text x="112" y="286">^</text>
+      <text x="162" y="234">&gt;</text>
+      <text x="214" y="284">v</text>
+      <text x="164" y="338">&lt;</text>
+    </g>
+    <g stroke-width="2">
+      <circle cx="135" cy="315" r="12" fill="#f2cc60" stroke="#f2cc60"/>
+      <circle cx="135" cy="245" r="12" fill="#0d1117" stroke="#3fb950"/>
+      <circle cx="205" cy="245" r="12" fill="#0d1117" stroke="#3fb950"/>
+      <circle cx="205" cy="315" r="12" fill="#0d1117" stroke="#3fb950"/>
+    </g>
+    <g font-size="12" text-anchor="middle" fill="#e6edf3">
+      <text x="135" y="319" fill="#0d1117" font-weight="700">1</text>
+      <text x="135" y="249">1</text>
+      <text x="205" y="249">1</text>
+      <text x="205" y="319">1</text>
+    </g>
+    <text x="330" y="160" font-size="13" fill="#8b949e">each house</text>
+    <text x="330" y="178" font-size="13" fill="#8b949e">is in the set once</text>
+    <text x="330" y="316" font-size="13" fill="#f2cc60">start</text>
+    <text x="100" y="384" font-size="15" fill="#e6edf3">distinct houses = <tspan fill="#3fb950" font-weight="700">4</tspan></text>
+
+    <!-- PART 2 -->
+    <text x="510" y="112" font-size="15" font-weight="700" fill="#58a6ff">Part 2 · two walkers take turns</text>
+    <g stroke="#21262d" stroke-width="1" fill="none">
+      <rect x="560" y="140" width="210" height="210"/>
+      <path d="M630 140 V350 M700 140 V350 M560 210 H770 M560 280 H770"/>
+    </g>
+    <!-- even walker: ^ then v -->
+    <g fill="none" stroke="#3fb950" stroke-width="3">
+      <path d="M655 300 V255" marker-end="url(#ag)"/>
+      <path d="M675 255 V300" marker-end="url(#ag)"/>
+    </g>
+    <!-- odd walker: > then < -->
+    <g fill="none" stroke="#d2a8ff" stroke-width="3">
+      <path d="M680 305 H730" marker-end="url(#ap)"/>
+      <path d="M730 325 H680" marker-end="url(#ap)"/>
+    </g>
+    <g stroke-width="2">
+      <circle cx="665" cy="315" r="12" fill="#f2cc60" stroke="#f2cc60"/>
+      <circle cx="665" cy="245" r="12" fill="#0d1117" stroke="#3fb950"/>
+      <circle cx="735" cy="315" r="12" fill="#0d1117" stroke="#d2a8ff"/>
+    </g>
+    <g font-size="13">
+      <text x="790" y="170" fill="#3fb950">moves 1, 3</text>
+      <text x="790" y="188" fill="#3fb950">^ then v</text>
+      <text x="790" y="226" fill="#d2a8ff">moves 2, 4</text>
+      <text x="790" y="244" fill="#d2a8ff">&gt; then &lt;</text>
+      <text x="790" y="316" fill="#f2cc60">start</text>
+    </g>
+    <text x="560" y="384" font-size="15" fill="#e6edf3">distinct houses = <tspan fill="#3fb950" font-weight="700">3</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 424" width="960" height="424" role="img" aria-labelledby="t d">
+  <title id="t">Round scores for every opponent and response, in both parts</title>
+  <desc id="d">Two 3 by 3 tables of round scores. Rows are the opponent shape A, B, C. In part 1 the columns are my shape; in part 2 they are the required outcome. The three example rounds are highlighted.</desc>
+  <rect x="1" y="1" width="958" height="422" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Every round is a lookup in a 3 × 3 table</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">rows: opponent · columns: second letter · highlighted: the example rounds</text>
+    <text x="40" y="112" font-size="15" fill="#e6edf3" font-weight="700">Part 1 · X Y Z are shapes</text>
+    <text x="188.0" y="138" font-size="13" fill="#8b949e" text-anchor="middle">X Rock</text>
+    <text x="292.0" y="138" font-size="13" fill="#8b949e" text-anchor="middle">Y Paper</text>
+    <text x="396.0" y="138" font-size="13" fill="#8b949e" text-anchor="middle">Z Scissors</text>
+    <text x="124" y="184" font-size="13" fill="#8b949e" text-anchor="end">A Rock</text>
+    <rect x="139" y="153" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="188.0" y="178" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">4</text>
+    <text x="188.0" y="196" font-size="11" fill="#8b949e" text-anchor="middle">1 + 3</text>
+    <rect x="243" y="153" width="98" height="52" rx="6" fill="#f2cc60" stroke="#f2cc60" stroke-width="1.5" fill-opacity="0.15"/>
+    <text x="292.0" y="178" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">2</text>
+    <text x="292.0" y="196" font-size="11" fill="#ff7b72" text-anchor="middle">2 + 0</text>
+    <rect x="347" y="153" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="396.0" y="178" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">9</text>
+    <text x="396.0" y="196" font-size="11" fill="#3fb950" text-anchor="middle">3 + 6</text>
+    <text x="124" y="242" font-size="13" fill="#8b949e" text-anchor="end">B Paper</text>
+    <rect x="139" y="211" width="98" height="52" rx="6" fill="#f2cc60" stroke="#f2cc60" stroke-width="1.5" fill-opacity="0.15"/>
+    <text x="188.0" y="236" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">7</text>
+    <text x="188.0" y="254" font-size="11" fill="#3fb950" text-anchor="middle">1 + 6</text>
+    <rect x="243" y="211" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="292.0" y="236" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">5</text>
+    <text x="292.0" y="254" font-size="11" fill="#8b949e" text-anchor="middle">2 + 3</text>
+    <rect x="347" y="211" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="396.0" y="236" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">3</text>
+    <text x="396.0" y="254" font-size="11" fill="#ff7b72" text-anchor="middle">3 + 0</text>
+    <text x="124" y="300" font-size="13" fill="#8b949e" text-anchor="end">C Scissors</text>
+    <rect x="139" y="269" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="188.0" y="294" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">1</text>
+    <text x="188.0" y="312" font-size="11" fill="#ff7b72" text-anchor="middle">1 + 0</text>
+    <rect x="243" y="269" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="292.0" y="294" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">8</text>
+    <text x="292.0" y="312" font-size="11" fill="#3fb950" text-anchor="middle">2 + 6</text>
+    <rect x="347" y="269" width="98" height="52" rx="6" fill="#f2cc60" stroke="#f2cc60" stroke-width="1.5" fill-opacity="0.15"/>
+    <text x="396.0" y="294" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">6</text>
+    <text x="396.0" y="312" font-size="11" fill="#8b949e" text-anchor="middle">3 + 3</text>
+    <text x="136" y="354" font-size="14" fill="#f2cc60">example A Y, B X, C Z → 2 + 7 + 6 = 15</text>
+    <text x="500" y="112" font-size="15" fill="#e6edf3" font-weight="700">Part 2 · X Y Z are outcomes</text>
+    <text x="648.0" y="138" font-size="13" fill="#8b949e" text-anchor="middle">X lose</text>
+    <text x="752.0" y="138" font-size="13" fill="#8b949e" text-anchor="middle">Y draw</text>
+    <text x="856.0" y="138" font-size="13" fill="#8b949e" text-anchor="middle">Z win</text>
+    <text x="584" y="184" font-size="13" fill="#8b949e" text-anchor="end">A Rock</text>
+    <rect x="599" y="153" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="648.0" y="178" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">3</text>
+    <text x="648.0" y="196" font-size="11" fill="#ff7b72" text-anchor="middle">3 + 0</text>
+    <rect x="703" y="153" width="98" height="52" rx="6" fill="#f2cc60" stroke="#f2cc60" stroke-width="1.5" fill-opacity="0.15"/>
+    <text x="752.0" y="178" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">4</text>
+    <text x="752.0" y="196" font-size="11" fill="#8b949e" text-anchor="middle">1 + 3</text>
+    <rect x="807" y="153" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="856.0" y="178" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">8</text>
+    <text x="856.0" y="196" font-size="11" fill="#3fb950" text-anchor="middle">2 + 6</text>
+    <text x="584" y="242" font-size="13" fill="#8b949e" text-anchor="end">B Paper</text>
+    <rect x="599" y="211" width="98" height="52" rx="6" fill="#f2cc60" stroke="#f2cc60" stroke-width="1.5" fill-opacity="0.15"/>
+    <text x="648.0" y="236" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">1</text>
+    <text x="648.0" y="254" font-size="11" fill="#ff7b72" text-anchor="middle">1 + 0</text>
+    <rect x="703" y="211" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="752.0" y="236" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">5</text>
+    <text x="752.0" y="254" font-size="11" fill="#8b949e" text-anchor="middle">2 + 3</text>
+    <rect x="807" y="211" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="856.0" y="236" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">9</text>
+    <text x="856.0" y="254" font-size="11" fill="#3fb950" text-anchor="middle">3 + 6</text>
+    <text x="584" y="300" font-size="13" fill="#8b949e" text-anchor="end">C Scissors</text>
+    <rect x="599" y="269" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="648.0" y="294" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">2</text>
+    <text x="648.0" y="312" font-size="11" fill="#ff7b72" text-anchor="middle">2 + 0</text>
+    <rect x="703" y="269" width="98" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="752.0" y="294" font-size="18" fill="#e6edf3" text-anchor="middle" font-weight="700">6</text>
+    <text x="752.0" y="312" font-size="11" fill="#8b949e" text-anchor="middle">3 + 3</text>
+    <rect x="807" y="269" width="98" height="52" rx="6" fill="#f2cc60" stroke="#f2cc60" stroke-width="1.5" fill-opacity="0.15"/>
+    <text x="856.0" y="294" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700">7</text>
+    <text x="856.0" y="312" font-size="11" fill="#3fb950" text-anchor="middle">1 + 6</text>
+    <text x="596" y="354" font-size="14" fill="#f2cc60">example A Y, B X, C Z → 4 + 1 + 7 = 12</text>
+    <text x="40" y="400" font-size="13" fill="#8b949e">cell = shape points (1 · 2 · 3) + outcome points (0 lost · 3 draw · 6 won)</text>
+  </g>
+</svg>

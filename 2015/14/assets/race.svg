@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 490" width="960" height="490" role="img" aria-labelledby="t d">
+  <title id="t">Comet and Dancer racing for 1000 seconds</title>
+  <desc id="d">Distance over time for the two example reindeer. Each one flies for a few seconds and then rests for a long time, so the lines are staircases. After 1000 seconds Comet is ahead with 1120 km against 1056 km. The strip below shows who leads at each second: Dancer leads more often and ends with 689 points against 312.</desc>
+  <rect x="1" y="1" width="958" height="488" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Second-by-second simulation of the example (1000 s)</text>
+    <text x="40" y="70" font-size="14"><tspan fill="#58a6ff">Comet</tspan><tspan fill="#8b949e"> 14 km/s for 10 s, rests 127 s</tspan><tspan fill="#8b949e">   ·   </tspan><tspan fill="#3fb950">Dancer</tspan><tspan fill="#8b949e"> 16 km/s for 11 s, rests 162 s</tspan></text>
+    <text x="40" y="96" font-size="12" fill="#8b949e">km</text>
+    <line x1="90" y1="360.0" x2="900" y2="360.0" stroke="#21262d"/>
+    <text x="80" y="364.0" font-size="12" fill="#8b949e" text-anchor="end">0</text>
+    <line x1="90" y1="297.5" x2="900" y2="297.5" stroke="#21262d"/>
+    <text x="80" y="301.5" font-size="12" fill="#8b949e" text-anchor="end">300</text>
+    <line x1="90" y1="235.0" x2="900" y2="235.0" stroke="#21262d"/>
+    <text x="80" y="239.0" font-size="12" fill="#8b949e" text-anchor="end">600</text>
+    <line x1="90" y1="172.5" x2="900" y2="172.5" stroke="#21262d"/>
+    <text x="80" y="176.5" font-size="12" fill="#8b949e" text-anchor="end">900</text>
+    <line x1="90" y1="110.0" x2="900" y2="110.0" stroke="#21262d"/>
+    <text x="80" y="114.0" font-size="12" fill="#8b949e" text-anchor="end">1200</text>
+    <text x="90.0" y="380" font-size="12" fill="#8b949e" text-anchor="middle">0s</text>
+    <text x="252.0" y="380" font-size="12" fill="#8b949e" text-anchor="middle">200s</text>
+    <text x="414.0" y="380" font-size="12" fill="#8b949e" text-anchor="middle">400s</text>
+    <text x="576.0" y="380" font-size="12" fill="#8b949e" text-anchor="middle">600s</text>
+    <text x="738.0" y="380" font-size="12" fill="#8b949e" text-anchor="middle">800s</text>
+    <text x="900.0" y="380" font-size="12" fill="#8b949e" text-anchor="middle">1000s</text>
+    <polyline points="90.0,360.0 98.1,330.8 201.0,330.8 209.1,301.7 311.9,301.7 320.0,272.5 422.9,272.5 431.0,243.3 533.9,243.3 542.0,214.2 644.9,214.2 653.0,185.0 755.8,185.0 763.9,155.8 866.8,155.8 874.9,126.7 900.0,126.7" fill="none" stroke="#58a6ff" stroke-width="2.5" stroke-linejoin="round"/>
+    <polyline points="90.0,360.0 98.9,323.3 230.1,323.3 239.0,286.7 370.3,286.7 379.2,250.0 510.4,250.0 519.3,213.3 650.5,213.3 659.4,176.7 790.6,176.7 799.6,140.0 900.0,140.0" fill="none" stroke="#3fb950" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="906" y="130.7" font-size="13" fill="#58a6ff">1120</text>
+    <text x="906" y="154.0" font-size="13" fill="#3fb950">1056</text>
+    <text x="80" y="413" font-size="12" fill="#8b949e" text-anchor="end">point</text>
+    <rect x="90.0" y="400" width="112.6" height="18" fill="#3fb950" opacity="0.85"/>
+    <rect x="202.6" y="400" width="32.4" height="18" fill="#58a6ff" opacity="0.85"/>
+    <rect x="235.0" y="400" width="81.0" height="18" fill="#3fb950" opacity="0.85"/>
+    <rect x="316.0" y="400" width="57.5" height="18" fill="#58a6ff" opacity="0.85"/>
+    <rect x="373.5" y="400" width="55.1" height="18" fill="#3fb950" opacity="0.85"/>
+    <rect x="428.6" y="400" width="82.6" height="18" fill="#58a6ff" opacity="0.85"/>
+    <rect x="511.2" y="400" width="0.8" height="18" fill="#f2cc60" opacity="0.85"/>
+    <rect x="512.0" y="400" width="132.8" height="18" fill="#3fb950" opacity="0.85"/>
+    <rect x="644.9" y="400" width="12.1" height="18" fill="#58a6ff" opacity="0.85"/>
+    <rect x="657.0" y="400" width="100.4" height="18" fill="#3fb950" opacity="0.85"/>
+    <rect x="757.4" y="400" width="38.1" height="18" fill="#58a6ff" opacity="0.85"/>
+    <rect x="795.5" y="400" width="75.3" height="18" fill="#3fb950" opacity="0.85"/>
+    <rect x="870.8" y="400" width="29.2" height="18" fill="#58a6ff" opacity="0.85"/>
+    <text x="90" y="446" font-size="12" fill="#8b949e">who is in the lead after each second (that reindeer gets 1 point)</text>
+    <text x="40" y="474" font-size="15" fill="#e6edf3">part 1, farthest: <tspan fill="#58a6ff" font-weight="700">Comet 1120</tspan>   ·   part 2, most points: <tspan fill="#3fb950" font-weight="700">Dancer 689</tspan> <tspan fill="#8b949e">(Comet 312)</tspan></text>
+  </g>
+</svg>

@@ -248,6 +248,23 @@ main { flex: 1; padding-top: 24px; padding-bottom: 40px; }
 .note img { max-width: 100%; border: 1px solid var(--line); filter: grayscale(.3) contrast(1.1); }
 .note code { color: var(--amber); }
 .note + .note { border-top: 1px dashed var(--line); margin-top: 14px; }
+.note hr { border: 0; border-top: 1px dashed var(--line); margin: 18px 0; }
+.note blockquote { margin: 12px 0; padding: 2px 14px; border-left: 2px solid var(--dim); color: var(--fg); }
+.note details { margin: 12px 0; padding: 6px 12px; border: 1px solid var(--line); }
+.note details > summary { cursor: pointer; color: var(--hi); }
+.note .md-table { overflow-x: auto; margin: 12px 0; }
+.note table { border-collapse: collapse; width: 100%; }
+.note th, .note td { border: 1px solid var(--line); padding: 4px 10px; text-align: left; vertical-align: top; }
+.note th { color: var(--hi); background: var(--panel); font-weight: 400; }
+.note kbd { border: 1px solid var(--dim); padding: 0 4px; font: inherit; }
+.callout { --c: var(--hi); margin: 14px 0; padding: 6px 14px; border: 1px solid var(--line); border-left: 3px solid var(--c); background: var(--bg-2); }
+.callout p { margin: 6px 0; }
+.callout .callout-title { color: var(--c); letter-spacing: 2px; text-shadow: 0 0 6px currentColor; }
+.callout-note { --c: var(--cyan); }
+.callout-tip { --c: var(--hi); }
+.callout-important { --c: #c792ea; }
+.callout-warning { --c: var(--amber); }
+.callout-caution { --c: var(--red); }
 
 /* 404 */
 .err, .err b { color: var(--red); text-shadow: 0 0 6px rgba(255, 59, 92, .5); }

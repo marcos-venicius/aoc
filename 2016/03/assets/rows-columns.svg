@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" role="img" aria-labelledby="t d">
+  <title id="t">Reading the triangles by rows (part 1) and by columns (part 2)</title>
+  <desc id="d">Part 1 checks every row as a triangle. Part 2 concatenates the three columns into one list and cuts it into groups of three, so each group is three consecutive numbers of one column.</desc>
+  <rect x="1" y="1" width="958" height="478" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">Rows for part 1, columns for part 2</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">a triple is a triangle when the two smallest sides add up to more than the largest one</text>
+    <text x="60" y="104" font-size="14" fill="#e6edf3" font-weight="700" xml:space="preserve">Part 1 · one triangle per row</text>
+    <rect x="54" y="124" width="222" height="32" rx="6" fill="none" stroke="#ff7b72" stroke-width="1.5"/>
+    <text x="95.0" y="145.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">101</text>
+    <text x="165.0" y="145.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">301</text>
+    <text x="235.0" y="145.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">501</text>
+    <text x="290" y="145.0" font-size="13" fill="#ff7b72" xml:space="preserve">101+301 ≤ 501 ✗</text>
+    <rect x="54" y="164" width="222" height="32" rx="6" fill="none" stroke="#ff7b72" stroke-width="1.5"/>
+    <text x="95.0" y="185.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">102</text>
+    <text x="165.0" y="185.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">302</text>
+    <text x="235.0" y="185.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">502</text>
+    <text x="290" y="185.0" font-size="13" fill="#ff7b72" xml:space="preserve">102+302 ≤ 502 ✗</text>
+    <rect x="54" y="204" width="222" height="32" rx="6" fill="none" stroke="#ff7b72" stroke-width="1.5"/>
+    <text x="95.0" y="225.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">103</text>
+    <text x="165.0" y="225.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">303</text>
+    <text x="235.0" y="225.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">503</text>
+    <text x="290" y="225.0" font-size="13" fill="#ff7b72" xml:space="preserve">103+303 ≤ 503 ✗</text>
+    <rect x="54" y="244" width="222" height="32" rx="6" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="95.0" y="265.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">201</text>
+    <text x="165.0" y="265.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">401</text>
+    <text x="235.0" y="265.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">601</text>
+    <text x="290" y="265.0" font-size="13" fill="#3fb950" xml:space="preserve">201+401 &gt; 601 ✓</text>
+    <rect x="54" y="284" width="222" height="32" rx="6" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="95.0" y="305.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">202</text>
+    <text x="165.0" y="305.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">402</text>
+    <text x="235.0" y="305.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">602</text>
+    <text x="290" y="305.0" font-size="13" fill="#3fb950" xml:space="preserve">202+402 &gt; 602 ✓</text>
+    <rect x="54" y="324" width="222" height="32" rx="6" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="95.0" y="345.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">203</text>
+    <text x="165.0" y="345.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">403</text>
+    <text x="235.0" y="345.0" font-size="16" fill="#e6edf3" text-anchor="middle" xml:space="preserve">603</text>
+    <text x="290" y="345.0" font-size="13" fill="#3fb950" xml:space="preserve">203+403 &gt; 603 ✓</text>
+    <text x="540" y="104" font-size="14" fill="#e6edf3" font-weight="700" xml:space="preserve">Part 2 · columns, three rows at a time</text>
+    <text x="575.0" y="145.0" font-size="16" fill="#3fb950" text-anchor="middle" xml:space="preserve">101</text>
+    <text x="645.0" y="145.0" font-size="16" fill="#58a6ff" text-anchor="middle" xml:space="preserve">301</text>
+    <text x="715.0" y="145.0" font-size="16" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">501</text>
+    <text x="575.0" y="185.0" font-size="16" fill="#3fb950" text-anchor="middle" xml:space="preserve">102</text>
+    <text x="645.0" y="185.0" font-size="16" fill="#58a6ff" text-anchor="middle" xml:space="preserve">302</text>
+    <text x="715.0" y="185.0" font-size="16" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">502</text>
+    <text x="575.0" y="225.0" font-size="16" fill="#3fb950" text-anchor="middle" xml:space="preserve">103</text>
+    <text x="645.0" y="225.0" font-size="16" fill="#58a6ff" text-anchor="middle" xml:space="preserve">303</text>
+    <text x="715.0" y="225.0" font-size="16" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">503</text>
+    <text x="575.0" y="265.0" font-size="16" fill="#3fb950" text-anchor="middle" xml:space="preserve">201</text>
+    <text x="645.0" y="265.0" font-size="16" fill="#58a6ff" text-anchor="middle" xml:space="preserve">401</text>
+    <text x="715.0" y="265.0" font-size="16" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">601</text>
+    <text x="575.0" y="305.0" font-size="16" fill="#3fb950" text-anchor="middle" xml:space="preserve">202</text>
+    <text x="645.0" y="305.0" font-size="16" fill="#58a6ff" text-anchor="middle" xml:space="preserve">402</text>
+    <text x="715.0" y="305.0" font-size="16" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">602</text>
+    <text x="575.0" y="345.0" font-size="16" fill="#3fb950" text-anchor="middle" xml:space="preserve">203</text>
+    <text x="645.0" y="345.0" font-size="16" fill="#58a6ff" text-anchor="middle" xml:space="preserve">403</text>
+    <text x="715.0" y="345.0" font-size="16" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">603</text>
+    <rect x="546" y="126" width="58" height="108" rx="8" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+    <rect x="546" y="246" width="58" height="108" rx="8" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+    <rect x="616" y="126" width="58" height="108" rx="8" fill="none" stroke="#58a6ff" stroke-width="1.5"/>
+    <rect x="616" y="246" width="58" height="108" rx="8" fill="none" stroke="#58a6ff" stroke-width="1.5"/>
+    <rect x="686" y="126" width="58" height="108" rx="8" fill="none" stroke="#d2a8ff" stroke-width="1.5"/>
+    <rect x="686" y="246" width="58" height="108" rx="8" fill="none" stroke="#d2a8ff" stroke-width="1.5"/>
+    <text x="60" y="396" font-size="13" fill="#8b949e" xml:space="preserve">the code: vertical[0] + vertical[1] + vertical[2], then chunks of 3 →</text>
+    <rect x="60" y="402" width="134" height="28" rx="6" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="127" y="421" font-size="13" fill="#3fb950" text-anchor="middle" xml:space="preserve">101 102 103</text>
+    <text x="127" y="450" font-size="14" fill="#3fb950" text-anchor="middle" xml:space="preserve">✓</text>
+    <rect x="202" y="402" width="134" height="28" rx="6" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="269" y="421" font-size="13" fill="#3fb950" text-anchor="middle" xml:space="preserve">201 202 203</text>
+    <text x="269" y="450" font-size="14" fill="#3fb950" text-anchor="middle" xml:space="preserve">✓</text>
+    <rect x="344" y="402" width="134" height="28" rx="6" fill="none" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="411" y="421" font-size="13" fill="#58a6ff" text-anchor="middle" xml:space="preserve">301 302 303</text>
+    <text x="411" y="450" font-size="14" fill="#3fb950" text-anchor="middle" xml:space="preserve">✓</text>
+    <rect x="486" y="402" width="134" height="28" rx="6" fill="none" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="553" y="421" font-size="13" fill="#58a6ff" text-anchor="middle" xml:space="preserve">401 402 403</text>
+    <text x="553" y="450" font-size="14" fill="#3fb950" text-anchor="middle" xml:space="preserve">✓</text>
+    <rect x="628" y="402" width="134" height="28" rx="6" fill="none" stroke="#d2a8ff" stroke-width="1.5"/>
+    <text x="695" y="421" font-size="13" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">501 502 503</text>
+    <text x="695" y="450" font-size="14" fill="#3fb950" text-anchor="middle" xml:space="preserve">✓</text>
+    <rect x="770" y="402" width="134" height="28" rx="6" fill="none" stroke="#d2a8ff" stroke-width="1.5"/>
+    <text x="837" y="421" font-size="13" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">601 602 603</text>
+    <text x="837" y="450" font-size="14" fill="#3fb950" text-anchor="middle" xml:space="preserve">✓</text>
+  </g>
+</svg>

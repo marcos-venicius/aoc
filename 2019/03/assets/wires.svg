@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" role="img" aria-labelledby="t d">
+  <title id="t">Two wires R8,U5,L5,D3 and U7,R6,D4,L4 crossing twice</title>
+  <desc id="d">Both wires start at the central port. They cross at (3,3), Manhattan distance 6, and at (6,5), distance 11. The step counts to (3,3) are 20 and 20, total 40; to (6,5) they are 15 and 15, total 30.</desc>
+  <rect x="1" y="1" width="958" height="468" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <defs>
+    <pattern id="cells" width="36" height="36" patternUnits="userSpaceOnUse" x="62" y="94">
+      <path d="M36 0H0V36" fill="none" stroke="#21262d" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Each wire becomes a map: cell → steps</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e"><tspan fill="#58a6ff">A = R8,U5,L5,D3</tspan> · <tspan fill="#3fb950">B = U7,R6,D4,L4</tspan> · crossings = keys in both maps</text>
+
+    <!-- grid: x -1..10, y -1..9 ; px = 98 + 36x, py = 418 - 36y -->
+    <rect x="62" y="94" width="360" height="360" fill="url(#cells)"/>
+    <polyline points="98,418 386,418 386,238 206,238 206,310" fill="none" stroke="#58a6ff" stroke-width="4" stroke-linejoin="round"/>
+    <polyline points="98,418 98,166 314,166 314,310 170,310" fill="none" stroke="#3fb950" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="98" cy="418" r="8" fill="#e6edf3"/>
+    <text x="110" y="446" font-size="13" fill="#e6edf3">port (0,0)</text>
+    <circle cx="206" cy="310" r="9" fill="#ff7b72"/>
+    <circle cx="314" cy="238" r="9" fill="#f2cc60"/>
+    <g font-size="13" font-weight="700">
+      <text x="216" y="300" fill="#ff7b72">(3,3)</text>
+      <text x="324" y="228" fill="#f2cc60">(6,5)</text>
+    </g>
+    <text x="396" y="412" font-size="13" fill="#58a6ff">A</text>
+    <text x="80" y="160" font-size="13" fill="#3fb950">B</text>
+
+    <!-- table -->
+    <text x="470" y="128" font-size="16" font-weight="700" fill="#e6edf3">crossing</text>
+    <text x="590" y="128" font-size="16" font-weight="700" fill="#e6edf3">|x| + |y|</text>
+    <text x="730" y="128" font-size="16" font-weight="700" fill="#e6edf3">steps A + B</text>
+    <line x1="470" y1="142" x2="920" y2="142" stroke="#30363d"/>
+    <text x="470" y="176" font-size="16" fill="#ff7b72">(3,3)</text>
+    <text x="590" y="176" font-size="16" fill="#ff7b72">6 ★ P1</text>
+    <text x="730" y="176" font-size="16" fill="#e6edf3">20 + 20 = 40</text>
+    <text x="470" y="210" font-size="16" fill="#f2cc60">(6,5)</text>
+    <text x="590" y="210" font-size="16" fill="#e6edf3">11</text>
+    <text x="730" y="210" font-size="16" fill="#f2cc60">15 + 15 = 30 ★ P2</text>
+
+    <g font-size="14" fill="#8b949e">
+      <text x="470" y="270">1. walk each wire one cell at a time and store</text>
+      <text x="494" y="292">board[(x, y)] = steps so far</text>
+      <text x="470" y="324">2. sort A's cells by Manhattan distance and keep</text>
+      <text x="494" y="346">only those that are also in B</text>
+      <text x="470" y="378">3. P1 = distance of the first one,</text>
+      <text x="494" y="400">P2 = smallest A[pos] + B[pos] over all of them</text>
+    </g>
+  </g>
+</svg>

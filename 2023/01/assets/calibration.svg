@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" role="img" aria-labelledby="t d">
+  <title id="t">Reading calibration values with digits and spelled-out numbers</title>
+  <desc id="d">Part 1: in pqr3stu8vwx the first digit is 3 and the last is 8, giving 38. Part 2: in xtwone3four the scanner finds two, then one starting inside two, then the digit 3, then four, so the first is 2 and the last is 4, giving 24.</desc>
+  <rect x="1" y="1" width="958" height="468" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">First and last "digit" of each line</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">the value is the two digits glued together: first · last</text>
+    <text x="40" y="126" font-size="15" font-weight="700" fill="#58a6ff">part 1</text>
+    <text x="40" y="146" font-size="12" fill="#8b949e">digits only</text>
+    <text x="40" y="276" font-size="15" font-weight="700" fill="#d2a8ff">part 2</text>
+    <text x="40" y="296" font-size="12" fill="#8b949e">digits + words</text>
+        <rect x="200" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="218" y="127" font-size="19" text-anchor="middle" fill="#e6edf3">p</text>
+    <rect x="240" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="258" y="127" font-size="19" text-anchor="middle" fill="#e6edf3">q</text>
+    <rect x="280" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="298" y="127" font-size="19" text-anchor="middle" fill="#e6edf3">r</text>
+    <rect x="320" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="338" y="127" font-size="19" text-anchor="middle" fill="#3fb950">3</text>
+    <rect x="360" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="378" y="127" font-size="19" text-anchor="middle" fill="#e6edf3">s</text>
+    <rect x="400" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="418" y="127" font-size="19" text-anchor="middle" fill="#e6edf3">t</text>
+    <rect x="440" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="458" y="127" font-size="19" text-anchor="middle" fill="#e6edf3">u</text>
+    <rect x="480" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="498" y="127" font-size="19" text-anchor="middle" fill="#3fb950">8</text>
+    <rect x="520" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="538" y="127" font-size="19" text-anchor="middle" fill="#e6edf3">v</text>
+    <rect x="560" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="578" y="127" font-size="19" text-anchor="middle" fill="#e6edf3">w</text>
+    <rect x="600" y="100" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="618" y="127" font-size="19" text-anchor="middle" fill="#e6edf3">x</text>
+    <rect x="200" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="218" y="277" font-size="19" text-anchor="middle" fill="#e6edf3">x</text>
+    <rect x="240" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="258" y="277" font-size="19" text-anchor="middle" fill="#e6edf3">t</text>
+    <rect x="280" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="298" y="277" font-size="19" text-anchor="middle" fill="#e6edf3">w</text>
+    <rect x="320" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="338" y="277" font-size="19" text-anchor="middle" fill="#e6edf3">o</text>
+    <rect x="360" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="378" y="277" font-size="19" text-anchor="middle" fill="#e6edf3">n</text>
+    <rect x="400" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="418" y="277" font-size="19" text-anchor="middle" fill="#e6edf3">e</text>
+    <rect x="440" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="458" y="277" font-size="19" text-anchor="middle" fill="#3fb950">3</text>
+    <rect x="480" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="498" y="277" font-size="19" text-anchor="middle" fill="#e6edf3">f</text>
+    <rect x="520" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="538" y="277" font-size="19" text-anchor="middle" fill="#e6edf3">o</text>
+    <rect x="560" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="578" y="277" font-size="19" text-anchor="middle" fill="#e6edf3">u</text>
+    <rect x="600" y="250" width="36" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="618" y="277" font-size="19" text-anchor="middle" fill="#e6edf3">r</text>
+    <path d="M242 298 v10 H354 v-10" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <text x="298" y="328" font-size="15" text-anchor="middle" fill="#58a6ff">two → 2</text>
+    <path d="M322 348 v10 H434 v-10" fill="none" stroke="#d2a8ff" stroke-width="2"/>
+    <text x="378" y="378" font-size="15" text-anchor="middle" fill="#d2a8ff">one → 1</text>
+    <path d="M482 298 v10 H634 v-10" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <text x="558" y="328" font-size="15" text-anchor="middle" fill="#58a6ff">four → 4</text>
+    <text x="458" y="326" font-size="15" text-anchor="middle" fill="#3fb950">3</text>
+    <text x="680" y="127" font-size="18" fill="#e6edf3">3 · 8 → <tspan fill="#f2cc60">38</tspan></text>
+    <text x="680" y="277" font-size="18" fill="#e6edf3">2 1 3 4 → <tspan fill="#f2cc60">24</tspan></text>
+    <line x1="40" y1="396" x2="920" y2="396" stroke="#21262d"/>
+    <text x="40" y="422" font-size="13" fill="#8b949e">at a letter that can belong to a number word, grow line[start:cursor] until it is a word (then stop),</text>
+    <text x="40" y="444" font-size="13" fill="#8b949e">then restart from start + 1 · that is why "one" is still found inside "twone"</text>
+  </g>
+</svg>

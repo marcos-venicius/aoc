@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-labelledby="t d">
+  <title id="t">The five example games, their largest draws and powers</title>
+  <desc id="d">For each game the largest red, green and blue counts seen in any draw. Games 1, 2 and 5 stay within 12 red, 13 green, 14 blue, so part 1 is 1 + 2 + 5 = 8. Game 3 has 20 red and game 4 has 14 red and 15 blue. The power is the product of the three maxima: 48, 12, 1560, 630, 36, summing to 2286.</desc>
+  <rect x="1" y="1" width="958" height="418" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Per game: largest draw of each colour</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">bag limits: <tspan fill="#ff7b72">12 red</tspan> · <tspan fill="#3fb950">13 green</tspan> · <tspan fill="#58a6ff">14 blue</tspan> · draws are separated by ;</text>
+    <g font-size="13" fill="#8b949e" text-anchor="middle">
+      <text x="610" y="104">max r · g · b</text>
+      <text x="740" y="104">P1</text>
+      <text x="860" y="104">P2 power</text>
+    </g>
+    <text x="130" y="104" font-size="13" fill="#8b949e">draws</text>
+    <line x1="40" y1="114" x2="920" y2="114" stroke="#30363d"/>
+        <text x="40" y="140" font-size="15" fill="#e6edf3">Game 1</text>
+    <text x="130" y="140" font-size="14" fill="#8b949e"><tspan fill="#58a6ff">3b</tspan> <tspan fill="#ff7b72">4r</tspan> <tspan fill="#30363d">;</tspan> <tspan fill="#ff7b72">1r</tspan> <tspan fill="#3fb950">2g</tspan> <tspan fill="#58a6ff">6b</tspan> <tspan fill="#30363d">;</tspan> <tspan fill="#3fb950">2g</tspan></text>
+    <text x="560" y="140" font-size="15" text-anchor="middle" fill="#ff7b72">4</text>
+    <text x="610" y="140" font-size="15" text-anchor="middle" fill="#3fb950">2</text>
+    <text x="660" y="140" font-size="15" text-anchor="middle" fill="#58a6ff">6</text>
+    <text x="740" y="140" font-size="15" text-anchor="middle" fill="#3fb950">✓ 1</text>
+    <text x="860" y="140" font-size="15" text-anchor="middle" fill="#e6edf3">48</text>
+    <text x="40" y="184" font-size="15" fill="#e6edf3">Game 2</text>
+    <text x="130" y="184" font-size="14" fill="#8b949e"><tspan fill="#58a6ff">1b</tspan> <tspan fill="#3fb950">2g</tspan> <tspan fill="#30363d">;</tspan> <tspan fill="#3fb950">3g</tspan> <tspan fill="#58a6ff">4b</tspan> <tspan fill="#ff7b72">1r</tspan> <tspan fill="#30363d">;</tspan> <tspan fill="#3fb950">1g</tspan> <tspan fill="#58a6ff">1b</tspan></text>
+    <text x="560" y="184" font-size="15" text-anchor="middle" fill="#ff7b72">1</text>
+    <text x="610" y="184" font-size="15" text-anchor="middle" fill="#3fb950">3</text>
+    <text x="660" y="184" font-size="15" text-anchor="middle" fill="#58a6ff">4</text>
+    <text x="740" y="184" font-size="15" text-anchor="middle" fill="#3fb950">✓ 2</text>
+    <text x="860" y="184" font-size="15" text-anchor="middle" fill="#e6edf3">12</text>
+    <text x="40" y="228" font-size="15" fill="#e6edf3">Game 3</text>
+    <text x="130" y="228" font-size="14" fill="#8b949e"><tspan fill="#3fb950">8g</tspan> <tspan fill="#58a6ff">6b</tspan> <tspan fill="#ff7b72">20r</tspan> <tspan fill="#30363d">;</tspan> <tspan fill="#58a6ff">5b</tspan> <tspan fill="#ff7b72">4r</tspan> <tspan fill="#3fb950">13g</tspan> <tspan fill="#30363d">;</tspan> <tspan fill="#3fb950">5g</tspan> <tspan fill="#ff7b72">1r</tspan></text>
+    <text x="560" y="228" font-size="15" text-anchor="middle" fill="#ff7b72" font-weight="700">20</text>
+    <rect x="540" y="210" width="40" height="26" rx="5" fill="none" stroke="#ff7b72" stroke-width="2"/>
+    <text x="610" y="228" font-size="15" text-anchor="middle" fill="#3fb950">13</text>
+    <text x="660" y="228" font-size="15" text-anchor="middle" fill="#58a6ff">6</text>
+    <text x="740" y="228" font-size="15" text-anchor="middle" fill="#ff7b72">✗</text>
+    <text x="860" y="228" font-size="15" text-anchor="middle" fill="#e6edf3">1560</text>
+    <text x="40" y="272" font-size="15" fill="#e6edf3">Game 4</text>
+    <text x="130" y="272" font-size="14" fill="#8b949e"><tspan fill="#3fb950">1g</tspan> <tspan fill="#ff7b72">3r</tspan> <tspan fill="#58a6ff">6b</tspan> <tspan fill="#30363d">;</tspan> <tspan fill="#3fb950">3g</tspan> <tspan fill="#ff7b72">6r</tspan> <tspan fill="#30363d">;</tspan> <tspan fill="#3fb950">3g</tspan> <tspan fill="#58a6ff">15b</tspan> <tspan fill="#ff7b72">14r</tspan></text>
+    <text x="560" y="272" font-size="15" text-anchor="middle" fill="#ff7b72" font-weight="700">14</text>
+    <rect x="540" y="254" width="40" height="26" rx="5" fill="none" stroke="#ff7b72" stroke-width="2"/>
+    <text x="610" y="272" font-size="15" text-anchor="middle" fill="#3fb950">3</text>
+    <text x="660" y="272" font-size="15" text-anchor="middle" fill="#58a6ff" font-weight="700">15</text>
+    <rect x="640" y="254" width="40" height="26" rx="5" fill="none" stroke="#ff7b72" stroke-width="2"/>
+    <text x="740" y="272" font-size="15" text-anchor="middle" fill="#ff7b72">✗</text>
+    <text x="860" y="272" font-size="15" text-anchor="middle" fill="#e6edf3">630</text>
+    <text x="40" y="316" font-size="15" fill="#e6edf3">Game 5</text>
+    <text x="130" y="316" font-size="14" fill="#8b949e"><tspan fill="#ff7b72">6r</tspan> <tspan fill="#58a6ff">1b</tspan> <tspan fill="#3fb950">3g</tspan> <tspan fill="#30363d">;</tspan> <tspan fill="#58a6ff">2b</tspan> <tspan fill="#ff7b72">1r</tspan> <tspan fill="#3fb950">2g</tspan></text>
+    <text x="560" y="316" font-size="15" text-anchor="middle" fill="#ff7b72">6</text>
+    <text x="610" y="316" font-size="15" text-anchor="middle" fill="#3fb950">3</text>
+    <text x="660" y="316" font-size="15" text-anchor="middle" fill="#58a6ff">2</text>
+    <text x="740" y="316" font-size="15" text-anchor="middle" fill="#3fb950">✓ 5</text>
+    <text x="860" y="316" font-size="15" text-anchor="middle" fill="#e6edf3">36</text>
+    <line x1="40" y1="352" x2="920" y2="352" stroke="#30363d"/>
+    <text x="40" y="386" font-size="15" fill="#8b949e">sums →</text>
+    <text x="740" y="386" font-size="16" text-anchor="middle" fill="#f2cc60">8</text>
+    <text x="860" y="386" font-size="16" text-anchor="middle" fill="#f2cc60">2286</text>
+  </g>
+</svg>

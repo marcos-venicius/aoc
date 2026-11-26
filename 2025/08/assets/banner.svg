@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" width="960" height="220" role="img" aria-labelledby="t">
+  <title id="t">Advent of Code 2025 · Day 08 — Playground</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fb950"/>
+      <stop offset="0.5" stop-color="#58a6ff"/>
+      <stop offset="1" stop-color="#f2cc60"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#21262d" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="url(#grid)" opacity="0.6"/>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="none" stroke="url(#edge)" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="48" y="64" font-size="16" fill="#8b949e" letter-spacing="3">ADVENT OF CODE · 2025</text>
+    <text x="48" y="124" font-size="44" font-weight="700" fill="#e6edf3">Day 08</text>
+    <text x="48" y="168" font-size="24" fill="#3fb950">Playground</text>
+    <g font-size="22" fill="#f2cc60" text-anchor="end">
+      <text x="912" y="64">★ ★</text>
+    </g>
+    <text x="912" y="168" font-size="15" fill="#8b949e" text-anchor="end">Python</text>
+  </g>
+  <!-- decorative junction boxes -->
+  <g transform="translate(640 80)">
+    <line x1="0" y1="30" x2="40" y2="10" stroke="#3fb950" stroke-width="2"/>
+    <line x1="40" y1="10" x2="70" y2="45" stroke="#3fb950" stroke-width="2"/>
+    <line x1="70" y1="45" x2="120" y2="20" stroke="#3fb950" stroke-width="2"/>
+    <line x1="120" y1="20" x2="160" y2="50" stroke="#30363d" stroke-width="2"/>
+    <line x1="160" y1="50" x2="200" y2="15" stroke="#30363d" stroke-width="2"/>
+    <line x1="200" y1="15" x2="240" y2="40" stroke="#30363d" stroke-width="2"/>
+    <circle cx="0" cy="30" r="6" fill="#f2cc60"/>
+    <circle cx="40" cy="10" r="6" fill="#f2cc60"/>
+    <circle cx="70" cy="45" r="6" fill="#f2cc60"/>
+    <circle cx="120" cy="20" r="6" fill="#f2cc60"/>
+    <circle cx="160" cy="50" r="6" fill="#f2cc60"/>
+    <circle cx="200" cy="15" r="6" fill="#f2cc60"/>
+    <circle cx="240" cy="40" r="6" fill="#f2cc60"/>
+  </g>
+</svg>

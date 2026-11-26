@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="t d">
+  <title id="t">The two password policies on the example lines</title>
+  <desc id="d">Part 1 counts the letter and checks the count is within the range: abcde and ccccccccc pass. Part 2 treats the numbers as 1-based positions and requires exactly one of them to hold the letter: only abcde passes.</desc>
+  <rect x="1" y="1" width="958" height="398" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Same line, two readings of the policy</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">boxes outlined = the two positions used by part 2 (<tspan fill="#3fb950">letter matches</tspan> / <tspan fill="#ff7b72">does not</tspan>)</text>
+    <text x="560" y="104" font-size="14" font-weight="700" fill="#58a6ff">P1: count in range</text>
+    <text x="740" y="104" font-size="14" font-weight="700" fill="#d2a8ff">P2: exactly one</text>
+        <text x="40" y="146" font-size="17" fill="#e6edf3">1-3 a: </text>
+    <rect x="200" y="120" width="32" height="38" rx="5" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="216" y="146" font-size="18" text-anchor="middle" fill="#f2cc60">a</text>
+    <text x="216" y="176" font-size="11" text-anchor="middle" fill="#8b949e">1</text>
+    <rect x="236" y="120" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="252" y="146" font-size="18" text-anchor="middle" fill="#e6edf3">b</text>
+    <text x="252" y="176" font-size="11" text-anchor="middle" fill="#8b949e">2</text>
+    <rect x="272" y="120" width="32" height="38" rx="5" fill="#161b22" stroke="#ff7b72" stroke-width="2"/>
+    <text x="288" y="146" font-size="18" text-anchor="middle" fill="#e6edf3">c</text>
+    <text x="288" y="176" font-size="11" text-anchor="middle" fill="#8b949e">3</text>
+    <rect x="308" y="120" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="324" y="146" font-size="18" text-anchor="middle" fill="#e6edf3">d</text>
+    <text x="324" y="176" font-size="11" text-anchor="middle" fill="#8b949e">4</text>
+    <rect x="344" y="120" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="360" y="146" font-size="18" text-anchor="middle" fill="#e6edf3">e</text>
+    <text x="360" y="176" font-size="11" text-anchor="middle" fill="#8b949e">5</text>
+    <text x="560" y="146" font-size="15" fill="#e6edf3">1 in [1,3] <tspan fill="#3fb950">✓</tspan></text>
+    <text x="740" y="146" font-size="15" fill="#e6edf3">T xor F <tspan fill="#3fb950">✓</tspan></text>
+    <text x="40" y="226" font-size="17" fill="#e6edf3">1-3 b: </text>
+    <rect x="200" y="200" width="32" height="38" rx="5" fill="#161b22" stroke="#ff7b72" stroke-width="2"/>
+    <text x="216" y="226" font-size="18" text-anchor="middle" fill="#e6edf3">c</text>
+    <text x="216" y="256" font-size="11" text-anchor="middle" fill="#8b949e">1</text>
+    <rect x="236" y="200" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="252" y="226" font-size="18" text-anchor="middle" fill="#e6edf3">d</text>
+    <text x="252" y="256" font-size="11" text-anchor="middle" fill="#8b949e">2</text>
+    <rect x="272" y="200" width="32" height="38" rx="5" fill="#161b22" stroke="#ff7b72" stroke-width="2"/>
+    <text x="288" y="226" font-size="18" text-anchor="middle" fill="#e6edf3">e</text>
+    <text x="288" y="256" font-size="11" text-anchor="middle" fill="#8b949e">3</text>
+    <rect x="308" y="200" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="324" y="226" font-size="18" text-anchor="middle" fill="#e6edf3">f</text>
+    <text x="324" y="256" font-size="11" text-anchor="middle" fill="#8b949e">4</text>
+    <rect x="344" y="200" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="360" y="226" font-size="18" text-anchor="middle" fill="#e6edf3">g</text>
+    <text x="360" y="256" font-size="11" text-anchor="middle" fill="#8b949e">5</text>
+    <text x="560" y="226" font-size="15" fill="#e6edf3">0 in [1,3] <tspan fill="#ff7b72">✗</tspan></text>
+    <text x="740" y="226" font-size="15" fill="#e6edf3">F xor F <tspan fill="#ff7b72">✗</tspan></text>
+    <text x="40" y="306" font-size="17" fill="#e6edf3">2-9 c: </text>
+    <rect x="200" y="280" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="216" y="306" font-size="18" text-anchor="middle" fill="#f2cc60">c</text>
+    <text x="216" y="336" font-size="11" text-anchor="middle" fill="#8b949e">1</text>
+    <rect x="236" y="280" width="32" height="38" rx="5" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="252" y="306" font-size="18" text-anchor="middle" fill="#f2cc60">c</text>
+    <text x="252" y="336" font-size="11" text-anchor="middle" fill="#8b949e">2</text>
+    <rect x="272" y="280" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="288" y="306" font-size="18" text-anchor="middle" fill="#f2cc60">c</text>
+    <text x="288" y="336" font-size="11" text-anchor="middle" fill="#8b949e">3</text>
+    <rect x="308" y="280" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="324" y="306" font-size="18" text-anchor="middle" fill="#f2cc60">c</text>
+    <text x="324" y="336" font-size="11" text-anchor="middle" fill="#8b949e">4</text>
+    <rect x="344" y="280" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="360" y="306" font-size="18" text-anchor="middle" fill="#f2cc60">c</text>
+    <text x="360" y="336" font-size="11" text-anchor="middle" fill="#8b949e">5</text>
+    <rect x="380" y="280" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="396" y="306" font-size="18" text-anchor="middle" fill="#f2cc60">c</text>
+    <text x="396" y="336" font-size="11" text-anchor="middle" fill="#8b949e">6</text>
+    <rect x="416" y="280" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="432" y="306" font-size="18" text-anchor="middle" fill="#f2cc60">c</text>
+    <text x="432" y="336" font-size="11" text-anchor="middle" fill="#8b949e">7</text>
+    <rect x="452" y="280" width="32" height="38" rx="5" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <text x="468" y="306" font-size="18" text-anchor="middle" fill="#f2cc60">c</text>
+    <text x="468" y="336" font-size="11" text-anchor="middle" fill="#8b949e">8</text>
+    <rect x="488" y="280" width="32" height="38" rx="5" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="504" y="306" font-size="18" text-anchor="middle" fill="#f2cc60">c</text>
+    <text x="504" y="336" font-size="11" text-anchor="middle" fill="#8b949e">9</text>
+    <text x="560" y="306" font-size="15" fill="#e6edf3">9 in [2,9] <tspan fill="#3fb950">✓</tspan></text>
+    <text x="740" y="306" font-size="15" fill="#e6edf3">T xor T <tspan fill="#ff7b72">✗</tspan></text>
+    <line x1="40" y1="356" x2="920" y2="356" stroke="#21262d"/>
+    <text x="40" y="382" font-size="14" fill="#8b949e">valid passwords → part 1: <tspan fill="#f2cc60">2</tspan> · part 2: <tspan fill="#f2cc60">1</tspan></text>
+  </g>
+</svg>

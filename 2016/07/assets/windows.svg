@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="t d">
+  <title id="t">Splitting an address into supernet and hypernet chunks and scanning with sliding windows</title>
+  <desc id="d">dissect_ip tags chunks outside brackets with a minus sign and chunks inside brackets with a plus sign. Part 1 looks for an ABBA outside and none inside; part 2 looks for an ABA outside whose BAB is inside.</desc>
+  <rect x="1" y="1" width="958" height="558" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">Tag the chunks, then slide a window</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">&quot;-&quot; = supernet (outside brackets) · &quot;+&quot; = hypernet (inside brackets)</text>
+    <text x="40" y="118" font-size="15" fill="#e6edf3" font-weight="700" xml:space="preserve">Part 1 · TLS</text>
+    <text x="180" y="118" font-size="15" fill="#8b949e" xml:space="preserve">abba[mnop]qrst</text>
+    <rect x="60" y="136" width="170" height="44" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="77.0" y="165" font-size="18" fill="#58a6ff" text-anchor="middle" font-weight="700" xml:space="preserve">-</text>
+    <text x="111.0" y="165" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">a</text>
+    <text x="145.0" y="165" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">b</text>
+    <text x="179.0" y="165" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">b</text>
+    <text x="213.0" y="165" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">a</text>
+    <rect x="96" y="186" width="132" height="6" rx="3" fill="#3fb950"/>
+    <rect x="246" y="136" width="170" height="44" rx="8" fill="#161b22" stroke="#d2a8ff" stroke-width="2"/>
+    <text x="263.0" y="165" font-size="18" fill="#d2a8ff" text-anchor="middle" font-weight="700" xml:space="preserve">+</text>
+    <text x="297.0" y="165" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">m</text>
+    <text x="331.0" y="165" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="365.0" y="165" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">o</text>
+    <text x="399.0" y="165" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">p</text>
+    <rect x="432" y="136" width="170" height="44" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="449.0" y="165" font-size="18" fill="#58a6ff" text-anchor="middle" font-weight="700" xml:space="preserve">-</text>
+    <text x="483.0" y="165" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">q</text>
+    <text x="517.0" y="165" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="551.0" y="165" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="585.0" y="165" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">t</text>
+    <text x="60" y="222" font-size="13" fill="#8b949e" xml:space="preserve">has_abba: s[i] == s[i+3] and s[i+1] == s[i+2] and s[i] != s[i+1]</text>
+    <text x="60" y="246" font-size="13" fill="#3fb950" xml:space="preserve">ABBA in a &quot;-&quot; chunk ✓ and no ABBA in any &quot;+&quot; chunk ✓  → supports TLS</text>
+    <text x="60" y="270" font-size="12" fill="#ff7b72" xml:space="preserve">abcd[bddb]xyyx → ABBA inside brackets → ✗      aaaa[qwer]tyui → a ≠ b required → ✗</text>
+    <line x1="40" y1="300" x2="920" y2="300" stroke="#21262d" stroke-width="1"/>
+    <text x="40" y="340" font-size="15" fill="#e6edf3" font-weight="700" xml:space="preserve">Part 2 · SSL</text>
+    <text x="180" y="340" font-size="15" fill="#8b949e" xml:space="preserve">zazbz[bzb]cdb</text>
+    <rect x="60" y="358" width="204" height="44" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="77.0" y="387" font-size="18" fill="#58a6ff" text-anchor="middle" font-weight="700" xml:space="preserve">-</text>
+    <text x="111.0" y="387" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">z</text>
+    <text x="145.0" y="387" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">a</text>
+    <text x="179.0" y="387" font-size="20" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">z</text>
+    <text x="213.0" y="387" font-size="20" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">b</text>
+    <text x="247.0" y="387" font-size="20" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">z</text>
+    <rect x="164" y="408" width="98" height="6" rx="3" fill="#f2cc60"/>
+    <rect x="280" y="358" width="136" height="44" rx="8" fill="#161b22" stroke="#d2a8ff" stroke-width="2"/>
+    <text x="297.0" y="387" font-size="18" fill="#d2a8ff" text-anchor="middle" font-weight="700" xml:space="preserve">+</text>
+    <text x="331.0" y="387" font-size="20" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">b</text>
+    <text x="365.0" y="387" font-size="20" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">z</text>
+    <text x="399.0" y="387" font-size="20" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">b</text>
+    <rect x="316" y="408" width="98" height="6" rx="3" fill="#f2cc60"/>
+    <rect x="432" y="358" width="136" height="44" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="449.0" y="387" font-size="18" fill="#58a6ff" text-anchor="middle" font-weight="700" xml:space="preserve">-</text>
+    <text x="483.0" y="387" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">c</text>
+    <text x="517.0" y="387" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="551.0" y="387" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">b</text>
+    <text x="60" y="444" font-size="13" fill="#8b949e" xml:space="preserve">get_abas collects every s[i] == s[i+2] != s[i+1]:</text>
+    <text x="60" y="468" font-size="13" fill="#e6edf3" xml:space="preserve">supernet ABAs = {zaz, zbz}     hypernet ABAs = {bzb}</text>
+    <text x="60" y="492" font-size="13" fill="#f2cc60" xml:space="preserve">flip each supernet ABA: zaz → aza ✗,  zbz → bzb ✓ (found in the hypernet set)</text>
+    <text x="60" y="516" font-size="13" fill="#3fb950" xml:space="preserve">→ supports SSL</text>
+  </g>
+</svg>

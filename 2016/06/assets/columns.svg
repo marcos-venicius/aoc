@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="t d">
+  <title id="t">Column letter frequencies of the example messages</title>
+  <desc id="d">Each column of the 16 example messages is counted on its own. The most common letter of each column spells easter and the least common spells advent.</desc>
+  <rect x="1" y="1" width="958" height="558" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">Count letters per column</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">green = most common in its column (part 1) · red = least common (part 2)</text>
+    <rect x="72" y="96" width="36" height="424" rx="6" fill="#161b22"/>
+    <rect x="112" y="96" width="36" height="424" rx="6" fill="#161b22"/>
+    <rect x="152" y="96" width="36" height="424" rx="6" fill="#161b22"/>
+    <rect x="192" y="96" width="36" height="424" rx="6" fill="#161b22"/>
+    <rect x="232" y="96" width="36" height="424" rx="6" fill="#161b22"/>
+    <rect x="272" y="96" width="36" height="424" rx="6" fill="#161b22"/>
+    <text x="90.0" y="118" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <text x="130.0" y="118" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">e</text>
+    <text x="170.0" y="118" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="210.0" y="118" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">a</text>
+    <text x="250.0" y="118" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="290.0" y="118" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="90.0" y="144" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="130.0" y="144" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="170.0" y="144" font-size="16" fill="#ff7b72" text-anchor="middle" font-weight="700" xml:space="preserve">v</text>
+    <text x="210.0" y="144" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">t</text>
+    <text x="250.0" y="144" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <text x="290.0" y="144" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">e</text>
+    <text x="90.0" y="170" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <text x="130.0" y="170" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">a</text>
+    <text x="170.0" y="170" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="210.0" y="170" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="250.0" y="170" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="290.0" y="170" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">r</text>
+    <text x="90.0" y="196" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="130.0" y="196" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">a</text>
+    <text x="170.0" y="196" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">a</text>
+    <text x="210.0" y="196" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">v</text>
+    <text x="250.0" y="196" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="290.0" y="196" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="90.0" y="222" font-size="16" fill="#ff7b72" text-anchor="middle" font-weight="700" xml:space="preserve">a</text>
+    <text x="130.0" y="222" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">t</text>
+    <text x="170.0" y="222" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">e</text>
+    <text x="210.0" y="222" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">v</text>
+    <text x="250.0" y="222" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="290.0" y="222" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="90.0" y="248" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">t</text>
+    <text x="130.0" y="248" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="170.0" y="248" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="210.0" y="248" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="250.0" y="248" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <text x="290.0" y="248" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">v</text>
+    <text x="90.0" y="274" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="130.0" y="274" font-size="16" fill="#ff7b72" text-anchor="middle" font-weight="700" xml:space="preserve">d</text>
+    <text x="170.0" y="274" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">t</text>
+    <text x="210.0" y="274" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">t</text>
+    <text x="250.0" y="274" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="290.0" y="274" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">a</text>
+    <text x="90.0" y="300" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="130.0" y="300" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">a</text>
+    <text x="170.0" y="300" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">s</text>
+    <text x="210.0" y="300" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="250.0" y="300" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">t</text>
+    <text x="290.0" y="300" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">v</text>
+    <text x="90.0" y="326" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="130.0" y="326" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="170.0" y="326" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">s</text>
+    <text x="210.0" y="326" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="250.0" y="326" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">t</text>
+    <text x="290.0" y="326" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="90.0" y="352" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="130.0" y="352" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">t</text>
+    <text x="170.0" y="352" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="210.0" y="352" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">a</text>
+    <text x="250.0" y="352" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="290.0" y="352" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">a</text>
+    <text x="90.0" y="378" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="130.0" y="378" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">v</text>
+    <text x="170.0" y="378" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">e</text>
+    <text x="210.0" y="378" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">t</text>
+    <text x="250.0" y="378" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">v</text>
+    <text x="290.0" y="378" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">e</text>
+    <text x="90.0" y="404" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">t</text>
+    <text x="130.0" y="404" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">e</text>
+    <text x="170.0" y="404" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">s</text>
+    <text x="210.0" y="404" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="250.0" y="404" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">v</text>
+    <text x="290.0" y="404" font-size="16" fill="#ff7b72" text-anchor="middle" font-weight="700" xml:space="preserve">t</text>
+    <text x="90.0" y="430" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">v</text>
+    <text x="130.0" y="430" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="170.0" y="430" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">t</text>
+    <text x="210.0" y="430" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="250.0" y="430" font-size="16" fill="#ff7b72" text-anchor="middle" font-weight="700" xml:space="preserve">n</text>
+    <text x="290.0" y="430" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="90.0" y="456" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">v</text>
+    <text x="130.0" y="456" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="170.0" y="456" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="210.0" y="456" font-size="16" fill="#ff7b72" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <text x="250.0" y="456" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">a</text>
+    <text x="290.0" y="456" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">r</text>
+    <text x="90.0" y="482" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">d</text>
+    <text x="130.0" y="482" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">v</text>
+    <text x="170.0" y="482" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="210.0" y="482" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">s</text>
+    <text x="250.0" y="482" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <text x="290.0" y="482" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="90.0" y="508" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <text x="130.0" y="508" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">n</text>
+    <text x="170.0" y="508" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">a</text>
+    <text x="210.0" y="508" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">r</text>
+    <text x="250.0" y="508" font-size="16" fill="#8b949e" text-anchor="middle" xml:space="preserve">a</text>
+    <text x="290.0" y="508" font-size="16" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">r</text>
+    <text x="420" y="110" font-size="14" fill="#e6edf3" font-weight="700" xml:space="preserve">Counts per column</text>
+    <text x="420" y="146" font-size="13" fill="#8b949e" xml:space="preserve">col 0</text>
+    <text x="480" y="146" font-size="13" fill="#e6edf3" xml:space="preserve">e3 d2 r2 t2 s2 n2 v2 a1</text>
+    <text x="480" y="164" font-size="12" fill="#8b949e" xml:space="preserve">most e · least a</text>
+    <text x="420" y="190" font-size="13" fill="#8b949e" xml:space="preserve">col 1</text>
+    <text x="480" y="190" font-size="13" fill="#e6edf3" xml:space="preserve">a3 e2 r2 t2 s2 v2 n2 d1</text>
+    <text x="480" y="208" font-size="12" fill="#8b949e" xml:space="preserve">most a · least d</text>
+    <text x="420" y="234" font-size="13" fill="#8b949e" xml:space="preserve">col 2</text>
+    <text x="480" y="234" font-size="13" fill="#e6edf3" xml:space="preserve">s3 d2 n2 a2 e2 r2 t2 v1</text>
+    <text x="480" y="252" font-size="12" fill="#8b949e" xml:space="preserve">most s · least v</text>
+    <text x="420" y="278" font-size="13" fill="#8b949e" xml:space="preserve">col 3</text>
+    <text x="480" y="278" font-size="13" fill="#e6edf3" xml:space="preserve">t3 a2 d2 v2 n2 r2 s2 e1</text>
+    <text x="480" y="296" font-size="12" fill="#8b949e" xml:space="preserve">most t · least e</text>
+    <text x="420" y="322" font-size="13" fill="#8b949e" xml:space="preserve">col 4</text>
+    <text x="480" y="322" font-size="13" fill="#e6edf3" xml:space="preserve">e3 d2 s2 r2 t2 v2 a2 n1</text>
+    <text x="480" y="340" font-size="12" fill="#8b949e" xml:space="preserve">most e · least n</text>
+    <text x="420" y="366" font-size="13" fill="#8b949e" xml:space="preserve">col 5</text>
+    <text x="480" y="366" font-size="13" fill="#e6edf3" xml:space="preserve">r3 n2 e2 d2 s2 v2 a2 t1</text>
+    <text x="480" y="384" font-size="12" fill="#8b949e" xml:space="preserve">most r · least t</text>
+    <text x="420" y="420" font-size="16" fill="#3fb950" font-weight="700" xml:space="preserve">part 1 → easter</text>
+    <text x="420" y="448" font-size="16" fill="#ff7b72" font-weight="700" xml:space="preserve">part 2 → advent</text>
+  </g>
+</svg>

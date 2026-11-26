@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="960" height="430" role="img" aria-labelledby="t d">
+  <title id="t">The example building and what the parser builds from it</title>
+  <desc id="d">Four floors: floor 1 holds the hydrogen and lithium microchips and the elevator, floor 2 the hydrogen generator, floor 3 the lithium generator, floor 4 is empty. The parser turns each floor into a dict from item kind to a set of elements.</desc>
+  <rect x="1" y="1" width="958" height="428" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">From sentences to floor state</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">the code parses the floors and prints them</text>
+    <text x="161.0" y="102" font-size="12" fill="#8b949e" text-anchor="middle" xml:space="preserve">E</text>
+    <text x="223.0" y="102" font-size="12" fill="#8b949e" text-anchor="middle" xml:space="preserve">HG</text>
+    <text x="285.0" y="102" font-size="12" fill="#8b949e" text-anchor="middle" xml:space="preserve">HM</text>
+    <text x="347.0" y="102" font-size="12" fill="#8b949e" text-anchor="middle" xml:space="preserve">LG</text>
+    <text x="409.0" y="102" font-size="12" fill="#8b949e" text-anchor="middle" xml:space="preserve">LM</text>
+    <rect x="60" y="290" width="380" height="54" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="76" y="323" font-size="16" fill="#8b949e" font-weight="700" xml:space="preserve">F1</text>
+    <rect x="139.0" y="302" width="44" height="30" rx="6" fill="none" stroke="#f2cc60" stroke-width="2"/>
+    <text x="161.0" y="323" font-size="16" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">E</text>
+    <text x="223.0" y="323" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <rect x="261.0" y="302" width="48" height="30" rx="6" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <text x="285.0" y="323" font-size="15" fill="#58a6ff" text-anchor="middle" font-weight="700" xml:space="preserve">HM</text>
+    <text x="347.0" y="323" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <rect x="385.0" y="302" width="48" height="30" rx="6" fill="none" stroke="#d2a8ff" stroke-width="2"/>
+    <text x="409.0" y="323" font-size="15" fill="#d2a8ff" text-anchor="middle" font-weight="700" xml:space="preserve">LM</text>
+    <rect x="60" y="230" width="380" height="54" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="76" y="263" font-size="16" fill="#8b949e" font-weight="700" xml:space="preserve">F2</text>
+    <text x="161.0" y="263" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <rect x="199.0" y="242" width="48" height="30" rx="15" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <text x="223.0" y="263" font-size="15" fill="#58a6ff" text-anchor="middle" font-weight="700" xml:space="preserve">HG</text>
+    <text x="285.0" y="263" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <text x="347.0" y="263" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <text x="409.0" y="263" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <rect x="60" y="170" width="380" height="54" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="76" y="203" font-size="16" fill="#8b949e" font-weight="700" xml:space="preserve">F3</text>
+    <text x="161.0" y="203" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <text x="223.0" y="203" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <text x="285.0" y="203" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <rect x="323.0" y="182" width="48" height="30" rx="15" fill="none" stroke="#d2a8ff" stroke-width="2"/>
+    <text x="347.0" y="203" font-size="15" fill="#d2a8ff" text-anchor="middle" font-weight="700" xml:space="preserve">LG</text>
+    <text x="409.0" y="203" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <rect x="60" y="110" width="380" height="54" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="76" y="143" font-size="16" fill="#8b949e" font-weight="700" xml:space="preserve">F4</text>
+    <text x="161.0" y="143" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <text x="223.0" y="143" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <text x="285.0" y="143" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <text x="347.0" y="143" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <text x="409.0" y="143" font-size="16" fill="#30363d" text-anchor="middle" xml:space="preserve">.</text>
+    <text x="60" y="368" font-size="12" fill="#8b949e" xml:space="preserve">H = hydrogen · L = lithium · G = generator · M = microchip</text>
+    <text x="500" y="114" font-size="14" fill="#e6edf3" font-weight="700" xml:space="preserve">parse_line → floors</text>
+    <text x="500" y="146" font-size="13" fill="#8b949e" xml:space="preserve">F1</text>
+    <text x="536" y="146" font-size="13" fill="#3fb950" xml:space="preserve">{'microchip': {'hydrogen', 'lithium'}}</text>
+    <text x="500" y="180" font-size="13" fill="#8b949e" xml:space="preserve">F2</text>
+    <text x="536" y="180" font-size="13" fill="#3fb950" xml:space="preserve">{'generator': {'hydrogen'}}</text>
+    <text x="500" y="214" font-size="13" fill="#8b949e" xml:space="preserve">F3</text>
+    <text x="536" y="214" font-size="13" fill="#3fb950" xml:space="preserve">{'generator': {'lithium'}}</text>
+    <text x="500" y="248" font-size="13" fill="#8b949e" xml:space="preserve">F4</text>
+    <text x="536" y="248" font-size="13" fill="#3fb950" xml:space="preserve">{}</text>
+    <text x="500" y="300" font-size="12" fill="#8b949e" xml:space="preserve">&quot;-compatible&quot; is stripped from</text>
+    <text x="500" y="318" font-size="12" fill="#8b949e" xml:space="preserve">the element name before it is stored</text>
+    <text x="500" y="360" font-size="12" fill="#8b949e" xml:space="preserve">part 1 and part 2 are</text>
+    <text x="500" y="378" font-size="12" fill="#8b949e" xml:space="preserve">not solved yet</text>
+  </g>
+</svg>

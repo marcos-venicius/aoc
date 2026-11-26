@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-labelledby="t d">
+  <title id="t">Summing numbers in a JSON document, with and without red objects</title>
+  <desc id="d">Part 1 sums every number token produced by the lexer: 1 + 2 + 3 = 6. Part 2 walks the parsed tree and skips any object that has a value equal to red, so the object with b: 2 is ignored and the sum is 4. A red inside an array has no effect.</desc>
+  <rect x="1" y="1" width="958" height="498" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Example: [1,{"c":"red","b":2},3]</text>
+
+    <line x1="400" y1="70" x2="400" y2="330" stroke="#21262d" stroke-width="2"/>
+
+    <!-- PART 1: tokens -->
+    <text x="40" y="84" font-size="15" font-weight="700" fill="#58a6ff">Part 1 · just the tokens</text>
+    <g font-size="14">
+      <text x="40" y="118" fill="#8b949e">[</text>
+      <text x="40" y="142" fill="#3fb950">NUMBER 1</text>
+      <text x="40" y="166" fill="#8b949e">,  {</text>
+      <text x="40" y="190" fill="#8b949e">STRING "c"  :  STRING "red"  ,</text>
+      <text x="40" y="214" fill="#8b949e">STRING "b"  :</text>
+      <text x="40" y="238" fill="#3fb950">NUMBER 2</text>
+      <text x="40" y="262" fill="#8b949e">}  ,</text>
+      <text x="40" y="286" fill="#3fb950">NUMBER 3</text>
+      <text x="40" y="310" fill="#8b949e">]</text>
+    </g>
+    <text x="250" y="292" font-size="16" fill="#e6edf3">1+2+3 = <tspan fill="#3fb950" font-weight="700">6</tspan></text>
+
+    <!-- PART 2: tree -->
+    <text x="430" y="84" font-size="15" font-weight="700" fill="#58a6ff">Part 2 · walk the tree, skip red objects</text>
+    <g stroke="#30363d" stroke-width="2" fill="none">
+      <path d="M640 132 L500 182 M640 132 L640 182 M640 132 L840 182"/>
+      <path d="M640 210 L580 262 M640 210 L720 262"/>
+    </g>
+    <g stroke-width="2">
+      <rect x="610" y="108" width="60" height="28" rx="6" fill="#161b22" stroke="#58a6ff"/>
+      <rect x="476" y="182" width="48" height="28" rx="6" fill="#161b22" stroke="#3fb950"/>
+      <rect x="600" y="182" width="80" height="28" rx="6" fill="#ff7b72" fill-opacity="0.12" stroke="#ff7b72"/>
+      <rect x="816" y="182" width="48" height="28" rx="6" fill="#161b22" stroke="#3fb950"/>
+      <rect x="530" y="262" width="100" height="28" rx="6" fill="#161b22" stroke="#ff7b72" stroke-dasharray="4 3"/>
+      <rect x="680" y="262" width="80" height="28" rx="6" fill="#161b22" stroke="#30363d" stroke-dasharray="4 3"/>
+    </g>
+    <g font-size="14" text-anchor="middle">
+      <text x="640" y="127" fill="#58a6ff">array</text>
+      <text x="500" y="201" fill="#3fb950">1</text>
+      <text x="640" y="201" fill="#ff7b72">object</text>
+      <text x="840" y="201" fill="#3fb950">3</text>
+      <text x="580" y="281" fill="#ff7b72">c: "red"</text>
+      <text x="720" y="281" fill="#8b949e">b: 2</text>
+    </g>
+    <path d="M594 176 L686 216 M686 176 L594 216" stroke="#ff7b72" stroke-width="2"/>
+    <text x="780" y="281" font-size="13" fill="#8b949e">never added</text>
+    <text x="430" y="320" font-size="16" fill="#e6edf3">1 + 3 = <tspan fill="#3fb950" font-weight="700">4</tspan></text>
+
+    <line x1="40" y1="346" x2="920" y2="346" stroke="#21262d" stroke-width="2"/>
+
+    <!-- more examples -->
+    <g font-size="13" fill="#8b949e">
+      <text x="40" y="378">more examples</text>
+      <text x="560" y="378" text-anchor="end">part 1</text>
+      <text x="680" y="378" text-anchor="end">part 2</text>
+    </g>
+    <g font-size="15" fill="#e6edf3">
+      <text x="40" y="410">[1,2,3]</text>
+      <text x="40" y="440">{"d":"red","e":[1,2,3,4],"f":5}</text>
+      <text x="40" y="470">[1,"red",5]</text>
+    </g>
+    <g font-size="15" text-anchor="end">
+      <text x="560" y="410" fill="#e6edf3">6</text><text x="680" y="410" fill="#e6edf3">6</text>
+      <text x="560" y="440" fill="#e6edf3">15</text><text x="680" y="440" fill="#ff7b72">0</text>
+      <text x="560" y="470" fill="#e6edf3">6</text><text x="680" y="470" fill="#e6edf3">6</text>
+    </g>
+    <g font-size="13" fill="#8b949e">
+      <text x="710" y="440">whole object is red</text>
+      <text x="710" y="470">red in an array is fine</text>
+    </g>
+  </g>
+</svg>

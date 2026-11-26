@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" width="960" height="460" role="img" aria-labelledby="t d">
+  <title id="t">Following the example instructions on both keypads</title>
+  <desc id="d">Each line of moves starts where the previous one stopped; moves that would leave the keypad are ignored. The square keypad gives 1985 and the diamond keypad gives 5DB3.</desc>
+  <rect x="1" y="1" width="958" height="458" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">Same moves, two keypads</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">a move that would leave the pad (or hit an empty spot) is ignored · the key under the finger ends each line</text>
+    <text x="70" y="112" font-size="14" fill="#e6edf3" font-weight="700" xml:space="preserve">Part 1 · 3×3 pad, start on 5</text>
+    <rect x="73" y="133" width="74" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="153" y="133" width="74" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="233" y="133" width="74" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="73" y="213" width="74" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="153" y="213" width="74" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="233" y="213" width="74" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="73" y="293" width="74" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="153" y="293" width="74" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="233" y="293" width="74" height="74" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <polyline points="184.0,244.0 184.0,164.0 104.0,164.0" fill="none" stroke="#3fb950" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="104.0" cy="164.0" r="5" fill="#3fb950"/>
+    <polyline points="116.0,164.0 196.0,164.0 276.0,164.0 276.0,244.0 276.0,324.0" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="276.0" cy="324.0" r="5" fill="#58a6ff"/>
+    <polyline points="264.0,336.0 184.0,336.0 184.0,256.0 264.0,256.0 264.0,336.0 184.0,336.0" fill="none" stroke="#d2a8ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="184.0" cy="336.0" r="5" fill="#d2a8ff"/>
+    <polyline points="196.0,336.0 196.0,256.0 196.0,176.0 196.0,256.0" fill="none" stroke="#f2cc60" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="196.0" cy="256.0" r="5" fill="#f2cc60"/>
+    <text x="110.0" y="177.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">1</text>
+    <text x="190.0" y="177.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">2</text>
+    <text x="270.0" y="177.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">3</text>
+    <text x="110.0" y="257.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">4</text>
+    <text x="190.0" y="257.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">5</text>
+    <text x="270.0" y="257.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">6</text>
+    <text x="110.0" y="337.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">7</text>
+    <text x="190.0" y="337.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">8</text>
+    <text x="270.0" y="337.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">9</text>
+    <circle cx="190.0" cy="250.0" r="32.0" fill="none" stroke="#e6edf3" stroke-width="2"/>
+    <text x="410" y="112" font-size="14" fill="#e6edf3" font-weight="700" xml:space="preserve">Part 2 · diamond pad, start on 5</text>
+    <rect x="525" y="133" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="469" y="189" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="525" y="189" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="581" y="189" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="413" y="245" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="469" y="245" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="525" y="245" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="581" y="245" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="637" y="245" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="469" y="301" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="525" y="301" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="581" y="301" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="525" y="357" width="50" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <circle cx="432.0" cy="264.0" r="5" fill="#3fb950"/>
+    <polyline points="444.0,264.0 500.0,264.0 556.0,264.0 556.0,320.0 556.0,376.0" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="556.0" cy="376.0" r="5" fill="#58a6ff"/>
+    <polyline points="544.0,388.0 544.0,332.0 600.0,332.0 544.0,332.0" fill="none" stroke="#d2a8ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="544.0" cy="332.0" r="5" fill="#d2a8ff"/>
+    <polyline points="556.0,332.0 556.0,276.0 556.0,220.0 556.0,164.0 556.0,220.0" fill="none" stroke="#f2cc60" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="556.0" cy="220.0" r="5" fill="#f2cc60"/>
+    <text x="550.0" y="165.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">1</text>
+    <text x="494.0" y="221.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">2</text>
+    <text x="550.0" y="221.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">3</text>
+    <text x="606.0" y="221.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">4</text>
+    <text x="438.0" y="277.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">5</text>
+    <text x="494.0" y="277.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">6</text>
+    <text x="550.0" y="277.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">7</text>
+    <text x="606.0" y="277.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">8</text>
+    <text x="662.0" y="277.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">9</text>
+    <text x="494.0" y="333.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">A</text>
+    <text x="550.0" y="333.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">B</text>
+    <text x="606.0" y="333.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">C</text>
+    <text x="550.0" y="389.0" font-size="20" fill="#e6edf3" text-anchor="middle" font-weight="700" xml:space="preserve">D</text>
+    <circle cx="438.0" cy="270.0" r="20.0" fill="none" stroke="#e6edf3" stroke-width="2"/>
+    <text x="740" y="112" font-size="14" fill="#e6edf3" font-weight="700" xml:space="preserve">Moves</text>
+    <rect x="740" y="130" width="14" height="14" rx="3" fill="#3fb950"/>
+    <text x="764" y="142" font-size="14" fill="#e6edf3" xml:space="preserve">ULL</text>
+    <text x="764" y="162" font-size="13" fill="#8b949e" xml:space="preserve">→ 1   → 5</text>
+    <rect x="740" y="174" width="14" height="14" rx="3" fill="#58a6ff"/>
+    <text x="764" y="186" font-size="14" fill="#e6edf3" xml:space="preserve">RRDDD</text>
+    <text x="764" y="206" font-size="13" fill="#8b949e" xml:space="preserve">→ 9   → D</text>
+    <rect x="740" y="218" width="14" height="14" rx="3" fill="#d2a8ff"/>
+    <text x="764" y="230" font-size="14" fill="#e6edf3" xml:space="preserve">LURDL</text>
+    <text x="764" y="250" font-size="13" fill="#8b949e" xml:space="preserve">→ 8   → B</text>
+    <rect x="740" y="262" width="14" height="14" rx="3" fill="#f2cc60"/>
+    <text x="764" y="274" font-size="14" fill="#e6edf3" xml:space="preserve">UUUUD</text>
+    <text x="764" y="294" font-size="13" fill="#8b949e" xml:space="preserve">→ 5   → 3</text>
+    <text x="740" y="326" font-size="15" fill="#f2cc60" font-weight="700" xml:space="preserve">code 1: 1985</text>
+    <text x="740" y="350" font-size="15" fill="#f2cc60" font-weight="700" xml:space="preserve">code 2: 5DB3</text>
+    <text x="70" y="430" font-size="12" fill="#8b949e" xml:space="preserve">white ring = starting key · dot = where each line ends (lines are offset slightly so they don’t overlap)</text>
+  </g>
+</svg>

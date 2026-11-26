@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-labelledby="t d">
+  <title id="t">The example circuit and how a wire is resolved on demand</title>
+  <desc id="d">Wires x and y hold 123 and 456. Gates compute d = x AND y = 72, e = x OR y = 507, f = x LSHIFT 2 = 492, g = y RSHIFT 2 = 114, h = NOT x = 65412 and i = NOT y = 65079. Asking for a wire evaluates the instruction that writes it, recursively evaluating missing inputs first and caching every value.</desc>
+  <rect x="1" y="1" width="958" height="498" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">The example circuit (16-bit signals)</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">instructions are grouped by output wire · values are computed only when asked for, then cached</text>
+
+    <!-- wires from inputs to gates -->
+    <g fill="none" stroke-width="2" opacity="0.8">
+      <path d="M200 175 C 280 175, 300 110, 380 110" stroke="#3fb950"/>
+      <path d="M200 175 C 280 175, 300 150, 380 150" stroke="#3fb950"/>
+      <path d="M200 175 C 280 175, 300 190, 380 190" stroke="#3fb950"/>
+      <path d="M200 175 C 280 175, 300 270, 380 270" stroke="#3fb950"/>
+      <path d="M200 265 C 280 265, 300 116, 380 116" stroke="#58a6ff"/>
+      <path d="M200 265 C 280 265, 300 156, 380 156" stroke="#58a6ff"/>
+      <path d="M200 265 C 280 265, 300 230, 380 230" stroke="#58a6ff"/>
+      <path d="M200 265 C 280 265, 300 310, 380 310" stroke="#58a6ff"/>
+    </g>
+    <!-- inputs -->
+    <g stroke-width="2">
+      <rect x="60" y="155" width="140" height="40" rx="8" fill="#161b22" stroke="#3fb950"/>
+      <rect x="60" y="245" width="140" height="40" rx="8" fill="#161b22" stroke="#58a6ff"/>
+    </g>
+    <g font-size="15" fill="#e6edf3">
+      <text x="76" y="181">x = <tspan fill="#f2cc60">123</tspan></text>
+      <text x="76" y="271">y = <tspan fill="#f2cc60">456</tspan></text>
+    </g>
+
+    <!-- gates -->
+    <g fill="#161b22" stroke="#30363d" stroke-width="2">
+      <rect x="380" y="98" width="130" height="30" rx="6"/>
+      <rect x="380" y="138" width="130" height="30" rx="6"/>
+      <rect x="380" y="178" width="130" height="30" rx="6"/>
+      <rect x="380" y="218" width="130" height="30" rx="6"/>
+      <rect x="380" y="258" width="130" height="30" rx="6"/>
+      <rect x="380" y="298" width="130" height="30" rx="6"/>
+    </g>
+    <g font-size="13" fill="#d2a8ff" text-anchor="middle">
+      <text x="445" y="118">x AND y</text>
+      <text x="445" y="158">x OR y</text>
+      <text x="445" y="198">x LSHIFT 2</text>
+      <text x="445" y="238">y RSHIFT 2</text>
+      <text x="445" y="278">NOT x</text>
+      <text x="445" y="318">NOT y</text>
+    </g>
+    <g stroke="#8b949e" stroke-width="2">
+      <path d="M510 113 H560 M510 153 H560 M510 193 H560 M510 233 H560 M510 273 H560 M510 313 H560"/>
+    </g>
+    <g font-size="15" fill="#e6edf3">
+      <text x="570" y="118">d = <tspan fill="#f2cc60">72</tspan></text>
+      <text x="570" y="158">e = <tspan fill="#f2cc60">507</tspan></text>
+      <text x="570" y="198">f = <tspan fill="#f2cc60">492</tspan></text>
+      <text x="570" y="238">g = <tspan fill="#f2cc60">114</tspan></text>
+      <text x="570" y="278">h = <tspan fill="#f2cc60">65412</tspan></text>
+      <text x="570" y="318">i = <tspan fill="#f2cc60">65079</tspan></text>
+    </g>
+    <g font-size="12" fill="#8b949e">
+      <text x="720" y="118">0000000001001000</text>
+      <text x="720" y="278">1111111110000100</text>
+      <text x="720" y="298">NOT keeps 16 bits</text>
+    </g>
+
+    <line x1="40" y1="352" x2="920" y2="352" stroke="#21262d" stroke-width="2"/>
+
+    <!-- trace -->
+    <text x="40" y="384" font-size="15" font-weight="700" fill="#58a6ff">Solve("d"): recursion with a cache</text>
+    <g font-size="14" fill="#e6edf3">
+      <text x="40" y="414"><tspan fill="#8b949e">1.</tspan> evaluate <tspan fill="#d2a8ff">x AND y -&gt; d</tspan>; x is not in values yet</text>
+      <text x="40" y="438"><tspan fill="#8b949e">2.</tspan>    evaluate <tspan fill="#d2a8ff">123 -&gt; x</tspan> → values[x] = 123   (same for y → 456)</text>
+      <text x="40" y="462"><tspan fill="#8b949e">3.</tspan> values[d] = 123 &amp; 456 = <tspan fill="#3fb950" font-weight="700">72</tspan>; asking for e later reuses the cached x and y</text>
+    </g>
+  </g>
+</svg>

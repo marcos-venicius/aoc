@@ -386,13 +386,56 @@ def split_lines(hl):
 
 # -------------------------------------------------------------- markdown ---
 
-def md_inline(s, resolve):
-    codes = []
+# A small, GitHub-flavoured subset: headings, paragraphs, lists (- and 1.),
+# fenced code, pipe tables, block quotes, GitHub alerts (> [!NOTE] ...), ---,
+# and a short allow-list of HTML tags (sanitised, src/href resolved).
 
-    def keep(m):
-        codes.append(f'<code>{esc(m.group(1))}</code>')
-        return f'\x00{len(codes) - 1}\x00'
-    s = re.sub(r'`([^`]+)`', keep, s)
+HTML_TAGS = {'div', 'p', 'img', 'details', 'summary', 'br', 'sub', 'sup', 'kbd', 'b', 'i', 'em', 'strong'}
+HTML_VOID = {'img', 'br'}
+HTML_ATTRS = {'align', 'src', 'alt', 'width', 'height', 'title', 'open'}
+HTML_BLOCK = {'div', 'p', 'img', 'details', 'summary'}
+TAG_RE = re.compile(r'<(/?)([a-zA-Z][a-zA-Z0-9]*)((?:\s+[a-zA-Z-]+(?:\s*=\s*(?:"[^"]*"|\'[^\']*\'|[^\s"\'>]+))?)*)\s*/?>')
+ATTR_RE = re.compile(r'([a-zA-Z-]+)(?:\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^\s"\'>]+)))?')
+ALERTS = {'NOTE': 'note', 'TIP': 'tip', 'IMPORTANT': 'important', 'WARNING': 'warning', 'CAUTION': 'caution'}
+
+
+def html_tag(m, resolve):
+    close, name, attrs = m.group(1), m.group(2).lower(), m.group(3)
+    if name not in HTML_TAGS:
+        return None
+    if close:
+        return '' if name in HTML_VOID else f'</{name}>'
+    kept = []
+    for a in ATTR_RE.finditer(attrs or ''):
+        key = a.group(1).lower()
+        if key not in HTML_ATTRS:
+            continue
+        val = next((v for v in a.group(2, 3, 4) if v is not None), None)
+        if val is None:
+            kept.append(key)
+            continue
+        if key == 'src':
+            if re.match(r'^\s*javascript:', val, re.I):
+                continue
+            val = html.unescape(resolve(val))
+        kept.append(f'{key}="{html.escape(val)}"')
+    if name == 'img':
+        kept.append('loading="lazy"')
+    return f'<{name}{"".join(" " + k for k in kept)}>'
+
+
+def md_inline(s, resolve):
+    keep_list = []
+
+    def stash(h):
+        keep_list.append(h)
+        return f'\x00{len(keep_list) - 1}\x00'
+
+    def tag(m):
+        h = html_tag(m, resolve)
+        return m.group(0) if h is None else stash(h)
+    s = re.sub(r'`([^`]+)`', lambda m: stash(f'<code>{esc(m.group(1))}</code>'), s)
+    s = TAG_RE.sub(tag, s)
     s = esc(s)
     s = re.sub(r'!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;|\s+"[^"]*")?\)',
                lambda m: f'<img src="{resolve(m.group(2))}" alt="{m.group(1)}" loading="lazy">', s)
@@ -401,49 +444,129 @@ def md_inline(s, resolve):
     s = re.sub(r'(?<!["=>])\b(https?://[^\s<]+)', r'<a href="\1">\1</a>', s)
     s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
     s = re.sub(r'(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])', r'<em>\1</em>', s)
-    return re.sub(r'\x00(\d+)\x00', lambda m: codes[int(m.group(1))], s)
+    return re.sub(r'\x00(\d+)\x00', lambda m: keep_list[int(m.group(1))], s)
+
+
+def table_cells(line):
+    line = line.strip()
+    if line.startswith('|'):
+        line = line[1:]
+    if line.endswith('|') and not line.endswith('\\|'):
+        line = line[:-1]
+    cells, cur, in_code = [], '', False
+    i = 0
+    while i < len(line):
+        c = line[i]
+        if c == '\\' and i + 1 < len(line) and line[i + 1] == '|':
+            cur += '|'
+            i += 2
+            continue
+        if c == '`':
+            in_code = not in_code
+        if c == '|' and not in_code:
+            cells.append(cur.strip())
+            cur = ''
+        else:
+            cur += c
+        i += 1
+    cells.append(cur.strip())
+    return cells
+
+
+TABLE_SEP = re.compile(r'^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$')
 
 
 def markdown(text, resolve):
-    out, para, lst = [], [], None
+    out, para, lst, kind = [], [], None, None
     lines = text.splitlines()
     i = 0
 
     def flush():
-        nonlocal para, lst
+        nonlocal para, lst, kind
         if para:
             out.append(f'<p>{md_inline(" ".join(para), resolve)}</p>')
             para = []
         if lst:
-            out.append('<ul>' + ''.join(f'<li>{md_inline(x, resolve)}</li>' for x in lst) + '</ul>')
-            lst = None
+            out.append(f'<{kind}>' + ''.join(f'<li>{md_inline(x, resolve)}</li>' for x in lst) + f'</{kind}>')
+            lst, kind = None, None
 
     while i < len(lines):
         ln = lines[i]
-        if ln.startswith('```'):
+        if ln.lstrip().startswith('```'):
             flush()
-            lang = ln[3:].strip()
+            lang = ln.lstrip()[3:].strip()
             j = i + 1
-            while j < len(lines) and not lines[j].startswith('```'):
+            while j < len(lines) and not lines[j].lstrip().startswith('```'):
                 j += 1
             code = '\n'.join(lines[i + 1:j])
             out.append(f'<pre class="md-code"><code>{highlight(code, DIR_TO_LANG.get(lang, lang))}</code></pre>')
             i = j + 1
             continue
-        if m := re.match(r'(#{1,6})\s+(.*)', ln):
+        if ln.lstrip().startswith('>'):
+            flush()
+            j = i
+            quoted = []
+            while j < len(lines) and lines[j].lstrip().startswith('>'):
+                quoted.append(re.sub(r'^\s*> ?', '', lines[j]))
+                j += 1
+            alert = re.match(r'^\s*\[!(\w+)\]\s*$', quoted[0]) if quoted else None
+            if alert and alert.group(1).upper() in ALERTS:
+                k = ALERTS[alert.group(1).upper()]
+                out.append(f'<div class="callout callout-{k}"><p class="callout-title">{k.upper()}</p>'
+                           f'{markdown(chr(10).join(quoted[1:]), resolve)}</div>')
+            else:
+                out.append(f'<blockquote>{markdown(chr(10).join(quoted), resolve)}</blockquote>')
+            i = j
+            continue
+        if '|' in ln and i + 1 < len(lines) and TABLE_SEP.match(lines[i + 1]) and '-' in lines[i + 1]:
+            flush()
+            head = table_cells(ln)
+            aligns = []
+            for c in table_cells(lines[i + 1]):
+                left, right = c.startswith(':'), c.endswith(':')
+                aligns.append('center' if left and right else 'right' if right else 'left' if left else '')
+
+            def cell(tagname, x, n):
+                a = aligns[n] if n < len(aligns) else ''
+                style = f' style="text-align:{a}"' if a else ''
+                return f'<{tagname}{style}>{md_inline(x, resolve)}</{tagname}>'
+            rows = []
+            j = i + 2
+            while j < len(lines) and lines[j].strip() and '|' in lines[j]:
+                cells = table_cells(lines[j])
+                cells += [''] * (len(head) - len(cells))
+                rows.append('<tr>' + ''.join(cell('td', x, n) for n, x in enumerate(cells[:len(head)])) + '</tr>')
+                j += 1
+            out.append('<div class="md-table"><table><thead><tr>'
+                       + ''.join(cell('th', x, n) for n, x in enumerate(head))
+                       + '</tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>')
+            i = j
+            continue
+        stripped = ln.strip()
+        if (m := TAG_RE.match(stripped)) and m.group(2).lower() in HTML_BLOCK:
+            flush()
+            out.append(md_inline(stripped, resolve))
+        elif re.match(r'^\s*(-{3,}|\*{3,}|_{3,})\s*$', ln):
+            flush()
+            out.append('<hr>')
+        elif m := re.match(r'(#{1,6})\s+(.*)', ln):
             flush()
             lvl = min(len(m.group(1)) + 1, 6)
             out.append(f'<h{lvl}>{md_inline(m.group(2), resolve)}</h{lvl}>')
-        elif m := re.match(r'\s*[-*]\s+(.*)', ln):
-            if para:
+        elif m := re.match(r'\s*(?:([-*])|(\d+)[.)])\s+(.*)', ln):
+            new_kind = 'ul' if m.group(1) else 'ol'
+            if para or (lst and kind != new_kind):
                 flush()
-            lst = (lst or []) + [m.group(1)]
-        elif not ln.strip():
+            kind = new_kind
+            lst = (lst or []) + [m.group(3)]
+        elif not stripped:
             flush()
+        elif lst and ln.startswith((' ', '\t')):
+            lst[-1] += ' ' + stripped
         else:
             if lst:
                 flush()
-            para.append(ln.strip())
+            para.append(stripped)
         i += 1
     flush()
     return '\n'.join(out)

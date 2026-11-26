@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-labelledby="t d">
+  <title id="t">Neighbour sums written along the spiral</title>
+  <desc id="d">Each new square stores the sum of all already-filled neighbours, including diagonals. For example 304 is 147 + 5 + 10 + 142. The loop stops at the first value larger than the puzzle input.</desc>
+  <rect x="1" y="1" width="958" height="438" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">Part 2 · simulate, summing the 8 neighbours</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">squares are filled in spiral order · empty neighbours count as 0 (grid.get(..., 0))</text>
+    <rect x="189" y="229" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="215.0" y="261.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">1</text>
+    <rect x="247" y="229" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="273.0" y="261.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">1</text>
+    <rect x="247" y="171" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="273.0" y="203.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">2</text>
+    <rect x="189" y="171" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="215.0" y="203.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">4</text>
+    <rect x="131" y="171" width="52" height="52" rx="8" fill="#161b22" stroke="#d2a8ff" stroke-width="2.5"/>
+    <text x="157.0" y="203.0" font-size="15" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">5</text>
+    <rect x="131" y="229" width="52" height="52" rx="8" fill="#161b22" stroke="#d2a8ff" stroke-width="2.5"/>
+    <text x="157.0" y="261.0" font-size="15" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">10</text>
+    <rect x="131" y="287" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="157.0" y="319.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">11</text>
+    <rect x="189" y="287" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="215.0" y="319.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">23</text>
+    <rect x="247" y="287" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="273.0" y="319.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">25</text>
+    <rect x="305" y="287" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="331.0" y="319.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">26</text>
+    <rect x="305" y="229" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="331.0" y="261.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">54</text>
+    <rect x="305" y="171" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="331.0" y="203.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">57</text>
+    <rect x="305" y="113" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="331.0" y="145.0" font-size="15" fill="#e6edf3" text-anchor="middle" xml:space="preserve">59</text>
+    <rect x="247" y="113" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="273.0" y="145.0" font-size="14" fill="#e6edf3" text-anchor="middle" xml:space="preserve">122</text>
+    <rect x="189" y="113" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="215.0" y="145.0" font-size="14" fill="#e6edf3" text-anchor="middle" xml:space="preserve">133</text>
+    <rect x="131" y="113" width="52" height="52" rx="8" fill="#161b22" stroke="#d2a8ff" stroke-width="2.5"/>
+    <text x="157.0" y="145.0" font-size="14" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">142</text>
+    <rect x="73" y="113" width="52" height="52" rx="8" fill="#161b22" stroke="#d2a8ff" stroke-width="2.5"/>
+    <text x="99.0" y="145.0" font-size="14" fill="#d2a8ff" text-anchor="middle" xml:space="preserve">147</text>
+    <rect x="73" y="171" width="52" height="52" rx="8" fill="#161b22" stroke="#f2cc60" stroke-width="2.5"/>
+    <text x="99.0" y="203.0" font-size="14" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">304</text>
+    <rect x="73" y="229" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="99.0" y="261.0" font-size="14" fill="#8b949e" text-anchor="middle" xml:space="preserve">330</text>
+    <rect x="73" y="287" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="99.0" y="319.0" font-size="14" fill="#8b949e" text-anchor="middle" xml:space="preserve">351</text>
+    <rect x="73" y="345" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="99.0" y="377.0" font-size="14" fill="#8b949e" text-anchor="middle" xml:space="preserve">362</text>
+    <rect x="131" y="345" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="157.0" y="377.0" font-size="14" fill="#8b949e" text-anchor="middle" xml:space="preserve">747</text>
+    <rect x="189" y="345" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="215.0" y="377.0" font-size="14" fill="#8b949e" text-anchor="middle" xml:space="preserve">806</text>
+    <rect x="247" y="345" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="273.0" y="377.0" font-size="14" fill="#8b949e" text-anchor="middle" xml:space="preserve">880</text>
+    <rect x="305" y="345" width="52" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="331.0" y="377.0" font-size="14" fill="#8b949e" text-anchor="middle" xml:space="preserve">931</text>
+    <polyline points="215.0,255.0 273.0,255.0 273.0,197.0 215.0,197.0 157.0,197.0 157.0,255.0 157.0,313.0 215.0,313.0 273.0,313.0 331.0,313.0 331.0,255.0 331.0,197.0 331.0,139.0 273.0,139.0 215.0,139.0 157.0,139.0 99.0,139.0 99.0,197.0" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" opacity="0.35"/>
+    <text x="420" y="128" font-size="15" fill="#f2cc60" font-weight="700" xml:space="preserve">304 = 5 + 10 + 142 + 147</text>
+    <text x="420" y="154" font-size="12" fill="#8b949e" xml:space="preserve">(purple = neighbours already filled)</text>
+    <text x="420" y="196" font-size="13" fill="#e6edf3" xml:space="preserve">sequence: 1, 1, 2, 4, 5, 10, 11, 23, 25, 26, 54, 57, …</text>
+    <text x="420" y="236" font-size="13" fill="#8b949e" xml:space="preserve">walk: step lengths 1, 1, 2, 2, 3, 3, …</text>
+    <text x="420" y="258" font-size="13" fill="#8b949e" xml:space="preserve">(two turns per length, then the length grows)</text>
+    <text x="420" y="300" font-size="13" fill="#e6edf3" xml:space="preserve">answer: the first value written that is</text>
+    <text x="420" y="322" font-size="13" fill="#e6edf3" xml:space="preserve">larger than the puzzle input</text>
+    <text x="420" y="364" font-size="12" fill="#8b949e" xml:space="preserve">grey squares come after 304 in the order</text>
+  </g>
+</svg>

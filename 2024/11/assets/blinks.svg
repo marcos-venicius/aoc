@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-labelledby="t d">
+  <title id="t">The stones 125 and 17 over four blinks</title>
+  <desc id="d">Each stone is expanded recursively for the remaining blinks i; leaves at i=0 count as one stone. 125 becomes 3 stones and 17 becomes 6 stones after 4 blinks.</desc>
+  <rect x="1" y="1" width="958" height="518" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Recursion tree of solve(stone, blinks left)</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">only the count matters, never the order, so each stone is expanded on its own</text>
+    <text x="24" y="135" font-size="12" fill="#8b949e">i=4</text>
+    <text x="24" y="207" font-size="12" fill="#8b949e">i=3</text>
+    <text x="24" y="279" font-size="12" fill="#8b949e">i=2</text>
+    <text x="24" y="351" font-size="12" fill="#8b949e">i=1</text>
+    <text x="24" y="423" font-size="12" fill="#8b949e">i=0</text>
+    <line x1="211.875" y1="144" x2="211.875" y2="188" stroke="#58a6ff" stroke-width="2"/>
+    <line x1="211.875" y1="216" x2="138.75" y2="260" stroke="#3fb950" stroke-width="2"/>
+    <line x1="211.875" y1="216" x2="285.0" y2="260" stroke="#3fb950" stroke-width="2"/>
+    <line x1="138.75" y1="288" x2="138.75" y2="332" stroke="#58a6ff" stroke-width="2"/>
+    <line x1="138.75" y1="360" x2="90.0" y2="404" stroke="#3fb950" stroke-width="2"/>
+    <line x1="138.75" y1="360" x2="187.5" y2="404" stroke="#3fb950" stroke-width="2"/>
+    <line x1="285.0" y1="288" x2="285.0" y2="332" stroke="#d2a8ff" stroke-width="2"/>
+    <line x1="285.0" y1="360" x2="285.0" y2="404" stroke="#58a6ff" stroke-width="2"/>
+    <line x1="675.0" y1="144" x2="528.75" y2="188" stroke="#3fb950" stroke-width="2"/>
+    <line x1="675.0" y1="144" x2="821.25" y2="188" stroke="#3fb950" stroke-width="2"/>
+    <line x1="528.75" y1="216" x2="528.75" y2="260" stroke="#58a6ff" stroke-width="2"/>
+    <line x1="528.75" y1="288" x2="431.25" y2="332" stroke="#3fb950" stroke-width="2"/>
+    <line x1="528.75" y1="288" x2="626.25" y2="332" stroke="#3fb950" stroke-width="2"/>
+    <line x1="431.25" y1="360" x2="382.5" y2="404" stroke="#3fb950" stroke-width="2"/>
+    <line x1="431.25" y1="360" x2="480.0" y2="404" stroke="#3fb950" stroke-width="2"/>
+    <line x1="626.25" y1="360" x2="577.5" y2="404" stroke="#3fb950" stroke-width="2"/>
+    <line x1="626.25" y1="360" x2="675.0" y2="404" stroke="#3fb950" stroke-width="2"/>
+    <line x1="821.25" y1="216" x2="821.25" y2="260" stroke="#58a6ff" stroke-width="2"/>
+    <line x1="821.25" y1="288" x2="821.25" y2="332" stroke="#58a6ff" stroke-width="2"/>
+    <line x1="821.25" y1="360" x2="772.5" y2="404" stroke="#3fb950" stroke-width="2"/>
+    <line x1="821.25" y1="360" x2="870.0" y2="404" stroke="#3fb950" stroke-width="2"/>
+    <rect x="190.375" y="116" width="43" height="28" rx="14" fill="#161b22" stroke="#e6edf3" stroke-width="1.5"/>
+    <text x="211.875" y="135" font-size="14" fill="#e6edf3" text-anchor="middle">125</text>
+    <text x="237.375" y="120" font-size="12" fill="#f2cc60">=3</text>
+    <rect x="176.875" y="188" width="70" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="211.875" y="207" font-size="14" fill="#e6edf3" text-anchor="middle">253000</text>
+    <text x="250.875" y="192" font-size="12" fill="#f2cc60">=3</text>
+    <rect x="117.25" y="260" width="43" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="138.75" y="279" font-size="14" fill="#e6edf3" text-anchor="middle">253</text>
+    <text x="164.25" y="264" font-size="12" fill="#f2cc60">=2</text>
+    <rect x="103.75" y="332" width="70" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="138.75" y="351" font-size="14" fill="#e6edf3" text-anchor="middle">512072</text>
+    <text x="177.75" y="336" font-size="12" fill="#f2cc60">=2</text>
+    <rect x="68.5" y="404" width="43" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="90.0" y="423" font-size="14" fill="#e6edf3" text-anchor="middle">512</text>
+    <rect x="169.5" y="404" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="187.5" y="423" font-size="14" fill="#e6edf3" text-anchor="middle">72</text>
+    <rect x="267.0" y="260" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="285.0" y="279" font-size="14" fill="#e6edf3" text-anchor="middle">0</text>
+    <text x="307.0" y="264" font-size="12" fill="#f2cc60">=1</text>
+    <rect x="267.0" y="332" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="285.0" y="351" font-size="14" fill="#e6edf3" text-anchor="middle">1</text>
+    <text x="307.0" y="336" font-size="12" fill="#f2cc60">=1</text>
+    <rect x="259.0" y="404" width="52" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="285.0" y="423" font-size="14" fill="#e6edf3" text-anchor="middle">2024</text>
+    <rect x="657.0" y="116" width="36" height="28" rx="14" fill="#161b22" stroke="#e6edf3" stroke-width="1.5"/>
+    <text x="675.0" y="135" font-size="14" fill="#e6edf3" text-anchor="middle">17</text>
+    <text x="697.0" y="120" font-size="12" fill="#f2cc60">=6</text>
+    <rect x="510.75" y="188" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="528.75" y="207" font-size="14" fill="#e6edf3" text-anchor="middle">1</text>
+    <text x="550.75" y="192" font-size="12" fill="#f2cc60">=4</text>
+    <rect x="502.75" y="260" width="52" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="528.75" y="279" font-size="14" fill="#e6edf3" text-anchor="middle">2024</text>
+    <text x="558.75" y="264" font-size="12" fill="#f2cc60">=4</text>
+    <rect x="413.25" y="332" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="431.25" y="351" font-size="14" fill="#e6edf3" text-anchor="middle">20</text>
+    <text x="453.25" y="336" font-size="12" fill="#f2cc60">=2</text>
+    <rect x="364.5" y="404" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="382.5" y="423" font-size="14" fill="#e6edf3" text-anchor="middle">2</text>
+    <rect x="462.0" y="404" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="480.0" y="423" font-size="14" fill="#e6edf3" text-anchor="middle">0</text>
+    <rect x="608.25" y="332" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="626.25" y="351" font-size="14" fill="#e6edf3" text-anchor="middle">24</text>
+    <text x="648.25" y="336" font-size="12" fill="#f2cc60">=2</text>
+    <rect x="559.5" y="404" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="577.5" y="423" font-size="14" fill="#e6edf3" text-anchor="middle">2</text>
+    <rect x="657.0" y="404" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="675.0" y="423" font-size="14" fill="#e6edf3" text-anchor="middle">4</text>
+    <rect x="803.25" y="188" width="36" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="821.25" y="207" font-size="14" fill="#e6edf3" text-anchor="middle">7</text>
+    <text x="843.25" y="192" font-size="12" fill="#f2cc60">=2</text>
+    <rect x="790.75" y="260" width="61" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="821.25" y="279" font-size="14" fill="#e6edf3" text-anchor="middle">14168</text>
+    <text x="855.75" y="264" font-size="12" fill="#f2cc60">=2</text>
+    <rect x="777.25" y="332" width="88" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="821.25" y="351" font-size="14" fill="#e6edf3" text-anchor="middle">28676032</text>
+    <text x="869.25" y="336" font-size="12" fill="#f2cc60">=2</text>
+    <rect x="746.5" y="404" width="52" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="772.5" y="423" font-size="14" fill="#e6edf3" text-anchor="middle">2867</text>
+    <rect x="844.0" y="404" width="52" height="28" rx="14" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="870.0" y="423" font-size="14" fill="#e6edf3" text-anchor="middle">6032</text>
+    <text x="40" y="468" font-size="13" fill="#8b949e">legend:</text>
+    <line x1="110" y1="463" x2="140" y2="463" stroke="#3fb950" stroke-width="3"/>
+    <text x="148" y="468" font-size="13" fill="#3fb950">even digit count → split in two</text>
+    <line x1="440" y1="463" x2="470" y2="463" stroke="#58a6ff" stroke-width="3"/>
+    <text x="478" y="468" font-size="13" fill="#58a6ff">otherwise × 2024</text>
+    <line x1="660" y1="463" x2="690" y2="463" stroke="#d2a8ff" stroke-width="3"/>
+    <text x="698" y="468" font-size="13" fill="#d2a8ff">0 becomes 1</text>
+    <text x="40" y="496" font-size="13" fill="#f2cc60">gold =k is what solve(n, i) returns: the number of stones that stone becomes. Cached by (n, i).</text>
+  </g>
+</svg>

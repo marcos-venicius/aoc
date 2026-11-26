@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-labelledby="t d">
+  <title id="t">Computing the checksum of not-a-real-room-404[oarel]</title>
+  <desc id="d">Letters are counted, sorted by count descending and then alphabetically, and the first five form the checksum oarel, which matches, so the room is real.</desc>
+  <rect x="1" y="1" width="958" height="418" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">Checksum: count, sort by (−count, letter), take 5</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">not-a-real-room-404[oarel] → the computed checksum matches the one in brackets, so the room is real</text>
+    <rect x="70" y="150" width="48" height="180" rx="4" fill="#f2cc60"/>
+    <text x="94.0" y="142" font-size="13" fill="#e6edf3" text-anchor="middle" xml:space="preserve">3</text>
+    <text x="94.0" y="354" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">o</text>
+    <rect x="132" y="210" width="48" height="120" rx="4" fill="#f2cc60"/>
+    <text x="156.0" y="202" font-size="13" fill="#e6edf3" text-anchor="middle" xml:space="preserve">2</text>
+    <text x="156.0" y="354" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">a</text>
+    <rect x="194" y="210" width="48" height="120" rx="4" fill="#f2cc60"/>
+    <text x="218.0" y="202" font-size="13" fill="#e6edf3" text-anchor="middle" xml:space="preserve">2</text>
+    <text x="218.0" y="354" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">r</text>
+    <rect x="256" y="270" width="48" height="60" rx="4" fill="#f2cc60"/>
+    <text x="280.0" y="262" font-size="13" fill="#e6edf3" text-anchor="middle" xml:space="preserve">1</text>
+    <text x="280.0" y="354" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <rect x="318" y="270" width="48" height="60" rx="4" fill="#f2cc60"/>
+    <text x="342.0" y="262" font-size="13" fill="#e6edf3" text-anchor="middle" xml:space="preserve">1</text>
+    <text x="342.0" y="354" font-size="18" fill="#f2cc60" text-anchor="middle" font-weight="700" xml:space="preserve">l</text>
+    <rect x="380" y="270" width="48" height="60" rx="4" fill="#30363d"/>
+    <text x="404.0" y="262" font-size="13" fill="#8b949e" text-anchor="middle" xml:space="preserve">1</text>
+    <text x="404.0" y="354" font-size="18" fill="#8b949e" text-anchor="middle" font-weight="700" xml:space="preserve">m</text>
+    <rect x="442" y="270" width="48" height="60" rx="4" fill="#30363d"/>
+    <text x="466.0" y="262" font-size="13" fill="#8b949e" text-anchor="middle" xml:space="preserve">1</text>
+    <text x="466.0" y="354" font-size="18" fill="#8b949e" text-anchor="middle" font-weight="700" xml:space="preserve">n</text>
+    <rect x="504" y="270" width="48" height="60" rx="4" fill="#30363d"/>
+    <text x="528.0" y="262" font-size="13" fill="#8b949e" text-anchor="middle" xml:space="preserve">1</text>
+    <text x="528.0" y="354" font-size="18" fill="#8b949e" text-anchor="middle" font-weight="700" xml:space="preserve">t</text>
+    <line x1="60" y1="330" x2="566" y2="330" stroke="#30363d" stroke-width="2"/>
+    <text x="70" y="386" font-size="12" fill="#8b949e" xml:space="preserve">ties (a, r) and (e, l, m, n, t) are broken alphabetically</text>
+    <text x="640" y="120" font-size="14" fill="#e6edf3" font-weight="700" xml:space="preserve">All example rooms</text>
+    <text x="640" y="156" font-size="13" fill="#e6edf3" xml:space="preserve">aaaaa-bbb-z-y-x</text>
+    <text x="640" y="176" font-size="13" fill="#3fb950" xml:space="preserve">abxyz vs [abxyz] ✓ real</text>
+    <text x="640" y="206" font-size="13" fill="#e6edf3" xml:space="preserve">a-b-c-d-e-f-g-h</text>
+    <text x="640" y="226" font-size="13" fill="#3fb950" xml:space="preserve">abcde vs [abcde] ✓ real</text>
+    <text x="640" y="256" font-size="13" fill="#e6edf3" xml:space="preserve">not-a-real-room</text>
+    <text x="640" y="276" font-size="13" fill="#3fb950" xml:space="preserve">oarel vs [oarel] ✓ real</text>
+    <text x="640" y="306" font-size="13" fill="#e6edf3" xml:space="preserve">totally-real-room</text>
+    <text x="640" y="326" font-size="13" fill="#ff7b72" xml:space="preserve">loart vs [decoy] ✗ decoy</text>
+  </g>
+</svg>

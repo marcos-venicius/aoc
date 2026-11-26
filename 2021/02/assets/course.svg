@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-labelledby="t d">
+  <title id="t">Submarine path for the example commands under both rule sets</title>
+  <desc id="d">Commands forward 5, down 5, forward 8, up 3, down 8, forward 2. With part 1 rules the submarine ends at horizontal 15, depth 10. With part 2 rules down and up only change the aim, and forward moves along it, ending at horizontal 15, depth 60.</desc>
+  <rect x="1" y="1" width="958" height="418" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">forward 5 · down 5 · forward 8 · up 3 · down 8 · forward 2</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">x = horizontal position → · y = depth ↓</text>
+
+    <!-- panel 1 -->
+    <text x="80" y="108" font-size="15" font-weight="700" fill="#58a6ff">Part 1 · up/down move the depth</text>
+    <line x1="80" y1="130" x2="400" y2="130" stroke="#30363d" stroke-width="2"/>
+    <line x1="80" y1="130" x2="80" y2="340" stroke="#30363d" stroke-width="2"/>
+    <g font-size="11" fill="#8b949e" text-anchor="end"><text x="72" y="134">0</text><text x="72" y="234">5</text><text x="72" y="334">10</text></g>
+    <polyline points="80,130 180,130 180,230 340,230 340,170 340,330 380,330" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="80" cy="130" r="5" fill="#58a6ff"/><circle cx="180" cy="130" r="5" fill="#58a6ff"/><circle cx="180" cy="230" r="5" fill="#58a6ff"/><circle cx="340" cy="230" r="5" fill="#58a6ff"/><circle cx="340" cy="170" r="5" fill="#58a6ff"/><circle cx="340" cy="330" r="5" fill="#58a6ff"/><circle cx="380" cy="330" r="5" fill="#58a6ff"/>
+    <circle cx="380" cy="330" r="8" fill="#f2cc60"/>
+    <g font-size="12" fill="#8b949e">
+      <text x="88" y="148">fwd 5</text><text x="110" y="186">down 5</text><text x="200" y="224">fwd 8</text>
+      <text x="292" y="180">up 3</text><text x="292" y="286">down 8</text>
+    </g>
+    <text x="80" y="380" font-size="15" fill="#e6edf3">x = 15, depth = 10 → <tspan fill="#f2cc60">150</tspan></text>
+
+    <!-- panel 2 -->
+    <text x="540" y="108" font-size="15" font-weight="700" fill="#d2a8ff">Part 2 · up/down change the aim</text>
+    <line x1="540" y1="130" x2="860" y2="130" stroke="#30363d" stroke-width="2"/>
+    <line x1="540" y1="130" x2="540" y2="340" stroke="#30363d" stroke-width="2"/>
+    <g font-size="11" fill="#8b949e" text-anchor="end"><text x="532" y="134">0</text><text x="532" y="267">40</text><text x="532" y="334">60</text></g>
+    <polyline points="540,130 640,130 800,263 840,330" fill="none" stroke="#d2a8ff" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="540" cy="130" r="5" fill="#d2a8ff"/><circle cx="640" cy="130" r="5" fill="#d2a8ff"/><circle cx="800" cy="263" r="5" fill="#d2a8ff"/><circle cx="840" cy="330" r="5" fill="#d2a8ff"/>
+    <circle cx="840" cy="330" r="8" fill="#f2cc60"/>
+    <g font-size="12" fill="#8b949e">
+      <text x="550" y="148">fwd 5 (aim 0)</text>
+      <text x="556" y="236">down 5 → aim 5</text>
+      <text x="556" y="252">fwd 8: depth += 5·8</text>
+      <text x="790" y="300" text-anchor="end">up 3, down 8 → aim 10</text>
+      <text x="790" y="316" text-anchor="end">fwd 2: depth += 10·2</text>
+    </g>
+    <text x="540" y="380" font-size="15" fill="#e6edf3">x = 15, depth = 60 → <tspan fill="#f2cc60">900</tspan></text>
+  </g>
+</svg>

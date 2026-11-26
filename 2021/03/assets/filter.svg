@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-labelledby="t d">
+  <title id="t">Filtering the example report down to the oxygen and CO2 ratings</title>
+  <desc id="d">Oxygen generator rating keeps the numbers with the most common bit in the current column, 1 on ties, and ends at 10111 (23). CO2 scrubber rating keeps the least common bit, 0 on ties, and ends at 01010 (10). The life support rating is 23 times 10, 230.</desc>
+  <rect x="1" y="1" width="958" height="498" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" font-weight="700" fill="#e6edf3">Part 2 · filter column by column until one number is left</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e">both lists start with all 12 numbers and share the column index x</text>
+    <text x="40" y="104" font-size="15" font-weight="700" fill="#3fb950">oxygen (ogr): keep most common bit, ties → 1</text>
+    <text x="40" y="300" font-size="15" font-weight="700" fill="#ff7b72">CO2 (csr): keep least common bit, ties → 0</text>
+        <text x="60" y="124" font-size="12" fill="#8b949e">bit 0: 7×1 5×0 → 1</text>
+    <text x="60" y="150" font-size="15" fill="#e6edf3"><tspan fill="#3fb950" font-weight="700">1</tspan>1110</text>
+    <text x="60" y="170" font-size="15" fill="#e6edf3"><tspan fill="#3fb950" font-weight="700">1</tspan>0110</text>
+    <text x="60" y="190" font-size="15" fill="#e6edf3"><tspan fill="#3fb950" font-weight="700">1</tspan>0111</text>
+    <text x="60" y="210" font-size="15" fill="#e6edf3"><tspan fill="#3fb950" font-weight="700">1</tspan>0101</text>
+    <text x="60" y="230" font-size="15" fill="#e6edf3"><tspan fill="#3fb950" font-weight="700">1</tspan>1100</text>
+    <text x="60" y="250" font-size="15" fill="#e6edf3"><tspan fill="#3fb950" font-weight="700">1</tspan>0000</text>
+    <text x="60" y="270" font-size="15" fill="#e6edf3"><tspan fill="#3fb950" font-weight="700">1</tspan>1001</text>
+    <path d="M210 146 h14 m-6 -6 l6 6 l-6 6" fill="none" stroke="#30363d" stroke-width="2"/>
+    <text x="232" y="124" font-size="12" fill="#8b949e">bit 1: 3×1 4×0 → 0</text>
+    <text x="232" y="150" font-size="15" fill="#e6edf3">1<tspan fill="#3fb950" font-weight="700">0</tspan>110</text>
+    <text x="232" y="170" font-size="15" fill="#e6edf3">1<tspan fill="#3fb950" font-weight="700">0</tspan>111</text>
+    <text x="232" y="190" font-size="15" fill="#e6edf3">1<tspan fill="#3fb950" font-weight="700">0</tspan>101</text>
+    <text x="232" y="210" font-size="15" fill="#e6edf3">1<tspan fill="#3fb950" font-weight="700">0</tspan>000</text>
+    <path d="M382 146 h14 m-6 -6 l6 6 l-6 6" fill="none" stroke="#30363d" stroke-width="2"/>
+    <text x="404" y="124" font-size="12" fill="#8b949e">bit 2: 3×1 1×0 → 1</text>
+    <text x="404" y="150" font-size="15" fill="#e6edf3">10<tspan fill="#3fb950" font-weight="700">1</tspan>10</text>
+    <text x="404" y="170" font-size="15" fill="#e6edf3">10<tspan fill="#3fb950" font-weight="700">1</tspan>11</text>
+    <text x="404" y="190" font-size="15" fill="#e6edf3">10<tspan fill="#3fb950" font-weight="700">1</tspan>01</text>
+    <path d="M554 146 h14 m-6 -6 l6 6 l-6 6" fill="none" stroke="#30363d" stroke-width="2"/>
+    <text x="576" y="124" font-size="12" fill="#8b949e">bit 3: 2×1 1×0 → 1</text>
+    <text x="576" y="150" font-size="15" fill="#e6edf3">101<tspan fill="#3fb950" font-weight="700">1</tspan>0</text>
+    <text x="576" y="170" font-size="15" fill="#e6edf3">101<tspan fill="#3fb950" font-weight="700">1</tspan>1</text>
+    <path d="M726 146 h14 m-6 -6 l6 6 l-6 6" fill="none" stroke="#30363d" stroke-width="2"/>
+    <text x="748" y="124" font-size="12" fill="#8b949e">bit 4: tie → 1</text>
+    <text x="748" y="150" font-size="15" fill="#e6edf3">1011<tspan fill="#3fb950" font-weight="700">1</tspan></text>
+    <text x="60" y="320" font-size="12" fill="#8b949e">bit 0: 7×1 5×0 → 0</text>
+    <text x="60" y="346" font-size="15" fill="#e6edf3"><tspan fill="#ff7b72" font-weight="700">0</tspan>0100</text>
+    <text x="60" y="366" font-size="15" fill="#e6edf3"><tspan fill="#ff7b72" font-weight="700">0</tspan>1111</text>
+    <text x="60" y="386" font-size="15" fill="#e6edf3"><tspan fill="#ff7b72" font-weight="700">0</tspan>0111</text>
+    <text x="60" y="406" font-size="15" fill="#e6edf3"><tspan fill="#ff7b72" font-weight="700">0</tspan>0010</text>
+    <text x="60" y="426" font-size="15" fill="#e6edf3"><tspan fill="#ff7b72" font-weight="700">0</tspan>1010</text>
+    <path d="M210 342 h14 m-6 -6 l6 6 l-6 6" fill="none" stroke="#30363d" stroke-width="2"/>
+    <text x="232" y="320" font-size="12" fill="#8b949e">bit 1: 2×1 3×0 → 1</text>
+    <text x="232" y="346" font-size="15" fill="#e6edf3">0<tspan fill="#ff7b72" font-weight="700">1</tspan>111</text>
+    <text x="232" y="366" font-size="15" fill="#e6edf3">0<tspan fill="#ff7b72" font-weight="700">1</tspan>010</text>
+    <path d="M382 342 h14 m-6 -6 l6 6 l-6 6" fill="none" stroke="#30363d" stroke-width="2"/>
+    <text x="404" y="320" font-size="12" fill="#8b949e">bit 2: tie → 0</text>
+    <text x="404" y="346" font-size="15" fill="#e6edf3">01<tspan fill="#ff7b72" font-weight="700">0</tspan>10</text>
+    <text x="748" y="186" font-size="16" fill="#3fb950">→ 10111 = 23</text>
+    <text x="404" y="366" font-size="16" fill="#ff7b72">→ 01010 = 10</text>
+    <line x1="40" y1="446" x2="920" y2="446" stroke="#21262d"/>
+    <text x="40" y="476" font-size="15" fill="#e6edf3">life support = 23 × 10 = <tspan fill="#f2cc60">230</tspan></text>
+  </g>
+</svg>

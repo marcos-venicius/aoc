@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" width="960" height="220" role="img" aria-labelledby="t">
+  <title id="t">Advent of Code 2015 · Day 13 — Knights of the Dinner Table</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fb950"/>
+      <stop offset="0.5" stop-color="#58a6ff"/>
+      <stop offset="1" stop-color="#f2cc60"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#21262d" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="url(#grid)" opacity="0.6"/>
+  <rect x="1" y="1" width="958" height="218" rx="16" fill="none" stroke="url(#edge)" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="48" y="64" font-size="16" fill="#8b949e" letter-spacing="3">ADVENT OF CODE · 2015</text>
+    <text x="48" y="124" font-size="44" font-weight="700" fill="#e6edf3">Day 13</text>
+    <text x="48" y="168" font-size="24" fill="#3fb950">Knights of the Dinner Table</text>
+    <g font-size="22" fill="#f2cc60" text-anchor="end">
+      <text x="912" y="64">★ ★</text>
+    </g>
+    <text x="912" y="168" font-size="15" fill="#8b949e" text-anchor="end">Python</text>
+  </g>
+  <!-- decorative round table -->
+  <g transform="translate(720 92)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">
+    <circle cx="60" cy="10" r="22" fill="none" stroke="#30363d" stroke-width="2"/>
+    <circle cx="94.0" cy="10.0" r="7" fill="#3fb950"/>
+    <circle cx="84.0" cy="34.0" r="7" fill="#58a6ff"/>
+    <circle cx="60.0" cy="44.0" r="7" fill="#3fb950"/>
+    <circle cx="36.0" cy="34.0" r="7" fill="#58a6ff"/>
+    <circle cx="26.0" cy="10.0" r="7" fill="#3fb950"/>
+    <circle cx="36.0" cy="-14.0" r="7" fill="#58a6ff"/>
+    <circle cx="60.0" cy="-24.0" r="7" fill="#3fb950"/>
+    <circle cx="84.0" cy="-14.0" r="7" fill="#58a6ff"/>
+    <text x="116" y="16" fill="#f2cc60" font-size="16">+54 −79</text>
+  </g>
+</svg>

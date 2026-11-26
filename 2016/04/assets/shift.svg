@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" width="960" height="330" role="img" aria-labelledby="t d">
+  <title id="t">Decrypting qzmt-zixmtkozy-ivhz with sector ID 343</title>
+  <desc id="d">Every letter is rotated forward by the sector ID modulo 26 (343 mod 26 = 5) and dashes become spaces, giving very encrypted name.</desc>
+  <defs><marker id="ah30363d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#30363d"/></marker><marker id="ahd2a8ff" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d2a8ff"/></marker></defs>
+  <rect x="1" y="1" width="958" height="328" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="40" y="44" font-size="18" fill="#e6edf3" font-weight="700" xml:space="preserve">Shift cipher: rotate each letter by the sector ID</text>
+    <text x="40" y="70" font-size="14" fill="#8b949e" xml:space="preserve">343 mod 26 = 5 → every letter moves 5 places forward in the alphabet, dashes become spaces</text>
+    <rect x="65.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="84.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">q</text>
+    <line x1="84.0" y1="156" x2="84.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="65.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="84.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">v</text>
+    <rect x="109.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="128.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">z</text>
+    <line x1="128.0" y1="156" x2="128.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="109.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="128.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <rect x="153.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="172.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">m</text>
+    <line x1="172.0" y1="156" x2="172.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="153.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="172.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">r</text>
+    <rect x="197.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="216.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">t</text>
+    <line x1="216.0" y1="156" x2="216.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="197.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="216.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">y</text>
+    <rect x="241.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="260.0" y="137" font-size="20" fill="#8b949e" text-anchor="middle" xml:space="preserve">-</text>
+    <line x1="260.0" y1="156" x2="260.0" y2="196" stroke="#30363d" stroke-width="1.5" marker-end="url(#ah30363d)"/>
+    <rect x="241.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="260.0" y="229" font-size="20" fill="#8b949e" text-anchor="middle" font-weight="700" xml:space="preserve">␣</text>
+    <rect x="285.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="304.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">z</text>
+    <line x1="304.0" y1="156" x2="304.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="285.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="304.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <rect x="329.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="348.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">i</text>
+    <line x1="348.0" y1="156" x2="348.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="329.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="348.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">n</text>
+    <rect x="373.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="392.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">x</text>
+    <line x1="392.0" y1="156" x2="392.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="373.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="392.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">c</text>
+    <rect x="417.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="436.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">m</text>
+    <line x1="436.0" y1="156" x2="436.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="417.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="436.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">r</text>
+    <rect x="461.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="480.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">t</text>
+    <line x1="480.0" y1="156" x2="480.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="461.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="480.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">y</text>
+    <rect x="505.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="524.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">k</text>
+    <line x1="524.0" y1="156" x2="524.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="505.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="524.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">p</text>
+    <rect x="549.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="568.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">o</text>
+    <line x1="568.0" y1="156" x2="568.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="549.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="568.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">t</text>
+    <rect x="593.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="612.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">z</text>
+    <line x1="612.0" y1="156" x2="612.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="593.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="612.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <rect x="637.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="656.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">y</text>
+    <line x1="656.0" y1="156" x2="656.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="637.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="656.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">d</text>
+    <rect x="681.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="700.0" y="137" font-size="20" fill="#8b949e" text-anchor="middle" xml:space="preserve">-</text>
+    <line x1="700.0" y1="156" x2="700.0" y2="196" stroke="#30363d" stroke-width="1.5" marker-end="url(#ah30363d)"/>
+    <rect x="681.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="700.0" y="229" font-size="20" fill="#8b949e" text-anchor="middle" font-weight="700" xml:space="preserve">␣</text>
+    <rect x="725.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="744.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">i</text>
+    <line x1="744.0" y1="156" x2="744.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="725.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="744.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">n</text>
+    <rect x="769.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="788.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">v</text>
+    <line x1="788.0" y1="156" x2="788.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="769.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="788.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">a</text>
+    <rect x="813.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="832.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">h</text>
+    <line x1="832.0" y1="156" x2="832.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="813.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="832.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">m</text>
+    <rect x="857.0" y="110" width="38" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="876.0" y="137" font-size="20" fill="#e6edf3" text-anchor="middle" xml:space="preserve">z</text>
+    <line x1="876.0" y1="156" x2="876.0" y2="196" stroke="#d2a8ff" stroke-width="1.5" marker-end="url(#ahd2a8ff)"/>
+    <rect x="857.0" y="202" width="38" height="40" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+    <text x="876.0" y="229" font-size="20" fill="#3fb950" text-anchor="middle" font-weight="700" xml:space="preserve">e</text>
+    <text x="62.0" y="178" font-size="12" fill="#d2a8ff" text-anchor="end" xml:space="preserve">+5</text>
+    <text x="480" y="286" font-size="13" fill="#8b949e" text-anchor="middle" xml:space="preserve">code: chr(START + ((position_of_letter + sector) % 26))   where START = ord('a') − 1</text>
+    <text x="480" y="308" font-size="13" fill="#f2cc60" text-anchor="middle" xml:space="preserve">part 2 prints the sector of the first room whose decrypted name contains &quot;pole&quot;</text>
+  </g>
+</svg>
