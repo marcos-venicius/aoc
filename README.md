@@ -84,6 +84,8 @@
 - Solution [01](./2022/01) | [↗AOC](https://adventofcode.com/2022/day/1)
   - Solution [MCA](./2022/01/mca)
 ### Solution [2021](./2021) | [↗AOC](https://adventofcode.com/2021)
+- Solution [03](./2021/03) | [↗AOC](https://adventofcode.com/2021/day/3)
+  - Solution [Python](./2021/03/python)
 - Solution [02](./2021/02) | [↗AOC](https://adventofcode.com/2021/day/2)
   - Solution [Python](./2021/02/python)
 - Solution [01](./2021/01) | [↗AOC](https://adventofcode.com/2021/day/1)
